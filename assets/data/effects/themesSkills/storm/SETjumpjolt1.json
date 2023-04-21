@@ -1,147 +1,187 @@
 {
-"id": "SETjumpjolt1",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/storm/SETjumpjolt1",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"tags": [ "ranged" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "lightning",
-	
-	"priority": "45",
-	"extraUI": {
-		"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+	"id": "SETjumpjolt1",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/storm/SETjumpjolt1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"tags": [
+			"ranged"
+		]
 	},
-	
-	"branchableAbilityType": "standardRanged"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints" }
-	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "MatchTarget",
-		"abilityTarget": {
-			"role": "volunteer",
-			"template": "ADJACENT_UNIT",
-			"choose": "ONE_RANDOM_TRUE",
-			"showAnyway": true,
-			"missionFeedback": { "rangeFeedback": "ATTACK_RANGE" },
-			"aspects": [ "alive", "ALLY" ],
-			"relativeTo": "target",
-			"notAlreadyMatchedAs": [ "target" ],
-			"range": "3",
-			"lineOfSight": "LIVE_FIGURES"
-		}
-	},
-	{
-		"class": "AttackRoll",
-		"attackAnimationType": "ranged",
-		"showAbilityName": "ifEnemy",
-		"stopBlockingTime": "onHit",
-		"minimumBlockTimeOnMiss": "2000",
-		"particles": [
-			{ "script": "lightning", "setPosition": "self", "setPosition2": "target" },
-			{ "script": "lightningHit", "setPosition": "target" }
-		],
-		"audioOverride": {
-			"attackStartCue": "",
-			"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
-			"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
-			"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "lightning",
+		"priority": "45",
+		"extraUI": {
+			"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},
-		"flankMarkOrigin": "self",
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY",
-		"applyCover": true,
-		"always": { "class": "DoAll" },
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
+		"branchableAbilityType": "standardRanged"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "MatchTarget",
+			"abilityTarget": {
+				"role": "volunteer",
+				"template": "ADJACENT_UNIT",
+				"choose": "ONE_RANDOM_TRUE",
+				"showAnyway": true,
+				"missionFeedback": {
+					"rangeFeedback": "ATTACK_RANGE"
+				},
+				"aspects": [
+					"alive",
+					"ALLY"
+				],
+				"relativeTo": "target",
+				"notAlreadyMatchedAs": [
+					"target"
+				],
+				"range": "3",
+				"lineOfSight": "LIVE_FIGURES"
+			}
+		},
+		{
+			"class": "AttackRoll",
+			"attackAnimationType": "ranged",
+			"showAbilityName": "ifEnemy",
+			"stopBlockingTime": "onHit",
+			"minimumBlockTimeOnMiss": "2000",
+			"particles": [
 				{
-					"class": "Damage",
-					"amount": "(3+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade",
-					"type": "MAGIC",
-					"weapon": null,
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "senseless", "value": "1" }
-						]
-					},
-					"numDefenders": "2"
+					"script": "lightning",
+					"setPosition": "self",
+					"setPosition2": "target"
 				},
 				{
-					"class": "IfRolesArePresent",
-					"rolesArePresent": [ "volunteer" ],
-					"then": {
-						"class": "AttackRoll",
-						"target": "self",
-						"defender": "volunteer",
-						"intermediateRole": "target",
-						"attackAnimationType": "magic",
-						"particles": [
-							{ "script": "lightning", "setPosition": "target", "setPosition2": "volunteer" },
-							{ "script": "lightningHit", "setPosition": "volunteer" }
-						],
-						"audioOverride": {
-							"attackStartCue": "",
-							"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
-							"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
-							"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
-						},
-						"attackerAnimationOverride": "",
-						"flankMarkOrigin": "target",
-						"defenseRollTags": [ "range" ],
-						"attackStrength": "self.RANGE_ACCURACY",
-						"applyCover": true,
-						"onHit": {
-							"class": "Damage",
-							"amount": "ceil(((3+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade))/2",
-							"type": "MAGIC",
-							"weapon": null,
-							"overrideStuntDamage": "1",
-							"onStunt": {
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "senseless", "value": "1" }
-								]
-							},
-							"numDefenders": "2"
-						}
-					},
-					"otherwise": {
-						"class": "AttackRoll",
-						"target": "self",
-						"defender": null,
-						"attackAnimationType": "none"
-					}
+					"script": "lightningHit",
+					"setPosition": "target"
 				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(3+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade",
-			"type": "MAGIC",
-			"weapon": null,
-			"showInTooltip": false
+			],
+			"audioOverride": {
+				"attackStartCue": "",
+				"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
+				"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
+				"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
+			},
+			"flankMarkOrigin": "self",
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY",
+			"applyCover": true,
+			"always": {
+				"class": "DoAll"
+			},
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(3+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade",
+						"type": "MAGIC",
+						"weapon": null,
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "senseless",
+									"value": "1"
+								}
+							]
+						},
+						"numDefenders": "2"
+					},
+					{
+						"class": "IfRolesArePresent",
+						"rolesArePresent": [
+							"volunteer"
+						],
+						"then": {
+							"class": "AttackRoll",
+							"target": "self",
+							"defender": "volunteer",
+							"intermediateRole": "target",
+							"attackAnimationType": "magic",
+							"particles": [
+								{
+									"script": "lightning",
+									"setPosition": "target",
+									"setPosition2": "volunteer"
+								},
+								{
+									"script": "lightningHit",
+									"setPosition": "volunteer"
+								}
+							],
+							"audioOverride": {
+								"attackStartCue": "",
+								"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
+								"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
+								"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
+							},
+							"attackerAnimationOverride": "",
+							"flankMarkOrigin": "target",
+							"defenseRollTags": [
+								"range"
+							],
+							"attackStrength": "self.RANGE_ACCURACY",
+							"applyCover": true,
+							"onHit": {
+								"class": "Damage",
+								"amount": "ceil(((3+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade))/2",
+								"type": "MAGIC",
+								"weapon": null,
+								"overrideStuntDamage": "1",
+								"onStunt": {
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "senseless",
+											"value": "1"
+										}
+									]
+								},
+								"numDefenders": "2"
+							}
+						},
+						"otherwise": {
+							"class": "AttackRoll",
+							"target": "self",
+							"defender": null,
+							"attackAnimationType": "none"
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(3+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade",
+				"type": "MAGIC",
+				"weapon": null,
+				"showInTooltip": false
+			}
 		}
-	}
-]
+	]
 }

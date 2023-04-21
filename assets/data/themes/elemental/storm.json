@@ -2,23 +2,30 @@
 	"id": "storm",
 	"name": "Stormtouched",
 	"blurb": "<self> contains the coiled power of a storm.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_stormSea",
 			"unlockLegacyAspect": "theme_storm_kill3Enemies"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Stormgaze",
 			"blurb": "<self>'s eyes flash ominously.",
-			"slots": ["head"],
-			"extraAspects": ["humanSkin_overrideHairColor|ffe998|1"],
-			"effects": ["staticShock_returnsDamage", "SETwindwalk"],
-			"stats": {"WARDING": 0.5},
+			"slots": [
+				"head"
+			],
+			"extraAspects": [
+				"humanSkin_overrideHairColor|ffe998|1"
+			],
+			"effects": [
+				"staticShock_returnsDamage",
+				"SETwindwalk"
+			],
+			"stats": {
+				"WARDING": 0.5
+			},
 			"layers": [
 				{
 					"name": "head_tattooStormM",
@@ -51,22 +58,39 @@
 			]
 		},
 		{
-      "id": "skin",
-      "name": "Storm Heart",
-      "blurb": "<self>'s body is imbued with storm energy.",
-      "slots": ["skin"],
-      "extraAspects": ["humanSkin_overrideSkinColor|7467b4|7467b4|7467b4|0.7"],
-      "effects": ["SETstarFlash"],
-      "stats": {"WARDING": 0.5}
-    },
+			"id": "skin",
+			"name": "Storm Heart",
+			"blurb": "<self>'s body is imbued with storm energy.",
+			"slots": [
+				"skin"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|7467b4|7467b4|7467b4|0.7"
+			],
+			"effects": [
+				"SETstarFlash"
+			],
+			"stats": {
+				"WARDING": 0.5
+			}
+		},
 		{
 			"id": "leftLeg",
 			"name": "Storm Leg (L)",
 			"blurb": "<self>'s left leg is stormy.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"stats": {"SPEED": 1.7, "WARDING": 0.5},
-			"effects": ["SETthunderStomp"],
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"stats": {
+				"SPEED": 1.7,
+				"WARDING": 0.5
+			},
+			"effects": [
+				"SETthunderStomp"
+			],
 			"layers": [
 				{
 					"name": "replaceLegL_storm",
@@ -88,10 +112,19 @@
 			"id": "rightLeg",
 			"name": "Storm Leg (R)",
 			"blurb": "<self>'s right leg is stormy.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"stats": {"SPEED": 1.7, "WARDING": 0.5},
-			"effects": ["SETthunderStomp"],
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"stats": {
+				"SPEED": 1.7,
+				"WARDING": 0.5
+			},
+			"effects": [
+				"SETthunderStomp"
+			],
 			"layers": [
 				{
 					"name": "replaceLegR_storm",
@@ -113,11 +146,25 @@
 			"id": "leftArm",
 			"name": "Storm Arm (L)",
 			"blurb": "<self>'s left arm crackles and thrums.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"stats": {"WARDING": 0.5},
-			"effects": ["SETjumpjolt2", "SETchainLightning", "defaultSecondaryMoveFeedback|4.6|SETjumpjolt2"],
-			"extraAspects": ["themeAbility_ranged", "attackRange|0|4.6|rangedNonWeapon"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"stats": {
+				"WARDING": 0.5
+			},
+			"effects": [
+				"SETjumpjolt2",
+				"SETchainLightning",
+				"defaultSecondaryMoveFeedback|4.6|SETjumpjolt2"
+			],
+			"extraAspects": [
+				"themeAbility_ranged",
+				"attackRange|0|4.6|rangedNonWeapon"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_storm",
@@ -135,11 +182,27 @@
 			"id": "rightArm",
 			"name": "Storm Arm (R)",
 			"blurb": "<self>'s right arm crackles and thrums.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"stats": {"WARDING": 0.5},
-			"effects": ["SETjumpjolt1", "SETchainLightning", "defaultSecondaryMoveFeedback|4.6|SETjumpjolt1", "defaultSecondaryMoveFeedback|8.6|SETchainLightning"],
-			"extraAspects": ["themeAbility_ranged", "attackRange|0|4.6|rangedNonWeapon", "attackRange|0|8.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"stats": {
+				"WARDING": 0.5
+			},
+			"effects": [
+				"SETjumpjolt1",
+				"SETchainLightning",
+				"defaultSecondaryMoveFeedback|4.6|SETjumpjolt1",
+				"defaultSecondaryMoveFeedback|8.6|SETchainLightning"
+			],
+			"extraAspects": [
+				"themeAbility_ranged",
+				"attackRange|0|4.6|rangedNonWeapon",
+				"attackRange|0|8.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_storm",
@@ -157,10 +220,17 @@
 			"id": "pet",
 			"name": "Storm Spirit",
 			"blurb": "All the energy of a storm in one fuzzy little package.",
-			"slots": ["pet"],
-			"effects": ["SETstarFlash"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETstarFlash"
+			],
 			"layers": [
-				{"name": "pet_stormSpirit", "depth": 9000}
+				{
+					"name": "pet_stormSpirit",
+					"depth": 9000
+				}
 			]
 		}
 	]
