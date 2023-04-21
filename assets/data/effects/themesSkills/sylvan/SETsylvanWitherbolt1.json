@@ -1,9 +1,10 @@
 {
-	"id": "greenArm_witherbolt1",
+	"id": "SETsylvanWitherbolt1",
 	"info": {
 		"dataVersion": 1,
-		"sourceFile": "green/greenArm_witherbolt1",
-		"author": "Patrick Belanger",
+		"sourceFile": "themesSkills/sylvan/SETsylvanWitherbolt1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
 		"tags": [
 			"ranged"
 		]

@@ -159,11 +159,11 @@
 			"effects": [
 				"SETjumpjolt2",
 				"SETchainLightning",
-				"defaultSecondaryMoveFeedback|4.6|SETjumpjolt2"
+				"defaultSecondaryMoveFeedback|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETjumpjolt2"
 			],
 			"extraAspects": [
 				"themeAbility_ranged",
-				"attackRange|0|4.6|rangedNonWeapon"
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
 			],
 			"layers": [
 				{
@@ -195,12 +195,12 @@
 			"effects": [
 				"SETjumpjolt1",
 				"SETchainLightning",
-				"defaultSecondaryMoveFeedback|4.6|SETjumpjolt1",
-				"defaultSecondaryMoveFeedback|8.6|SETchainLightning"
+				"defaultSecondaryMoveFeedback|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETjumpjolt1",
+				"defaultSecondaryMoveFeedback|8.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETchainLightning"
 			],
 			"extraAspects": [
 				"themeAbility_ranged",
-				"attackRange|0|4.6|rangedNonWeapon",
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon",
 				"attackRange|0|8.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
 			],
 			"layers": [

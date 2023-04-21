@@ -1,9 +1,10 @@
 {
-	"id": "greenArm_witherbolt2",
+	"id": "SETsylvanWitherbolt2",
 	"info": {
 		"dataVersion": 1,
-		"sourceFile": "green/greenArm_witherbolt2",
-		"author": "Patrick Belanger",
+		"sourceFile": "themesSkills/sylvan/SETsylvanWitherbolt2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
 		"tags": [
 			"ranged"
 		]
@@ -12,7 +13,6 @@
 	"verb": "ATTACK",
 	"ability": {
 		"icon": "lightning",
-		"category": "attackAbility",
 		"priority": "1",
 		"cooldown": "oncePerTurn",
 		"extraUI": {
@@ -24,8 +24,7 @@
 		{
 			"template": "SELF",
 			"cost": {
-				"class": "ActionPoints",
-				"actionPoints": "one"
+				"class": "ActionPoints"
 			}
 		},
 		{

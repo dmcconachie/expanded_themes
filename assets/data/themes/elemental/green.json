@@ -162,6 +162,8 @@
 				"SETsylvanOnslaught"
 			],
 			"extraAspects": [
+				"themeAbility_ranged",
+				"attackRange|0|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon",
 				"humanSkin_overrideHairColor|557d12|1"
 			],
 			"layers": [
@@ -201,6 +203,8 @@
 				"SETsylvanOnslaught"
 			],
 			"extraAspects": [
+				"themeAbility_ranged",
+				"attackRange|0|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon",
 				"humanSkin_overrideHairColor|557d12|1"
 			],
 			"layers": [
