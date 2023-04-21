@@ -1,0 +1,103 @@
+{
+"id": "SETskeletonBoneWall",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/skeleton/SETskeletonBoneWall",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"tags": []
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "bonewall",
+	
+	"priority": "77",
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_skeleton_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"missionFeedback": { "orientTo": "source" },
+		"aspects": [
+			"alive",
+			"themePiece_skeleton_rightLeg",
+			"SELF",
+			"themePiece_skeleton_leftLeg"
+		]
+	},
+	{ "role": "source", "template": "SELF" },
+	{
+		"template": "TILE",
+		"missionFeedback": {
+			"hoverScript": "figures.directionalTileHoverHelpful",
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"feedbackSource": "source"
+		},
+		"relativeTo": "source",
+		"range": "5.6",
+		"lineOfSight": "TERRAIN_ONLY"
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"choose": "ALL",
+		"missionFeedback": { "hoverFeedback": "FRIENDLY_EFFECT_SUGGESTION" },
+		"manifold": { "from": "source", "to": "focus", "noGapLine": true },
+		"range": null,
+		"tileFilter": "validScenerySpawnLocation"
+	},
+	{
+		"role": "fire",
+		"template": "ADJACENT_FIRE",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"manifold": { "from": "source", "to": "focus", "noGapLine": true },
+		"range": null
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"defender": null,
+		"intermediateRole": "source",
+		"attackAnimationType": "magic",
+		"showAbilityName": "ifEnemy",
+		"audioOverride": { "attackInterfusionStartCue": "Characters/Default/Ability_InterfuseBone" },
+		"always": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "IfRolesArePresent",
+					"STUB": "If there are fires, put them out!",
+					"rolesArePresent": [ "fire" ],
+					"then": {
+						"class": "Aspects",
+						"target": "fire",
+						"removeAspects": [ "uncontainedFire" ]
+					}
+				},
+				{
+					"class": "Spawn",
+					"target": "targetTile",
+					"modifyTerrain": "setToBlocked",
+					"forceSpawn": true,
+					"createEntity": {
+						"query": {
+							"type": "SCENERY",
+							"tags": [ "boneWall" ]
+						},
+						"addAspects": [
+							{ "id": "missionTempHP", "value": "self.mysticDeck_soulDefense_upgrade*2" }
+						],
+						"control": "none",
+						"setLocation": true
+					}
+				}
+			]
+		}
+	}
+]
+}

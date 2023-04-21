@@ -1,0 +1,81 @@
+{
+"id": "SETcrocodileClaw2",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/crocodile/SETcrocodileClaw2",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Smoker",
+	"aiPriority": "1900",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "swipe",
+	
+	"strictlyBetterThan": [ "basicBranchableMelee" ],
+	"priority": "49",
+	"cooldown": "oncePerTurn",
+	"branchableAbilityType": "standardMelee"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "one" },
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"audioOverride": {
+			"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+		},
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_drauvenWings_upgrade)))+self.theme_drauvenWings_upgrade",
+					"overrideStuntDamage": "1",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "bleeding", "value": "1" }
+						]
+					}
+				},
+				{
+					"class": "Test",
+					"target": "target",
+					"value": "pinned",
+					"threshold": "1",
+					"onPass": {
+						"class": "Damage",
+						"target": "target",
+						"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_drauvenWings_upgrade)))+self.theme_drauvenWings_upgrade"
+					}
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_drauvenWings_upgrade)))+self.theme_drauvenWings_upgrade"
+		}
+	}
+]
+}

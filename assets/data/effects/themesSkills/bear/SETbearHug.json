@@ -1,0 +1,131 @@
+{
+"id": "SETbearHug",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/bear/SETbearHug",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "3000",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "bearhug",
+	
+	"priority": "17",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_bear_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [ "themePiece_bear_leftArm", "alive", "SELF", "themePiece_bear_rightArm" ]
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"showAbilityName": "ifEnemy",
+		"audioOverride": { "attackHitCue": "", "attackDodgedCue": "", "attackBlockedCue": "" },
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade))))+self.theme_bear_upgrade",
+					"pierce": "9",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "senseless", "value": "1" }
+						]
+					},
+					"numDefenders": "COUNT.target"
+				},
+				{
+					"class": "Test",
+					"value": "1",
+					"threshold": "target.SIZE",
+					"onPass": {
+						"class": "Damage",
+						"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade))))+self.theme_bear_upgrade",
+						"pierce": "9",
+						"overrideStuntDamage": "0"
+					}
+				},
+				{
+					"class": "Test",
+					"STUB": "If killed defender, add some health from ursine harvest",
+					"value": "defender.INJURY",
+					"threshold": "defender.HEALTH",
+					"onPass": {
+						"class": "DoAll",
+						"outcomes": [
+							{
+								"class": "Test",
+								"target": "self",
+								"value": "self.theme_bear_upgrade_ursineHarvest",
+								"threshold": "1",
+								"onPass": {
+									"class": "DoAll",
+									"outcomes": [
+										{
+											"class": "Test",
+											"value": "self.ursineHungerPortion",
+											"threshold": "30",
+											"onFail": {
+												"class": "DoAll",
+												"outcomes": [
+													{
+														"class": "Animate",
+														"particles": {
+															"script": "shadowTheme_harvest",
+															"setPosition": "target",
+															"setPosition2": "self",
+															"delay": 0.2,
+															"emitterVars": {
+																"particleMult": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+															}
+														},
+														"audio": "UI/statusEffectPositive"
+													},
+													{
+														"class": "Aspects",
+														"addAspects": [
+															{ "id": "ursineHungerPortion", "value": "1" }
+														]
+													}
+												]
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade))))+self.theme_bear_upgrade"
+		}
+	}
+]
+}

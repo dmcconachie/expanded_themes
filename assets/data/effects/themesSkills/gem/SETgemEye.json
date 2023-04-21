@@ -1,0 +1,188 @@
+{
+"id": "SETgemEye",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/gem/SETgemEye",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "2000",
+	"tags": [ "okToMarkDone", "ranged", "free", "light" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "scout",
+	"priority": "10",
+	"cooldown": "everyOtherTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"role": "target2",
+		"template": "ADJACENT_ENEMY",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "((9.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"lineOfSight": "LIVE_ENEMIES"
+	},
+	{
+		"role": "target3",
+		"template": "ADJACENT_ENEMY",
+		"STUB": "Throughshot targets",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "((9.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "self.hunterDeck_throughShot",
+		"b": "1"
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"fromRoles": [ "target2", "target3" ],
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": null
+	},
+	{
+		"role": "subject",
+		"template": "ADJACENT_ENEMY",
+		"STUB": "Throughshot: enemies between",
+		"choose": "ANY_SORT_BY_SCORE",
+		"scoreFunction": "1000-distanceTo.self",
+		"chooseAnyMaximumExp": "2+(self.hunterDeck_throughShot_upgrade*100)",
+		"showAnyway": true,
+		"manifold": {
+			"from": "self",
+			"to": "target",
+			"thickness": [ "1", "1" ]
+		},
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": null,
+		"lineOfSight": "TERRAIN_ONLY"
+	},
+	{
+		"role": "focus",
+		"template": "ADJACENT_UNIT",
+		"STUB": "Throughshot: for visuals",
+		"choose": "ONE_CLOSEST_OPTIONAL",
+		"showAnyway": true,
+		"missionFeedback": null,
+		"fromRoles": [ "subject" ],
+		"relativeTo": "target",
+		"range": null
+	}
+],
+"outcomes": [
+	{
+		"class": "Test",
+		"value": "self.hunterDeck_throughShot",
+		"threshold": "1",
+		"onPass": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "AttackRoll",
+					"defender": "subject",
+					"attackAnimationType": "magic",
+					"particles": [
+						{
+							"script": "projectileTrailStar",
+							"setPosition": "self",
+							"setPosition2": "focus"
+						},
+						{ "script": "SparklesBlue", "setPosition": "focus", "delay": 0.3 }
+					],
+					"defenseRollTags": [ "range" ],
+					"attackStrength": "self.RANGE_ACCURACY",
+					"wield": "fromWeapon",
+					"onHit": {
+						"class": "DoAll",
+						"outcomes": [
+							{
+								"class": "Damage",
+								"amount": "(((1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade)+self.commonDeck_bowmaster)-self.throughShotTargetNum",
+								"type": "MAGIC",
+								"overrideStuntDamage": "1",
+								"onStunt": {
+									"class": "Aspects",
+									"addAspects": [
+										{ "id": "blinded", "value": "1" }
+									]
+								}
+							},
+							{
+								"class": "Aspects",
+								"target": "self",
+								"addAspects": [
+									{ "id": "throughShotTargetNum", "value": "1" }
+								]
+							}
+						]
+					},
+					"onMiss": {
+						"class": "Aspects",
+						"target": "self",
+						"addAspects": [
+							{ "id": "throughShotTargetNum", "value": "1" }
+						]
+					},
+					"onHitCover": {
+						"class": "Damage",
+						"amount": "((1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade)-self.throughShotTargetNum",
+						"type": "MAGIC"
+					}
+				},
+				{
+					"class": "Aspects",
+					"target": "self",
+					"removeAspects": [ "throughShotTargetNum" ]
+				}
+			]
+		},
+		"onFail": {
+			"class": "AttackRoll",
+			"attackAnimationType": "magic",
+			"particles": [
+				{
+					"script": "projectileTrailStar",
+					"setPosition": "self",
+					"setPosition2": "target"
+				},
+				{ "script": "SparklesBlue", "setPosition": "target", "delay": 0.3 }
+			],
+			"defenseRollTags": [ "range" ],
+			"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
+			"wield": "fromWeapon",
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade",
+						"type": "MAGIC",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{ "id": "blinded", "value": "1" }
+							]
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade",
+				"type": "MAGIC"
+			}
+		}
+	}
+]
+}

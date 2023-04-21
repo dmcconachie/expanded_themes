@@ -1,0 +1,177 @@
+{
+	"id": "scorpion",
+	"name": "Scorpioid",
+	"blurb": "<self> has a wicked, segmented aspect.",
+
+	"pieces": [
+		{
+			"id": "tail",
+			"name": "Scorpion Tail",
+			"blurb": "<self> has a scorpion tail.",
+			"slots": ["tail"],
+			"effects": [
+				"SETscorpionTail",
+				"ability_advanceTheme_scorpion",
+				"ability_advanceTheme_scorpion_head",
+				"ability_advanceTheme_scorpion_torso",
+				"ability_advanceTheme_scorpion_armLeft",
+				"ability_advanceTheme_scorpion_armRight",
+				"ability_advanceTheme_scorpion_legLeft",
+				"ability_advanceTheme_scorpion_legRight",
+				"ability_advanceTheme_scorpion_wings",
+				"ability_advanceTheme_scorpion_tail",
+				"ability_advanceTheme_scorpion_pet"
+			],
+			"layers": [
+				{
+					"name": "tailScorpionB_tint",
+					"tint": "hair",
+					"depth": 101
+				},
+				{
+					"name": "tailScorpion_untinted",
+					"tint": "skin",
+					"depth": 102
+				}
+			]
+		},
+		{
+			"id": "head",
+			"name": "Scorpion Head",
+			"blurb": "<self> has a scorpion head.",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"replaces": ["head"],
+			"effects": ["SETscorpionBite"],
+			"stats": {},
+			"layers": [
+				{
+					"name": "replaceHead_scorpion",
+					"tint": "skin",
+					"tintAmount": 0.8,
+					"depth": 4000,
+					"headOffset": true
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Scorpion Body",
+			"blurb": "<self>'s body is armored and segmented.",
+			"slots": ["torso"],
+			"extraAspects": [],
+			"stats": {"ARMOR": 1}
+		},
+		{
+			"id": "wings",
+			"name": "Scorpion Pincers",
+			"blurb": "Scorpion pincers grow from <self>'s shoulders.",
+			"slots": ["wings"],
+			"effects": ["riposteCounterAfterBlock"],
+			"layers": [
+				{
+					"name": "scorpionWings_untinted",
+					"tint": "skin",
+					"tintAmount": 1,
+					"depth": 55
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Scorpion Leg (L)",
+			"blurb": "<self>'s left leg has become multiple.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETscorpionManyLegs"],
+			"stats": {"SPEED": 2},
+			"layers": [
+				{
+					"name": "replaceLegL_scorpionB_tint",
+					"tint": "hair",
+					"depth": 1101
+				},
+				{
+					"name": "replaceLegL_scorpion_untinted",
+					"tint": "skin",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Scorpion Leg (R)",
+			"blurb": "<self>'s right leg has become multiple.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETscorpionManyLegs"],
+			"stats": {"SPEED": 2},
+			"layers": [
+				{
+					"name": "replaceLegR_scorpionB_tint",
+					"tint": "hair",
+					"depth": 1101
+				},
+				{
+					"name": "replaceLegR_scorpion_untinted",
+					"tint": "skin",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Scorpion Arm (L)",
+			"blurb": "<self>'s left arm is a scorpion pincer.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETscorpionPincer2"],
+			"layers": [
+				{
+					"name": "replaceArmL_scorpionB_tint",
+					"tint": "hair",
+					"depth": 1201
+				},
+				{
+					"name": "replaceArmL_scorpion_untinted",
+					"tint": "skin",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Scorpion Arm (R)",
+			"blurb": "<self>'s right arm is a scorpion pincer.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETscorpionPincer1"],
+			"layers": [
+				{
+					"name": "replaceArmR_scorpionB_tint",
+					"tint": "hair",
+					"depth": 3101
+				},
+				{
+					"name": "replaceArmR_scorpion_untinted",
+					"tint": "skin",
+					"depth": 3102
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Scorpion",
+			"blurb": "It's a little mean-looking, but it seems to like you.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee2"],
+			"layers": [
+				{
+					"name": "pet_scorpion_untinted",
+					"tint": "skin",
+					"depth": 9000
+				}
+			]
+		}
+	]
+}

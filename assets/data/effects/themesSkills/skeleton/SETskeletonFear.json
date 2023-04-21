@@ -1,0 +1,62 @@
+{
+"id": "SETskeletonFear",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/skeleton/SETskeletonFear",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "2010"
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "scout",
+	"priority": "20",
+	"disallowStunt": true
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "one" }
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"aspectValues": [
+			{ "id": "immuneToCompulsion", "forbidden": true },
+			{ "id": "morthagi", "forbidden": true }
+		],
+		"range": "5.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"attackAnimationType": "magic",
+		"particles": [
+			{ "script": "skullFearAttack", "setPosition": "self", "setPosition2": "target" }
+		],
+		"defenseRollTags": [ "range" ],
+		"attackStrength": "actionRoll((105+(5*self.LEVEL)))",
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Aspects",
+					"addAspects": [
+						{ "id": "inFearOf", "value": "1", "merge": "max", "inRelationTo": "self" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"class": "UnlockLegacyAspect",
+		"legacyAspect": "achievementProgress_theme_skeleton_terrify",
+		"value": "1"
+	}
+]
+}

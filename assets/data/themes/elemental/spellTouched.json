@@ -1,0 +1,140 @@
+{
+	"id": "spellTouched",
+	"name": "Spell Touched",
+	"blurb": "<self> touched a raw primal node, and has been marked.",
+
+	"pieces": [
+		{
+			"id": "skin",
+			"name": "Spell Touched Heart",
+			"blurb": "<self>'s flesh has taken on a magical hue.",
+			"slots": ["skin"],
+			"extraAspects": ["humanSkin_overrideSkinColor|b7c8ff|86a2ff|5673d1|1.0"],
+			"effects": [
+				"SETprimalFlash",
+				"ability_advanceTheme_spellTouched",
+				"ability_advanceTheme_spellTouched_armLeft",
+				"ability_advanceTheme_spellTouched_armRight",
+				"ability_advanceTheme_spellTouched_legLeft",
+				"ability_advanceTheme_spellTouched_legRight",
+				"ability_advanceTheme_spellTouched_head",
+				"ability_advanceTheme_spellTouched_wings",
+				"ability_advanceTheme_spellTouched_shoulderPet"
+			],
+			"stats": {
+				"PHYSICAL_DAMAGE_BONUS": -0.5,
+				"POTENCY": 2,
+				"RECOVERY_RATE": 5,
+				"RETIREMENT_AGE": 10
+			}
+		},
+		{
+			"id": "head",
+			"name": "Spellgaze",
+			"blurb": "<self>'s eyes flash ominously.",
+			"slots": ["head"],
+			"stats": {"WARDING": 0.5},
+			"effects": ["shadowDrainsWardingRegion"],
+			"extraAspects": [],
+			"layers": [
+				{
+					"name": "face_stormM_blue",
+					"depth": 4150,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_stormF_blue",
+					"depth": 4150,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+		{
+			"id": "wings",
+			"name": "Spell Touched Wings",
+			"blurb": "<self> has a pair of magic wings.",
+			"slots": ["wings"],
+			"effects": ["SETprimalFly"],
+			"extraAspects": ["wingSound"],
+			"stats": {"SPEED": 1, "WARDING": 0.5},
+			"layers": [
+				{
+					"name": "wings_primal",
+					"depth": 1
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Spell Touched Leg (L)",
+			"blurb": "<self>'s left leg sense magic.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETstationaryPotency"],
+			"stats": { "SPEED": 1.7, "WARDING": 0.5 },
+			"layers": [
+				{
+					"name": "replaceLegL_primal",
+					"depth": 1104
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Spell Touched Leg (R)",
+			"blurb": "<self>'s right leg sense magic.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETstationaryPotency"],
+			"stats": { "SPEED": 1.7, "WARDING": 0.5 },
+			"layers": [
+				{
+					"name": "replaceLegR_primal",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Spell Touched Arm (L)",
+			"blurb": "<self>'s left arm it's enchanted.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"stats": {"POTENCY": 1, "BLOCK": 10},
+			"effects": ["mysticInterfuse1"],
+			"layers": [
+				{
+					"name": "replaceArmL_primal",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Spell Touched Arm (R)",
+			"blurb": "<self>'s right arm it's enchanted.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"stats": {"POTENCY": 1, "BLOCK": 10},
+			"effects": ["mysticInterfuse1", "SETprimalInterfusionIsFreeAction"],
+			"layers": [
+				{
+					"name": "replaceArmR_primal",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "shoulderPet",
+			"name": "Dragon Spirit",
+			"blurb": "The spirit of an entity is following you.",
+			"slots": ["shoulderPet"],
+			"effects": ["SETpetFlankingRanged"],
+			"layers": [
+				{"name": "pet_dragonSpirit", "depth": 9999}
+			]
+		}
+	]
+}

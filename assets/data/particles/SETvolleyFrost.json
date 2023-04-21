@@ -1,0 +1,45 @@
+{
+"budget": "900",
+"emitterLifetime": "1.5",
+"loopLimit": "1",
+"loopBehavior": "reset",
+"rules": [
+	{
+		"class": "Once",
+		"when": "0",
+		"doAll": [
+			{
+				"class": "Emit",
+				"numberOfParticles": "15",
+				"image": [ "particle_starfall" ],
+				"light": "gain",
+				"size": "5",
+				"killTime": "0.7",
+				"initializeWith": [
+					{ "class": "SetSize", "size": "[0.15,0.6]" },
+					{ "class": "SetPosition", "x": "[-2,2]+3", "y": "[-2,2]", "z": "[-4,-6.5]" },
+					{ "class": "SetVelocity", "vx": "[-5,-4]", "vy": "0", "vz": "[2,12]" },
+					{
+						"class": "SetColor",
+						"color": { "r": "[0.1,0.1]", "g": "[0.1,0.1]", "b": "[0.8,0.8]", "a": "[0.5,1]" }
+					}
+				]
+			}
+		]
+	},
+	{ "class": "BasicPhysics", "applyRotationalVelocity": false },
+	{ "class": "Lifetime" },
+	{
+		"class": "Accelerate",
+		"ax": "[-1,1]",
+		"ay": "[-1,1]",
+		"az": "10",
+		"aTheta": "0"
+	},
+	{
+		"class": "SetColor",
+		"color": { "r": null, "g": null, "b": null, "a": "life~{0|1|1|0.5|0}" }
+	},
+	{ "class": "OrientToVelocity", "offsetDegrees": "0" }
+]
+}

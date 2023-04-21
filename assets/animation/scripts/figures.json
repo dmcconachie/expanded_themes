@@ -1,0 +1,35 @@
+[
+{
+	"id": "figures.freezed",
+	"loop": true,
+	"tags": [ "ui", "debuff" ],
+	"sequences": [
+		{
+			"duration": 3000,
+			"events": [
+				{
+					"setTilt": "1+(0.07*sin(phase))",
+					"useColorFilter": { "filter": "stunned", "strength": "0.9" },
+					"emitParticles": { "script": "freezed" }
+				}
+			]
+		}
+	]
+},
+{
+	"id": "figures.bleeding",
+	"loop": true,
+	"tags": [ "ui", "debuff" ],
+	"sequences": [
+		{
+			"duration": 3000,
+			"events": [
+				{
+					"setTilt": "1+(0.07*sin(phase))",
+					"emitParticles": { "script": "Bleeding" }
+				}
+			]
+		}
+	]
+}
+]

@@ -1,0 +1,58 @@
+{
+"id": "SETpetFlankingMelee2",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "petSkills/SETpetFlankingMelee2",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "timcrosby",
+	"aiPriority": "4000",
+	"tags": [ "sneaky", "okToMarkDone" ]
+},
+"type": "ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "critter",
+	
+	"priority": "1",
+	"numUses": "1+self.SEHClasses_aspect_profession_knight"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"showAnyway": true,
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"template": "ANY",
+		"type": "UNIT",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"missionFeedback": { "suggestionFeedback": "ATTACK_SUGGESTION", "hoverFeedback": "ATTACK_HOVER" },
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "1.6",
+		"lineOfSight": "TERRAIN_ONLY"
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"pathFrom": "self",
+		"pathTo": "target",
+		"matchSpecial": "projectDestination",
+		"relativeTo": "target",
+		"range": "1.5",
+		"lineOfSight": "ANY_COVER",
+		"tileFilter": "parentLocationOrValidMoveEnd",
+		"roleMustFit": "target"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"attackAnimationType": "melee",
+		"showAbilityName": "ifEnemy",
+		"audioOverride": { "attackHitCue": "Characters/Weapons/Dagger/weaponHit" },
+		"flankMarkOrigin": "targetTile",
+		"attackStrength": "100"
+	}
+]
+}

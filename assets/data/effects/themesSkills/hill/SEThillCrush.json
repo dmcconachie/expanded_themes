@@ -1,0 +1,281 @@
+{
+"id": "SEThillCrush",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/hill/SEThillCrush",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "20",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "crush",
+	
+	"priority": "17",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"customSpecialAnimationEffect": {
+		"parameters": [ "target.distanceTo.targetTile" ]
+	},
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_foothill_upgrade",
+	"abilityElementType": "stone"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [
+			"alive",
+			"themePiece_foothill_rightArm",
+			"themePiece_foothill_leftArm",
+			"SELF"
+		]
+	},
+	{
+		"role": "hero",
+		"template": "ADJACENT_UNIT",
+		"choose": "ONE_CLOSEST",
+		"showAnyway": true,
+		"minRange": "1",
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES"
+	},
+	{
+		"role": "hero2",
+		"template": "ADJACENT_UNIT",
+		"choose": "ONE_CLOSEST_OPTIONAL",
+		"showAnyway": true,
+		"notAlreadyMatchedAs": [ "hero" ],
+		"minRange": "1",
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES"
+	},
+	{
+		"role": "hero3",
+		"template": "ADJACENT_UNIT",
+		"choose": "ONE_CLOSEST_OPTIONAL",
+		"showAnyway": true,
+		"notAlreadyMatchedAs": [ "hero", "hero2" ],
+		"minRange": "1",
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES"
+	},
+	{
+		"role": "hero4",
+		"template": "ADJACENT_UNIT",
+		"choose": "ONE_CLOSEST_OPTIONAL",
+		"showAnyway": true,
+		"notAlreadyMatchedAs": [ "hero", "hero2", "hero3" ],
+		"minRange": "1",
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES"
+	},
+	{
+		"role": "hero5",
+		"template": "ADJACENT_UNIT",
+		"choose": "ONE_CLOSEST_OPTIONAL",
+		"showAnyway": true,
+		"notAlreadyMatchedAs": [ "hero", "hero2", "hero3", "hero4" ],
+		"minRange": "1",
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES"
+	},
+	{
+		"role": "site",
+		"template": "TILE",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target"
+		},
+		"pathFrom": "self",
+		"pathTo": "hero",
+		"matchSpecial": "knockBackDestination",
+		"relativeTo": "hero",
+		"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
+		"lineOfSight": "ANY_COVER",
+		"tileFilter": "parentLocationOrValidMoveEnd",
+		"roleMustFit": "hero"
+	},
+	{
+		"role": "site2",
+		"template": "TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target"
+		},
+		"pathFrom": "self",
+		"pathTo": "hero2",
+		"matchSpecial": "knockBackDestination",
+		"relativeTo": "hero2",
+		"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
+		"lineOfSight": "ANY_COVER",
+		"tileFilter": "parentLocationOrValidMoveEnd",
+		"roleMustFit": "hero2"
+	},
+	{
+		"role": "site3",
+		"template": "TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target"
+		},
+		"pathFrom": "self",
+		"pathTo": "hero3",
+		"matchSpecial": "knockBackDestination",
+		"relativeTo": "hero3",
+		"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
+		"lineOfSight": "ANY_COVER",
+		"tileFilter": "parentLocationOrValidMoveEnd",
+		"roleMustFit": "hero3"
+	},
+	{
+		"role": "otherSite",
+		"template": "TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target"
+		},
+		"pathFrom": "self",
+		"pathTo": "hero4",
+		"matchSpecial": "knockBackDestination",
+		"relativeTo": "hero4",
+		"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
+		"lineOfSight": "ANY_COVER",
+		"tileFilter": "parentLocationOrValidMoveEnd",
+		"roleMustFit": "hero4"
+	},
+	{
+		"role": "town",
+		"template": "TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target"
+		},
+		"pathFrom": "self",
+		"pathTo": "hero5",
+		"matchSpecial": "knockBackDestination",
+		"relativeTo": "hero5",
+		"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
+		"lineOfSight": "ANY_COVER",
+		"tileFilter": "parentLocationOrValidMoveEnd",
+		"roleMustFit": "hero5"
+	},
+	{
+		"template": "ANY",
+		"choose": "ALL",
+		"fromRoles": [ "hero", "hero2", "hero3", "hero4", "hero5" ]
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"showAbilityName": "ifEnemy",
+		"particles": [
+			{ "script": "RockGroundExplosion2", "setPosition": "self" },
+			{ "script": "shockwave", "setPosition": "self" }
+		],
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "((1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade))))+self.theme_foothill_upgrade)+target.distanceTo.targetTile",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "DoAll",
+						"outcomes": [
+							{
+								"class": "Aspects",
+								"addAspects": [
+									{ "id": "concussed", "value": "1" }
+								]
+							},
+							{
+								"class": "BranchAbility",
+								"target": "self",
+								"targetRole": "defender",
+								"branchAbility": "stone"
+							}
+						]
+					}
+				},
+				{
+					"class": "Test",
+					"value": "isDefender.hero",
+					"threshold": "1",
+					"onPass": {
+						"class": "MoveEntity",
+						"target": "hero",
+						"directlyToTile": "site",
+						"recordMoveDistanceAs": "knockback"
+					}
+				},
+				{
+					"class": "Test",
+					"value": "isDefender.hero2",
+					"threshold": "1",
+					"onPass": {
+						"class": "MoveEntity",
+						"target": "hero2",
+						"directlyToTile": "site2",
+						"recordMoveDistanceAs": "knockback"
+					}
+				},
+				{
+					"class": "Test",
+					"value": "isDefender.hero3",
+					"threshold": "1",
+					"onPass": {
+						"class": "MoveEntity",
+						"target": "hero3",
+						"directlyToTile": "site3",
+						"recordMoveDistanceAs": "knockback"
+					}
+				},
+				{
+					"class": "Test",
+					"value": "isDefender.hero4",
+					"threshold": "1",
+					"onPass": {
+						"class": "MoveEntity",
+						"target": "hero4",
+						"directlyToTile": "otherSite",
+						"recordMoveDistanceAs": "knockback"
+					}
+				},
+				{
+					"class": "Test",
+					"value": "isDefender.hero5",
+					"threshold": "1",
+					"onPass": {
+						"class": "MoveEntity",
+						"target": "hero5",
+						"directlyToTile": "town",
+						"recordMoveDistanceAs": "knockback"
+					}
+				}
+			]
+		}
+	}
+]
+}

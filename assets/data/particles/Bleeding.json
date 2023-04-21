@@ -1,0 +1,44 @@
+{
+"budget": "64",
+"emitterLifetime": "1",
+"bucketStrategy": "inFrontOfFigure",
+"rules": [
+	{
+		"class": "Rate",
+		"rate": "9",
+		"doAll": [
+			{
+				"class": "Emit",
+				"numberOfParticles": "1",
+				"image": [ "particle_lightTriangle1" ],
+				"size": "[0.02,0.06]",
+				"killTime": "3",
+				"initializeWith": [
+					{ "class": "SetPosition", "x": "[-1,0]", "y": "null", "z": "-0.1" },
+					{ "class": "SetVelocity", "vx": "0", "vy": "0", "vz": "0" },
+					{
+						"class": "SetColor",
+						"color": { "r": "[0.9,3]", "g": "[0.6,0.9]", "b": "[0.4,0.9]", "a": "1" }
+					}
+				]
+			}
+		]
+	},
+	{ "class": "BasicPhysics" },
+	{ "class": "Lifetime" },
+	{
+		"class": "DynamicPull",
+		"x": "-0.5",
+		"y": "0",
+		"z": "-1",
+		"kx": "4",
+		"ky": "1",
+		"kz": "1"
+	},
+	{
+		"class": "SetColor",
+		"color": { "r": null, "g": null, "b": null, "a": "life~{0|1|1|0.2|0}" }
+	},
+	{ "class": "OrientToVelocity", "offsetDegrees": "90" }
+]
+}

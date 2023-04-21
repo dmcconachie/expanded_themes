@@ -1,0 +1,209 @@
+{
+	"id": "skeleton",
+	"name": "Skeletal",
+	"blurb": "<self> is cursed by the dagger of the Oldwane mystics.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_skeletonMonster",
+			"unlockLegacyAspect": "theme_skeleton_terrify10Enemies"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "latent",
+			"name": "Oldwane Curse",
+			"blurb": "<self> carries the Oldwane curse",
+			"slots": [],
+			"extraAspects": ["skeleton_progression"],
+			"effects": [
+				"ability_advanceTheme_skeleton",
+				"ability_advanceTheme_skeleton_head",
+				"ability_advanceTheme_skeleton_armLeft",
+				"ability_advanceTheme_skeleton_armRight",
+				"ability_advanceTheme_skeleton_legLeft",
+				"ability_advanceTheme_skeleton_legRight",
+				"ability_advanceTheme_skeleton_torso",
+				"ability_advanceTheme_skeleton_pet"
+			],
+			"layers": []
+		},
+		{
+			"id": "head",
+			"name": "Skull Head",
+			"blurb": "Some remnant of <self> still peers out from the empty sockets.",
+			"slots": ["head"],
+			"extraAspects": ["immuneToCompulsion"],
+			"effects": ["SETskeletonFear"],
+			"replaces": ["head"],
+			"layers": [
+				{
+					"name": "replaceHead_skullF",
+					"depth": 4000,
+					"rigMode": "female",
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceHead_skullM",
+					"depth": 4000,
+					"rigMode": "male",
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceHead_skullMonsterM",
+					"depth": 4000,
+					"rigMode": "female",
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceHead_skullMonsterM",
+					"depth": 4000,
+					"rigMode": "male",
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Skeletal Body",
+			"blurb": "<self> is wholly given over to the Oldwane curse.",
+			"slots": ["torso"],
+			"replaces": ["torso"],
+			"stats": {"RECOVERY_RATE": 20},
+			"effects": ["immuneToTrueDamage", "SETskeletonRegeneration"],
+			"extraAspects": ["forbidRelationshipGain", "renderAllShipsAs_RIVAL"],
+			"layers": [
+				{
+					"name": "replaceTorso_skeleton",
+					"tint": "skin", "tintAmount": 0.5,
+					"depth": 1211
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Skeletal Leg (L)",
+			"blurb": "<self>'s left leg is skeletal.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETskeletonBoneWall"],
+			"layers": [
+				{
+					"name": "replaceLegL_skeleton",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceLegL_skeletonMonster",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				}
+			],
+			"stats": {
+				"SPEED": 1.2
+			}
+		},
+		{
+			"id": "rightLeg",
+			"name": "Skeletal Leg (R)",
+			"blurb": "<self>'s right leg is skeletal.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETskeletonBoneWall"],
+			"layers": [
+				{
+					"name": "replaceLegR_skeleton",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceLegR_skeletonMonster",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				}
+			],
+			"stats": {
+				"SPEED": 1.2
+			}
+		},
+		{
+			"id": "leftArm",
+			"name": "Skeletal Arm (L)",
+			"blurb": "<self>'s left arm is bleached and bony, forever clutching the Oldwane Wand.\nGrants +4 Spell Damage and +2 Warding.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETskeletonDeathtouch"],
+			"stats": { "SPELL_DAMAGE": 2, "WARDING": 2 },
+			"layers": [
+				{
+					"name": "replaceArmL_skeletonA_untinted",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceArmL_skeletonB_tint2",
+					"tint": "secondary", "tintAmount": 0.7,
+					"depth": 1202,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceArmL_skeletonMonster",
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Skeletal Arm (R)",
+			"blurb": "<self>'s right arm is bleached and bony, forever clutching the Oldwane dagger.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"stats": { "POTENCY": 2, "RANGE_ACCURACY": 20 },
+			"effects": ["SETskeletonDagger"],
+			"layers": [
+				{
+					"name": "replaceArmR_skeletonA_untinted",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceArmR_skeletonB_tint2",
+					"tint": "secondary", "tintAmount": 0.7,
+					"depth": 1202,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceArmR_skeletonC_untinted",
+					"depth": 4250,
+					"ifNoOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceArmR_skeletonMonsterA",
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				},
+				{
+					"name": "replaceArmR_skeletonMonsterB",
+					"depth": 4250,
+					"ifOwnerAspect": "themeSkin_skeletonMonster"
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Terror Chicken",
+			"blurb": "It's a little mean-looking, but it's your only friend.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee2"],
+			"layers": [
+				{"name": "pet_terrorChicken", "depth": 9000}
+			]
+		}
+	]
+}

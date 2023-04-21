@@ -1,0 +1,276 @@
+{
+	"id": "skunk",
+	"name": "Skunkish",
+	"blurb": "<self> has a foreboding odor.",
+
+	"pieces": [
+		{
+			"id": "tail",
+			"name": "Skunk Tail",
+			"blurb": "<self> has a skunk tail.",
+			"slots": ["tail"],
+			"effects": [
+				"SETskunkSpray",
+				"ability_advanceTheme_skunk",
+				"ability_advanceTheme_skunk_head",
+				"ability_advanceTheme_skunk_torso",
+				"ability_advanceTheme_skunk_armLeft",
+				"ability_advanceTheme_skunk_armRight",
+				"ability_advanceTheme_skunk_legLeft",
+				"ability_advanceTheme_skunk_legRight",
+				"ability_advanceTheme_skunk_tail",
+				"ability_advanceTheme_skunk_pet"
+			],
+			"layers": [
+				{
+					"name": "tailSkunk",
+					"depth": 101
+				}
+			]
+		},
+		{
+			"id": "head",
+      "name": "Skunk Head",
+			"blurb": "<self>'s head is bestial",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"replaces": ["head"],
+      "effects": ["SETskunkBite"],
+			"extraAspects": ["humanSkin_overrideHairColor|dac9a9|1", "humanSkin_overrideSkinColor|322c28|322c28|322c28|1"],
+			"layers": [
+				{
+					"name": "hairUK1",
+					"tint": "hair",
+					"depth": 4200,
+					"headOffset": true
+				},
+				{
+					"name": "hairUK1_streaks",
+					"tint": "streaks",
+					"depth": 4201,
+					"headOffset": true
+				},
+				{
+					"name": "replaceHead_bearBase_neutral",
+					"tint": "skin", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested", "grim", "sad", "skeptical", "dubious"]
+				},
+				{
+					"name": "replaceHead_bearDetails_neutral",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_bearBase_open",
+					"tint": "skin", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_bearDetails_open",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_bearBase_surprised",
+					"tint": "skin", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_bearDetails_surprised",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_bearBase_scared",
+					"tint": "skin", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_bearDetails_scared",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_bearDetails_skeptical",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["skeptical"]
+				},
+				{
+					"name": "replaceHead_bearDetails_dubious",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["dubious"]
+				},
+				{
+					"name": "replaceHead_bearBase_angry",
+					"tint": "skin", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming", "hit", "dead"]
+				},
+				{
+					"name": "replaceHead_bearDetails_angry",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_bearBase_happy",
+					"tint": "skin", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_bearDetails_happy",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_bearDetails_grim",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["grim", "sad"]
+				},
+				{
+					"name": "replaceHead_bearDetails_hit",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["hit", "dead"]
+				},
+				{
+					"name": "replaceNeck_moth",
+					"tint": "hair",
+					"depth": 3999
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Skunk Body",
+			"blurb": "<self> is wholly given over to the beast.",
+			"slots": ["torso"],
+			"replaces": ["torso"],
+			"canBeAwardedRandomly": false,
+			"extraAspects": ["humanSkin_overrideHairColor|dac9a9|1", "humanSkin_overrideSkinColor|322c28|322c28|322c28|1"],
+      "effects": ["SETmovementDodge"],
+			"layers": [
+				{
+					"name": "replaceTorso_wolfA_tint",
+					"tint": "hair",
+					"depth": 1211
+				},
+				{
+					"name": "replaceTorso_wolfB_untinted",
+					"depth": 1212
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Skunk Leg (L)",
+			"blurb": "<self>'s left leg is bestial.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETskunkSprint"],
+			"extraAspects": ["humanSkin_overrideSkinColor|322c28|322c28|322c28|1"],
+			"stats": { "SPEED": 2.3 },
+			"layers": [
+				{
+					"name": "replaceLegL_bearA_tint",
+					"tint": "skin",
+					"depth": 1101
+				},
+				{
+					"name": "replaceLegL_bearB_untinted",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Skunk Leg (R)",
+			"blurb": "<self>'s right leg is bestial.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETskunkSprint"],
+			"extraAspects": ["humanSkin_overrideSkinColor|322c28|322c28|322c28|1"],
+			"stats": { "SPEED": 2.3 },
+			"layers": [
+				{
+					"name": "replaceLegR_bearA_tint",
+					"tint": "skin",
+					"depth": 1101
+				},
+				{
+					"name": "replaceLegR_bearB_untinted",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Skunk Arm (L)",
+			"blurb": "<self>'s left arm is bestial.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETskunkClaw2", "SETskunkFrenzy"],
+			"extraAspects": ["humanSkin_overrideSkinColor|322c28|322c28|322c28|1"],
+			"layers": [
+				{
+					"name": "replaceArmL_bearA_tint",
+					"tint": "skin",
+					"depth": 1201
+				},
+				{
+					"name": "replaceArmL_bearB_untinted",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Skunk Arm (R)",
+			"blurb": "<self>'s right arm is bestial.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETskunkClaw1", "SETskunkFrenzy"],
+			"extraAspects": ["humanSkin_overrideSkinColor|322c28|322c28|322c28|1"],
+			"layers": [
+				{
+					"name": "replaceArmR_bearA_tint",
+					"tint": "skin",
+					"depth": 1201
+				},
+				{
+					"name": "replaceArmR_bearB_untinted",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Skunk",
+			"blurb": "<self> takes care of the little guy.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee2"],
+			"layers": [
+				{"name": "pet_skunk", "depth": 9000}
+			]
+		}
+	]
+}

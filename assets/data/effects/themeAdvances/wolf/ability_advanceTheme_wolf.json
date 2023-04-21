@@ -1,0 +1,36 @@
+{
+"id": "ability_advanceTheme_wolf",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themeAdvances/ability_advanceTheme_wolf",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Jackson Wagner",
+	"aiPriority": "-1",
+	"tags": [ "okToMarkDone" ]
+},
+"type": "OVERLAND_ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "ursineHunger",
+	"category": "research",
+	"showInCharacterSheet": false,
+	"priority": "1"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "alive", "SELF" ],
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "RESOURCE.legacyPoints",
+		"b": "1"
+	}
+],
+"outcomes": [
+	{
+		"class": "Aspects",
+		"addAspects": [
+			{ "id": "aspect_advanceTheme_wolf", "value": "1" }
+		]
+	}
+]
+}

@@ -1,0 +1,160 @@
+{
+	"id": "vultureAcolyte",
+	"name": "Vulture Acolyte",
+	"blurb": "<self> serves the Vulture Lord.",
+
+	"pieces": [
+		{
+			"id": "head",
+			"name": "Vulture Acolyte Hood",
+			"blurb": "Bearing the symbol of the Vulture Lord",
+			"slots": ["head"],
+			"replaces": ["head"],
+			"effects": [
+				"SETvultureGaze",
+				"ability_advanceTheme_vultureAcolyte",
+				"ability_advanceTheme_vultureAcolyte_torso",
+				"ability_advanceTheme_vultureAcolyte_armLeft",
+				"ability_advanceTheme_vultureAcolyte_armRight",
+				"ability_advanceTheme_vultureAcolyte_legLeft",
+				"ability_advanceTheme_vultureAcolyte_legRight",
+				"ability_advanceTheme_vultureAcolyte_wings",
+				"ability_advanceTheme_vultureAcolyte_tail",
+				"ability_advanceTheme_vultureAcolyte_shoulderPet"
+			],
+			"layers": [
+				{
+					"name": "replaceHead_vultureAcolyte",
+					"depth": 4000,
+					"headOffset": true
+				}
+			]
+		},
+		{
+			"id": "wings",
+			"name": "Vulture Wings",
+			"blurb": "<self> has a pair of vulture wings.",
+			"slots": ["wings"],
+			"stats": {"SPEED": 1},
+			"effects": ["SETvultureFly"],
+			"extraAspects": ["wingSound", "humanSkin_overrideHairColor|593428|1"],
+			"layers": [
+				{
+					"name": "wingTinyRA_tint",
+					"tint": "hair",
+					"depth": 1
+				},
+				{
+					"name": "wingTinyRB_untinted",
+					"depth": 2
+				},
+				{
+					"name": "wingTinyLA_tint",
+					"tint": "hair",
+					"depth": 1
+				},
+				{
+					"name": "wingTinyLB_untinted",
+					"depth": 2
+				}
+			]
+		},
+		{
+			"id": "tail",
+			"name": "Vulture Tail",
+			"blurb": "<self> has a feathery vulture tail.",
+			"slots": ["tail"],
+			"effects": ["SETmovementAccuracy"],
+			"layers": [
+				{
+					"name": "tailHawk",
+					"depth": 102
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Vulture Body",
+			"blurb": "<self>'s body is covered in feathers.",
+			"canBeAwardedRandomly": false,
+			"slots": ["torso"],
+			"replaces": ["torso"],
+			"extraAspects": ["humanSkin_overrideSkinColor|ffffff|ffffff|ffffff|1"],
+			"effects": ["SETmovementAccuracy"],
+			"layers": [
+				{
+					"name": "replaceTorso_vulture",
+					"depth": 1100
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Vulture Leg (L)",
+			"blurb": "<self>'s left leg belongs to the Vulture Lord.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETmovementStunt"],
+			"stats": { "SPEED": 1.7 },
+			"layers": [
+				{
+					"name": "replaceLegL_hawk",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Vulture Leg (R)",
+			"blurb": "<self>'s right leg belongs to the Vulture Lord.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETmovementStunt"],
+			"stats": { "SPEED": 1.7 },
+			"layers": [
+				{
+					"name": "replaceLegR_hawk",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Vulture Arm (L)",
+			"blurb": "<self>'s left arm belongs to the Vulture Lord.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETvultureClaw2", "SETvultureFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmL_hawk",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Vulture Arm (R)",
+			"blurb": "<self>'s right arm belongs to the Vulture Lord.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETvultureClaw1", "SETvultureFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmR_hawk",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "shoulderPet",
+			"name": "Vulture",
+			"blurb": "It's a little mean-looking, but it seems to like you.",
+			"slots": ["shoulderPet"],
+			"effects": ["SETpetFlankingRanged"],
+			"layers": [
+				{"name": "pet_vulture", "depth": 3999}
+			]
+		}
+	]
+}

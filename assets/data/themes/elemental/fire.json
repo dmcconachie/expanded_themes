@@ -1,0 +1,310 @@
+{
+	"id": "fire",
+	"name": "Flamesoul",
+	"blurb": "Fire twists inside <self>, just barely contained.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_fireLava",
+			"unlockLegacyAspect": "theme_fire_hit5EnemiesAtOnce"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "tattoo",
+			"name": "Flamesoul Mark",
+			"blurb": "An open flame burns from <self>'s head.",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"effects": [
+				"SETfireCone",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETfireCone",
+				"ability_advanceTheme_fire",
+				"ability_advanceTheme_fire_skin",
+				"ability_advanceTheme_fire_armLeft",
+				"ability_advanceTheme_fire_armRight",
+				"ability_advanceTheme_fire_legLeft",
+				"ability_advanceTheme_fire_legRight",
+				"ability_advanceTheme_fire_shoulderPet"
+			],
+			"stats": {"WARDING": 0.5},
+			"extraAspects": [
+				"humanSkin_overrideStreakColor|ffab0a|1.0",
+				"humanSkin_overrideStreakValue|1.0",
+				"humanSkin_overrideHairColor|ff6f00|0.3",
+				"themeAbility_ranged",
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
+			],
+			"layers": [
+				{
+					"name": "head_tattooFireM",
+					"depth": 4052,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "head_tattooFireF",
+					"depth": 4052,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_eyeFireML",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_eyeFireFL",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_eyeFireMR",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_eyeFireFR",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+		{
+			"id": "leftEye",
+			"name": "Flamesoul Mark",
+			"blurb": "An open flame burns from <self>'s head.",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"effects": [
+				"SETfireCone",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETfireCone",
+				"ability_advanceTheme_fire",
+				"ability_advanceTheme_fire_skin",
+				"ability_advanceTheme_fire_armLeft",
+				"ability_advanceTheme_fire_armRight",
+				"ability_advanceTheme_fire_legLeft",
+				"ability_advanceTheme_fire_legRight",
+				"ability_advanceTheme_fire_shoulderPet"
+			],
+			"stats": {"WARDING": 0.5},
+			"extraAspects": [
+				"humanSkin_overrideStreakColor|ffab0a|1.0",
+				"humanSkin_overrideStreakValue|1.0",
+				"humanSkin_overrideHairColor|ff6f00|0.3",
+				"themeAbility_ranged",
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
+			],
+			"layers": [
+				{
+					"name": "head_tattooFireM",
+					"depth": 4052,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "head_tattooFireF",
+					"depth": 4052,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_eyeFireML",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_eyeFireFL",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_eyeFireMR",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_eyeFireFR",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+		{
+			"id": "rightEye",
+			"name": "Flamesoul Mark",
+			"blurb": "An open flame burns from <self>'s head.",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"effects": [
+				"SETfireCone",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETfireCone",
+				"ability_advanceTheme_fire",
+				"ability_advanceTheme_fire_skin",
+				"ability_advanceTheme_fire_armLeft",
+				"ability_advanceTheme_fire_armRight",
+				"ability_advanceTheme_fire_legLeft",
+				"ability_advanceTheme_fire_legRight",
+				"ability_advanceTheme_fire_shoulderPet"
+			],
+			"stats": {"WARDING": 0.5},
+			"extraAspects": [
+				"humanSkin_overrideStreakColor|ffab0a|1.0",
+				"humanSkin_overrideStreakValue|1.0",
+				"humanSkin_overrideHairColor|ff6f00|0.3",
+				"themeAbility_ranged",
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
+			],
+			"layers": [
+				{
+					"name": "head_tattooFireM",
+					"depth": 4052,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "head_tattooFireF",
+					"depth": 4052,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_eyeFireML",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_eyeFireFL",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_eyeFireMR",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_eyeFireFR",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+    {
+      "id": "skin",
+      "name": "Fire Heart",
+      "blurb": "<self>'s body is imbued with fire.",
+      "slots": ["skin"],
+      "extraAspects": ["humanSkin_overrideSkinColor|8f7468|8f7468|8f7468|1"],
+      "effects": ["SETfireConsumeFireIndignance"],
+      "stats": {"WARDING": 0.5}
+    },
+		{
+			"id": "leftLeg",
+			"name": "Flamesoul Leg (L)",
+			"blurb": "<self>'s left leg is fiery.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETstationaryPotency"],
+			"stats": {"SPEED": 1.7, "WARDING": 0.5},
+			"layers": [
+				{
+					"name": "replaceLegL_fire",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_fireLava"
+				},
+				{
+					"name": "replaceLegL_lava",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_fireLava"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Flamesoul Leg (R)",
+			"blurb": "<self>'s right leg is fiery.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETstationaryPotency"],
+			"stats": {"SPEED": 1.7, "WARDING": 0.5},
+			"layers": [
+				{
+					"name": "replaceLegR_fire",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_fireLava"
+				},
+				{
+					"name": "replaceLegR_lava",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_fireLava"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Flamesoul Arm (L)",
+			"blurb": "<self>'s left arm spawns the eager start of a flame.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"stats": {"WARDING": 0.5},
+			"effects": ["SETfireFlame2", "SETfireRain", "defaultSecondaryMoveFeedbackNoLOS|8|SETfireRain"],
+			"layers": [
+				{
+					"name": "replaceArmL_fire",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_fireLava"
+				},
+				{
+					"name": "replaceArmL_lava",
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_fireLava"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Flamesoul Arm (R)",
+			"blurb": "<self>'s right arm brings the inferno.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"stats": {"WARDING": 0.5},
+			"effects": ["SETfireFlame1", "SETfireRain"],
+			"layers": [
+				{
+					"name": "replaceArmR_fire",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_fireLava"
+				},
+				{
+					"name": "replaceArmR_lava",
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_fireLava"
+				}
+			]
+		},
+		{
+			"id": "shoulderPet",
+			"name": "Fire Bat",
+			"blurb": "Useful for starting fires",
+			"slots": ["shoulderPet"],
+			"effects": ["SETpetFireBat"],
+			"layers": [
+				{"name": "pet_fireBat", "depth": 9000}
+			]
+		}
+	]
+}

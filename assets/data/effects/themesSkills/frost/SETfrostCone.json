@@ -1,0 +1,142 @@
+{
+"id": "SETfrostCone",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/frost/SETfrostCone",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"tags": [ "okToMarkDone", "ranged", "free" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "magic",
+	"priority": "10",
+	"extraUI": {
+		"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+	},
+	"cooldown": "everyOtherTurn",
+	"branchableAbilityType": "standardRanged"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"missionFeedback": { "orientTo": "focus" }
+	},
+	{
+		"template": "TILE",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"minRange": "0.9",
+		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "floor"
+	},
+	{
+		"role": "target",
+		"template": "TILE",
+		"choose": "RANDOM_HALF",
+		"manifold": {
+			"from": "self",
+			"to": "focus",
+			"thickness": [ "1", "2" ],
+			"excludeSource": true,
+			"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+		},
+		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "floor"
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"STUB": "Gets the furthest away tile, to use for the particle effect.",
+		"choose": "ONE_FURTHEST",
+		"manifold": {
+			"from": "self",
+			"to": "focus",
+			"thickness": [ "1", "2" ],
+			"excludeSource": true,
+			"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+		},
+		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "floor"
+	},
+	{
+		"role": "target2",
+		"template": "UNIT_AT_TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"hoverScript": "figures.attackHovered",
+			"rangeFeedback": "ATTACK_SUGGESTION",
+			"suggestionFeedback": "ATTACK_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"manifold": {
+			"from": "self",
+			"to": "focus",
+			"thickness": [ "1", "2" ],
+			"excludeSource": true,
+			"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+		},
+		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "floor"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"defender": "target2",
+		"attackAnimationType": "magic",
+		"showAbilityName": "ifEnemy",
+		"particles": [
+			{
+				"script": "SETparticlesFrostCone",
+				"setPosition": "self",
+				"setPosition2": "targetTile"
+			}
+		],
+		"audioOverride": {
+			"attackStartCue": "Characters/DefaultHuman/Magic_FireMiss",
+			"attackHitCue": "Characters/DefaultHuman/Magic_FireHit"
+		},
+		"defenseRollTags": [ "range" ],
+		"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
+		"always": {
+			"class": "Spawn",
+			"forceSpawn": true,
+			"createEntity": {
+				"query": { "type": "TRAP" },
+				"addAspects": [
+					{ "id": "heatsinkIceTrap", "value": "2", "merge": "max", "atTiles": "target" }
+				],
+				"setLocation": true
+			}
+		},
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_frost_upgrade))))+self.theme_frost_upgrade",
+					"type": "MAGIC",
+					"overrideStuntDamage": "1",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "hobbled", "value": "1" }
+						]
+					},
+					"numDefenders": "COUNT.target2"
+				}
+			]
+		}
+	}
+]
+}

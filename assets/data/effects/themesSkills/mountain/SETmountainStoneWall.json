@@ -1,0 +1,72 @@
+{
+"id": "SETmountainStoneWall",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/mountain/SETmountainStoneWall",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "-1",
+	"tags": [ "sneaky" ]
+},
+"type": "ABILITY_USED",
+"ability": {
+	"icon": "defend",
+	
+	"priority": "1",
+	"onlyShowIfPossibleInCharacterSheet": true
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [
+			"themePiece_deepistMole_rightLeg",
+			"alive",
+			"SELF",
+			"themePiece_deepistMole_leftLeg"
+		]
+	},
+	{
+		"role": "target",
+		"template": "SELF",
+		"STUB": "If the hero has no actions left, hasn't used an attack action, and isn't stonewalling yet",
+		"showAnyway": true,
+		"fromRoles": [ "self" ],
+		"aspectValues": [
+			{ "id": "cannotUseStonewallThisTurn", "forbidden": true },
+			{ "id": "stonewallingBuff", "forbidden": true }
+		],
+		"test": "LESS_THAN_OR_EQUAL_TO",
+		"a": "ACTIONS",
+		"b": "0"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"defender": null,
+		"intermediateRole": "self",
+		"attackAnimationType": "none",
+		"showAbilityName": "ifEnemy",
+		"stopBlockingTime": "noBlocking",
+		"timingOverride": { "beforeAnimationTime": "0", "afterAnimationTime": "0" },
+		"particles": [
+			{ "script": "RockGroundExplosion2", "setPosition": "target" },
+			{ "script": "stalwart", "setPosition": "target" },
+			{ "script": "smokeBlast", "setPosition": "target" }
+		],
+		"audioOverride": { "attackInterfusionStartCue": "Characters/DefaultHuman/Ability_Rock" },
+		"always": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Aspects",
+					"addAspects": [
+						{ "id": "doneWithTurn", "value": "1" },
+						{ "id": "stonewallingBuff", "value": "2" }
+					]
+				}
+			]
+		}
+	}
+]
+}

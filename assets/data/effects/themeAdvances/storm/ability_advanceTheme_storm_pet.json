@@ -1,0 +1,40 @@
+{
+"id": "ability_advanceTheme_storm_pet",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themeAdvances/ability_advanceTheme_storm_pet",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Jackson Wagner",
+	"aiPriority": "-1",
+	"tags": [ "okToMarkDone" ]
+},
+"type": "OVERLAND_ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "lightning",
+	"category": "research",
+	"showInCharacterSheet": false,
+	"priority": "1",
+	"strictlyBetterThan": [ "ability_advanceTheme_storm" ]
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "alive", "SELF", "aspect_advanceTheme_storm" ],
+		"aspectValues": [
+			{ "id": "themeSlotFilled_pet", "forbidden": true }
+		],
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "RESOURCE.legacyPoints",
+		"b": "1"
+	}
+],
+"outcomes": [
+	{ "class": "ApplyTheme", "target": "self", "theme": "storm", "piece": "pet" },
+	{ "class": "AddResources", "amount": "-1" },
+	{
+		"class": "Aspects",
+		"removeAspects": [ "aspect_advanceTheme_storm" ]
+	}
+]
+}

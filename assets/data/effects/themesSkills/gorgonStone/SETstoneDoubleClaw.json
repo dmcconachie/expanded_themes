@@ -1,0 +1,91 @@
+{
+"id": "SETstoneDoubleClaw",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/gorgonStone/SETstoneDoubleClaw",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "3000",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "bearhug",
+	
+	"priority": "17",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_gorgonStone_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [
+			"alive",
+			"themePiece_gorgonStone_rightArm",
+			"SELF",
+			"themePiece_gorgonStone_leftArm"
+		]
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"showAbilityName": "ifEnemy",
+		"audioOverride": { "attackHitCue": "", "attackDodgedCue": "", "attackBlockedCue": "" },
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(1d6+floor(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gorgonStone_upgrade)))+self.theme_gorgonStone_upgrade",
+					"pierce": "9",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "bleeding", "value": "1" }
+						]
+					},
+					"numDefenders": "COUNT.target"
+				},
+				{
+					"class": "Test",
+					"value": "1",
+					"threshold": "target.SIZE",
+					"onPass": {
+						"class": "Damage",
+						"amount": "(1d6+floor(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gorgonStone_upgrade)))+self.theme_gorgonStone_upgrade",
+						"pierce": "9",
+						"overrideStuntDamage": "0"
+					}
+				},
+				{
+					"class": "Aspects",
+					"addAspects": [
+						{ "id": "senseless", "value": "1" }
+					]
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "(1d6+floor(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gorgonStone_upgrade)))+self.theme_gorgonStone_upgrade"
+		}
+	}
+]
+}

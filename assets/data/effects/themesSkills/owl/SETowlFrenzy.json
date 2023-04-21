@@ -1,0 +1,104 @@
+{
+"id": "SETowlFrenzy",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/owl/SETowlFrenzy",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "1900",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "crowClaw2",
+	
+	"priority": "17",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_tinyWings_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [ "themePiece_tinyWings_leftArm", "alive", "themePiece_tinyWings_rightArm", "SELF" ]
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"aspectValues": [
+			{ "id": "engaged", "forbidden": true, "relativeTo": "self" }
+		],
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"audioOverride": {
+			"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
+			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+		},
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "actionRoll((self.MELEE_ACCURACY+20))",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_tinyWings_upgrade)))+self.theme_tinyWings_upgrade",
+					"shred": "2",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "bleeding", "value": "1" }
+						]
+					}
+				},
+				{
+					"class": "Aspects",
+					"target": "target",
+					"addAspects": [
+						{ "id": "engaged", "value": "1", "inRelationTo": "self" }
+					]
+				},
+				{
+					"class": "Aspects",
+					"target": "self",
+					"addAspects": [
+						{ "id": "engaging", "value": "1", "inRelationTo": "target" }
+					]
+				},
+				{
+					"class": "Aspects",
+					"target": "target",
+					"addAspects": [
+						{ "id": "pinned", "value": "1" }
+					]
+				},
+				{
+					"class": "Aspects",
+					"target": "self",
+					"addAspects": [
+						{ "id": "pinned", "value": "1" }
+					]
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_tinyWings_upgrade)))+self.theme_tinyWings_upgrade",
+			"shred": "2"
+		}
+	}
+]
+}

@@ -1,0 +1,23 @@
+{
+"id": "SETbearEnrage",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "bear/SETbearEnrage",
+	"sort": 4
+},
+"type": "DAMAGE_ROLL",
+"ability": {
+	"priority": "1",
+	"customSpecialAnimationEffect": {
+		"parameters": [ "ceil((0.5*self.INJURY))" ],
+		"role": "defender"
+	}
+},
+"targets": [
+	{ "template": "SELF" },
+	{ "template": "DEFENDER" }
+],
+"outcomes": [
+	{ "class": "Impact", "impact": "ceil(((0.5*(1+(self.POTENCY/3)))*self.INJURY))" }
+]
+}

@@ -1,0 +1,251 @@
+{
+	"id": "shadow",
+	"name": "Shadow",
+	"blurb": "Something that had been sleeping inside you is now waking up.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_shadowWild",
+			"unlockLegacyAspect": "theme_shadow_heal30"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "head",
+			"name": "Shadowed",
+			"blurb": "Two souls peer out from <self>'s eyes now",
+			"slots": ["head"],
+			"extraAspects": ["humanSkin_overrideHairColor|156666|1"],
+			"effects": [
+				"shadowDrainsWardingRegion",
+				"SETshadowGaze",
+				"ability_advanceTheme_shadow",
+				"ability_advanceTheme_shadow_armLeft",
+				"ability_advanceTheme_shadow_armRight",
+				"ability_advanceTheme_shadow_legLeft",
+				"ability_advanceTheme_shadow_legRight",
+				"ability_advanceTheme_shadow_skin",
+				"ability_advanceTheme_shadow_wings",
+				"ability_advanceTheme_shadow_tail",
+				"ability_advanceTheme_shadow_pet"
+			],
+			"layers": [
+				{
+					"name": "face_demonHornsMA_untinted",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsMB_tint1",
+					"tint": "secondary",
+					"depth": 4251,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsFA_untinted",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsFB_tint1",
+					"tint": "secondary",
+					"depth": 4251,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsWildMA_untinted",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsWildMB_tint1",
+					"tint": "secondary",
+					"depth": 4251,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsWildFA_untinted",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "face_demonHornsWildFB_tint1",
+					"tint": "secondary",
+					"depth": 4251,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				}
+			]
+		},
+		{
+			"id": "wings",
+			"name": "Shadow Wings",
+			"blurb": "<self> has grown the wings of a malignant entity.",
+			"slots": ["wings"],
+			"effects": ["SETshadowFly"],
+			"stats": {"SPEED": 1},
+			"extraAspects": ["wingSound"],
+			"layers": [
+				{
+					"name": "wings_shadow",
+					"depth": 1
+				}
+			]
+		},
+		{
+			"id": "skin",
+			"name": "Shadow Heart",
+			"blurb": "<self>'s heart now belongs to a malignant entity.",
+			"slots": ["skin"],
+			"effects": ["SETstationaryPotency"],
+			"extraAspects": ["humanSkin_overrideSkinColor|95897d|95897d|95897d|1"],
+			"stats": {"RETIREMENT_AGE": 10, "ARMOR": 0.5}
+		},
+		{
+			"id": "tail",
+			"name": "Shadow Tail",
+			"blurb": "<self>'s has grown a tail of a malignant entity.",
+			"slots": ["tail"],
+			"effects": ["SETcrocodileTail"],
+			"layers": [
+				{
+					"name": "tail_shadow",
+					"depth": 101
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Shadow Leg (L)",
+			"blurb": "<self>'s left leg forms part of a malignant entity.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETshadowPath"],
+			"stats": {"SPEED": 1.7},
+			"layers": [
+				{
+					"name": "replaceLegL_shadow",
+					"depth": 1103,
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceLegL_shadowWildA_tint",
+					"tint": "secondary",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceLegL_shadowWildB_untinted",
+					"depth": 1102,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Shadow Leg (R)",
+			"blurb": "<self>'s right leg forms part of a malignant entity.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETshadowPath"],
+			"stats": {"SPEED": 1.7},
+			"layers": [
+				{
+					"name": "replaceLegR_shadow",
+					"depth": 1106,
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceLegR_shadowWildA_tint",
+					"tint": "secondary",
+					"depth": 1104,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceLegR_shadowWildB_untinted",
+					"depth": 1105,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Shadow Arm (L)",
+			"blurb": "<self>'s left arm forms part of a malignant entity.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETshadowHarvest2", "SETshadowSoul"],
+			"layers": [
+				{
+					"name": "replaceArmL_shadow",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceArmL_shadowWildA_tint",
+					"tint": "secondary",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceArmL_shadowWildB_untinted",
+					"depth": 1102,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Shadow Arm (R)",
+			"blurb": "<self>'s right arm forms part of a malignant entity.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETshadowHarvest1", "SETshadowSoul", "defaultSecondaryMoveFeedback|6.6|SETshadowSoul"],
+			"extraAspects": ["themeAbility_ranged", "attackRange|0|6.6|rangedNonWeapon"],
+			"layers": [
+				{
+					"name": "replaceArmR_shadow",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceArmR_shadowWildA_tint",
+					"tint": "secondary",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				},
+				{
+					"name": "replaceArmR_shadowWildB_untinted",
+					"depth": 1102,
+					"ifOwnerAspect": "themeSkin_shadowWild"
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Black Cat",
+			"blurb": "<self> takes care of the little guy.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee2"],
+			"layers": [
+				{"name": "pet_blackCat", "depth": 9000}
+			]
+		}
+	]
+}

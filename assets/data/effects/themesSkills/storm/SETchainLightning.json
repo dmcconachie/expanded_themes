@@ -1,0 +1,261 @@
+{
+"id": "SETchainLightning",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/storm/SETchainLightning",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Jackson Wagner",
+	"tags": [ "ranged" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "feedbackLoop",
+	
+	"priority": "14",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"extraUI": {
+		"overrideRangeShown": "((8.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+	},
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_storm_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"aspects": [ "alive", "themePiece_storm_leftArm", "SELF", "themePiece_storm_rightArm" ]
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "((8.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "ProgressAchievement",
+		"achievementPiece": "killedEnemyWithChainLightning",
+		"clearForEntity": true
+	},
+	{
+		"class": "MatchTarget",
+		"abilityTarget": {
+			"role": "volunteer",
+			"template": "ADJACENT_UNIT",
+			"choose": "ONE_RANDOM_TRUE",
+			"showAnyway": true,
+			"missionFeedback": { "rangeFeedback": "ATTACK_RANGE" },
+			"aspects": [ "alive", "ALLY" ],
+			"relativeTo": "target",
+			"notAlreadyMatchedAs": [ "target" ],
+			"range": "3",
+			"lineOfSight": "LIVE_FIGURES"
+		}
+	},
+	{
+		"class": "MatchTarget",
+		"abilityTarget": {
+			"role": "volunteer2",
+			"template": "ADJACENT_UNIT",
+			"choose": "ONE_RANDOM_TRUE",
+			"showAnyway": true,
+			"missionFeedback": { "rangeFeedback": "ATTACK_RANGE" },
+			"aspects": [ "alive", "ALLY" ],
+			"relativeTo": "volunteer",
+			"notAlreadyMatchedAs": [ "target", "volunteer" ],
+			"range": "3",
+			"lineOfSight": "LIVE_FIGURES"
+		}
+	},
+	{
+		"class": "AttackRoll",
+		"attackAnimationType": "ranged",
+		"stopBlockingTime": "onHit",
+		"minimumBlockTimeOnMiss": "2000",
+		"particles": [
+			{ "script": "lightning", "setPosition": "self", "setPosition2": "target" },
+			{ "script": "lightningHit", "setPosition": "target" }
+		],
+		"audioOverride": {
+			"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
+			"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
+			"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
+		},
+		"flankMarkOrigin": "self",
+		"defenseRollTags": [ "range" ],
+		"attackStrength": "self.RANGE_ACCURACY+20",
+		"applyCover": true,
+		"always": { "class": "DoAll" },
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(4+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade",
+					"type": "MAGIC",
+					"weapon": null,
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "senseless", "value": "1" }
+						]
+					},
+					"numDefenders": "3"
+				},
+				{
+					"class": "Test",
+					"STUB": "If killed defender, achievement",
+					"value": "defender.INJURY",
+					"threshold": "defender.HEALTH",
+					"onPass": {
+						"class": "ProgressAchievement",
+						"target": "self",
+						"achievementPiece": "killedEnemyWithChainLightning"
+					}
+				},
+				{
+					"class": "IfRolesArePresent",
+					"rolesArePresent": [ "volunteer" ],
+					"then": {
+						"class": "AttackRoll",
+						"target": "self",
+						"defender": "volunteer",
+						"intermediateRole": "target",
+						"attackAnimationType": "magic",
+						"stopBlockingTime": "onHit",
+						"particles": [
+							{ "script": "lightning", "setPosition": "target", "setPosition2": "volunteer" },
+							{ "script": "lightningHit", "setPosition": "volunteer" }
+						],
+						"audioOverride": {
+							"attackStartCue": "",
+							"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
+							"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
+							"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
+						},
+						"attackerAnimationOverride": "",
+						"flankMarkOrigin": "target",
+						"defenseRollTags": [ "range" ],
+						"attackStrength": "self.RANGE_ACCURACY+20",
+						"applyCover": true,
+						"onHit": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Damage",
+									"amount": "ceil(((4+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade))/2",
+									"type": "MAGIC",
+									"weapon": null,
+									"overrideStuntDamage": "2",
+									"onStunt": {
+										"class": "Aspects",
+										"addAspects": [
+											{ "id": "senseless", "value": "1" }
+										]
+									},
+									"numDefenders": "3"
+								},
+								{
+									"class": "Test",
+									"STUB": "If killed defender, achievement",
+									"value": "defender.INJURY",
+									"threshold": "defender.HEALTH",
+									"onPass": {
+										"class": "ProgressAchievement",
+										"target": "self",
+										"achievementPiece": "killedEnemyWithChainLightning"
+									}
+								},
+								{
+									"class": "IfRolesArePresent",
+									"rolesArePresent": [ "volunteer2" ],
+									"then": {
+										"class": "AttackRoll",
+										"target": "self",
+										"defender": "volunteer2",
+										"intermediateRole": "volunteer",
+										"attackAnimationType": "magic",
+										"particles": [
+											{
+												"script": "lightning",
+												"setPosition": "volunteer",
+												"setPosition2": "volunteer2"
+											},
+											{ "script": "lightningHit", "setPosition": "volunteer2" }
+										],
+										"audioOverride": {
+											"attackStartCue": "",
+											"attackHitCue": "Characters/Theme/Lightning/lightningShoot",
+											"attackDodgedCue": "Characters/Theme/Lightning/lightningShoot",
+											"attackBlockedCue": "Characters/Theme/Lightning/lightningShoot"
+										},
+										"attackerAnimationOverride": "",
+										"flankMarkOrigin": "volunteer",
+										"defenseRollTags": [ "range" ],
+										"attackStrength": "self.RANGE_ACCURACY+20",
+										"applyCover": true,
+										"onHit": {
+											"class": "DoAll",
+											"outcomes": [
+												{
+													"class": "Damage",
+													"amount": "ceil(((4+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade))/2",
+													"type": "MAGIC",
+													"weapon": null,
+													"overrideStuntDamage": "2",
+													"onStunt": {
+														"class": "Aspects",
+														"addAspects": [
+															{ "id": "senseless", "value": "1" }
+														]
+													},
+													"numDefenders": "3"
+												},
+												{
+													"class": "Test",
+													"STUB": "If killed defender, achievement",
+													"value": "defender.INJURY",
+													"threshold": "defender.HEALTH",
+													"onPass": {
+														"class": "ProgressAchievement",
+														"target": "self",
+														"achievementPiece": "killedEnemyWithChainLightning"
+													}
+												},
+											]
+										}
+									},
+									"otherwise": {
+										"class": "AttackRoll",
+										"target": "self",
+										"defender": null,
+										"attackAnimationType": "none"
+									}
+								}
+							]
+						}
+					},
+					"otherwise": {
+						"class": "AttackRoll",
+						"target": "self",
+						"defender": null,
+						"attackAnimationType": "none"
+					}
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "(4+ceil(((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_storm_upgrade))/1)))+self.theme_storm_upgrade",
+			"type": "MAGIC",
+			"weapon": null,
+			"showInTooltip": false
+		}
+	}
+]
+}

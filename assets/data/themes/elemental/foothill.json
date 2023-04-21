@@ -1,0 +1,190 @@
+{
+	"id": "foothill",
+	"name": "Child of the Hills",
+	"blurb": "<self> carries the hills in <self.mf:his/her> very bones.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_foothillCanyon",
+			"unlockLegacyAspect": "theme_foothill_takeNoDamage20Times"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "head",
+			"name": "Hill Tattoos",
+			"blurb": "Mystic tattoos mark <self>'s face.",
+			"slots": ["head"],
+			"stats": {"CHARISMA": 5, "WARDING": 0.5},
+			"effects": [
+				"ability_advanceTheme_foothill",
+				"ability_advanceTheme_foothill_skin",
+				"ability_advanceTheme_foothill_armLeft",
+				"ability_advanceTheme_foothill_armRight",
+				"ability_advanceTheme_foothill_legLeft",
+				"ability_advanceTheme_foothill_legRight",
+				"ability_advanceTheme_foothill_pet"
+			],
+			"themeSkinSpecificAspects": [
+				{
+					"hasAspect": null,
+					"applyAspect": "humanSkin_overrideHairColor|d0f3fe|1"
+				},
+				{
+					"hasAspect": "themeSkin_foothillCanyon",
+					"applyAspect": "humanSkin_overrideHairColor|a59b76|1"
+				}
+			],
+			"layers": [
+				{
+					"name": "head_tattooFoothillM",
+					"depth": 4010,
+					"ifNoOwnerAspect": "themeSkin_foothillCanyon",
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "head_tattooFoothillF",
+					"depth": 4010,
+					"ifNoOwnerAspect": "themeSkin_foothillCanyon",
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "head_tattooFoothillCanyonM",
+					"depth": 4010,
+					"ifOwnerAspect": "themeSkin_foothillCanyon",
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "head_tattooFoothillCanyonF",
+					"depth": 4010,
+					"ifOwnerAspect": "themeSkin_foothillCanyon",
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+		{
+			"id": "skin",
+			"name": "Hill Heart",
+			"blurb": "<self>'s body is imbued with the hill spirit.",
+			"slots": ["skin"],
+			"themeSkinSpecificAspects": [
+				{
+					"hasAspect": null,
+					"applyAspect": "humanSkin_overrideSkinColor|727272|727272|727272|1"
+				},
+				{
+					"hasAspect": "themeSkin_foothillCanyon",
+					"applyAspect": "humanSkin_overrideSkinColor|b78e4f|b78e4f|b78e4f|1"
+				}
+			],
+			"effects": ["SEThillWall"],
+			"stats": {"ARMOR": 0.5}
+		},
+		{
+			"id": "leftLeg",
+			"name": "Hill Leg (L)",
+			"blurb": "<self>'s left leg is made of rock.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SEThillStomp"],
+			"stats": {"ARMOR": 0.5, "SPEED": 0.9},
+			"extraAspects": ["immuneToKnockback", "stoneLegsSound"],
+			"layers": [
+				{
+					"name": "replaceLegL_foothill",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_foothillCanyon"
+				},
+				{
+					"name": "replaceLegL_foothillCanyon",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_foothillCanyon"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Hill Leg (R)",
+			"blurb": "<self>'s right leg is made of rock.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SEThillStomp"],
+			"stats": {"ARMOR": 0.5, "SPEED": 0.9},
+			"extraAspects": ["immuneToKnockback", "stoneLegsSound"],
+			"layers": [
+				{
+					"name": "replaceLegR_foothill",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_foothillCanyon"
+				},
+				{
+					"name": "replaceLegR_foothillCanyon",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_foothillCanyon"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Hill Arm (L)",
+			"blurb": "<self>'s left arm is made of rock.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": [
+				"SEThillRock",
+				"defaultSecondaryMoveFeedback|5.6+self.themePiece_foothill_leftLeg+self.themePiece_foothill_rightLeg|SEThillRock",
+				"SEThillCrush",
+				"foothillStonewall",
+				"foothillAttackAbilitiesCancelStonewall"
+			],
+			"extraAspects": ["themeAbility_ranged", "themeAbility_rangedSingleTarget", "attackRange|0|5.6+self.themePiece_foothill_leftLeg+self.themePiece_foothill_rightLeg|rangedNonWeapon"],
+			"layers": [
+				{
+					"name": "replaceArmL_foothill",
+					"depth": 3101,
+					"ifNoOwnerAspect": "themeSkin_foothillCanyon"
+				},
+				{
+					"name": "replaceArmL_foothillCanyon",
+					"depth": 3101,
+					"ifOwnerAspect": "themeSkin_foothillCanyon"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Hill Arm (R)",
+			"blurb": "<self>'s right arm is made of rock.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SEThillBash", "SEThillCrush", "foothillStonewall", "foothillAttackAbilitiesCancelStonewall"],
+			"layers": [
+				{
+					"name": "replaceArmR_foothill",
+					"depth": 3101,
+					"ifNoOwnerAspect": "themeSkin_foothillCanyon"
+				},
+				{
+					"name": "replaceArmR_foothillCanyon",
+					"depth": 3101,
+					"ifOwnerAspect": "themeSkin_foothillCanyon"
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Turtle",
+			"blurb": "<self> takes care of the little guy.",
+			"slots": ["pet"],
+			"stats": {"ARMOR": 0.5},
+			"layers": [
+				{"name": "pet_turtle", "depth": 9000}
+			]
+		}
+	]
+}

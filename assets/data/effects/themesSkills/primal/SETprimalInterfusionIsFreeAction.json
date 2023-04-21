@@ -1,0 +1,25 @@
+{
+"id": "SETprimalInterfusionIsFreeAction",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "primal/SETprimalInterfusionIsFreeAction",
+	"author": "Patrick Belanger",
+	"STUB": "If interfusion hasn't been used yet this turn, it's a free action",
+	"tags": [ "interfuse" ]
+},
+"type": "SWIFT_ACTION_COST_MODIFIER",
+"verb": "SIMULATION_ATTACK",
+"ability": {
+	"onlyShowIfPossibleInCharacterSheet": false
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "themePiece_spellTouched_leftArm", "alive", "SELF", "themePiece_spellTouched_rightArm" ],
+		"aspectValues": [
+			{ "id": "usedInterfusionThisTurn", "forbidden": true }
+		]
+	}
+],
+"outcomes": []
+}

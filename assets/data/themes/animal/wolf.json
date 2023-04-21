@@ -1,0 +1,479 @@
+{
+	"id": "wolf",
+	"name": "Wolftouched",
+	"blurb": "<self> accepted the blessing of the Wolf God.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_wolfDire",
+			"unlockLegacyAspect": "theme_wolf_killEveryEnemyType"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "head",
+			"name": "Wolf Head",
+			"blurb": "Blessing of Lochias, allows <self> to smell the wind and taste prey.",
+			"slots": ["head"],
+			"replaces": ["head"],
+			"effects": [
+				"SETwolfBite",
+				"ability_advanceTheme_wolf",
+				"ability_advanceTheme_wolf_torso",
+				"ability_advanceTheme_wolf_armLeft",
+				"ability_advanceTheme_wolf_armRight",
+				"ability_advanceTheme_wolf_legLeft",
+				"ability_advanceTheme_wolf_legRight",
+				"ability_advanceTheme_wolf_tail",
+				"ability_advanceTheme_wolf_pet"
+			],
+			"layers": [
+				{
+					"name": "replaceHead_wolfBase_neutral",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["neutral", "interested", "grim", "sad", "skeptical", "dubious"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_neutral",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_wolfBase_open",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_open",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_wolfBase_surprised",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_surprised",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_wolfBase_scared",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_scared",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_skeptical",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["skeptical"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_dubious",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["dubious"]
+				},
+				{
+					"name": "replaceHead_wolfBase_angry",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["angry", "rage", "scheming", "hit", "dead"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_angry",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_wolfBase_happy",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_happy",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_grim",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["grim", "sad"]
+				},
+				{
+					"name": "replaceHead_wolfDetails_hit",
+					"depth": 4300,
+					"headOffset": true,
+					"ifNoOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["hit", "dead"]
+				},
+				{
+					"name": "replaceNeck_wolf",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 3999,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceHead_wolfDireBase_closed",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 4001,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["neutral", "interested", "skeptical", "dubious", "grim", "sad", "angry", "rage", "scheming", "hit", "dead"]
+				},
+				{
+					"name": "replaceHead_wolfDireBase_open",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 4001,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["open", "happy", "joy", "joke"]
+				},
+				{
+					"name": "replaceHead_wolfDireBase_openSurprised",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 4001,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_wolfDireBase_openScared",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 4001,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_neutral",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_open",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_grim",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["grim", "sad"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_skeptical",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["skeptical"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_dubious",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["dubious"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_angry",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_happy",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_hit",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["hit", "dead"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_surprised",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_wolfDireFace_scared",
+					"depth": 4300,
+					"headOffset": true,
+					"ifOwnerAspect": "themeSkin_wolfDire",
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceNeck_wolfDire",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 3999,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "tail",
+			"name": "Wolf Tail",
+			"blurb": "<self> has a wolf tail.",
+			"slots": ["tail"],
+			"effects": ["SETmovementStunt"],
+			"layers": [
+				{
+					"name": "tailWolfA_tint",
+					"tint": "hair",
+					"depth": 101,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "tailWolfB_untinted",
+					"depth": 102,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "tailWolfDireA_tint",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 101,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "tailWolfDireB_untinted",
+					"depth": 102,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Wolf Body",
+			"blurb": "<self> is wholly given over to the beast.",
+			"canBeAwardedRandomly": false,
+			"slots": ["torso"],
+			"replaces": ["torso"],
+			"effects": ["SETmovementStunt"],
+      "stats": {},
+			"layers": [
+				{
+					"name": "replaceTorso_wolfA_tint",
+					"tint": "hair",
+					"depth": 1211
+				},
+				{
+					"name": "replaceTorso_wolfB_untinted",
+					"depth": 1212
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Wolf Leg (L)",
+			"blurb": "<self>'s left leg is wolfish.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"stats": { "SPEED": 2.3	},
+			"effects": ["SETwolfSprint"],
+			"layers": [
+				{
+					"name": "replaceLegL_wolfA_tint",
+					"tint": "hair",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceLegL_wolfB_untinted",
+					"depth": 1102,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceLegL_wolfDireA_tint",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceLegL_wolfDireB_untinted",
+					"depth": 1102,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Wolf Leg (R)",
+			"blurb": "<self>'s right leg is wolfish.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"stats": { "SPEED": 2.3 },
+			"effects": ["SETwolfSprint"],
+			"layers": [
+				{
+					"name": "replaceLegR_wolfA_tint",
+					"tint": "hair",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceLegR_wolfB_untinted",
+					"depth": 1102,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceLegR_wolfDireA_tint",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 1103,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceLegR_wolfDireB_untinted",
+					"depth": 1104,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Wolf Arm (L)",
+			"blurb": "<self>'s left arm is wolfish.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETwolfClaw2", "SETwolfFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmL_wolfA_tint",
+					"tint": "hair",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceArmL_wolfB_untinted",
+					"depth": 1202,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceArmL_wolfDireA_tint",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceArmL_wolfDireB_untinted",
+					"depth": 1202,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Wolf Arm (R)",
+			"blurb": "<self>'s right arm is wolfish.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETwolfClaw1", "SETwolfFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmR_wolfA_tint",
+					"tint": "hair",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceArmR_wolfB_untinted",
+					"depth": 1202,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceArmR_wolfDireA_tint",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				},
+				{
+					"name": "replaceArmR_wolfDireB_untinted",
+					"depth": 1202,
+					"ifOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Wolf Cub",
+			"blurb": "<self> takes care of the little guy until it can fend for itself.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee"],
+			"layers": [
+				{
+					"name": "pet_wolf",
+					"depth": 9000
+				}
+			]
+		}
+	]
+}

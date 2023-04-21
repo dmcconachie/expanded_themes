@@ -1,0 +1,186 @@
+{
+	"id": "tinyWings",
+	"name": "Owlsoul",
+	"blurb": "The owl spirit is growing in you.",
+
+	"pieces": [
+		{
+			"id": "wings",
+			"name": "Owl Wings",
+			"blurb": "<self> has a pair of owl wings.",
+			"slots": ["wings"],
+			"stats": {"SPEED": 1},
+			"effects": [
+				"SETowlFly",
+				"ability_advanceTheme_tinyWings",
+				"ability_advanceTheme_tinyWings_head",
+				"ability_advanceTheme_tinyWings_torso",
+				"ability_advanceTheme_tinyWings_armLeft",
+				"ability_advanceTheme_tinyWings_armRight",
+				"ability_advanceTheme_tinyWings_legLeft",
+				"ability_advanceTheme_tinyWings_legRight",
+				"ability_advanceTheme_tinyWings_tail",
+				"ability_advanceTheme_tinyWings_shoulderPet"
+			],
+			"extraAspects": ["wingSound", "humanSkin_overrideHairColor|372107|1"],
+			"layers": [
+				{
+					"name": "wingTinyRA_tint",
+					"tint": "hair",
+					"depth": 1
+				},
+				{
+					"name": "wingTinyRB_untinted",
+					"depth": 2
+				},
+				{
+					"name": "wingTinyLA_tint",
+					"tint": "hair",
+					"depth": 1
+				},
+				{
+					"name": "wingTinyLB_untinted",
+					"depth": 2
+				}
+			]
+		},
+		{
+			"id": "head",
+			"name": "Owl Eyes",
+			"blurb": "An owl soul peer out from <self>'s eyes now",
+			"slots": ["head"],
+			"effects": ["SETowlGaze"],
+			"layers": [
+				{
+					"name": "face_demonHornsMA_untinted",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_demonHornsMB_tint1",
+					"tint": "secondary",
+					"depth": 4251,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "face_demonHornsFA_untinted",
+					"depth": 4250,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				},
+				{
+					"name": "face_demonHornsFB_tint1",
+					"tint": "secondary",
+					"depth": 4251,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+		{
+			"id": "tail",
+			"name": "Owl Tail",
+			"blurb": "<self> has a feathery owl tail.",
+			"slots": ["tail"],
+			"effects": ["SETmovementAccuracy"],
+			"layers": [
+				{
+					"name": "tailOwl",
+					"depth": 102
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Owl Heart",
+			"blurb": "<self>'s body is imbued with the owl spirit.",
+			"slots": ["torso"],
+			"extraAspects": ["humanSkin_overrideSkinColor|ffffff|ffffff|ffffff|1"],
+			"effects": [ "SETstationaryStunt" ],
+			"stats": {"POTENCY": 0.5},
+			"layers": [
+				{
+					"name": "face_vineForeheadA_untinted",
+					"tint": "skin",
+					"depth": 4250,
+					"headOffset": true
+				},
+				{
+					"name": "face_vineForeheadB_tint1",
+					"depth": 4251,
+					"headOffset": true
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Owl Leg (L)",
+			"blurb": "<self>'s left leg is owlish.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETstationaryAccuracy", "SETstationaryMeleeAccuracy"],
+			"stats": { "SPEED": 1.7 },
+			"layers": [
+				{
+					"name": "replaceLegL_owl",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Owl Leg (R)",
+			"blurb": "<self>'s right leg is owlish.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETstationaryAccuracy", "SETstationaryMeleeAccuracy"],
+			"stats": { "SPEED": 1.7 },
+			"layers": [
+				{
+					"name": "replaceLegR_owl",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Owl Arm (L)",
+			"blurb": "<self>'s left arm is feathered and clawish.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETowlClaw2", "SETowlFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmL_owl",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Owl Arm (R)",
+			"blurb": "<self>'s right arm is feathered and clawish.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETowlClaw1", "SETowlFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmR_owl",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "shoulderPet",
+			"name": "Owl",
+			"blurb": "It's a little mean-looking, but it seems to like you.",
+			"slots": ["shoulderPet"],
+			"effects": ["SETpetFlankingRanged"],
+			"layers": [
+				{"name": "pet_owl", "depth": 70}
+			]
+		}
+	]
+}

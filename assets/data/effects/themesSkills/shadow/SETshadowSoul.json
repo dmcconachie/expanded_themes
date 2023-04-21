@@ -1,0 +1,110 @@
+{
+"id": "SETshadowSoul",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/shadow/SETshadowSoul",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "1900",
+	"tags": [ "ranged" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "bloodrage",
+	
+	"priority": "17",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"cooldown": "everyOtherTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [ "themePiece_shadow_leftArm", "alive", "SELF", "themePiece_shadow_rightArm" ]
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "6.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"audioOverride": {
+			"attackStartCue": "Characters/DefaultHuman/Magic_FireMiss",
+			"attackHitCue": "Characters/DefaultHuman/Magic_FireHit"
+		},
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "actionRoll((self.RANGE_ACCURACY+20))",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_shadow_upgrade)))+self.theme_shadow_upgrade",
+					"type": "MAGIC",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "concussed", "value": "1" }
+						]
+					}
+				},
+				{
+					"class": "Test",
+					"value": "target.INJURY",
+					"threshold": "target.HEALTH",
+					"onPass": {
+						"class": "Test",
+						"target": "self",
+						"value": "self.INJURY",
+						"threshold": "1",
+						"onPass": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "UnlockLegacyAspect",
+									"legacyAspect": "achievementProgress_theme_shadow_heal",
+									"value": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+								},
+								{
+									"class": "ModifyStats",
+									"target": "self",
+									"stat": "INJURY",
+									"value": "0-min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+								},
+								{
+									"class": "Animate",
+									"particles": {
+										"script": "shadowTheme_harvest",
+										"setPosition": "target",
+										"setPosition2": "self",
+										"delay": 0.2,
+										"emitterVars": {
+											"particleMult": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+										}
+									},
+									"audio": "UI/statusEffectPositive"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_shadow_upgrade)))+self.theme_shadow_upgrade",
+			"type": "MAGIC"
+		}
+	}
+]
+}

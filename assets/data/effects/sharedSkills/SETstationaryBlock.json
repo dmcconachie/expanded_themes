@@ -1,0 +1,21 @@
+{
+"id": "SETstationaryBlock",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themeSkills/SETstationaryBlock",
+	"modId": "Smokers_Expanded_Themes"
+},
+"type": "TURN_START",
+"ability": { "showInCharacterSheet": true },
+"targets": [
+	{ "template": "SELF" }
+],
+"outcomes": [
+	{
+		"class": "Aspects",
+		"addAspects": [
+			{ "id": "SETstationaryBlock", "value": "1" }
+		]
+	}
+]
+}

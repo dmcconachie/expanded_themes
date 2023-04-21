@@ -1,0 +1,53 @@
+{
+"id": "SETshadowPath",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "shadow/SETshadowPath",
+	"author": "Patrick Belanger",
+	"tags": [ "sneaky" ]
+},
+"type": "STEP_OFF",
+"verb": "MANEUVER",
+"ability": { "priority": "28" },
+"targets": [
+	{ "template": "SELF" },
+	{
+		"template": "TILE",
+		"STUB": "Any existing celestial region on this tile?",
+		"type": "ANY_STATUS",
+		"choose": "ANY",
+		"aspectValues": [
+			{ "id": "shadowRegion*" }
+		],
+		"range": "0"
+	}
+],
+"outcomes": [
+	{
+		"class": "Test",
+		"value": "1d3",
+		"threshold": "3",
+		"onPass": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "IfRolesArePresent",
+					"rolesArePresent": [ "focus" ],
+					"then": { "class": "Delete", "target": "focus" }
+				},
+				{
+					"class": "Spawn",
+					"forceSpawn": true,
+					"createEntity": {
+						"query": { "type": "TRAP" },
+						"addAspects": [
+							{ "id": "shadowRegion", "value": "2", "atTiles": "self" }
+						],
+						"setLocation": true
+					}
+				}
+			]
+		}
+	}
+]
+}

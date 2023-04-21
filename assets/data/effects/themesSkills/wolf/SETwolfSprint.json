@@ -1,0 +1,54 @@
+{
+"id": "SETwolfSprint",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/wolf/SETwolfSprint",
+	"modId": "Smokers_Expanded_Themes",
+	"tags": [ "sneaky", "free" ]
+},
+"type": "ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "bearhug",
+	
+	"priority": "99",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"numUses": "1+self.theme_wolf_upgrade",
+	"cooldown": "oncePerTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "themePiece_wolf_rightLeg", "alive", "SELF", "themePiece_wolf_leftLeg" ]
+	},
+	{
+		"role": "target",
+		"template": "SELF",
+		"showAnyway": true,
+		"aspectValues": [
+			{ "id": "immobilized*", "forbidden": true }
+		]
+	},
+	{
+		"template": "PATH",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"rangeFeedback": "WALKABLE",
+			"suggestionFeedback": "PATH_SEGMENT",
+			"hoverFeedback": "PATH_TARGET"
+		},
+		"relativeTo": "target",
+		"range": "SPEED+0.45"
+	},
+	{
+		"template": "SELF",
+		"missionFeedback": { "hoverFeedback": "WALLING" },
+		"relativeToLocation": "pathMotion"
+	}
+],
+"outcomes": [
+	{ "class": "MoveEntity", "alongPath": "pathMotion" }
+]
+}

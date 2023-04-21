@@ -1,0 +1,149 @@
+{
+	"id": "frost",
+	"name": "Frost",
+	"blurb": "Winterlock's warning to the firewatching world.",
+
+	"pieces": [
+		{
+			"id": "frostStreak",
+			"name": "Everfrost",
+			"blurb": "This streak of <mf:his/her/their> hair runs evercold, and shines a frosty, prettyish blue.",
+			"slots": ["head"],
+			"effects": [
+				"SETfrostCone",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6|SETfrostCone",
+				"ability_advanceTheme_frost",
+				"ability_advanceTheme_frost_skin",
+				"ability_advanceTheme_frost_armLeft",
+				"ability_advanceTheme_frost_armRight",
+				"ability_advanceTheme_frost_legLeft",
+				"ability_advanceTheme_frost_legRight",
+				"ability_advanceTheme_frost_pet"
+			],
+			"extraAspects": [
+				"humanSkin_overrideStreakColor|bac7ff|1.0",
+				"humanSkin_overrideStreakValue|1.0",
+				"humanSkin_overrideHairColor|bef4fb|1",
+				"themeAbility_ranged",
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
+			],
+			"stats":{ "CHARISMA": "10" }
+		},
+		{
+			"id": "skin",
+			"name": "Frost Skin",
+			"blurb": "<self>'s flesh is made of gleaming ice shards.",
+			"slots": ["skin"],
+			"extraAspects": ["humanSkin_overrideSkinColor|edf7fe|edf7fe|edf7fe|1"],
+			"effects": ["SETshardsSkin"],
+			"stats": {"ARMOR": 0.5},
+			"layers": [
+				{
+					"name": "wings_gem",
+					"tint": "hair",
+					"tintAmount": 0.8,
+					"depth": 1100
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Frost Leg (L)",
+			"blurb": "<self>'s left leg is made of gleaming ice shards.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETfrostWall"],
+			"stats": {"SPEED": 1.5, "ARMOR": 0.5},
+			"extraAspects": ["immuneToKnockback"],
+			"layers": [
+				{
+					"name": "replaceLegL_gemA_tint1",
+					"tint": "hair",
+					"depth": 1101
+				},
+				{
+					"name": "replaceLegL_gemB_untinted",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Frost Leg (R)",
+			"blurb": "<self>'s right leg is made of gleaming ice shards.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETfrostWall"],
+			"stats": {"SPEED": 1.5, "ARMOR": 0.5},
+			"extraAspects": ["immuneToKnockback"],
+			"layers": [
+				{
+					"name": "replaceLegR_gemA_tint1",
+					"tint": "hair",
+					"depth": 1101
+				},
+				{
+					"name": "replaceLegR_gemB_untinted",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Frost Arm (L)",
+			"blurb": "<self>'s left arm spreads out into an ice shield.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": [
+				"shieldBlocks1DamageFromNonFlankingAttacks",
+				"SETfrostShield",
+				"SEOshieldGuard",
+				"shieldIce_freeze",
+				"SETfrostRain",
+				"defaultSecondaryMoveFeedbackNoLOS|8|SETfrostRain"
+			],
+			"stats": {"BLOCK": 10},
+			"layers": [
+				{
+					"name": "replaceArmL_frostA_tint1",
+					"tint": "hair",
+					"depth": 1101
+				},
+				{
+					"name": "replaceArmL_gemB_untinted",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Frost Arm (R)",
+			"blurb": "<self>'s right arm tapers into a craggy ice sword.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETfrostSword", "SETfrostRain"],
+			"stats": {"MELEE_ACCURACY": 10, "BLOCK": 10},
+			"layers": [
+				{
+					"name": "replaceArmR_gemA_tint1",
+					"tint": "hair",
+					"depth": 1101
+				},
+				{
+					"name": "replaceArmR_gemB_untinted",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Ice Worm",
+			"blurb": "<self> takes care of the little guy.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee2"],
+			"layers": [
+				{"name": "pet_iceWorm", "depth": 9000}
+			]
+		}
+	]
+}

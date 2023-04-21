@@ -1,0 +1,188 @@
+{
+"id": "SETmountainOnslaught",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/mountain/SETmountainOnslaught",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "2060",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "crush",
+	
+	"priority": "17",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"numUses": "1+self.theme_deepistMole_upgrade",
+	"abilityElementType": "stone"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [
+			"themePiece_deepistMole_rightArm",
+			"alive",
+			"SELF",
+			"themePiece_deepistMole_leftArm"
+		],
+		"aspectValues": [
+			{ "id": "pinned", "forbidden": true }
+		]
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "PATH_TARGET",
+			"applyRoleFootprint": "self",
+			"showMovementFeedback": true
+		},
+		"minRange": "0.9",
+		"range": "(6.6+self.themePiece_deepistMole_leftLeg)+self.themePiece_deepistMole_rightLeg",
+		"lineOfSight": "TERRAIN_AND_GAPS",
+		"tileFilter": "validMoveEnd",
+		"roleMustFit": "self",
+		"footprintWithinRange": "self"
+	},
+	{
+		"role": "hook",
+		"template": "TILE",
+		"STUB": "All tiles the entity will end up on (used to prevent knocking enemies back onto the tile we're moving to).",
+		"choose": "ANY",
+		"range": "0",
+		"relativeToLocation": "targetTile"
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"choose": "ANY",
+		"missionFeedback": {
+			"orientTo": "self",
+			"suggestionScript": "figures.attackSuggestion",
+			"hoverScript": "figures.attackHovered",
+			"rangeFeedback": "ATTACK_SUGGESTION",
+			"suggestionFeedback": "ATTACK_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"manifold": {
+			"from": "self",
+			"to": "targetTile",
+			"thickness": [ "2", "2" ],
+			"useSourceFootprintForDestination": true
+		},
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": null,
+		"relativeToLocation": "targetTile"
+	},
+	{
+		"role": "volunteer2",
+		"template": "ADJACENT_SCENERY",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"manifold": {
+			"from": "self",
+			"to": "targetTile",
+			"thickness": [ "2", "2" ],
+			"useSourceFootprintForDestination": true
+		},
+		"range": "1.6"
+	},
+	{
+		"role": "volunteer3",
+		"template": "ADJACENT_SCENERY",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"range": "0",
+		"relativeToLocation": "targetTile"
+	},
+	{
+		"role": "volunteer",
+		"template": "ADJACENT_SCENERY",
+		"choose": "ANY",
+		"fromRoles": [ "volunteer2", "volunteer3" ],
+		"range": null
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"attackAnimationType": "melee",
+		"showAbilityName": "ifEnemy",
+		"timingOverride": { "swingTime": "1400", "attackTime": "0", "afterAnimationTime": "200" },
+		"particles": [
+			{
+				"script": "chargeDust",
+				"setPosition": "self",
+				"setPosition2": "targetTile",
+				"delay": -1
+			},
+			{
+				"script": "chargeDebris",
+				"setPosition": "self",
+				"setPosition2": "targetTile",
+				"delay": -1
+			}
+		],
+		"audioOverride": { "attackHitCue": "Characters/DefaultHuman/Ability_Rock" },
+		"attackerAnimationOverride": "",
+		"cameraSnapToStartPositionOnEnd": false,
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"always": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "MoveEntity",
+					"directlyToTile": "targetTile",
+					"ignoreEntitiesOnTile": true,
+					"animationType": "charge"
+				}
+			]
+		},
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "((1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepistMole_upgrade))))+self.theme_deepistMole_upgrade)+target.distanceTo.targetTile",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "BranchAbility",
+						"target": "self",
+						"targetRole": "defender",
+						"branchAbility": "stuntEffect_stone"
+					}
+				},
+				{
+					"class": "Aspects",
+					"addAspects": [
+						{ "id": "hobbled", "value": "1" }
+					]
+				},
+				{
+					"class": "MatchTarget",
+					"abilityTarget": {
+						"template": "TILE",
+						"pathFrom": "self",
+						"pathTo": "defender",
+						"matchSpecial": "knockBackDestination",
+						"relativeTo": "defender",
+						"notAlreadyMatchedAs": [ "hook" ],
+						"range": "1.6",
+						"lineOfSight": "ANY_COVER",
+						"tileFilter": "parentLocationOrValidMoveEnd",
+						"roleMustFit": "defender"
+					}
+				},
+				{ "class": "MoveEntity", "directlyToTile": "focus" },
+				{ "class": "ClearRole", "role": "focus" }
+			]
+		}
+	}
+]
+}

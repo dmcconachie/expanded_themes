@@ -1,0 +1,85 @@
+{
+"id": "SETgorgonTentacle",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/gorgon/SETgorgonTentacle",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Smoker",
+	"aiPriority": "10",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "thornlash",
+	"priority": "17",
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_gorgon_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "focus" }
+	},
+	{
+		"template": "TILE",
+		"missionFeedback": { "rangeFeedback": "ATTACK_RANGE", "hoverFeedback": "ATTACK_HOVER" },
+		"minRange": "0.9",
+		"range": "4.6+self.BONUS_RANGE",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "floorForbidAlly"
+	},
+	{
+		"template": "UNIT_AT_TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"hoverScript": "figures.attackHovered",
+			"rangeFeedback": "ATTACK_RANGE",
+			"suggestionFeedback": "ATTACK_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"manifold": { "from": "self", "to": "focus", "excludeSource": true, "noGapLine": true },
+		"range": null
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"attackAnimationType": "ranged",
+		"showAbilityName": "ifEnemy",
+		"particles": [
+			{ "script": "noxiousTongue", "setPosition": "self", "setPosition2": "focus" },
+			{
+				"script": "gorgonCorruptionTrail",
+				"setPosition": "self",
+				"setPosition2": "focus"
+			}
+		],
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"separateRolls": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gorgon_upgrade))))+self.theme_gorgon_upgrade",
+					"shred": "2",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "Aspects",
+						"addAspects": [
+							{ "id": "pinned", "value": "1" }
+						]
+					}
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gorgon_upgrade))))+self.theme_gorgon_upgrade"
+		}
+	}
+]
+}

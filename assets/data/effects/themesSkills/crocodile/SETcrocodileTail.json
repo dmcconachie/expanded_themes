@@ -1,0 +1,174 @@
+{
+"id": "SETcrocodileTail",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/crocodile/SETcrocodileTail",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "2060",
+	"tags": [ "melee", "free" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "bonespear",
+	"priority": "10",
+	"customSpecialAnimationEffect": {
+		"parameters": [ "target.distanceTo.targetTile" ]
+	},
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_drauvenWings_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"aspectValues": [
+			{ "id": "immuneToKnockback", "forbidden": true }
+		],
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES"
+	},
+	{
+		"template": "TILE",
+		"matchSpecial": "footprintOrigin",
+		"relativeTo": "target",
+		"range": null
+	},
+	{
+		"role": "foes",
+		"template": "ADJACENT_UNIT",
+		"STUB": "Get all foes, for use in volunteer2",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"aspects": [ "alive", "ENEMY" ],
+		"range": "40"
+	},
+	{
+		"role": "volunteer",
+		"template": "TILE",
+		"STUB": "Upgraded ability, can match tiles with foes on it",
+		"choose": "ANY",
+		"relativeTo": "target",
+		"notAlreadyMatchedAs": [ "focus" ],
+		"range": "4.6",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "validMoveEnd",
+		"roleMustFit": "target",
+		"footprintWithinRange": "target",
+		"footprintWithinRangeCompletely": true,
+		"spawnEntityIgnore": [ "target", "foes" ]
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"hoverScript": "figures.directionalTileHoverHelpful",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION_SHINE",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target",
+			"feedbackSource": "target",
+			"showMovementFeedback": true,
+			"movementFeedbackRoleOverride": "target"
+		},
+		"fromRoles": [ "volunteer" ],
+		"range": null
+	},
+	{
+		"role": "monster",
+		"template": "ADJACENT_ALLY",
+		"STUB": "For upgrade, get any enemies on the tile",
+		"choose": "ANY",
+		"relativeTo": "target",
+		"range": "0.1",
+		"relativeToLocation": "targetTile"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"stopBlockingTime": "afterHitAnimation",
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"wield": "ultraHeavy",
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(1d6+floor(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_drauvenWings_upgrade)))+self.theme_drauvenWings_upgrade",
+					"weapon": null
+				},
+				{
+					"class": "MoveEntity",
+					"directlyToTile": "targetTile",
+					"recordMoveDistanceAs": "knockbackDistance",
+					"ignoreEntitiesOnTile": true
+				},
+				{
+					"class": "IfRolesArePresent",
+					"rolesArePresent": [ "monster" ],
+					"then": {
+						"class": "AttackRoll",
+						"defender": "monster",
+						"intermediateRole": "target",
+						"attackAnimationType": "ranged",
+						"timingOverride": { "beforeAnimationTime": "0", "swingTime": "0", "attackTime": "0" },
+						"flankMarkOrigin": "target",
+						"flankingBoostsAttackRoll": false,
+						"always": {
+							"class": "Aspects",
+							"target": "target",
+							"addAspects": [
+								{ "id": "hobbled", "value": "1" }
+							]
+						},
+						"onHit": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "MatchTarget",
+									"abilityTarget": {
+										"role": "otherSite",
+										"template": "TILE",
+										"choose": "ONE_CLOSEST",
+										"relativeTo": "defender",
+										"range": "6",
+										"lineOfSight": "TERRAIN_ONLY",
+										"tileFilter": "validMoveEnd",
+										"roleMustFit": "defender",
+										"footprintWithinRange": "defender"
+									}
+								},
+								{
+									"class": "Damage",
+									"amount": "(1d6+floor(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_drauvenWings_upgrade)))+self.theme_drauvenWings_upgrade",
+									"weapon": null,
+									"showInTooltip": false
+								},
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{ "id": "hobbled", "value": "1" }
+									]
+								},
+								{ "class": "MoveEntity", "target": "defender", "directlyToTile": "otherSite" },
+								{ "class": "ClearRole", "role": "otherSite" }
+							]
+						}
+					}
+				}
+			]
+		},
+		"onMiss": { "class": "DoAll" }
+	}
+]
+}

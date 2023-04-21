@@ -1,0 +1,86 @@
+{
+"id": "SETcrocodileFrenzy",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/crocodile/SETcrocodileFrenzy",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Smoker",
+	"aiPriority": "1900",
+	"tags": [ "melee" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "bearhug",
+	
+	"priority": "17",
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_drauvenWings_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
+		"missionFeedback": { "orientTo": "target" },
+		"aspects": [
+			"themePiece_drauvenWings_rightArm",
+			"alive",
+			"SELF",
+			"themePiece_drauvenWings_leftArm"
+		]
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "1.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_ENEMIES"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"audioOverride": {
+			"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+		},
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "self.MELEE_ACCURACY+20",
+		"applyCover": true,
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Damage",
+					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_drauvenWings_upgrade))))+self.theme_drauvenWings_upgrade",
+					"overrideStuntDamage": "2",
+					"onStunt": {
+						"class": "BranchAbility",
+						"target": "self",
+						"targetRole": "defender",
+						"branchAbility": "stuntEffect_water"
+					}
+				},
+				{
+					"class": "Test",
+					"target": "target",
+					"value": "pinned",
+					"threshold": "1",
+					"onPass": {
+						"class": "Damage",
+						"target": "target",
+						"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_drauvenWings_upgrade))))+self.theme_drauvenWings_upgrade"
+					}
+				}
+			]
+		},
+		"onHitCover": {
+			"class": "Damage",
+			"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_drauvenWings_upgrade))))+self.theme_drauvenWings_upgrade"
+		}
+	}
+]
+}

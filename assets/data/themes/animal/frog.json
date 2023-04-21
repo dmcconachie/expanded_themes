@@ -1,0 +1,235 @@
+{
+	"id": "frog",
+	"name": "Frogtouched",
+	"blurb": "<self>'s has been given a frog touch.",
+
+	"pieces": [
+		{
+			"id": "head",
+			"name": "Frog Head",
+			"blurb": "<self> can make a loud croak?",
+			"slots": ["head"],
+			"replaces": ["head"],
+			"effects": [
+				"SETfrogTongue",
+				"defaultSecondaryMoveFeedback|4.6|SETfrogTongue",
+				"ability_advanceTheme_frog",
+				"ability_advanceTheme_frog_head",
+				"ability_advanceTheme_frog_torso",
+				"ability_advanceTheme_frog_armLeft",
+				"ability_advanceTheme_frog_armRight",
+				"ability_advanceTheme_frog_legLeft",
+				"ability_advanceTheme_frog_legRight",
+				"ability_advanceTheme_frog_pet"
+			],
+			"layers": [
+				{
+					"name": "replaceHead_frogA_untinted",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_open",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_open",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_surprised",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["surprised", "scared"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_surprised",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["surprised", "scared"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_skeptical",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["skeptical", "dubious"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_skeptical",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["skeptical", "dubious"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_angry",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_angry",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_happy",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["happy"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_happy",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["happy"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_joy",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["joke", "joy"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_joy",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["joke", "joy"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_grim",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["grim"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_grim",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["grim"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_sad",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["sad"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_sad",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["sad"]
+				},
+				{
+					"name": "replaceHead_frogA_untinted_hit",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["hit", "dead"]
+				},
+				{
+					"name": "replaceHead_frogB_tintHair_hit",
+					"tint": "hair",
+					"depth": 3001,
+					"headOffset": true,
+					"facialExpression": ["hit", "dead"]
+				}
+			]
+		},
+		{
+      "id": "torso",
+      "name": "Frog Body",
+      "blurb": "<self>'s body is poisonous",
+      "slots": ["torso"],
+      "extraAspects": ["humanSkin_overrideSkinColor|8baa21|8baa21|8baa21|1"],
+      "effects": ["SETfrogPoisonSkin"]
+    },
+		{
+			"id": "leftLeg",
+			"name": "Frog Leg (L)",
+			"blurb": "<self>'s left leg is frogish.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETfrogJump"],
+			"stats": {"SPEED": 1.7},
+			"layers": [
+				{
+					"name": "replaceLegL_frog",
+					"depth": 1106
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Frog Leg (R)",
+			"blurb": "<self>'s right leg is frogish.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETfrogJump"],
+			"stats": {"SPEED": 1.7},
+			"layers": [
+				{
+					"name": "replaceLegR_frog",
+					"depth": 1103
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Frog Arm (L)",
+			"blurb": "<self>'s left arm is frogish.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETfrogInvigoration1", "SETfrogDoublePoison"],
+			"layers": [
+				{
+					"name": "replaceArmL_frog",
+					"depth": 1102
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Frog Arm (R)",
+			"blurb": "<self>'s right arm is frogish.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETfrogPoison1", "SETfrogDoublePoison"],
+			"layers": [
+				{
+					"name": "replaceArmR_frog",
+					"depth": 1202
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Frog",
+			"blurb": "It's a little mean-looking, but it seems to like you.",
+			"slots": ["pet"],
+			"effects": ["SETpetPoison"],
+			"layers": [
+				{"name": "pet_frog", "depth": 9000}
+			]
+		}
+	]
+}

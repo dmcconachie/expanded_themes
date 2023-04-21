@@ -1,0 +1,69 @@
+{
+"budget": "700",
+"emitterLifetime": "1",
+"loopLimit": "1",
+"blendStyle": "addPremultiplied",
+"rules": [
+	{
+		"class": "Once",
+		"when": "0",
+		"doAll": [
+			{
+				"class": "Emit",
+				"numberOfParticles": "2",
+				"image": [ "particle_glowLarge" ],
+				"size": "[1,2]",
+				"killTime": "[0.8,1]",
+				"initializeWith": [
+					{
+						"class": "SetVelocity",
+						"vx": "((5*e.dx)*[0.3,1])+[-1.2,1.2]",
+						"vy": "((5*e.dy)*[0.3,1])+[-1.2,1.2]",
+						"vz": "[-5,1]"
+					},
+					{
+						"class": "SetPosition",
+						"x": "[-0.3,0.3]",
+						"y": "[-0.3,0.3]",
+						"z": "-0.5"
+					}
+				]
+			},
+			{
+				"class": "Emit",
+				"numberOfParticles": "10",
+				"image": [ "particle_dot1", "particle_dot2", "particle_dot3", "particle_dot4" ],
+				"size": "0.5",
+				"killTime": "[0.8,1]",
+				"initializeWith": [
+					{
+						"class": "SetColor",
+						"color": { "r": "2", "g": "3", "b": "4", "a": "life~{1|0}" }
+					},
+					{
+						"class": "SetVelocity",
+						"vx": "((1*e.dx)*[0.3,1])+[-1.2,1.2]",
+						"vy": "((1*e.dy)*[0.3,1])+[-1.2,1.2]",
+						"vz": "[-7,1]"
+					},
+					{
+						"class": "SetPosition",
+						"x": "[-0.3,0.3]",
+						"y": "[-0.3,0.3]",
+						"z": "-0.5"
+					}
+				]
+			}
+		]
+	},
+	{ "class": "Lifetime" },
+	{ "class": "Accelerate", "az": "8" },
+	{
+		"class": "SetColor",
+		"color": { "r": null, "g": null, "b": null, "a": "life~{1|0.80000001:1|0}" }
+	},
+	{ "class": "BasicPhysics" },
+	{ "class": "Bounce", "heightDecayOnBounce": "0.2", "speedDecayOnBounce": "0.8" },
+	{ "class": "Drag", "vSquaredComponent": "0.02*pow(1.5,size)" }
+]
+}

@@ -1,0 +1,43 @@
+{
+"id": "SETsplinterskin",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "sharedSkills/SETsplinterskin",
+	"modId": "Smokers_Expanded_Themes"
+},
+"type": "DAMAGED",
+"verb": "ATTACK",
+"ability": {  "priority": "49", "cooldown": "oncePerTurn" },
+"targets": [
+	{ "template": "SELF" },
+	{
+		"template": "ADJACENT_UNIT",
+		"choose": "ALL",
+		"showAnyway": true,
+		"aspects": [ "alive", "ENEMY" ],
+		"minRange": "1",
+		"range": "1.6",
+		"lineOfSight": "TERRAIN_ONLY"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"attackAnimationType": "none",
+		"showAbilityName": "always",
+		"timingOverride": { "beforeAnimationTime": "0.1", "swingTime": "0" },
+		"particles": [
+			{ "script": "Splinterblast" }
+		],
+		"audioOverride": { "attackStartCue": "Characters/Default/Ability_Arches", "attackHitCue": "" },
+		"attackerAnimationOverride": "",
+		"onHit": {
+			"class": "Damage",
+			"target": "defender",
+			"amount": "1",
+			"type": "TRUE",
+			"showInTooltip": false
+		}
+	}
+]
+}

@@ -1,0 +1,193 @@
+{
+	"id": "deepist",
+	"name": "Mark of the Bull",
+	"blurb": "<self> has been marked by the bull spirit.",
+
+	"pieces": [
+		{
+			"id": "head",
+			"name": "Horns",
+			"blurb": "<self>'s has grown horns.",
+			"slots": ["head"],
+			"extraAspects": [],
+			"effects": [
+				"SETbullHorns",
+				"ability_advanceTheme_deepist",
+				"ability_advanceTheme_deepist_head",
+				"ability_advanceTheme_deepist_torso",
+				"ability_advanceTheme_deepist_armLeft",
+				"ability_advanceTheme_deepist_armRight",
+				"ability_advanceTheme_deepist_legLeft",
+				"ability_advanceTheme_deepist_legRight",
+				"ability_advanceTheme_deepist_pet"
+			],
+			"layers": [
+				{
+					"name": "replaceHead_deepistMole",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 4010,
+					"headOffset": true,
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_deepistMole_horns",
+					"depth": 4011,
+					"headOffset": true,
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "face_deepistMole_horns",
+					"depth": 4011,
+					"headOffset": true,
+					"ifOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_deepistMole_eye",
+					"depth": 4011,
+					"headOffset": true,
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceNeck_wolf",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 3999,
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				}
+			]
+		},
+		{
+			"id": "bullHead",
+			"name": "Bull Head",
+			"blurb": "<self>'s head is that of a bull.",
+			"canBeAwardedRandomly": false,
+			"slots": ["skin"],
+			"replaces": ["head"],
+			"stats": {"HEALTH": 1},
+			"effects": ["SETbullHorns"],
+			"layers": [
+				{
+					"name": "replaceHead_deepistMole",
+					"tint": "hair",
+					"tintAmount": 0.75,
+					"depth": 4010,
+					"headOffset": true
+				},
+				{
+					"name": "replaceHead_deepistMole_horns",
+					"depth": 4011,
+					"headOffset": true
+				},
+				{
+					"name": "replaceHead_deepistMole_eye",
+					"depth": 4011,
+					"headOffset": true
+				},
+				{
+					"name": "replaceNeck_wolf",
+					"tint": "hair",
+					"tintAmount": 0.85,
+					"depth": 3999
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Bull Body",
+			"blurb": "<self> is wholly given over to the beast.",
+			"slots": ["torso"],
+			"replaces": ["torso"],
+      "effects": ["SETbullEnrage"],
+      "stats": {"HEALTH": 2},
+			"layers": [
+				{
+					"name": "replaceTorso_wolfA_tint",
+					"tint": "hair",
+					"depth": 1211
+				},
+				{
+					"name": "replaceTorso_wolfB_untinted",
+					"depth": 1212
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Bull Leg (L)",
+			"blurb": "<self>'s left leg is bestial.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETbullSprint"],
+			"stats": {"SPEED": 2},
+			"layers": [
+				{
+					"name": "replaceLegL_deepistMoleA_tint",
+					"tint": "hair",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Bull Leg (R)",
+			"blurb": "<self>'s right leg is bestial.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETbullSprint"],
+			"stats": {"SPEED": 2},
+			"layers": [
+				{
+					"name": "replaceLegR_deepistMoleA_tint",
+					"tint": "hair",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Bull Arm (L)",
+			"blurb": "<self>'s left arm is bestial.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"stats": {},
+			"effects": ["SETbullPunch2", "SETbullOnslaught"],
+			"layers": [
+				{
+					"name": "replaceArmL_deepistMoleA_tint",
+					"tint": "hair",
+					"depth": 1201
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Bull Arm (R)",
+			"blurb": "<self>'s right arm is bestial.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"stats": {},
+			"effects": ["SETbullPunch1", "SETbullOnslaught"],
+			"layers": [
+				{
+					"name": "replaceArmR_deepistMoleA_tint",
+					"tint": "hair",
+					"depth": 1201
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Bull Calf",
+			"blurb": "<self> takes care of the little guy until it can fend for itself.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee"],
+			"layers": [
+				{
+					"name": "pet_babyBull",
+					"depth": 9000
+				}
+			]
+		}
+	]
+}

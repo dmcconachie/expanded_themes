@@ -1,0 +1,63 @@
+{
+"id": "SETtreeWall",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/tree/SETtreeWall",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "-1",
+	"tags": [ "sneaky" ]
+},
+"type": "ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "deepRoots",
+	
+	"priority": "77",
+	"numUses": "1+self.theme_tree_upgrade",
+	"cooldown": "oncePerTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "alive", "SELF", "themePiece_tree_rightLeg", "themePiece_tree_leftLeg" ]
+	},
+	{
+		"role": "target",
+		"template": "SELF",
+		"showAnyway": true,
+		"fromRoles": [ "self" ],
+		"aspectValues": [
+			{ "id": "SETbuff_Wall", "forbidden": true }
+		]
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"defender": null,
+		"intermediateRole": "self",
+		"attackAnimationType": "none",
+		"showAbilityName": "ifEnemy",
+		"stopBlockingTime": "noBlocking",
+		"timingOverride": { "beforeAnimationTime": "0", "afterAnimationTime": "0" },
+		"particles": [
+			{ "script": "RockGroundExplosion2", "setPosition": "target" },
+			{ "script": "stalwart", "setPosition": "target" },
+			{ "script": "smokeBlast", "setPosition": "target" }
+		],
+		"audioOverride": { "attackInterfusionStartCue": "Characters/DefaultHuman/Ability_Rock" },
+		"always": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "Aspects",
+					"addAspects": [
+						{ "id": "SETbuff_Wall", "value": "1" }
+					]
+				}
+			]
+		}
+	}
+]
+}

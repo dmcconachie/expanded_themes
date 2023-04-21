@@ -1,0 +1,65 @@
+{
+"id": "SETthunderStomp",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/storm/SETthunderStomp",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Jackson Wagner",
+	"aiPriority": "1000+(100*COUNT.target)",
+	"tags": [ "okToMarkDone", "free" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "chaosWhorl",
+	"priority": "10",
+	"extraUI": {
+		"overrideRangeShown": "((0.6+(self.POTENCY/3))+self.themePiece_storm_rightLeg)+self.themePiece_storm_leftLeg"
+	},
+	"showDescriptionInTooltip": true,
+	"cooldown": "everyOtherTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" }
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"choose": "ANY",
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "((0.6+(self.POTENCY/3))+self.themePiece_storm_rightLeg)+self.themePiece_storm_leftLeg",
+		"relativeToLocation": "targetTile"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"target": "self",
+		"attackAnimationType": "melee",
+		"minimumBlockTime": "300",
+		"particles": [
+			{ "script": "shockwave", "setPosition": "self", "delay": -0.25 },
+			{ "script": "RockGroundExplosion", "setPosition": "self", "delay": -0.25 },
+			{ "script": "RockGroundExplosion2", "setPosition": "self", "delay": -0.25 }
+		],
+		"audioOverride": {
+			"attackStartCue": "Characters/Theme/Lightning/lightningShoot",
+			"attackHitCue": "",
+			"attackDodgedCue": "",
+			"attackBlockedCue": ""
+		},
+		"attackerAnimationOverride": "figures.swapWeapon",
+		"flankingBoostsAttackRoll": false,
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "40+(self.STUNT_CHANCE/5)",
+		"separateRolls": true,
+		"onHit": {
+			"class": "Aspects",
+			"addAspects": [
+				{ "id": "senseless", "value": "1" }
+			]
+		}
+	}
+]
+}

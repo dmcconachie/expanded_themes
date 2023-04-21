@@ -1,0 +1,54 @@
+{
+"id": "SETfoxSprint",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "fox/SETfoxSprint",
+	"modId": "Smokers_Expanded_Themes",
+	"tags": [ "sneaky" ]
+},
+"type": "ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "bearhug",
+	"category": "movement",
+	"priority": "99",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_fox_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "themePiece_fox_rightLeg", "alive", "themePiece_fox_leftLeg", "SELF" ]
+	},
+	{
+		"role": "target",
+		"template": "SELF",
+		"showAnyway": true,
+		"aspectValues": [
+			{ "id": "immobilized*", "forbidden": true }
+		]
+	},
+	{
+		"template": "PATH",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"rangeFeedback": "WALKABLE",
+			"suggestionFeedback": "PATH_SEGMENT",
+			"hoverFeedback": "PATH_TARGET"
+		},
+		"relativeTo": "target",
+		"range": "SPEED+0.45"
+	},
+	{
+		"template": "SELF",
+		"missionFeedback": { "hoverFeedback": "WALLING" },
+		"relativeToLocation": "pathMotion"
+	}
+],
+"outcomes": [
+	{ "class": "MoveEntity", "alongPath": "pathMotion" }
+]
+}

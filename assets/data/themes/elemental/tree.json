@@ -1,0 +1,188 @@
+{
+	"id": "tree",
+	"name": "Elmsoul",
+	"blurb": "There's an ancient, Elmish soul inside <self>'s heart.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_treeAutumn",
+			"unlockLegacyAspect": "theme_tree_knockback50Tiles"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "elmsoul",
+			"name": "Photosynthesis",
+			"blurb": "<self> soaks in the light through <self.mf:his/her> wooden skin.",
+			"slots": ["skin"],
+			"extraAspects": ["humanSkin_overrideStreakValue|1"],
+			"effects": [
+				"SETsplinterskin",
+				"ability_advanceTheme_tree",
+				"ability_advanceTheme_tree_head",
+				"ability_advanceTheme_tree_armLeft",
+				"ability_advanceTheme_tree_armRight",
+				"ability_advanceTheme_tree_legLeft",
+				"ability_advanceTheme_tree_legRight",
+				"ability_advanceTheme_tree_wings",
+				"ability_advanceTheme_tree_shoulderPet"
+			],
+			"stats": {"ARMOR": 0.5, "RECOVERY_RATE": 5},
+			"themeSkinSpecificAspects": [
+				{
+					"hasAspect": null,
+					"applyAspect": "humanSkin_overrideSkinColor|d0ea92|d0ea92|d0ea92|1"
+				},
+				{
+					"hasAspect": "themeSkin_treeAutumn",
+					"applyAspect": "humanSkin_overrideSkinColor|9e7d57|9e7d57|9e7d57|1"
+				},
+				{
+					"hasAspect": null,
+					"applyAspect": "humanSkin_overrideStreakColor|00ff00|1.0"
+				},
+				{
+					"hasAspect": "themeSkin_treeAutumn",
+					"applyAspect": "humanSkin_overrideStreakColor|fddd4e|1.0"
+				}
+			]
+		},
+		{
+			"id": "head",
+			"name": "Tree Head",
+			"blurb": "<self> breathes life from the sun and sky.",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"stats": {"RETIREMENT_AGE": 10},
+			"effects": ["SETtreeSplinter"],
+			"layers": [
+				{
+					"name": "head_gorgonColorM_green2",
+					"depth": 4010,
+					"headOffset": true,
+					"rigMode": "maleHead"
+				},
+				{
+					"name": "head_gorgonColorF_green2",
+					"depth": 4010,
+					"headOffset": true,
+					"rigMode": "femaleHead"
+				}
+			]
+		},
+		{
+			"id": "wings",
+			"name": "Elmsoul Lianas",
+			"blurb": "Branches with lianas grow from <self>'s back.",
+			"slots": ["wings"],
+			"effects": ["SETtreeEntangle"],
+			"layers": [
+				{
+					"name": "wingsTree",
+					"depth": 1,
+					"ifNoOwnerAspect": "themeSkin_treeAutumn"
+				},
+				{
+					"name": "wingsTreeAutumn",
+					"depth": 1,
+					"ifOwnerAspect": "themeSkin_treeAutumn"
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Elmsoul Leg (L)",
+			"blurb": "<self>'s left leg is treeish.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETtreeWall"],
+			"stats": {"SPEED": 0.9, "ARMOR": 0.5},
+			"extraAspects": ["immuneToKnockback"],
+			"layers": [
+				{
+					"name": "replaceLegL_tree",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_treeAutumn"
+				},
+				{
+					"name": "replaceLegL_treeAutumn",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_treeAutumn"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Elmsoul Leg (R)",
+			"blurb": "<self>'s right leg is treeish.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": [ "SETtreeWall"],
+			"stats": {"SPEED": 0.9, "ARMOR": 0.5},
+			"extraAspects": ["immuneToKnockback"],
+			"layers": [
+				{
+					"name": "replaceLegR_tree",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_treeAutumn"
+				},
+				{
+					"name": "replaceLegR_treeAutumn",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_treeAutumn"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Elmsoul Arm (L)",
+			"blurb": "<self>'s left arm is treeish.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETtreeBash2", "SETtreeTree"],
+			"layers": [
+				{
+					"name": "replaceArmL_tree",
+					"depth": 3101,
+					"ifNoOwnerAspect": "themeSkin_treeAutumn"
+				},
+				{
+					"name": "replaceArmL_treeAutumn",
+					"depth": 3101,
+					"ifOwnerAspect": "themeSkin_treeAutumn"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Elmsoul Arm (R)",
+			"blurb": "<self>'s right arm is treeish.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETtreeBash1", "SETtreeTree"],
+			"layers": [
+				{
+					"name": "replaceArmR_tree",
+					"depth": 3101,
+					"ifNoOwnerAspect": "themeSkin_treeAutumn"
+				},
+				{
+					"name": "replaceArmR_treeAutumn",
+					"depth": 3101,
+					"ifOwnerAspect": "themeSkin_treeAutumn"
+				}
+			]
+		},
+		{
+			"id": "shoulderPet",
+			"name": "Macaw",
+			"blurb": "This little friend has made your branches his home.",
+			"slots": ["shoulderPet"],
+			"effects": ["SETpetFlankingRanged"],
+			"layers": [
+				{"name": "pet_birdStorm", "depth": 3102}
+			]
+		}
+	]
+}

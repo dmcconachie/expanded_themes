@@ -1,0 +1,212 @@
+[
+{
+	"id": "theme_bear_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_bear_leftArm", "themePiece_bear_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "swipe" }
+},
+{
+	"id": "theme_deepist_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_deepist_leftArm", "themePiece_deepist_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crush" }
+},
+{
+	"id": "theme_drauvenWings_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_drauvenWings_leftArm", "themePiece_drauvenWings_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "claw" }
+},
+{
+	"id": "theme_crow_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_crow_leftArm", "themePiece_crow_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crowClaw" }
+},
+{
+	"id": "theme_fire_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_fire_leftArm", "themePiece_fire_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "fireleash" }
+},
+{
+	"id": "theme_fox_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_fox_leftArm", "themePiece_fox_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "claw" }
+},
+{
+	"id": "theme_frog_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_frog_leftArm", "themePiece_frog_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "frogTongue" }
+},
+{
+	"id": "theme_frost_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_frost_leftArm", "themePiece_frost_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "salvage" }
+},
+{
+	"id": "theme_gorgon_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_gorgon_leftArm", "themePiece_gorgon_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "swipe" }
+},
+{
+	"id": "theme_gorgonStone_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_gorgonStone_leftArm",	"themePiece_gorgonStone_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crush" }
+},
+{
+	"id": "theme_hawk_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_hawk_leftArm", "themePiece_hawk_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crowClaw" }
+},
+{
+	"id": "theme_foothill_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_foothill_leftArm", "themePiece_foothill_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crush" }
+},
+{
+	"id": "theme_gem_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_gem_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "rockShield" }
+},
+{
+	"id": "theme_green_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_green_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "lightning" }
+},
+{
+	"id": "theme_morthagi_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_morthagi_leftArm", "themePiece_morthagi_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "indignance" }
+},
+{
+	"id": "theme_mothWings_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_mothWings_leftArm", "themePiece_mothWings_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "gloamglow" }
+},
+{
+	"id": "theme_deepistMole_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_deepistMole_leftArm", "themePiece_deepistMole_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crush" }
+},
+{
+	"id": "theme_tinyWings_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_tinyWings_leftArm", "themePiece_tinyWings_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crowClaw" }
+},
+{
+	"id": "theme_spellTouched_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_spellTouched_leftArm", "themePiece_spellTouched_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "areaMagic" }
+},
+{
+	"id": "theme_rat_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_rat_leftArm", "themePiece_rat_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "claw" }
+},
+{
+	"id": "theme_scorpion_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_scorpion_leftArm", "themePiece_scorpion_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "sharktrap" }
+},
+{
+	"id": "theme_shadow_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_shadow_leftArm", "themePiece_shadow_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "vinePoison" }
+},
+{
+	"id": "theme_skeleton_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_skeleton_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "bloodrage" }
+},
+{
+	"id": "theme_skunk_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_skunk_leftArm", "themePiece_skunk_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "swipe" }
+},
+{
+	"id": "theme_star_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_star_leftArm", "themePiece_star_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "shootingStar" }
+},
+{
+	"id": "theme_storm_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_storm_leftArm", "themePiece_storm_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "lightning" }
+},
+{
+	"id": "theme_tree_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_tree_leftArm", "themePiece_tree_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crush" }
+},
+{
+	"id": "theme_vine_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_vine_leftArm", "themePiece_vine_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "wrendingVines" }
+},
+{
+	"id": "theme_vultureAcolyte_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_vultureAcolyte_leftArm", "themePiece_vultureAcolyte_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "crowClaw" }
+},
+{
+	"id": "theme_wolf_upgrade",
+	"legacyAbilityChoice": true,
+	"importance": 5,
+	"abilityRequiresOneAspectOf": [ "themePiece_wolf_leftArm", "themePiece_wolf_rightArm" ],
+	"info": { "abilityDeckUsage": "upgrade", "abilityDeckIcon": "claw" }
+}
+]

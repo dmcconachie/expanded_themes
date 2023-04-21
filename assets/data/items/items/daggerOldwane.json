@@ -1,0 +1,36 @@
+{
+"id": "daggerOldwane",
+"canBeCrafted": false,
+"onlySpawnById": true,
+"generateName": false,
+"tier": 3,
+"category": "dagger",
+"slots": [ "MAIN_HAND" ],
+"aspects": [
+	"weapon",
+	"melee",
+	"dagger",
+	"weaponDamage:6",
+	"weaponWield:5",
+	"weaponMaxRange:1.1",
+	"daggerDoubleDamageAfterArmorIfFlanking"
+],
+"ownerAspects": [
+	"attackRange|0|1.1|melee",
+	"oldwanePotencyBonus|4",
+	"oldwaneWardingBonus|2",
+	"weaponAttack_basicMelee",
+	"voiceDagger"
+],
+"layers": [
+	{
+		"name": "item_dagger_oldwane",
+		"scaleX": 0.5,
+		"scaleY": 0.5,
+		"rigUsage": "rigGeneral",
+		"grip": "mainHand",
+		"inactiveGrip": "highBack",
+		"gripOffset": { "x": 82, "y": 89 }
+	}
+]
+}

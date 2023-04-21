@@ -1,0 +1,24 @@
+{
+"id": "SETmostMovementCancelsStationaryStunt",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themeSkills/SETmostMovementCancelsStationaryStunt",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"sort": 3
+},
+"type": "ABILITY_USED",
+"targets": [
+	{ "template": "SELF" },
+	{
+		"template": "ABILITY",
+		"verbIs": [ "MOVE" ]
+	}
+],
+"outcomes": [
+	{
+		"class": "Aspects",
+		"removeAspects": [ "SETstationaryStunt2" ]
+	}
+]
+}

@@ -1,0 +1,55 @@
+{
+"id": "SETfrogInvigoration1",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "frog/SETfrogInvigoration1",
+	"author": "Nate Austin",
+	"tags": [ "okToMarkDone", "free", "sneaky" ]
+},
+"type": "ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "aid",
+	"priority": "72",
+	"numUses": "1+self.theme_frog_upgrade",
+	"cooldown": "oncePerTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"template": "ANY",
+		"type": "UNIT",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"orientTo": "self",
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
+		},
+		"aspects": [ "alive", "ALLY" ],
+		"range": "1.6+self.BONUS_RANGE"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"defender": null,
+		"showAbilityName": "ifEnemy",
+		"particles": [
+			{ "script": "heal", "setPosition": "target" }
+		],
+		"attackerAnimationOverride": "figures.miscAction",
+		"markForFlanking": "never",
+		"always": {
+			"class": "TempHP",
+			"target": "target",
+			"grantTempHp": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_frog_upgrade))))+self.theme_frog_upgrade"
+		}
+	}
+]
+}

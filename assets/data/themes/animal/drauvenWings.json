@@ -1,0 +1,194 @@
+{
+	"id": "drauvenWings",
+	"name": "Drauven Curse",
+	"blurb": "A near dead Drauven cursed you while trying to use their technology, you are slowly becoming one of them.",
+
+	"pieces": [
+		{
+			"id": "wings",
+			"name": "Drauven Wings",
+			"blurb": "Looted off a dead Drauven and repurposed. Fashioned from hide and light wood, with a healthy infusion of magic.",
+			"slots": ["wings"],
+			"stats": {"SPEED": 1.4},
+			"effects": [
+				"ability_advanceTheme_drauvenWings",
+				"ability_advanceTheme_drauvenWings_head",
+				"ability_advanceTheme_drauvenWings_torso",
+				"ability_advanceTheme_drauvenWings_armLeft",
+				"ability_advanceTheme_drauvenWings_armRight",
+				"ability_advanceTheme_drauvenWings_legLeft",
+				"ability_advanceTheme_drauvenWings_legRight",
+				"ability_advanceTheme_drauvenWings_tail",
+				"ability_advanceTheme_drauvenWings_pet"
+			],
+			"extraAspects": ["wingSound"],
+			"layers": [
+				{
+					"name": "wingsDrauven",
+					"depth": 1
+				}
+			]
+		},
+		{
+			"id": "tail",
+			"name": "Drauven Tail",
+			"blurb": "A reptilian tail.",
+			"slots": ["tail"],
+			"effects": ["SETcrocodileTail"],
+			"layers": [
+				{
+					"name": "tailDrauven",
+					"depth": 101
+				}
+			]
+		},
+		{
+			"id": "head",
+			"name": "Drauven Head",
+			"blurb": "A reptilian head",
+			"canBeAwardedRandomly": false,
+			"slots": ["head"],
+			"replaces": ["head"],
+			"effects": ["SETcrocodileBite"],
+			"layers": [
+				{
+					"name": "replaceHead_drauven",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_drauven_open",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_drauven_surprised",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["surprised", "scared"]
+				},
+				{
+					"name": "replaceHead_drauven_skeptical",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["skeptical", "dubious"]
+				},
+				{
+					"name": "replaceHead_drauven_angry",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_drauven_happy",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["happy"]
+				},
+				{
+					"name": "replaceHead_drauven_joy",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["joke", "joy"]
+				},
+				{
+					"name": "replaceHead_drauven_grim",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["grim"]
+				},
+				{
+					"name": "replaceHead_drauven_sad",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["sad"]
+				},
+				{
+					"name": "replaceHead_drauven_hit",
+					"depth": 3000,
+					"headOffset": true,
+					"facialExpression": ["hit", "dead"]
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Drauven Body",
+			"blurb": "<self>'s body has taken on a reptilian form.",
+			"slots": ["torso"],
+			"effects": ["SETstationaryPhysical"],
+			"extraAspects": ["humanSkin_overrideSkinColor|788f3c|788f3c|788f3c|1"],
+			"stats": {"ARMOR": 1}
+		},
+		{
+			"id": "leftLeg",
+			"name": "Drauven Leg (L)",
+			"blurb": "<self>'s left leg is reptilian.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETstationaryMeleeAccuracy"],
+			"stats": {"SPEED": 1.7},
+			"layers": [
+				{
+					"name": "replaceLegL_drauven",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Drauven Leg (R)",
+			"blurb": "<self>'s right leg is reptilian.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETstationaryMeleeAccuracy"],
+			"stats": {"SPEED": 1.7},
+			"layers": [
+				{
+					"name": "replaceLegR_drauven",
+					"depth": 1101
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Drauven Arm (L)",
+			"blurb": "<self>'s left arm is reptilian.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETcrocodileClaw1", "SETcrocodileFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmL_drauven",
+					"depth": 1104
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Drauven Arm (R)",
+			"blurb": "<self>'s right arm is reptilian.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETcrocodileClaw2", "SETcrocodileFrenzy"],
+			"layers": [
+				{
+					"name": "replaceArmR_drauven",
+					"depth": 1104
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Young Crocodile",
+			"blurb": "It's a little mean-looking, but it seems to like you.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee"],
+			"layers": [
+				{"name": "pet_crocodile", "depth": 9000}
+			]
+		}
+	]
+}

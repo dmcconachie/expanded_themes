@@ -1,0 +1,165 @@
+{
+"id": "SETmorthagiCrossbow",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/morthagi/SETmorthagiCrossbow",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Jackson Wagner",
+	"aiPriority": "2000",
+	"tags": [ "ranged", "weapon", "bowTypeAttack" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "ranged",
+	
+	"strictlyBetterThan": [ "basicBranchableMelee" ],
+	"priority": "45",
+	"cooldown": "oncePerTurn",
+	"branchableAbilityType": "standardRanged"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "one" },
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"role": "target2",
+		"template": "ADJACENT_ENEMY",
+		"STUB": "Standard targets",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "(4+self.BONUS_RANGE)+self.commonDeck_bowmaster",
+		"lineOfSight": "LIVE_ENEMIES"
+	},
+	{
+		"role": "target3",
+		"template": "ADJACENT_ENEMY",
+		"STUB": "Throughshot targets",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": "(4+self.BONUS_RANGE)+self.commonDeck_bowmaster",
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "self.hunterDeck_throughShot",
+		"b": "1"
+	},
+	{
+		"template": "ADJACENT_ENEMY",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"fromRoles": [ "target2", "target3" ],
+		"range": null
+	},
+	{
+		"role": "subject",
+		"template": "ADJACENT_ENEMY",
+		"STUB": "Throughshot: enemies between",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"manifold": {
+			"from": "self",
+			"to": "target",
+			"thickness": [ "1", "1" ],
+			"excludeSource": true
+		},
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": null,
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "self.hunterDeck_throughShot",
+		"b": "1"
+	}
+],
+"outcomes": [
+	{
+		"class": "Test",
+		"value": "self.hunterDeck_throughShot",
+		"threshold": "1",
+		"onPass": {
+			"class": "AttackRoll",
+			"defender": "subject",
+			"particles": [
+				{ "script": "projectileTrail", "setPosition": "self", "setPosition2": "target" }
+			],
+			"defenseRollTags": [ "range" ],
+			"attackStrength": "self.RANGE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_morthagi_upgrade)))+self.theme_morthagi_upgrade)+self.commonDeck_bowmaster)-self.throughShotTargetNum",
+						"pierce": "9",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{ "id": "bleeding", "value": "1" }
+							]
+						}
+					},
+					{
+						"class": "Test",
+						"STUB": "If target was killed, achievement",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "ProgressAchievement",
+							"target": "self",
+							"achievementPiece": "killedEnemyWithMorthagiBolt"
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_morthagi_upgrade)))+self.theme_morthagi_upgrade)+self.commonDeck_bowmaster"
+			}
+		},
+		"onFail": {
+			"class": "AttackRoll",
+			"particles": [
+				{ "script": "projectileTrail", "setPosition": "self", "setPosition2": "target" }
+			],
+			"defenseRollTags": [ "range" ],
+			"attackStrength": "self.RANGE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_morthagi_upgrade)))+self.theme_morthagi_upgrade)+self.commonDeck_bowmaster",
+						"pierce": "9",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{ "id": "bleeding", "value": "1" }
+							]
+						}
+					},
+					{
+						"class": "Test",
+						"STUB": "If target was killed, achievement",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "ProgressAchievement",
+							"target": "self",
+							"achievementPiece": "killedEnemyWithMorthagiBolt"
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_morthagi_upgrade)))+self.theme_morthagi_upgrade)+self.commonDeck_bowmaster"
+			}
+		}
+	}
+]
+}

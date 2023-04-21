@@ -1,0 +1,53 @@
+{
+"id": "bleedingHurtsAtStartOfTurn",
+"info": { "dataVersion": 1, "sourceFile": "statusEffect/bleedingHurtsAtStartOfTurn" },
+"type": "TURN_START",
+"targets": [
+	{ "template": "SELF" },
+	{
+		"role": "hero",
+		"template": "ANY",
+		"type": "HERO",
+		"choose": "ANY",
+		"fromRoles": [ "self" ]
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"defender": "self",
+		"attackAnimationType": "magic",
+		"stopBlockingTime": "afterHitAnimation",
+		"timingOverride": { "afterAnimationTime": "400" },
+		"attackerAnimationOverride": "",
+		"defenderAnimationOverride": "",
+		"markForFlanking": "never",
+		"flankingBoostsAttackRoll": false,
+		"attackStrength": "100",
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{
+					"class": "IfRolesArePresent",
+					"rolesArePresent": [ "hero" ],
+					"then": {
+						"class": "Damage",
+						"target": "self",
+						"originator": null,
+						"amount": "self.bleeding",
+						"type": "TRUE",
+						"minRemainingHealth": "1"
+					},
+					"otherwise": {
+						"class": "Damage",
+						"target": "self",
+						"originator": null,
+						"amount": "self.bleeding",
+						"type": "TRUE"
+					}
+				}
+			]
+		}
+	}
+]
+}

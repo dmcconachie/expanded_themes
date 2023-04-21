@@ -1,0 +1,40 @@
+{
+"id": "ability_advanceTheme_fire_skin",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themeAdvances/ability_advanceTheme_fire_skin",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Jackson Wagner",
+	"aiPriority": "-1",
+	"tags": [ "okToMarkDone" ]
+},
+"type": "OVERLAND_ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "fireleash",
+	"category": "research",
+	"showInCharacterSheet": false,
+	"priority": "1",
+	"strictlyBetterThan": [ "ability_advanceTheme_fire" ]
+},
+"targets": [
+	{
+		"template": "SELF",
+		"aspects": [ "alive", "SELF", "aspect_advanceTheme_fire" ],
+		"aspectValues": [
+			{ "id": "themeSlotFilled_skin", "forbidden": true }
+		],
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "RESOURCE.legacyPoints",
+		"b": "1"
+	}
+],
+"outcomes": [
+	{ "class": "ApplyTheme", "target": "self", "theme": "fire", "piece": "skin" },
+	{ "class": "AddResources", "amount": "-1" },
+	{
+		"class": "Aspects",
+		"removeAspects": [ "aspect_advanceTheme_fire" ]
+	}
+]
+}

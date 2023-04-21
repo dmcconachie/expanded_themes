@@ -1,0 +1,105 @@
+{
+"id": "SETtreeEntangle",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "themesSkills/tree/SETtreeEntangle",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "-1",
+	"tags": [ "okToMarkDone", "free" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "wrendingVines",
+	"priority": "10",
+	"numUses": "1+self.theme_tree_upgrade",
+	"cooldown": "oncePerTurn"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"cost": { "class": "ActionPoints", "actionPoints": "free" },
+		"missionFeedback": { "orientTo": "target" }
+	},
+	{
+		"template": "ADJACENT_UNIT",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"orientTo": "self",
+			"suggestionScript": "figures.attackSuggestion",
+			"hoverScript": "figures.attackHovered",
+			"rangeFeedback": "ATTACK_RANGE",
+			"suggestionFeedback": "ATTACK_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"aspectValues": [
+			{ "id": "immuneToKnockback", "forbidden": true }
+		],
+		"notAlreadyMatchedAs": [ "self" ],
+		"range": "2.6+self.BONUS_RANGE",
+		"lineOfSight": "LIVE_FIGURES",
+		"test": "GREATER_THAN_OR_EQUAL_TO",
+		"a": "ALLY+HOSTILE_TARGET",
+		"b": "1"
+	},
+	{
+		"role": "volunteer",
+		"template": "ADJACENT_UNIT",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"fromRoles": [ "target" ],
+		"aspects": [ "alive", "ALLY" ],
+		"aspectValues": [
+			{ "id": "immuneToKnockback", "forbidden": true }
+		],
+		"range": null
+	},
+	{
+		"role": "monster",
+		"template": "ADJACENT_UNIT",
+		"choose": "ANY",
+		"missionFeedback": null,
+		"fromRoles": [ "target" ],
+		"aspects": [ "HOSTILE_TARGET", "alive" ],
+		"range": null
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+			"applyRoleFootprint": "target",
+			"showMovementFeedback": true,
+			"movementFeedbackRoleOverride": "target"
+		},
+		"minRange": "0.9",
+		"range": "2.6+self.BONUS_RANGE",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "validMoveEnd",
+		"roleMustFit": "target",
+		"footprintWithinRange": "target",
+		"footprintWithinRangeCompletely": true
+	}
+],
+"outcomes": [
+	{
+		"class": "IfRolesArePresent",
+		"rolesArePresent": [ "volunteer" ],
+		"then": {
+			"class": "AttackRoll",
+			"attackAnimationType": "magic",
+			"particles": [
+				{ "script": "entangle", "setPosition": "self", "setPosition2": "target" }
+			],
+			"audioOverride": { "attackHitCue": "Characters/Default/Ability_InterfusePlant" },
+			"attackerAnimationOverride": "figures.interaction",
+			"always": { "class": "MoveEntity", "target": "volunteer", "directlyToTile": "targetTile" }
+		}
+	}
+]
+}

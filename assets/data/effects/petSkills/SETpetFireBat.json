@@ -1,0 +1,72 @@
+{
+"id": "SETpetFireBat",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "petSkills/SETpetFireBat",
+	"modId": "Smokers_Expanded_Themes",
+	"author": "Nate Austin",
+	"aiPriority": "3000",
+	"tags": [ "okToMarkDone" ]
+},
+"type": "ABILITY",
+"verb": "ATTACK",
+"ability": {
+	"icon": "ignite",
+	
+	"priority": "1",
+	"numUses": "1+self.SEHClasses_aspect_profession_knight"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"missionFeedback": { "orientTo": "focus" }
+	},
+	{
+		"template": "TILE",
+		"showAnyway": true,
+		"alwaysSelect": true,
+		"missionFeedback": {
+			"rangeFeedback": "ATTACK_RANGE",
+			"suggestionFeedback": "ATTACK_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"range": "1.6",
+		"lineOfSight": "LIVE_ENEMIES",
+		"tileFilter": "floorForbidAlly"
+	},
+	{
+		"template": "UNIT_AT_TILE",
+		"choose": "ANY",
+		"missionFeedback": {
+			"hoverScript": "figures.attackHovered",
+			"rangeFeedback": "ATTACK_RANGE",
+			"suggestionFeedback": "ATTACK_SUGGESTION",
+			"hoverFeedback": "ATTACK_HOVER"
+		},
+		"relativeTo": "focus",
+		"range": "0"
+	}
+],
+"outcomes": [
+	{
+		"class": "AttackRoll",
+		"intermediateRole": "focus",
+		"attackAnimationType": "magic",
+		"showAbilityName": "ifEnemy",
+		"particles": [
+			{ "script": "Phantomflare Copy 2", "setPosition": "focus" }
+		],
+		"audioOverride": { "attackStartCue": "Characters/Heroes/fireChickenAttack" },
+		"attackerAnimationOverride": "figures.interaction",
+		"defenseRollTags": [ "melee" ],
+		"attackStrength": "100",
+		"always": { "class": "Spawn", "target": "focus", "addRole": "fire", "addFire": "2" },
+		"onHit": {
+			"class": "DoAll",
+			"outcomes": [
+				{ "class": "Damage", "amount": "2", "type": "MAGIC", "pierce": "1" }
+			]
+		}
+	}
+]
+}

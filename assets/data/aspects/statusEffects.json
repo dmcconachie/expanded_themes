@@ -1,0 +1,73 @@
+[
+{
+	"id": "freezed",
+	"effects": [
+		"decayAtEndOfTurn",
+		"removeOnDeath",
+		"otherAspectPreventsThisAspect|dead",
+		"otherAspectPreventsThisAspect|stasis",
+		"stunned",
+		"onAddedRemoveAllActionPoints",
+		"onAddRemoveAnother|guarding",
+		"onAddRemoveAnother|sentinelActive",
+		"onAddRemoveAnother|guardingMonster",
+		"onAddRemoveAnother|cultist_protectAdjacentAllies"
+	],
+	"stats": { "DODGE": -20, "BLOCK": -10 },
+	"boostType": "DISADVANTAGE",
+	"script": "figures.freezed",
+	"showValue": true
+},
+{
+	"id": "bleeding",
+	"effects": [
+		"alsoAddRemoveAspectAfterTurnStarts|bleeding|3",
+		"bleedingHurtsAtStartOfTurn",
+		"removeOnDeath",
+		"otherAspectPreventsThisAspect|stasis",
+		"otherAspectPreventsThisAspect|dead",
+		"otherAspectPreventsThisAspect|forbidDamagingStatusEffects"
+	],
+	"boostType": "DISADVANTAGE",
+	"script": "figures.bleeding",
+	"showValue": true
+},
+{
+	"id": "offhandPoison2Active",
+	"effects": [ "offhandPoisonAppliesPoison2WhenDamageIsDealt" ],
+	"boostType": "ADVANTAGE",
+	"importance": 1
+},
+{
+	"id": "poisoned2",
+	"effects": [
+		"alsoAddRemoveAspectAfterTurnStarts|poisoned2|3",
+		"poison2HurtsAtStartOfTurn",
+		"removeOnDeath",
+		"otherAspectPreventsThisAspect|dead",
+		"otherAspectPreventsThisAspect|forbidDamagingStatusEffects",
+		"otherAspectPreventsThisAspect|stasis",
+		"otherAspectPreventsThisAspectShowText|immuneToStatusEffects"
+	],
+	"stats": { "SPEED": -3 },
+	"boostType": "DISADVANTAGE",
+	"script": "figures.poisoned",
+	"showValue": true
+},
+{
+	"id": "poisoned",
+	"effects": [
+		"alsoAddRemoveAspectAfterTurnStarts|poisoned|3",
+		"poisonHurtsAtStartOfTurn",
+		"removeOnDeath",
+		"otherAspectPreventsThisAspect|dead",
+		"otherAspectPreventsThisAspect|forbidDamagingStatusEffects",
+		"otherAspectPreventsThisAspect|stasis",
+		"otherAspectPreventsThisAspectShowText|immuneToStatusEffects"
+	],
+	"stats": { "RANGE_ACCURACY": -10, "MELEE_ACCURACY": -10 },
+	"boostType": "DISADVANTAGE",
+	"script": "figures.poisoned",
+	"showValue": true
+}
+]

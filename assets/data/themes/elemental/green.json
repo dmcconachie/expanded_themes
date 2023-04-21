@@ -1,0 +1,194 @@
+{
+	"id": "green",
+	"name": "Sylvan",
+	"blurb": "Marked by a Sylvan entity after sleeping in a spirit's clearing",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_greenKnot",
+			"unlockLegacyAspect": "theme_green_kill3Enemies"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "tattoo",
+			"name": "Spirit-Marked",
+			"blurb": "<self> has grown horns.",
+			"slots": ["head"],
+			"effects": [
+				"SETsylvanHorns",
+				"ability_advanceTheme_green",
+				"ability_advanceTheme_green_skin",
+				"ability_advanceTheme_green_armLeft",
+				"ability_advanceTheme_green_armRight",
+				"ability_advanceTheme_green_legLeft",
+				"ability_advanceTheme_green_legRight",
+				"ability_advanceTheme_green_pet"
+			],
+			"layers": [
+				{
+					"name": "face_green_horns",
+					"depth": 9250,
+					"headOffset": true
+				}
+			]
+		},
+		{
+			"id": "skin",
+			"name": "Sylvan Heart",
+			"blurb": "<self>'s body belongs to mother nature.",
+			"slots": ["skin"],
+			"effects": ["SETsylvanInvigoration"],
+			"stats": {"RETIREMENT_AGE": 10, "WARDING": 1},
+			"layers": [
+				{
+					"name": "head_tattooGreenM",
+					"depth": 4050,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "head_tattooGreenF",
+					"depth": 4050,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "head_tattooGreenKnotM",
+					"depth": 4050,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "head_tattooGreenKnotF",
+					"depth": 4050,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Sylvan Leg (L)",
+			"blurb": "<self>'s left leg belongs to mother nature.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+			"effects": ["SETmovementPhysical"],
+			"stats": {"SPEED": 2},
+			"extraAspects": ["humanSkin_overrideHairColor|557d12|1"],
+			"layers": [
+				{
+					"name": "replaceLegL_green_tint",
+					"tint": "hair",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceLegL_greenKnot",
+					"depth": 1106,
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Sylvan Leg (R)",
+			"blurb": "<self>'s right leg belongs to mother nature.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+			"effects": ["SETmovementPhysical"],
+			"stats": {"SPEED": 2},
+			"extraAspects": ["humanSkin_overrideHairColor|557d12|1"],
+			"layers": [
+				{
+					"name": "replaceLegR_green_tint",
+					"tint": "hair",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceLegR_greenKnot",
+					"depth": 1103,
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Sylvan Arm (L)",
+			"blurb": "<self>'s left arm belongs to mother nature.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETsylvanWitherbolt2", "defaultSecondaryMoveFeedbackNoLOS|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETsylvanWitherbolt2", "SETsylvanOnslaught"],
+			"extraAspects": ["humanSkin_overrideHairColor|557d12|1"],
+			"layers": [
+				{
+					"name": "replaceArmL_green_tint",
+					"tint": "hair",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceArmL_greenB_tint",
+					"tint": "secondary",
+					"depth": 1103,
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceArmL_greenKnot",
+					"depth": 1102,
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Sylvan Arm (R)",
+			"blurb": "<self>'s right arm belongs to mother nature.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETsylvanWitherbolt1", "defaultSecondaryMoveFeedbackNoLOS|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETsylvanWitherbolt1", "SETsylvanOnslaught"],
+			"extraAspects": ["humanSkin_overrideHairColor|557d12|1"],
+			"layers": [
+				{
+					"name": "replaceArmR_green_tint",
+					"tint": "hair",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceArmR_greenKnotA_untinted",
+					"depth": 1202,
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceArmR_greenKnotB_tint2",
+					"tint": "secondary", "tintAmount": 0.8,
+					"depth": 1203,
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				},
+				{
+					"name": "replaceArmR_greenKnotC_tint1",
+					"tint": "primary", "tintAmount": 0.8,
+					"depth": 1204,
+					"ifOwnerAspect": "themeSkin_greenKnot"
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Snapping Turtle",
+			"blurb": "It's a little mean-looking, but it seems to like you.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee2"],
+			"layers": [
+				{"name": "pet_snappingTurtle", "depth": 9000}
+			]
+		}
+	]
+}

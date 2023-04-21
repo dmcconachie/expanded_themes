@@ -1,0 +1,431 @@
+{
+	"id": "bear",
+	"name": "Beartouched",
+	"blurb": "<self> contains the soul of an old bear.",
+
+	"skins": [
+		{
+			"skinId": "themeSkin_bearGhost",
+			"unlockLegacyAspect": "theme_bear_kill2EnemiesSimultaneously"
+		}
+	],
+
+	"pieces": [
+		{
+			"id": "tattoo",
+      "name": "Bear Tattoos",
+			"blurb": "Ursine tattoos mark <self>'s face.",
+			"slots": ["head"],
+			"stats": {"HEALTH": 1},
+			"effects": [
+				"ability_advanceTheme_bear",
+				"ability_advanceTheme_bear_head",
+				"ability_advanceTheme_bear_torso",
+				"ability_advanceTheme_bear_armLeft",
+				"ability_advanceTheme_bear_armRight",
+				"ability_advanceTheme_bear_legLeft",
+				"ability_advanceTheme_bear_legRight",
+				"ability_advanceTheme_bear_pet"
+			],
+			"layers": [
+				{
+					"name": "head_tattooBearM",
+					"depth": 4050,
+					"headOffset": true,
+					"rigMode": "maleHead",
+					"ifOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "head_tattooBearF",
+					"depth": 4050,
+					"headOffset": true,
+					"rigMode": "femaleHead",
+					"ifOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearBase_neutral",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested", "grim", "sad", "skeptical", "dubious"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_neutral",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearBase_open",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["open"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_open",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["open"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearBase_surprised",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["surprised"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_surprised",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["surprised"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearBase_scared",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["scared"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_scared",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["scared"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_skeptical",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["skeptical"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_dubious",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["dubious"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearBase_angry",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming", "hit", "dead"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_angry",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearBase_happy",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["happy", "joke", "joy"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_happy",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["happy", "joke", "joy"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_grim",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["grim", "sad"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				},
+				{
+					"name": "replaceHead_bearDetails_hit",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["hit", "dead"],
+					"ifNoOwnerAspect": "humanSkin_naturalHead"
+				}
+			]
+		},
+		{
+			"id": "head",
+      "name": "Bear Head",
+			"blurb": "<self>'s head is bearish",
+			"canBeAwardedRandomly": false,
+			"slots": ["skin"],
+			"replaces": ["head"],
+      "effects": ["SETbearBite"],
+			"layers": [
+				{
+					"name": "replaceHead_bearBase_neutral",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested", "grim", "sad", "skeptical", "dubious"]
+				},
+				{
+					"name": "replaceHead_bearDetails_neutral",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["neutral", "interested"]
+				},
+				{
+					"name": "replaceHead_bearBase_open",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_bearDetails_open",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["open"]
+				},
+				{
+					"name": "replaceHead_bearBase_surprised",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_bearDetails_surprised",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["surprised"]
+				},
+				{
+					"name": "replaceHead_bearBase_scared",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_bearDetails_scared",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["scared"]
+				},
+				{
+					"name": "replaceHead_bearDetails_skeptical",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["skeptical"]
+				},
+				{
+					"name": "replaceHead_bearDetails_dubious",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["dubious"]
+				},
+				{
+					"name": "replaceHead_bearBase_angry",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming", "hit", "dead"]
+				},
+				{
+					"name": "replaceHead_bearDetails_angry",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["angry", "rage", "scheming"]
+				},
+				{
+					"name": "replaceHead_bearBase_happy",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 4000,
+					"headOffset": true,
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_bearDetails_happy",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["happy", "joke", "joy"]
+				},
+				{
+					"name": "replaceHead_bearDetails_grim",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["grim", "sad"]
+				},
+				{
+					"name": "replaceHead_bearDetails_hit",
+					"depth": 4300,
+					"headOffset": true,
+					"facialExpression": ["hit", "dead"]
+				},
+				{
+					"name": "replaceNeck_wolf",
+					"tint": "hair", "tintAmount": 0.85,
+					"depth": 3999,
+					"ifNoOwnerAspect": "themeSkin_wolfDire"
+				}
+			]
+		},
+		{
+			"id": "torso",
+			"name": "Bear Body",
+			"blurb": "<self> is wholly given over to the beast.",
+			"canBeAwardedRandomly": false,
+			"slots": ["torso"],
+			"replaces": ["torso"],
+			"effects": ["SETbearEnrage"],
+			"stats": {"HEALTH": 2},
+			"layers": [
+				{
+					"name": "replaceTorso_wolfA_tint",
+					"tint": "hair",
+					"depth": 1211
+				},
+				{
+					"name": "replaceTorso_wolfB_untinted",
+					"depth": 1212
+				}
+			]
+		},
+		{
+			"id": "leftLeg",
+			"name": "Bear Leg (L)",
+			"blurb": "<self>'s left leg is bestial.",
+			"slots": ["leftLeg"],
+			"replaces": ["leftLeg"],
+      "effects": ["SETbearSprint"],
+      "stats": {"SPEED": 2},
+			"layers": [
+				{
+					"name": "replaceLegL_bearA_tint",
+					"tint": "hair",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceLegL_bearB_untinted",
+					"depth": 1102,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceLegL_bearGhost",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_bearGhost"
+				}
+			]
+		},
+		{
+			"id": "rightLeg",
+			"name": "Bear Leg (R)",
+			"blurb": "<self>'s right leg is bestial.",
+			"slots": ["rightLeg"],
+			"replaces": ["rightLeg"],
+      "effects": ["SETbearSprint"],
+      "stats": {"SPEED": 2},
+			"layers": [
+				{
+					"name": "replaceLegR_bearA_tint",
+					"tint": "hair",
+					"depth": 1101,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceLegR_bearB_untinted",
+					"depth": 1102,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceLegR_bearGhost",
+					"depth": 1101,
+					"ifOwnerAspect": "themeSkin_bearGhost"
+				}
+			]
+		},
+		{
+			"id": "leftArm",
+			"name": "Bear Arm (L)",
+			"blurb": "<self>'s left arm is bestial.",
+			"slots": ["leftArm"],
+			"replaces": ["leftArm", "leftGrip"],
+			"effects": ["SETbearSwipe2", "SETbearHug"],
+			"layers": [
+				{
+					"name": "replaceArmL_bearA_tint",
+					"tint": "hair",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceArmL_bearB_untinted",
+					"depth": 1202,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceArmL_bearGhost",
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_bearGhost"
+				}
+			]
+		},
+		{
+			"id": "rightArm",
+			"name": "Bear Arm (R)",
+			"blurb": "<self>'s right arm is bestial.",
+			"slots": ["rightArm"],
+			"replaces": ["rightArm", "rightGrip"],
+			"effects": ["SETbearSwipe1", "SETbearHug"],
+			"layers": [
+				{
+					"name": "replaceArmR_bearA_tint",
+					"tint": "hair",
+					"depth": 1201,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceArmR_bearB_untinted",
+					"depth": 1202,
+					"ifNoOwnerAspect": "themeSkin_bearGhost"
+				},
+				{
+					"name": "replaceArmR_bearGhost",
+					"depth": 1201,
+					"ifOwnerAspect": "themeSkin_bearGhost"
+				}
+			]
+		},
+		{
+			"id": "pet",
+			"name": "Bear Cub",
+			"blurb": "<self> takes care of the little guy until it can fend for itself.",
+			"slots": ["pet"],
+			"effects": ["SETpetFlankingMelee"],
+			"layers": [
+				{
+					"name": "pet_babyBear_tint",
+					"tint": "hair",
+					"tintAmount": 0.6,
+					"depth": 9000
+				},
+				{
+					"name": "pet_babyBear_untinted",
+					"depth": 9001
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,47 @@
+{
+"id": "SETcrowFly",
+"info": {
+	"dataVersion": 1,
+	"sourceFile": "crow/SETcrowFly",
+	"modId": "Smokers_Expanded_Themes",
+	"tags": []
+},
+"type": "ABILITY",
+"verb": "MANEUVER",
+"ability": {
+	"icon": "flyFriend",
+	"category": "movement",
+	"priority": "99",
+	"onlyShowIfPossibleInCharacterSheet": true,
+	"cooldown": "oncePerTurn",
+	"numUses": "1+self.theme_crow_upgrade"
+},
+"targets": [
+	{
+		"template": "SELF",
+		"missionFeedback": { "orientTo": "targetTile" },
+		"aspectValues": [
+			{ "id": "pinned", "forbidden": true }
+		]
+	},
+	{
+		"role": "targetTile",
+		"template": "TILE",
+		"missionFeedback": {
+			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+			"hoverFeedback": "PATH_TARGET"
+		},
+		"minRange": "0.9",
+		"range": "self.SPEED",
+		"lineOfSight": "TERRAIN_ONLY",
+		"tileFilter": "validMoveEnd"
+	}
+],
+"outcomes": [
+	{
+		"class": "MoveEntity",
+		"directlyToTile": "targetTile"
+  }
+]
+}
