@@ -1,267 +1,342 @@
 {
-"id": "SEThillRock",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/hill/SEThillRock",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "20",
-	"tags": [ "ranged" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "quellingmoss",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "45",
-	"customSpecialAnimationEffect": {
-		"parameters": [ "target.distanceTo.targetTile" ]
+	"id": "SEThillRock",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/hill/SEThillRock",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "20",
+		"tags": [
+			"ranged"
+		]
 	},
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardRanged",
-	"abilityElementType": "stone"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
-	},
-	{
-		"role": "target2",
-		"template": "ADJACENT_ENEMY",
-		"choose": "ANY",
-		"missionFeedback": null,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"minRange": "1.6",
-		"range": "(((5.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "LIVE_ENEMIES"
-	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
-			"applyRoleFootprint": "target",
-			"showMovementFeedback": true
-		},
-		"pathFrom": "self",
-		"pathTo": "target2",
-		"matchSpecial": "knockBackDestination",
-		"relativeTo": "target2",
-		"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
-		"lineOfSight": "ANY_COVER",
-		"tileFilter": "parentLocationOrValidMoveEnd",
-		"roleMustFit": "target2"
-	},
-	{
-		"role": "target3",
-		"template": "ADJACENT_ENEMY",
-		"STUB": "Throughshot targets",
-		"choose": "ANY",
-		"missionFeedback": null,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "(((5.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "self.hunterDeck_throughShot",
-		"b": "1"
-	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"fromRoles": [ "target2", "target3" ],
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": null
-	},
-	{
-		"role": "subject",
-		"template": "ADJACENT_ENEMY",
-		"STUB": "Throughshot: Enemies between",
-		"choose": "ANY_SORT_BY_SCORE",
-		"scoreFunction": "1000-distanceTo.self",
-		"chooseAnyMaximumExp": "2+(self.hunterDeck_throughShot_upgrade*100)",
-		"showAnyway": true,
-		"manifold": {
-			"from": "self",
-			"to": "target",
-			"thickness": [ "1", "1" ]
-		},
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": null,
-		"lineOfSight": "TERRAIN_ONLY"
-	},
-	{
-		"role": "focus",
-		"template": "ADJACENT_UNIT",
-		"STUB": "Throughshot: for visuals",
-		"choose": "ONE_CLOSEST_OPTIONAL",
-		"showAnyway": true,
-		"missionFeedback": null,
-		"fromRoles": [ "subject" ],
-		"relativeTo": "target",
-		"range": null
-	}
-],
-"outcomes": [
-	{
-		"class": "Test",
-		"value": "self.hunterDeck_throughShot",
-		"threshold": "1",
-		"onPass": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "AttackRoll",
-					"defender": "subject",
-					"particles": [
-						{ "script": "projectileTrail", "setPosition": "self", "setPosition2": "target" }
-					],
-					"audioOverride": {
-						"attackHitCue": "Characters/Heroes/Themed/attackRock",
-						"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
-						"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
-					},
-					"defenseRollTags": [ "range" ],
-					"attackStrength": "self.RANGE_ACCURACY",
-					"applyCover": true,
-					"onHit": {
-						"class": "DoAll",
-						"outcomes": [
-							{ "class": "Interrupt", "target": "target" },
-							{
-								"class": "Damage",
-								"amount": "((((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade)+target.distanceTo.targetTile)-self.throughShotTargetNum",
-								"overrideStuntDamage": "1",
-								"onStunt": {
-									"class": "DoAll",
-									"outcomes": [
-										{
-											"class": "Aspects",
-											"addAspects": [
-												{ "id": "concussed", "value": "1" }
-											]
-										},
-										{
-											"class": "BranchAbility",
-											"target": "self",
-											"targetRole": "defender",
-											"branchAbility": "stone"
-										}
-									]
-								}
-							},
-							{
-								"class": "Aspects",
-								"target": "self",
-								"addAspects": [
-									{ "id": "throughShotTargetNum", "value": "1" }
-								]
-							},
-							{
-								"class": "MatchTarget",
-								"abilityTarget": {
-									"template": "TILE",
-									"pathFrom": "self",
-									"pathTo": "defender",
-									"matchSpecial": "knockBackDestination",
-									"relativeTo": "defender",
-									"notAlreadyMatchedAs": [ "hook" ],
-									"range": "1.6",
-									"lineOfSight": "ANY_COVER",
-									"tileFilter": "parentLocationOrValidMoveEnd",
-									"roleMustFit": "defender"
-								}
-							},
-							{ "class": "MoveEntity", "directlyToTile": "focus" },
-							{ "class": "ClearRole", "role": "focus" }
-						]
-					},
-					"onMiss": {
-						"class": "Aspects",
-						"target": "self",
-						"addAspects": [
-							{ "id": "throughShotTargetNum", "value": "1" }
-						]
-					},
-					"onHitCover": {
-						"class": "Damage",
-						"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade",
-						"overrideStuntDamage": "2"
-					}
-				},
-				{
-					"class": "Aspects",
-					"target": "self",
-					"removeAspects": [ "throughShotTargetNum" ]
-				}
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "quellingmoss",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "45",
+		"customSpecialAnimationEffect": {
+			"parameters": [
+				"target.distanceTo.targetTile"
 			]
 		},
-		"onFail": {
-			"class": "AttackRoll",
-			"particles": [
-				{ "script": "projectileTrail", "setPosition": "self", "setPosition2": "target" }
-			],
-			"audioOverride": {
-				"attackHitCue": "Characters/Heroes/Themed/attackRock",
-				"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
-				"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardRanged",
+		"abilityElementType": "stone"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
 			},
-			"defenseRollTags": [ "range" ],
-			"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
-			"wield": "fromWeapon",
-			"onHit": {
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"role": "target2",
+			"template": "ADJACENT_ENEMY",
+			"choose": "ANY",
+			"missionFeedback": null,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"minRange": "1.6",
+			"range": "(((5.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "LIVE_ENEMIES"
+		},
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+				"applyRoleFootprint": "target",
+				"showMovementFeedback": true
+			},
+			"pathFrom": "self",
+			"pathTo": "target2",
+			"matchSpecial": "knockBackDestination",
+			"relativeTo": "target2",
+			"range": "(1.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg",
+			"lineOfSight": "ANY_COVER",
+			"tileFilter": "parentLocationOrValidMoveEnd",
+			"roleMustFit": "target2"
+		},
+		{
+			"role": "target3",
+			"template": "ADJACENT_ENEMY",
+			"STUB": "Throughshot targets",
+			"choose": "ANY",
+			"missionFeedback": null,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "(((5.6+self.themePiece_foothill_leftLeg)+self.themePiece_foothill_rightLeg)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "self.hunterDeck_throughShot",
+			"b": "1"
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"fromRoles": [
+				"target2",
+				"target3"
+			],
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": null
+		},
+		{
+			"role": "subject",
+			"template": "ADJACENT_ENEMY",
+			"STUB": "Throughshot: Enemies between",
+			"choose": "ANY_SORT_BY_SCORE",
+			"scoreFunction": "1000-distanceTo.self",
+			"chooseAnyMaximumExp": "2+(self.hunterDeck_throughShot_upgrade*100)",
+			"showAnyway": true,
+			"manifold": {
+				"from": "self",
+				"to": "target",
+				"thickness": [
+					"1",
+					"1"
+				]
+			},
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": null,
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"role": "focus",
+			"template": "ADJACENT_UNIT",
+			"STUB": "Throughshot: for visuals",
+			"choose": "ONE_CLOSEST_OPTIONAL",
+			"showAnyway": true,
+			"missionFeedback": null,
+			"fromRoles": [
+				"subject"
+			],
+			"relativeTo": "target",
+			"range": null
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Test",
+			"value": "self.hunterDeck_throughShot",
+			"threshold": "1",
+			"onPass": {
 				"class": "DoAll",
 				"outcomes": [
 					{
-						"class": "Damage",
-						"amount": "(((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade)+target.distanceTo.targetTile",
-						"overrideStuntDamage": "1",
-						"onStunt": {
+						"class": "AttackRoll",
+						"defender": "subject",
+						"particles": [
+							{
+								"script": "projectileTrail",
+								"setPosition": "self",
+								"setPosition2": "target"
+							}
+						],
+						"audioOverride": {
+							"attackHitCue": "Characters/Heroes/Themed/attackRock",
+							"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
+							"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+						},
+						"defenseRollTags": [
+							"range"
+						],
+						"attackStrength": "self.RANGE_ACCURACY",
+						"applyCover": true,
+						"onHit": {
 							"class": "DoAll",
 							"outcomes": [
 								{
+									"class": "Interrupt",
+									"target": "target"
+								},
+								{
+									"class": "Damage",
+									"amount": "((((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade)+target.distanceTo.targetTile)-self.throughShotTargetNum",
+									"overrideStuntDamage": "1",
+									"onStunt": {
+										"class": "DoAll",
+										"outcomes": [
+											{
+												"class": "Aspects",
+												"addAspects": [
+													{
+														"id": "concussed",
+														"value": "1"
+													}
+												]
+											},
+											{
+												"class": "BranchAbility",
+												"target": "self",
+												"targetRole": "defender",
+												"branchAbility": "stone"
+											}
+										]
+									}
+								},
+								{
 									"class": "Aspects",
+									"target": "self",
 									"addAspects": [
-										{ "id": "concussed", "value": "1" }
+										{
+											"id": "throughShotTargetNum",
+											"value": "1"
+										}
 									]
 								},
 								{
-									"class": "BranchAbility",
-									"target": "self",
-									"targetRole": "defender",
-									"branchAbility": "stone"
+									"class": "MatchTarget",
+									"abilityTarget": {
+										"template": "TILE",
+										"pathFrom": "self",
+										"pathTo": "defender",
+										"matchSpecial": "knockBackDestination",
+										"relativeTo": "defender",
+										"notAlreadyMatchedAs": [
+											"hook"
+										],
+										"range": "1.6",
+										"lineOfSight": "ANY_COVER",
+										"tileFilter": "parentLocationOrValidMoveEnd",
+										"roleMustFit": "defender"
+									}
+								},
+								{
+									"class": "MoveEntity",
+									"directlyToTile": "focus"
+								},
+								{
+									"class": "ClearRole",
+									"role": "focus"
 								}
 							]
+						},
+						"onMiss": {
+							"class": "Aspects",
+							"target": "self",
+							"addAspects": [
+								{
+									"id": "throughShotTargetNum",
+									"value": "1"
+								}
+							]
+						},
+						"onHitCover": {
+							"class": "Damage",
+							"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade",
+							"overrideStuntDamage": "2"
 						}
 					},
 					{
-						"class": "MatchTarget",
-						"abilityTarget": {
-							"template": "TILE",
-							"pathFrom": "self",
-							"pathTo": "defender",
-							"matchSpecial": "knockBackDestination",
-							"relativeTo": "defender",
-							"notAlreadyMatchedAs": [ "hook" ],
-							"range": "1.6",
-							"lineOfSight": "ANY_COVER",
-							"tileFilter": "parentLocationOrValidMoveEnd",
-							"roleMustFit": "defender"
-						}
-					},
-					{ "class": "MoveEntity", "directlyToTile": "focus" },
-					{ "class": "ClearRole", "role": "focus" }
+						"class": "Aspects",
+						"target": "self",
+						"removeAspects": [
+							"throughShotTargetNum"
+						]
+					}
 				]
 			},
-			"onHitCover": {
-				"class": "Damage",
-				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade"
+			"onFail": {
+				"class": "AttackRoll",
+				"particles": [
+					{
+						"script": "projectileTrail",
+						"setPosition": "self",
+						"setPosition2": "target"
+					}
+				],
+				"audioOverride": {
+					"attackHitCue": "Characters/Heroes/Themed/attackRock",
+					"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
+					"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+				},
+				"defenseRollTags": [
+					"range"
+				],
+				"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
+				"wield": "fromWeapon",
+				"onHit": {
+					"class": "DoAll",
+					"outcomes": [
+						{
+							"class": "Damage",
+							"amount": "(((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade)+target.distanceTo.targetTile",
+							"overrideStuntDamage": "1",
+							"onStunt": {
+								"class": "DoAll",
+								"outcomes": [
+									{
+										"class": "Aspects",
+										"addAspects": [
+											{
+												"id": "concussed",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"class": "BranchAbility",
+										"target": "self",
+										"targetRole": "defender",
+										"branchAbility": "stone"
+									}
+								]
+							}
+						},
+						{
+							"class": "MatchTarget",
+							"abilityTarget": {
+								"template": "TILE",
+								"pathFrom": "self",
+								"pathTo": "defender",
+								"matchSpecial": "knockBackDestination",
+								"relativeTo": "defender",
+								"notAlreadyMatchedAs": [
+									"hook"
+								],
+								"range": "1.6",
+								"lineOfSight": "ANY_COVER",
+								"tileFilter": "parentLocationOrValidMoveEnd",
+								"roleMustFit": "defender"
+							}
+						},
+						{
+							"class": "MoveEntity",
+							"directlyToTile": "focus"
+						},
+						{
+							"class": "ClearRole",
+							"role": "focus"
+						}
+					]
+				},
+				"onHitCover": {
+					"class": "Damage",
+					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_foothill_upgrade)))+self.theme_foothill_upgrade"
+				}
 			}
 		}
-	}
-]
+	]
 }

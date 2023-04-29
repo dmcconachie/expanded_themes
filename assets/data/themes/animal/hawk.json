@@ -2,13 +2,14 @@
 	"id": "hawk",
 	"name": "Hawksoul",
 	"blurb": "<self>'s inner hawk is showing.",
-
 	"pieces": [
 		{
 			"id": "wings",
 			"name": "Hawk Wings",
 			"blurb": "<self> has a pair of hawk wings.",
-			"slots": ["wings"],
+			"slots": [
+				"wings"
+			],
 			"effects": [
 				"SEThawkFly",
 				"ability_advanceTheme_hawk",
@@ -22,8 +23,13 @@
 				"ability_advanceTheme_hawk_tail",
 				"ability_advanceTheme_hawk_shoulderPet"
 			],
-			"extraAspects": ["wingSound", "humanSkin_overrideHairColor|4d2310|1"],
-			"stats": {"SPEED": 1},
+			"extraAspects": [
+				"wingSound",
+				"humanSkin_overrideHairColor|4d2310|1"
+			],
+			"stats": {
+				"SPEED": 1
+			},
 			"layers": [
 				{
 					"name": "wingR_hawk",
@@ -40,75 +46,109 @@
 			"name": "Hawk Head",
 			"blurb": "<self> has mean peck and a loud call.",
 			"canBeAwardedRandomly": false,
-			"slots": ["head"],
-			"replaces": ["head"],
-			"effects": ["SEThawkPeck"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"head"
+			],
+			"effects": [
+				"SEThawkPeck"
+			],
 			"layers": [
 				{
 					"name": "replaceHead_hawk",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["neutral", "happy"]
+					"facialExpression": [
+						"neutral",
+						"happy"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_open",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["open"]
+					"facialExpression": [
+						"open"
+					]
 				},
 				{
 					"name": "replaceHead_hawkFace_interested",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["interested"]
+					"facialExpression": [
+						"interested"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_surprised",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["surprised", "scared"]
+					"facialExpression": [
+						"surprised",
+						"scared"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_skeptical",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["skeptical"]
+					"facialExpression": [
+						"skeptical"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_dubious",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["dubious"]
+					"facialExpression": [
+						"dubious"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_angry",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["angry", "scheming"]
+					"facialExpression": [
+						"angry",
+						"scheming"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_rage",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["rage"]
+					"facialExpression": [
+						"rage"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_joy",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["joke", "joy"]
+					"facialExpression": [
+						"joke",
+						"joy"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_grim",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["grim", "sad"]
+					"facialExpression": [
+						"grim",
+						"sad"
+					]
 				},
 				{
 					"name": "replaceHead_hawk_hit",
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["hit", "dead"]
+					"facialExpression": [
+						"hit",
+						"dead"
+					]
 				},
 				{
 					"name": "replaceNeck_crowWhite",
@@ -120,8 +160,12 @@
 			"id": "tail",
 			"name": "Hawk Tail",
 			"blurb": "<self> has a feathery hawk tail.",
-			"slots": ["tail"],
-			"effects": ["SETmovementAccuracy"],
+			"slots": [
+				"tail"
+			],
+			"effects": [
+				"SETmovementAccuracy"
+			],
 			"layers": [
 				{
 					"name": "tail_hawk",
@@ -133,11 +177,19 @@
 			"id": "torso",
 			"name": "Hawk Body",
 			"blurb": "<self>'s body is covered in feathers.",
-			"slots": ["torso"],
-			"replaces": ["torso"],
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
 			"canBeAwardedRandomly": false,
-			"extraAspects": ["humanSkin_overrideSkinColor|edd6b9|edd6b9|edd6b9|1"],
-			"effects": ["SETmovementAccuracy"],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|edd6b9|edd6b9|edd6b9|1"
+			],
+			"effects": [
+				"SETmovementAccuracy"
+			],
 			"layers": [
 				{
 					"name": "replaceTorso_hawk",
@@ -149,10 +201,18 @@
 			"id": "leftLeg",
 			"name": "Hawk Leg (L)",
 			"blurb": "<self>'s left leg is hawkish.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETmovementStunt"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_hawk",
@@ -164,10 +224,18 @@
 			"id": "rightLeg",
 			"name": "Hawk Leg (R)",
 			"blurb": "<self>'s right leg is hawkish.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETmovementStunt"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_hawk",
@@ -179,9 +247,17 @@
 			"id": "leftArm",
 			"name": "Hawk Arm (L)",
 			"blurb": "<self>'s left arm is feathered and clawish.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SEThawkClaw2", "SEThawkFrenzy"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SEThawkClaw2",
+				"SEThawkFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_hawk",
@@ -193,9 +269,17 @@
 			"id": "rightArm",
 			"name": "Hawk Arm (R)",
 			"blurb": "<self>'s right arm is feathered and clawish.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SEThawkClaw1", "SEThawkFrenzy"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SEThawkClaw1",
+				"SEThawkFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_hawk",
@@ -207,10 +291,17 @@
 			"id": "shoulderPet",
 			"name": "Hawk",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFlankingRanged"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFlankingRanged"
+			],
 			"layers": [
-				{"name": "pet_hawk", "depth": 9000}
+				{
+					"name": "pet_hawk",
+					"depth": 9000
+				}
 			]
 		}
 	]

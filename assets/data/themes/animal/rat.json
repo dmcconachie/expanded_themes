@@ -2,13 +2,14 @@
 	"id": "rat",
 	"name": "Ratlike",
 	"blurb": "<self> has a certain ratlike spirit about them.",
-
 	"pieces": [
 		{
 			"id": "tail",
 			"name": "Rat Tail",
 			"blurb": "<self> has a rat tail.",
-			"slots": ["tail"],
+			"slots": [
+				"tail"
+			],
 			"effects": [
 				"SETmovementDodge",
 				"ability_advanceTheme_rat",
@@ -31,10 +32,18 @@
 			"id": "head",
 			"name": "Rat Head",
 			"blurb": "Rat Head",
-			"slots": ["head"],
-			"replaces": ["head"],
-			"extraAspects": ["humanSkin_overrideHairColor|786858|1"],
-			"effects": ["SETratBite"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"head"
+			],
+			"extraAspects": [
+				"humanSkin_overrideHairColor|786858|1"
+			],
+			"effects": [
+				"SETratBite"
+			],
 			"layers": [
 				{
 					"name": "replaceHead_ratBase",
@@ -47,11 +56,19 @@
 			"id": "torso",
 			"name": "Rat Body",
 			"blurb": "<self> is wholly given over to the beast.",
-			"slots": ["torso"],
-			"replaces": ["torso"],
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
 			"canBeAwardedRandomly": false,
-			"extraAspects": ["humanSkin_overrideSkinColor|786858|786858|786858|1"],
-			"effects": ["SETmovementDodge"],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|786858|786858|786858|1"
+			],
+			"effects": [
+				"SETmovementDodge"
+			],
 			"layers": [
 				{
 					"name": "replaceTorso_wolfA_tint",
@@ -68,10 +85,19 @@
 			"id": "leftLeg",
 			"name": "Rat Leg (L)",
 			"blurb": "<self>'s left leg is bestial.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETratJump", "SETmovementDodge"],
-			"stats": {"SPEED": 2},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETratJump",
+				"SETmovementDodge"
+			],
+			"stats": {
+				"SPEED": 2
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_birdA_tint2",
@@ -88,10 +114,19 @@
 			"id": "rightLeg",
 			"name": "Rat Leg (R)",
 			"blurb": "<self>'s right leg is bestial",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETratJump", "SETmovementDodge"],
-			"stats": {"SPEED": 2},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETratJump",
+				"SETmovementDodge"
+			],
+			"stats": {
+				"SPEED": 2
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_birdA_tint2",
@@ -108,9 +143,17 @@
 			"id": "leftArm",
 			"name": "Rat Arm (L)",
 			"blurb": "<self>'s left arm is bestial.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETratFrenzy", "SETratClaw2"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETratFrenzy",
+				"SETratClaw2"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_birdA_tint2",
@@ -127,9 +170,17 @@
 			"id": "rightArm",
 			"name": "Rat Arm (R)",
 			"blurb": "<self>'s right arm is bestial.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETratFrenzy", "SETratClaw1"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETratFrenzy",
+				"SETratClaw1"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_birdA_tint2",
@@ -146,10 +197,17 @@
 			"id": "pet",
 			"name": "Rat",
 			"blurb": "<self> takes care of the little guy.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee2"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee2"
+			],
 			"layers": [
-				{"name": "pet_rat", "depth": 9000}
+				{
+					"name": "pet_rat",
+					"depth": 9000
+				}
 			]
 		}
 	]

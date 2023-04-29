@@ -2,21 +2,24 @@
 	"id": "foothill",
 	"name": "Child of the Hills",
 	"blurb": "<self> carries the hills in <self.mf:his/her> very bones.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_foothillCanyon",
 			"unlockLegacyAspect": "theme_foothill_takeNoDamage20Times"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Hill Tattoos",
 			"blurb": "Mystic tattoos mark <self>'s face.",
-			"slots": ["head"],
-			"stats": {"CHARISMA": 5, "WARDING": 0.5},
+			"slots": [
+				"head"
+			],
+			"stats": {
+				"CHARISMA": 5,
+				"WARDING": 0.5
+			},
 			"effects": [
 				"ability_advanceTheme_foothill",
 				"ability_advanceTheme_foothill_skin",
@@ -71,7 +74,9 @@
 			"id": "skin",
 			"name": "Hill Heart",
 			"blurb": "<self>'s body is imbued with the hill spirit.",
-			"slots": ["skin"],
+			"slots": [
+				"skin"
+			],
 			"themeSkinSpecificAspects": [
 				{
 					"hasAspect": null,
@@ -82,18 +87,34 @@
 					"applyAspect": "humanSkin_overrideSkinColor|b78e4f|b78e4f|b78e4f|1"
 				}
 			],
-			"effects": ["SEThillWall"],
-			"stats": {"ARMOR": 0.5}
+			"effects": [
+				"SEThillWall"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			}
 		},
 		{
 			"id": "leftLeg",
 			"name": "Hill Leg (L)",
 			"blurb": "<self>'s left leg is made of rock.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SEThillStomp"],
-			"stats": {"ARMOR": 0.5, "SPEED": 0.9},
-			"extraAspects": ["immuneToKnockback", "stoneLegsSound"],
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SEThillStomp"
+			],
+			"stats": {
+				"ARMOR": 0.5,
+				"SPEED": 0.9
+			},
+			"extraAspects": [
+				"immuneToKnockback",
+				"stoneLegsSound"
+			],
 			"layers": [
 				{
 					"name": "replaceLegL_foothill",
@@ -111,11 +132,23 @@
 			"id": "rightLeg",
 			"name": "Hill Leg (R)",
 			"blurb": "<self>'s right leg is made of rock.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SEThillStomp"],
-			"stats": {"ARMOR": 0.5, "SPEED": 0.9},
-			"extraAspects": ["immuneToKnockback", "stoneLegsSound"],
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SEThillStomp"
+			],
+			"stats": {
+				"ARMOR": 0.5,
+				"SPEED": 0.9
+			},
+			"extraAspects": [
+				"immuneToKnockback",
+				"stoneLegsSound"
+			],
 			"layers": [
 				{
 					"name": "replaceLegR_foothill",
@@ -133,8 +166,13 @@
 			"id": "leftArm",
 			"name": "Hill Arm (L)",
 			"blurb": "<self>'s left arm is made of rock.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
 			"effects": [
 				"SEThillRock",
 				"defaultSecondaryMoveFeedback|5.6+self.themePiece_foothill_leftLeg+self.themePiece_foothill_rightLeg|SEThillRock",
@@ -142,7 +180,11 @@
 				"foothillStonewall",
 				"foothillAttackAbilitiesCancelStonewall"
 			],
-			"extraAspects": ["themeAbility_ranged", "themeAbility_rangedSingleTarget", "attackRange|0|5.6+self.themePiece_foothill_leftLeg+self.themePiece_foothill_rightLeg|rangedNonWeapon"],
+			"extraAspects": [
+				"themeAbility_ranged",
+				"themeAbility_rangedSingleTarget",
+				"attackRange|0|5.6+self.themePiece_foothill_leftLeg+self.themePiece_foothill_rightLeg|rangedNonWeapon"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_foothill",
@@ -160,9 +202,19 @@
 			"id": "rightArm",
 			"name": "Hill Arm (R)",
 			"blurb": "<self>'s right arm is made of rock.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SEThillBash", "SEThillCrush", "foothillStonewall", "foothillAttackAbilitiesCancelStonewall"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SEThillBash",
+				"SEThillCrush",
+				"foothillStonewall",
+				"foothillAttackAbilitiesCancelStonewall"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_foothill",
@@ -180,10 +232,17 @@
 			"id": "pet",
 			"name": "Turtle",
 			"blurb": "<self> takes care of the little guy.",
-			"slots": ["pet"],
-			"stats": {"ARMOR": 0.5},
+			"slots": [
+				"pet"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			},
 			"layers": [
-				{"name": "pet_turtle", "depth": 9000}
+				{
+					"name": "pet_turtle",
+					"depth": 9000
+				}
 			]
 		}
 	]

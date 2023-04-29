@@ -1,40 +1,61 @@
 {
-"id": "ability_advanceTheme_shadow_wings",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_shadow_wings",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "vinePoison",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1",
-	"strictlyBetterThan": [ "ability_advanceTheme_shadow" ]
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF", "aspect_advanceTheme_shadow" ],
-		"aspectValues": [
-			{ "id": "themeSlotFilled_wings", "forbidden": true }
-		],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{ "class": "ApplyTheme", "target": "self", "theme": "shadow", "piece": "wings" },
-	{ "class": "AddResources", "amount": "-1" },
-	{
-		"class": "Aspects",
-		"removeAspects": [ "aspect_advanceTheme_shadow" ]
-	}
-]
+	"id": "ability_advanceTheme_shadow_wings",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_shadow_wings",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
+		]
+	},
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "vinePoison",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1",
+		"strictlyBetterThan": [
+			"ability_advanceTheme_shadow"
+		]
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF",
+				"aspect_advanceTheme_shadow"
+			],
+			"aspectValues": [
+				{
+					"id": "themeSlotFilled_wings",
+					"forbidden": true
+				}
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "ApplyTheme",
+			"target": "self",
+			"theme": "shadow",
+			"piece": "wings"
+		},
+		{
+			"class": "AddResources",
+			"amount": "-1"
+		},
+		{
+			"class": "Aspects",
+			"removeAspects": [
+				"aspect_advanceTheme_shadow"
+			]
+		}
+	]
 }

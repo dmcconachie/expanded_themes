@@ -1,30 +1,36 @@
 {
-"id": "SETskeletonRegeneration",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/skeleton/SETskeletonRegeneration",
-	"modId": "Smokers_Expanded_Themes"
-},
-"type": "TURN_START",
-"ability": {  "priority": "1" },
-"targets": [
-	{ "template": "SELF", "scoreFunction": "INJURY", "scoreThreshold": "1" }
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"target": "self",
-		"defender": null,
-		"attackAnimationType": "none",
-		"markForFlanking": "never",
-		"flankingBoostsAttackRoll": false,
-		"attackStrength": "actionRoll(self.MELEE_ACCURACY)",
-		"always": {
-			"class": "ModifyStats",
-			"target": "self",
-			"stat": "INJURY",
-			"value": "0-(1*1)"
+	"id": "SETskeletonRegeneration",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/skeleton/SETskeletonRegeneration",
+		"modId": "Smokers_Expanded_Themes"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"priority": "1"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"scoreFunction": "INJURY",
+			"scoreThreshold": "1"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"target": "self",
+			"defender": null,
+			"attackAnimationType": "none",
+			"markForFlanking": "never",
+			"flankingBoostsAttackRoll": false,
+			"attackStrength": "actionRoll(self.MELEE_ACCURACY)",
+			"always": {
+				"class": "ModifyStats",
+				"target": "self",
+				"stat": "INJURY",
+				"value": "0-(1*1)"
+			}
+		}
+	]
 }

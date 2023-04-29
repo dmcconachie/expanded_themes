@@ -1,40 +1,61 @@
 {
-"id": "ability_advanceTheme_tinyWings_tail",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_tinyWings_tail",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "crowClaw1",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1",
-	"strictlyBetterThan": [ "ability_advanceTheme_tinyWings" ]
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF", "aspect_advanceTheme_tinyWings" ],
-		"aspectValues": [
-			{ "id": "themeSlotFilled_tail", "forbidden": true }
-		],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{ "class": "ApplyTheme", "target": "self", "theme": "tinyWings", "piece": "tail" },
-	{ "class": "AddResources", "amount": "-1" },
-	{
-		"class": "Aspects",
-		"removeAspects": [ "aspect_advanceTheme_tinyWings" ]
-	}
-]
+	"id": "ability_advanceTheme_tinyWings_tail",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_tinyWings_tail",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
+		]
+	},
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "crowClaw1",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1",
+		"strictlyBetterThan": [
+			"ability_advanceTheme_tinyWings"
+		]
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF",
+				"aspect_advanceTheme_tinyWings"
+			],
+			"aspectValues": [
+				{
+					"id": "themeSlotFilled_tail",
+					"forbidden": true
+				}
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "ApplyTheme",
+			"target": "self",
+			"theme": "tinyWings",
+			"piece": "tail"
+		},
+		{
+			"class": "AddResources",
+			"amount": "-1"
+		},
+		{
+			"class": "Aspects",
+			"removeAspects": [
+				"aspect_advanceTheme_tinyWings"
+			]
+		}
+	]
 }

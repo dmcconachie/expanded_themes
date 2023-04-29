@@ -1,31 +1,35 @@
 {
-"id": "SETfireIndignanceRegion",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "monster/SETfireIndignanceRegion",
-	"author": "Patrick Belanger"
-},
-"type": "REGION",
-"targets": [],
-"outcomes": [
-	{
-		"class": "MapRegion",
-		"target": "self",
-		"region": {
-			"id": "SETfireIndignanceRegion",
-			"entryCostDangerousPathOtherFaction": 100,
-			"feedbackType": "THREATEN",
-			"floorsOnly": true,
-			"spatialRelationship": {
-				"testAspects": [
-					{ "id": "alive" },
-					{ "id": "ENEMY" }
-				],
-				"otherAspect": "SETfireIndignanceRel"
-			}
-		},
-		"aura": "1.6",
-		"associateWithFaction": true
-	}
-]
+	"id": "SETfireIndignanceRegion",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "monster/SETfireIndignanceRegion",
+		"author": "Patrick Belanger"
+	},
+	"type": "REGION",
+	"targets": [],
+	"outcomes": [
+		{
+			"class": "MapRegion",
+			"target": "self",
+			"region": {
+				"id": "SETfireIndignanceRegion",
+				"entryCostDangerousPathOtherFaction": 100,
+				"feedbackType": "THREATEN",
+				"floorsOnly": true,
+				"spatialRelationship": {
+					"testAspects": [
+						{
+							"id": "alive"
+						},
+						{
+							"id": "ENEMY"
+						}
+					],
+					"otherAspect": "SETfireIndignanceRel"
+				}
+			},
+			"aura": "1.6",
+			"associateWithFaction": true
+		}
+	]
 }

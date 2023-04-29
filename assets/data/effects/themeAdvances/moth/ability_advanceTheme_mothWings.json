@@ -1,36 +1,44 @@
 {
-"id": "ability_advanceTheme_mothWings",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_mothWings",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "gloamglow",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF" ],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "aspect_advanceTheme_mothWings", "value": "1" }
+	"id": "ability_advanceTheme_mothWings",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_mothWings",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
 		]
-	}
-]
+	},
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "gloamglow",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF"
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "aspect_advanceTheme_mothWings",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

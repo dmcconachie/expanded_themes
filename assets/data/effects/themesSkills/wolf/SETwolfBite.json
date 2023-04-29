@@ -1,124 +1,141 @@
 {
-"id": "SETwolfBite",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/wolf/SETwolfBite",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby",
-	"aiPriority": "3500",
-	"tags": [ "okToMarkDone", "melee", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "bite",
-	"priority": "10",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETwolfBite",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/wolf/SETwolfBite",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby",
+		"aiPriority": "3500",
+		"tags": [
+			"okToMarkDone",
+			"melee",
+			"free"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
-			"attackHitCue": "",
-			"attackDodgedCue": "",
-			"attackBlockedCue": ""
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "bite",
+		"priority": "10",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"cooldown": "everyOtherTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_wolf_upgrade))))+self.theme_wolf_upgrade",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "bleeding", "value": "1" }
-						]
-					}
-				},
-				{
-					"class": "Test",
-					"STUB": "If killed, progress achievement",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+				"attackHitCue": "",
+				"attackDodgedCue": "",
+				"attackBlockedCue": ""
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_wolf_upgrade))))+self.theme_wolf_upgrade",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "bleeding",
+									"value": "1"
+								}
+							]
+						}
+					},
+					{
 						"class": "Test",
-						"value": "target.cultist",
-						"threshold": "1",
+						"STUB": "If killed, progress achievement",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
 						"onPass": {
-							"class": "UnlockLegacyAspect",
-							"legacyAspect": "theme_wolf_bite_killedCultist",
-							"value": "1"
-						},
-						"onFail": {
 							"class": "Test",
-							"value": "target.drauven",
+							"value": "target.cultist",
 							"threshold": "1",
 							"onPass": {
 								"class": "UnlockLegacyAspect",
-								"legacyAspect": "theme_wolf_bite_killedDrauven",
+								"legacyAspect": "theme_wolf_bite_killedCultist",
 								"value": "1"
 							},
 							"onFail": {
 								"class": "Test",
-								"value": "target.gorgon",
+								"value": "target.drauven",
 								"threshold": "1",
 								"onPass": {
 									"class": "UnlockLegacyAspect",
-									"legacyAspect": "theme_wolf_bite_killedGorgon",
+									"legacyAspect": "theme_wolf_bite_killedDrauven",
 									"value": "1"
 								},
 								"onFail": {
 									"class": "Test",
-									"value": "target.morthagi",
+									"value": "target.gorgon",
 									"threshold": "1",
 									"onPass": {
 										"class": "UnlockLegacyAspect",
-										"legacyAspect": "theme_wolf_bite_killedMorthagi",
+										"legacyAspect": "theme_wolf_bite_killedGorgon",
 										"value": "1"
 									},
 									"onFail": {
 										"class": "Test",
-										"value": "target.thrixl",
+										"value": "target.morthagi",
 										"threshold": "1",
 										"onPass": {
 											"class": "UnlockLegacyAspect",
-											"legacyAspect": "theme_wolf_bite_killedThrixl",
+											"legacyAspect": "theme_wolf_bite_killedMorthagi",
 											"value": "1"
+										},
+										"onFail": {
+											"class": "Test",
+											"value": "target.thrixl",
+											"threshold": "1",
+											"onPass": {
+												"class": "UnlockLegacyAspect",
+												"legacyAspect": "theme_wolf_bite_killedThrixl",
+												"value": "1"
+											}
 										}
 									}
 								}
 							}
 						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_wolf_upgrade))))+self.theme_wolf_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_wolf_upgrade))))+self.theme_wolf_upgrade"
+			}
 		}
-	}
-]
+	]
 }

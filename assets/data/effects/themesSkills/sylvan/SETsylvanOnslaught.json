@@ -1,351 +1,435 @@
 {
-"id": "SETsylvanOnslaught",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/sylvan/SETsylvanOnslaught",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "2060",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "crush",
-	
-	"priority": "17",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_green_upgrade",
-	"abilityElementType": "leaf"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" },
-		"aspects": [ "alive", "SELF", "themePiece_green_rightArm", "themePiece_green_leftArm" ],
-		"aspectValues": [
-			{ "id": "pinned", "forbidden": true }
+	"id": "SETsylvanOnslaught",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/sylvan/SETsylvanOnslaught",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "2060",
+		"tags": [
+			"melee"
 		]
 	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "PATH_TARGET",
-			"applyRoleFootprint": "self",
-			"showMovementFeedback": true
-		},
-		"minRange": "0.9",
-		"range": "(6.6+self.themePiece_green_leftLeg)+self.themePiece_green_rightLeg",
-		"lineOfSight": "TERRAIN_AND_GAPS",
-		"tileFilter": "validMoveEnd",
-		"roleMustFit": "self",
-		"footprintWithinRange": "self"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "crush",
+		"priority": "17",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_green_upgrade",
+		"abilityElementType": "leaf"
 	},
-	{
-		"role": "hook",
-		"template": "TILE",
-		"STUB": "All tiles the entity will end up on (used to prevent knocking enemies back onto the tile we're moving to).",
-		"choose": "ANY",
-		"range": "0",
-		"relativeToLocation": "targetTile"
-	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"choose": "ANY",
-		"missionFeedback": {
-			"orientTo": "self",
-			"suggestionScript": "figures.attackSuggestion",
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_SUGGESTION",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"manifold": {
-			"from": "self",
-			"to": "targetTile",
-			"thickness": [ "2", "2" ],
-			"useSourceFootprintForDestination": true
-		},
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": null,
-		"relativeToLocation": "targetTile"
-	},
-	{
-		"role": "site",
-		"template": "TILE",
-		"choose": "BY_SCORE_OPTIONAL",
-		"scoreFunction": "1",
-		"scoreThreshold": "0",
-		"missionFeedback": { "rangeFeedback": "FRIENDLY_EFFECT_RANGE" },
-		"relativeTo": "target",
-		"range": "0.9",
-		"tileFilter": "forbidSceneryAllowPits",
-		"tileFilterRange": "1"
-	},
-	{
-		"role": "volunteer2",
-		"template": "ADJACENT_SCENERY",
-		"choose": "ANY",
-		"missionFeedback": null,
-		"manifold": {
-			"from": "self",
-			"to": "targetTile",
-			"thickness": [ "2", "2" ],
-			"useSourceFootprintForDestination": true
-		},
-		"range": "1.6"
-	},
-	{
-		"role": "site2",
-		"template": "TILE",
-		"choose": "BY_SCORE_OPTIONAL",
-		"scoreFunction": "1",
-		"scoreThreshold": "0",
-		"missionFeedback": { "rangeFeedback": "FRIENDLY_EFFECT_RANGE" },
-		"relativeTo": "volunteer2",
-		"range": "0.9",
-		"tileFilter": "forbidSceneryAllowPits",
-		"tileFilterRange": "1"
-	},
-	{
-		"role": "volunteer3",
-		"template": "ADJACENT_SCENERY",
-		"choose": "ANY",
-		"missionFeedback": null,
-		"range": "0",
-		"relativeToLocation": "targetTile"
-	},
-	{
-		"role": "site3",
-		"template": "TILE",
-		"choose": "BY_SCORE_OPTIONAL",
-		"scoreFunction": "1",
-		"scoreThreshold": "0",
-		"missionFeedback": { "rangeFeedback": "FRIENDLY_EFFECT_RANGE" },
-		"relativeTo": "volunteer3",
-		"range": "0.9",
-		"tileFilter": "forbidSceneryAllowPits",
-		"tileFilterRange": "1"
-	},
-	{
-		"role": "volunteer",
-		"template": "ADJACENT_SCENERY",
-		"choose": "ANY",
-		"fromRoles": [ "volunteer2", "volunteer3" ],
-		"range": null
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"attackAnimationType": "melee",
-		"showAbilityName": "ifEnemy",
-		"timingOverride": { "swingTime": "1400", "attackTime": "0", "afterAnimationTime": "200" },
-		"particles": [
-			{
-				"script": "chargeDust",
-				"setPosition": "self",
-				"setPosition2": "targetTile",
-				"delay": -1
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
 			},
-			{
-				"script": "chargeDebris",
-				"setPosition": "self",
-				"setPosition2": "targetTile",
-				"delay": -1
-			}
-		],
-		"audioOverride": { "attackHitCue": "Characters/DefaultHuman/Ability_Rock" },
-		"attackerAnimationOverride": "",
-		"cameraSnapToStartPositionOnEnd": false,
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY+20",
-		"always": {
-			"class": "DoAll",
-			"outcomes": [
+			"missionFeedback": {
+				"orientTo": "target"
+			},
+			"aspects": [
+				"alive",
+				"SELF",
+				"themePiece_green_rightArm",
+				"themePiece_green_leftArm"
+			],
+			"aspectValues": [
 				{
-					"class": "MoveEntity",
-					"directlyToTile": "targetTile",
-					"ignoreEntitiesOnTile": true,
-					"animationType": "charge"
+					"id": "pinned",
+					"forbidden": true
 				}
 			]
 		},
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_green_upgrade))))+self.theme_green_upgrade)+target.distanceTo.targetTile",
-					"overrideStuntDamage": "2",
-					"onStunt": {
-						"class": "BranchAbility",
-						"target": "self",
-						"targetRole": "defender",
-						"branchAbility": "stuntEffect_leaf"
-					}
-				},
-				{
-					"class": "Test",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "IfRolesArePresent",
-								"rolesArePresent": [ "site" ],
-								"then": {
-									"class": "DoAll",
-									"outcomes": [
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "TreeSpawn", "setPosition": "site" }
-										},
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "LeafExplosion", "setPosition": "site" }
-										},
-										{
-											"class": "Spawn",
-											"target": "site",
-											"addRole": "scenery",
-											"modifyTerrain": "setToBlocked",
-											"ignoreBlockingEntities": [ "target" ],
-											"forceSpawn": true,
-											"createEntity": {
-												"query": {
-													"type": "SCENERY",
-													"tags": [ "arches" ],
-													"coordinates": "site"
-												},
-												"setLocation": true
-											}
-										}
-									]
-								}
-							}
-						]
-					}
-				},
-				{
-					"class": "Test",
-					"target": "volunteer2",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "IfRolesArePresent",
-								"rolesArePresent": [ "site2" ],
-								"then": {
-									"class": "DoAll",
-									"outcomes": [
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "TreeSpawn", "setPosition": "site2" }
-										},
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "LeafExplosion", "setPosition": "site2" }
-										},
-										{
-											"class": "Spawn",
-											"target": "site2",
-											"addRole": "scenery",
-											"modifyTerrain": "setToBlocked",
-											"ignoreBlockingEntities": [ "volunteer2" ],
-											"forceSpawn": true,
-											"createEntity": {
-												"query": {
-													"type": "SCENERY",
-													"tags": [ "arches" ],
-													"coordinates": "site2"
-												},
-												"setLocation": true
-											}
-										}
-									]
-								}
-							}
-						]
-					}
-				},
-				{
-					"class": "Test",
-					"target": "volunteer3",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "IfRolesArePresent",
-								"rolesArePresent": [ "site3" ],
-								"then": {
-									"class": "DoAll",
-									"outcomes": [
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "TreeSpawn", "setPosition": "site3" }
-										},
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "LeafExplosion", "setPosition": "site3" }
-										},
-										{
-											"class": "Spawn",
-											"target": "site3",
-											"addRole": "scenery",
-											"modifyTerrain": "setToBlocked",
-											"ignoreBlockingEntities": [ "volunteer3" ],
-											"forceSpawn": true,
-											"createEntity": {
-												"query": {
-													"type": "SCENERY",
-													"tags": [ "arches" ],
-													"coordinates": "site3"
-												},
-												"setLocation": true
-											}
-										}
-									]
-								}
-							}
-						]
-					}
-				},
-				{
-					"class": "MatchTarget",
-					"abilityTarget": {
-						"template": "TILE",
-						"pathFrom": "self",
-						"pathTo": "defender",
-						"matchSpecial": "knockBackDestination",
-						"relativeTo": "defender",
-						"notAlreadyMatchedAs": [ "hook" ],
-						"range": "1.6",
-						"lineOfSight": "ANY_COVER",
-						"tileFilter": "parentLocationOrValidMoveEnd",
-						"roleMustFit": "defender"
-					}
-				},
-				{ "class": "MoveEntity", "directlyToTile": "focus" },
-				{ "class": "ClearRole", "role": "focus" }
-			]
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "PATH_TARGET",
+				"applyRoleFootprint": "self",
+				"showMovementFeedback": true
+			},
+			"minRange": "0.9",
+			"range": "(6.6+self.themePiece_green_leftLeg)+self.themePiece_green_rightLeg",
+			"lineOfSight": "TERRAIN_AND_GAPS",
+			"tileFilter": "validMoveEnd",
+			"roleMustFit": "self",
+			"footprintWithinRange": "self"
+		},
+		{
+			"role": "hook",
+			"template": "TILE",
+			"STUB": "All tiles the entity will end up on (used to prevent knocking enemies back onto the tile we're moving to).",
+			"choose": "ANY",
+			"range": "0",
+			"relativeToLocation": "targetTile"
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"choose": "ANY",
+			"missionFeedback": {
+				"orientTo": "self",
+				"suggestionScript": "figures.attackSuggestion",
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_SUGGESTION",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"manifold": {
+				"from": "self",
+				"to": "targetTile",
+				"thickness": [
+					"2",
+					"2"
+				],
+				"useSourceFootprintForDestination": true
+			},
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": null,
+			"relativeToLocation": "targetTile"
+		},
+		{
+			"role": "site",
+			"template": "TILE",
+			"choose": "BY_SCORE_OPTIONAL",
+			"scoreFunction": "1",
+			"scoreThreshold": "0",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE"
+			},
+			"relativeTo": "target",
+			"range": "0.9",
+			"tileFilter": "forbidSceneryAllowPits",
+			"tileFilterRange": "1"
+		},
+		{
+			"role": "volunteer2",
+			"template": "ADJACENT_SCENERY",
+			"choose": "ANY",
+			"missionFeedback": null,
+			"manifold": {
+				"from": "self",
+				"to": "targetTile",
+				"thickness": [
+					"2",
+					"2"
+				],
+				"useSourceFootprintForDestination": true
+			},
+			"range": "1.6"
+		},
+		{
+			"role": "site2",
+			"template": "TILE",
+			"choose": "BY_SCORE_OPTIONAL",
+			"scoreFunction": "1",
+			"scoreThreshold": "0",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE"
+			},
+			"relativeTo": "volunteer2",
+			"range": "0.9",
+			"tileFilter": "forbidSceneryAllowPits",
+			"tileFilterRange": "1"
+		},
+		{
+			"role": "volunteer3",
+			"template": "ADJACENT_SCENERY",
+			"choose": "ANY",
+			"missionFeedback": null,
+			"range": "0",
+			"relativeToLocation": "targetTile"
+		},
+		{
+			"role": "site3",
+			"template": "TILE",
+			"choose": "BY_SCORE_OPTIONAL",
+			"scoreFunction": "1",
+			"scoreThreshold": "0",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE"
+			},
+			"relativeTo": "volunteer3",
+			"range": "0.9",
+			"tileFilter": "forbidSceneryAllowPits",
+			"tileFilterRange": "1"
+		},
+		{
+			"role": "volunteer",
+			"template": "ADJACENT_SCENERY",
+			"choose": "ANY",
+			"fromRoles": [
+				"volunteer2",
+				"volunteer3"
+			],
+			"range": null
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"attackAnimationType": "melee",
+			"showAbilityName": "ifEnemy",
+			"timingOverride": {
+				"swingTime": "1400",
+				"attackTime": "0",
+				"afterAnimationTime": "200"
+			},
+			"particles": [
+				{
+					"script": "chargeDust",
+					"setPosition": "self",
+					"setPosition2": "targetTile",
+					"delay": -1
+				},
+				{
+					"script": "chargeDebris",
+					"setPosition": "self",
+					"setPosition2": "targetTile",
+					"delay": -1
+				}
+			],
+			"audioOverride": {
+				"attackHitCue": "Characters/DefaultHuman/Ability_Rock"
+			},
+			"attackerAnimationOverride": "",
+			"cameraSnapToStartPositionOnEnd": false,
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY+20",
+			"always": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "MoveEntity",
+						"directlyToTile": "targetTile",
+						"ignoreEntitiesOnTile": true,
+						"animationType": "charge"
+					}
+				]
+			},
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_green_upgrade))))+self.theme_green_upgrade)+target.distanceTo.targetTile",
+						"overrideStuntDamage": "2",
+						"onStunt": {
+							"class": "BranchAbility",
+							"target": "self",
+							"targetRole": "defender",
+							"branchAbility": "stuntEffect_leaf"
+						}
+					},
+					{
+						"class": "Test",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "IfRolesArePresent",
+									"rolesArePresent": [
+										"site"
+									],
+									"then": {
+										"class": "DoAll",
+										"outcomes": [
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "TreeSpawn",
+													"setPosition": "site"
+												}
+											},
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "LeafExplosion",
+													"setPosition": "site"
+												}
+											},
+											{
+												"class": "Spawn",
+												"target": "site",
+												"addRole": "scenery",
+												"modifyTerrain": "setToBlocked",
+												"ignoreBlockingEntities": [
+													"target"
+												],
+												"forceSpawn": true,
+												"createEntity": {
+													"query": {
+														"type": "SCENERY",
+														"tags": [
+															"arches"
+														],
+														"coordinates": "site"
+													},
+													"setLocation": true
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"class": "Test",
+						"target": "volunteer2",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "IfRolesArePresent",
+									"rolesArePresent": [
+										"site2"
+									],
+									"then": {
+										"class": "DoAll",
+										"outcomes": [
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "TreeSpawn",
+													"setPosition": "site2"
+												}
+											},
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "LeafExplosion",
+													"setPosition": "site2"
+												}
+											},
+											{
+												"class": "Spawn",
+												"target": "site2",
+												"addRole": "scenery",
+												"modifyTerrain": "setToBlocked",
+												"ignoreBlockingEntities": [
+													"volunteer2"
+												],
+												"forceSpawn": true,
+												"createEntity": {
+													"query": {
+														"type": "SCENERY",
+														"tags": [
+															"arches"
+														],
+														"coordinates": "site2"
+													},
+													"setLocation": true
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"class": "Test",
+						"target": "volunteer3",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "IfRolesArePresent",
+									"rolesArePresent": [
+										"site3"
+									],
+									"then": {
+										"class": "DoAll",
+										"outcomes": [
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "TreeSpawn",
+													"setPosition": "site3"
+												}
+											},
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "LeafExplosion",
+													"setPosition": "site3"
+												}
+											},
+											{
+												"class": "Spawn",
+												"target": "site3",
+												"addRole": "scenery",
+												"modifyTerrain": "setToBlocked",
+												"ignoreBlockingEntities": [
+													"volunteer3"
+												],
+												"forceSpawn": true,
+												"createEntity": {
+													"query": {
+														"type": "SCENERY",
+														"tags": [
+															"arches"
+														],
+														"coordinates": "site3"
+													},
+													"setLocation": true
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"class": "MatchTarget",
+						"abilityTarget": {
+							"template": "TILE",
+							"pathFrom": "self",
+							"pathTo": "defender",
+							"matchSpecial": "knockBackDestination",
+							"relativeTo": "defender",
+							"notAlreadyMatchedAs": [
+								"hook"
+							],
+							"range": "1.6",
+							"lineOfSight": "ANY_COVER",
+							"tileFilter": "parentLocationOrValidMoveEnd",
+							"roleMustFit": "defender"
+						}
+					},
+					{
+						"class": "MoveEntity",
+						"directlyToTile": "focus"
+					},
+					{
+						"class": "ClearRole",
+						"role": "focus"
+					}
+				]
+			}
+		}
+	]
 }

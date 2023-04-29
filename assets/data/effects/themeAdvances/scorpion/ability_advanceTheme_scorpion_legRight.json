@@ -1,46 +1,62 @@
 {
-"id": "ability_advanceTheme_scorpion_legRight",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_scorpion_legRight",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "scorpion",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1",
-	"strictlyBetterThan": [ "ability_advanceTheme_scorpion" ]
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF", "aspect_advanceTheme_scorpion" ],
-		"aspectValues": [
-			{ "id": "themeSlotFilled_rightLeg", "forbidden": true }
-		],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{
-		"class": "ApplyTheme",
-		"target": "self",
-		"theme": "scorpion",
-		"piece": "rightLeg",
-		"replaceInjuredLimbs": true
+	"id": "ability_advanceTheme_scorpion_legRight",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_scorpion_legRight",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
+		]
 	},
-	{ "class": "AddResources", "amount": "-1" },
-	{
-		"class": "Aspects",
-		"removeAspects": [ "aspect_advanceTheme_scorpion" ]
-	}
-]
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "scorpion",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1",
+		"strictlyBetterThan": [
+			"ability_advanceTheme_scorpion"
+		]
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF",
+				"aspect_advanceTheme_scorpion"
+			],
+			"aspectValues": [
+				{
+					"id": "themeSlotFilled_rightLeg",
+					"forbidden": true
+				}
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "ApplyTheme",
+			"target": "self",
+			"theme": "scorpion",
+			"piece": "rightLeg",
+			"replaceInjuredLimbs": true
+		},
+		{
+			"class": "AddResources",
+			"amount": "-1"
+		},
+		{
+			"class": "Aspects",
+			"removeAspects": [
+				"aspect_advanceTheme_scorpion"
+			]
+		}
+	]
 }

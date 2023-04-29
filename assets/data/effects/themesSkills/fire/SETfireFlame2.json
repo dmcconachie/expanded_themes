@@ -1,73 +1,89 @@
 {
-"id": "SETfireFlame2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/fire/SETfireFlame2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "stealFire",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardMelee",
-	"abilityElementType": "fire"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETfireFlame2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/fire/SETfireFlame2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"particles": [
-			{ "script": "Phantomflare copy 2", "setPosition": "target" }
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "stealFire",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
 		],
-		"audioOverride": {
-			"attackHitCue": "Characters/DefaultHuman/Magic_FireHit",
-			"attackDodgedCue": "Characters/DefaultHuman/Magic_FireMiss",
-			"attackBlockedCue": "Characters/DefaultHuman/Magic_FireMiss"
+		"priority": "49",
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardMelee",
+		"abilityElementType": "fire"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_fire_upgrade)))+self.theme_fire_upgrade",
-					"type": "MAGIC",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "BranchAbility",
-						"target": "self",
-						"targetRole": "defender",
-						"branchAbility": "stuntEffect_fire|3"
-					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_fire_upgrade)))+self.theme_fire_upgrade"
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"particles": [
+				{
+					"script": "Phantomflare copy 2",
+					"setPosition": "target"
+				}
+			],
+			"audioOverride": {
+				"attackHitCue": "Characters/DefaultHuman/Magic_FireHit",
+				"attackDodgedCue": "Characters/DefaultHuman/Magic_FireMiss",
+				"attackBlockedCue": "Characters/DefaultHuman/Magic_FireMiss"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_fire_upgrade)))+self.theme_fire_upgrade",
+						"type": "MAGIC",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "BranchAbility",
+							"target": "self",
+							"targetRole": "defender",
+							"branchAbility": "stuntEffect_fire|3"
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_fire_upgrade)))+self.theme_fire_upgrade"
+			}
+		}
+	]
 }

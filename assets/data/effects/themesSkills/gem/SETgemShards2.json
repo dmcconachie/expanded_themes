@@ -1,75 +1,93 @@
 {
-"id": "SETgemShards2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/gem/SETgemShards2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby",
-	"aiPriority": "3000",
-	"tags": [ "ranged" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "splinterblast",
-	
-	"priority": "17",
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_gem_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETgemShards2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/gem/SETgemShards2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby",
+		"aiPriority": "3000",
+		"tags": [
+			"ranged"
+		]
 	},
-	{
-		"template": "ADJACENT_UNIT",
-		"choose": "ANY",
-		"minRange": "1",
-		"range": "1.6",
-		"relativeToLocation": "targetTile"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"attackAnimationType": "melee",
-		"minimumBlockTime": "300",
-		"particles": [
-			{ "script": "shockwave", "setPosition": "self", "delay": -0.25 }
-		],
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY+20",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "splinterblast",
+		"priority": "17",
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_gem_upgrade"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_UNIT",
+			"choose": "ANY",
+			"minRange": "1",
+			"range": "1.6",
+			"relativeToLocation": "targetTile"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"attackAnimationType": "melee",
+			"minimumBlockTime": "300",
+			"particles": [
 				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "bleeding", "value": "1" }
-					]
-				},
-				{
-					"class": "Damage",
-					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade",
-					"shred": "2",
-					"overrideStuntDamage": "2",
-					"onStunt": {
+					"script": "shockwave",
+					"setPosition": "self",
+					"delay": -0.25
+				}
+			],
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY+20",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
 						"class": "Aspects",
 						"addAspects": [
-							{ "id": "concussed", "value": "1" }
+							{
+								"id": "bleeding",
+								"value": "1"
+							}
 						]
+					},
+					{
+						"class": "Damage",
+						"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade",
+						"shred": "2",
+						"overrideStuntDamage": "2",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "concussed",
+									"value": "1"
+								}
+							]
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade",
-			"shred": "2"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gem_upgrade))))+self.theme_gem_upgrade",
+				"shred": "2"
+			}
 		}
-	}
-]
+	]
 }

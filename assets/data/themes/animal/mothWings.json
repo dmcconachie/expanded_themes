@@ -2,13 +2,14 @@
 	"id": "mothWings",
 	"name": "Mothly",
 	"blurb": "<self> has a wicked, insect aspect.",
-
 	"pieces": [
 		{
 			"id": "wings",
 			"name": "Moth Wings",
 			"blurb": "Satiny wings grow from <self>'s shoulders, long enough to wrap <self.mf:his/her/their> body round.",
-			"slots": ["wings"],
+			"slots": [
+				"wings"
+			],
 			"effects": [
 				"mothWings_gloamglow",
 				"ability_advanceTheme_mothWings",
@@ -20,8 +21,12 @@
 				"ability_advanceTheme_mothWings_legRight",
 				"ability_advanceTheme_mothWings_shoulderPet"
 			],
-			"stats": {"SPEED": 1},
-			"extraAspects": ["wingSound"],
+			"stats": {
+				"SPEED": 1
+			},
+			"extraAspects": [
+				"wingSound"
+			],
 			"layers": [
 				{
 					"name": "wingsMothA_tint1",
@@ -45,9 +50,16 @@
 			"id": "head",
 			"name": "Moth Antennas",
 			"blurb": "Allows <self> to detect everything (except crystal windows).",
-			"slots": ["head"],
-			"stats": {"MELEE_ACCURACY": 5, "RANGE_ACCURACY": 5},
-			"effects": [ "SETmovementDodge" ],
+			"slots": [
+				"head"
+			],
+			"stats": {
+				"MELEE_ACCURACY": 5,
+				"RANGE_ACCURACY": 5
+			},
+			"effects": [
+				"SETmovementDodge"
+			],
 			"layers": [
 				{
 					"name": "face_moth_antennas",
@@ -56,15 +68,21 @@
 				}
 			]
 		},
-    {
-      "id": "torso",
-      "name": "Moth Torso",
-      "blurb": "<self> has a wicked insect aspect and can use the wings better.",
+		{
+			"id": "torso",
+			"name": "Moth Torso",
+			"blurb": "<self> has a wicked insect aspect and can use the wings better.",
 			"canBeAwardedRandomly": false,
-      "slots": ["torso"],
-			"replaces": ["torso"],
-      "extraAspects": [],
-      "effects": ["SETmothFly"],
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
+			"extraAspects": [],
+			"effects": [
+				"SETmothFly"
+			],
 			"layers": [
 				{
 					"name": "replaceTorso_wolfA_tint",
@@ -76,14 +94,22 @@
 					"depth": 1212
 				}
 			]
-    },
+		},
 		{
 			"id": "leftArm",
 			"name": "Moth Arm (L)",
 			"blurb": "<self> has a wicked insect arm.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETmothInvigoration", "SETmothRive2"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETmothInvigoration",
+				"SETmothRive2"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_moth",
@@ -95,9 +121,17 @@
 			"id": "rightArm",
 			"name": "Moth Arm (R)",
 			"blurb": "<self> has a wicked insect arm.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETmothInvigoration", "SETmothRive1"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETmothInvigoration",
+				"SETmothRive1"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_moth",
@@ -109,10 +143,18 @@
 			"id": "leftLeg",
 			"name": "Moth Leg (L)",
 			"blurb": "<self> has a wicked insect leg.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETstationaryWarding"],
-			"stats": {"SPEED": 2},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETstationaryWarding"
+			],
+			"stats": {
+				"SPEED": 2
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_scorpionB_tint",
@@ -129,10 +171,18 @@
 			"id": "rightLeg",
 			"name": "Moth Leg (R)",
 			"blurb": "<self> has a wicked insect leg.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETstationaryWarding"],
-			"stats": {"SPEED": 2},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETstationaryWarding"
+			],
+			"stats": {
+				"SPEED": 2
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_scorpionB_tint",
@@ -149,10 +199,17 @@
 			"id": "shoulderPet",
 			"name": "Moth swarm",
 			"blurb": "It's a little weird, but they follow you around.",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFlankingMelee2"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFlankingMelee2"
+			],
 			"layers": [
-				{"name": "pet_moth", "depth": 9000}
+				{
+					"name": "pet_moth",
+					"depth": 9000
+				}
 			]
 		}
 	]

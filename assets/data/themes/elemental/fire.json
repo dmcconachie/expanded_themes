@@ -2,21 +2,21 @@
 	"id": "fire",
 	"name": "Flamesoul",
 	"blurb": "Fire twists inside <self>, just barely contained.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_fireLava",
 			"unlockLegacyAspect": "theme_fire_hit5EnemiesAtOnce"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "tattoo",
 			"name": "Flamesoul Mark",
 			"blurb": "An open flame burns from <self>'s head.",
 			"canBeAwardedRandomly": false,
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"effects": [
 				"SETfireCone",
 				"defaultSecondaryMoveFeedbackNoLOS|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETfireCone",
@@ -28,7 +28,9 @@
 				"ability_advanceTheme_fire_legRight",
 				"ability_advanceTheme_fire_shoulderPet"
 			],
-			"stats": {"WARDING": 0.5},
+			"stats": {
+				"WARDING": 0.5
+			},
 			"extraAspects": [
 				"humanSkin_overrideStreakColor|ffab0a|1.0",
 				"humanSkin_overrideStreakValue|1.0",
@@ -80,7 +82,9 @@
 			"name": "Flamesoul Mark",
 			"blurb": "An open flame burns from <self>'s head.",
 			"canBeAwardedRandomly": false,
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"effects": [
 				"SETfireCone",
 				"defaultSecondaryMoveFeedbackNoLOS|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETfireCone",
@@ -92,7 +96,9 @@
 				"ability_advanceTheme_fire_legRight",
 				"ability_advanceTheme_fire_shoulderPet"
 			],
-			"stats": {"WARDING": 0.5},
+			"stats": {
+				"WARDING": 0.5
+			},
 			"extraAspects": [
 				"humanSkin_overrideStreakColor|ffab0a|1.0",
 				"humanSkin_overrideStreakValue|1.0",
@@ -144,7 +150,9 @@
 			"name": "Flamesoul Mark",
 			"blurb": "An open flame burns from <self>'s head.",
 			"canBeAwardedRandomly": false,
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"effects": [
 				"SETfireCone",
 				"defaultSecondaryMoveFeedbackNoLOS|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETfireCone",
@@ -156,7 +164,9 @@
 				"ability_advanceTheme_fire_legRight",
 				"ability_advanceTheme_fire_shoulderPet"
 			],
-			"stats": {"WARDING": 0.5},
+			"stats": {
+				"WARDING": 0.5
+			},
 			"extraAspects": [
 				"humanSkin_overrideStreakColor|ffab0a|1.0",
 				"humanSkin_overrideStreakValue|1.0",
@@ -203,23 +213,40 @@
 				}
 			]
 		},
-    {
-      "id": "skin",
-      "name": "Fire Heart",
-      "blurb": "<self>'s body is imbued with fire.",
-      "slots": ["skin"],
-      "extraAspects": ["humanSkin_overrideSkinColor|8f7468|8f7468|8f7468|1"],
-      "effects": ["SETfireConsumeFireIndignance"],
-      "stats": {"WARDING": 0.5}
-    },
+		{
+			"id": "skin",
+			"name": "Fire Heart",
+			"blurb": "<self>'s body is imbued with fire.",
+			"slots": [
+				"skin"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|8f7468|8f7468|8f7468|1"
+			],
+			"effects": [
+				"SETfireConsumeFireIndignance"
+			],
+			"stats": {
+				"WARDING": 0.5
+			}
+		},
 		{
 			"id": "leftLeg",
 			"name": "Flamesoul Leg (L)",
 			"blurb": "<self>'s left leg is fiery.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETstationaryPotency"],
-			"stats": {"SPEED": 1.7, "WARDING": 0.5},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETstationaryPotency"
+			],
+			"stats": {
+				"SPEED": 1.7,
+				"WARDING": 0.5
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_fire",
@@ -237,10 +264,19 @@
 			"id": "rightLeg",
 			"name": "Flamesoul Leg (R)",
 			"blurb": "<self>'s right leg is fiery.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETstationaryPotency"],
-			"stats": {"SPEED": 1.7, "WARDING": 0.5},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETstationaryPotency"
+			],
+			"stats": {
+				"SPEED": 1.7,
+				"WARDING": 0.5
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_fire",
@@ -258,10 +294,21 @@
 			"id": "leftArm",
 			"name": "Flamesoul Arm (L)",
 			"blurb": "<self>'s left arm spawns the eager start of a flame.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"stats": {"WARDING": 0.5},
-			"effects": ["SETfireFlame2", "SETfireRain", "defaultSecondaryMoveFeedbackNoLOS|8|SETfireRain"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"stats": {
+				"WARDING": 0.5
+			},
+			"effects": [
+				"SETfireFlame2",
+				"SETfireRain",
+				"defaultSecondaryMoveFeedbackNoLOS|8|SETfireRain"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_fire",
@@ -279,10 +326,20 @@
 			"id": "rightArm",
 			"name": "Flamesoul Arm (R)",
 			"blurb": "<self>'s right arm brings the inferno.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"stats": {"WARDING": 0.5},
-			"effects": ["SETfireFlame1", "SETfireRain"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"stats": {
+				"WARDING": 0.5
+			},
+			"effects": [
+				"SETfireFlame1",
+				"SETfireRain"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_fire",
@@ -300,10 +357,17 @@
 			"id": "shoulderPet",
 			"name": "Fire Bat",
 			"blurb": "Useful for starting fires",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFireBat"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFireBat"
+			],
 			"layers": [
-				{"name": "pet_fireBat", "depth": 9000}
+				{
+					"name": "pet_fireBat",
+					"depth": 9000
+				}
 			]
 		}
 	]

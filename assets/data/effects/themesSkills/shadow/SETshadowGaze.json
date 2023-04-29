@@ -1,57 +1,75 @@
 {
-"id": "SETshadowGaze",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/shadow/SETshadowGaze",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby",
-	"aiPriority": "2030",
-	"tags": [ "okToMarkDone", "ranged", "free" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "scout",
-	"priority": "71",
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_shadow_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"showAnyway": true,
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETshadowGaze",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/shadow/SETshadowGaze",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby",
+		"aiPriority": "2030",
+		"tags": [
+			"okToMarkDone",
+			"ranged",
+			"free"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"minRange": "1.9",
-		"range": "5.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"showAbilityName": "ifEnemy",
-		"particles": [],
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "senseless", "value": "1", "merge": "max" }
-					]
-				}
-			]
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "scout",
+		"priority": "71",
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_shadow_upgrade"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"minRange": "1.9",
+			"range": "5.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"showAbilityName": "ifEnemy",
+			"particles": [],
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "senseless",
+								"value": "1",
+								"merge": "max"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 }

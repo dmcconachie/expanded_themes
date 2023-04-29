@@ -1,58 +1,77 @@
 {
-"id": "SETfrogInvigoration2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/frog/SETfrogInvigoration2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"tags": [ "okToMarkDone", "free", "sneaky" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "aid",
-	
-	"priority": "72",
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_frog_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"aspects": [ "alive", "themePiece_frog_rightArm", "SELF", "themePiece_frog_leftArm" ],
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETfrogInvigoration2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/frog/SETfrogInvigoration2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"tags": [
+			"okToMarkDone",
+			"free",
+			"sneaky"
+		]
 	},
-	{
-		"template": "ANY",
-		"type": "UNIT",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"missionFeedback": {
-			"orientTo": "self",
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "aid",
+		"priority": "72",
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_frog_upgrade"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"aspects": [
+				"alive",
+				"themePiece_frog_rightArm",
+				"SELF",
+				"themePiece_frog_leftArm"
+			],
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"aspects": [ "alive", "ALLY" ],
-		"range": "1.6+self.BONUS_RANGE"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": null,
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{ "script": "heal", "setPosition": "target" }
-		],
-		"attackerAnimationOverride": "figures.miscAction",
-		"markForFlanking": "never",
-		"always": {
-			"class": "TempHP",
-			"target": "target",
-			"grantTempHp": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_frog_upgrade))))+self.theme_frog_upgrade"
+		{
+			"template": "ANY",
+			"type": "UNIT",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"missionFeedback": {
+				"orientTo": "self",
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
+			},
+			"aspects": [
+				"alive",
+				"ALLY"
+			],
+			"range": "1.6+self.BONUS_RANGE"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": null,
+			"showAbilityName": "ifEnemy",
+			"particles": [
+				{
+					"script": "heal",
+					"setPosition": "target"
+				}
+			],
+			"attackerAnimationOverride": "figures.miscAction",
+			"markForFlanking": "never",
+			"always": {
+				"class": "TempHP",
+				"target": "target",
+				"grantTempHp": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_frog_upgrade))))+self.theme_frog_upgrade"
+			}
+		}
+	]
 }

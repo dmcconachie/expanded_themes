@@ -1,76 +1,97 @@
 {
-"id": "SETgemSword",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/gem/SETgemSword",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "melee",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETgemSword",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/gem/SETgemSword",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackHitCue": "Characters/Weapons/Sword/weaponHit",
-			"attackDodgedCue": "Characters/Weapons/Sword/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Sword/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "melee",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "bleeding", "value": "1" }
-					]
-				},
-				{
-					"class": "Damage",
-					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gem_upgrade)))+self.theme_gem_upgrade",
-					"overrideStuntDamage": "1",
-					"onStunt": {
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackHitCue": "Characters/Weapons/Sword/weaponHit",
+				"attackDodgedCue": "Characters/Weapons/Sword/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Sword/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
 						"class": "Aspects",
 						"addAspects": [
-							{ "id": "bleeding", "value": "1" },
-							{ "id": "bleeding", "value": "1" }
+							{
+								"id": "bleeding",
+								"value": "1"
+							}
 						]
+					},
+					{
+						"class": "Damage",
+						"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_gem_upgrade)))+self.theme_gem_upgrade",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "bleeding",
+									"value": "1"
+								},
+								{
+									"id": "bleeding",
+									"value": "1"
+								}
+							]
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frost_upgrade)))+self.theme_gem_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frost_upgrade)))+self.theme_gem_upgrade"
+			}
 		}
-	}
-]
+	]
 }

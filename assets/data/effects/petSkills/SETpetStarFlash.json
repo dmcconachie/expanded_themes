@@ -1,103 +1,131 @@
 {
-"id": "SETpetStarFlash",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "petSkills/SETpetStarFlash",
-	"modId": "Smokers_Expanded_Themes",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "avenger",
-	
-	"priority": "1",
-	"numUses": "1+self.SEHClasses_aspect_profession_knight"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"showAnyway": true,
-		"missionFeedback": { "orientTo": "focus" }
-	},
-	{
-		"template": "TILE",
-		"missionFeedback": {
-			"hoverScript": "figures.directionalTileHoverHelpful",
-			"feedbackSource": "self"
-		},
-		"range": "4.6+self.BONUS_RANGE",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	},
-	{
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_RANGE",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"manifold": {
-			"from": "focus",
-			"thickness": [ "1", "1" ],
-			"cross": "2"
-		},
-		"aspectValues": [
-			{ "id": "ENEMY", "relativeTo": "self" }
-		],
-		"relativeTo": "focus",
-		"range": null,
-		"lineOfSight": "TERRAIN_ONLY"
-	},
-	{
-		"role": "subject",
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.directionalHelpfulHover",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
-		},
-		"aspectValues": [
-			{ "id": "ALLY", "relativeTo": "self" }
-		],
-		"relativeTo": "focus",
-		"range": "0.1"
-	}
-],
-"outcomes": [
-	{ "class": "Animate", "script": "figures.magicAttack" },
-	{
-		"class": "Animate",
-		"target": "focus",
-		"particles": { "script": "Flashcone2", "setPosition": "focus" }
-	},
-	{
-		"class": "Animate",
-		"target": "focus",
-		"particles": { "script": "Phantomflare Copy" }
-	},
-	{
-		"class": "Aspects",
-		"target": "subject",
-		"addAspects": [
-			{ "id": "hidden", "value": "1", "merge": "max" }
+	"id": "SETpetStarFlash",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "petSkills/SETpetStarFlash",
+		"modId": "Smokers_Expanded_Themes",
+		"tags": [
+			"okToMarkDone"
 		]
 	},
-	{
-		"class": "Aspects",
-		"target": "target",
-		"addAspects": [
-			{ "id": "blinded", "value": "1", "merge": "max" }
-		]
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "avenger",
+		"priority": "1",
+		"numUses": "1+self.SEHClasses_aspect_profession_knight"
 	},
-	{
-		"class": "Damage",
-		"target": "target",
-		"amount": "self.POTENCY",
-		"type": "MAGIC"
-	}
-]
+	"targets": [
+		{
+			"template": "SELF",
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "focus"
+			}
+		},
+		{
+			"template": "TILE",
+			"missionFeedback": {
+				"hoverScript": "figures.directionalTileHoverHelpful",
+				"feedbackSource": "self"
+			},
+			"range": "4.6+self.BONUS_RANGE",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
+		},
+		{
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_RANGE",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"manifold": {
+				"from": "focus",
+				"thickness": [
+					"1",
+					"1"
+				],
+				"cross": "2"
+			},
+			"aspectValues": [
+				{
+					"id": "ENEMY",
+					"relativeTo": "self"
+				}
+			],
+			"relativeTo": "focus",
+			"range": null,
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"role": "subject",
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.directionalHelpfulHover",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
+			},
+			"aspectValues": [
+				{
+					"id": "ALLY",
+					"relativeTo": "self"
+				}
+			],
+			"relativeTo": "focus",
+			"range": "0.1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Animate",
+			"script": "figures.magicAttack"
+		},
+		{
+			"class": "Animate",
+			"target": "focus",
+			"particles": {
+				"script": "Flashcone2",
+				"setPosition": "focus"
+			}
+		},
+		{
+			"class": "Animate",
+			"target": "focus",
+			"particles": {
+				"script": "Phantomflare Copy"
+			}
+		},
+		{
+			"class": "Aspects",
+			"target": "subject",
+			"addAspects": [
+				{
+					"id": "hidden",
+					"value": "1",
+					"merge": "max"
+				}
+			]
+		},
+		{
+			"class": "Aspects",
+			"target": "target",
+			"addAspects": [
+				{
+					"id": "blinded",
+					"value": "1",
+					"merge": "max"
+				}
+			]
+		},
+		{
+			"class": "Damage",
+			"target": "target",
+			"amount": "self.POTENCY",
+			"type": "MAGIC"
+		}
+	]
 }

@@ -1,109 +1,129 @@
 {
-"id": "SETmountainBash1",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/mountain/SETmountainBash1",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "2060",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "backslam",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"customSpecialAnimationEffect": {
-		"parameters": [ "target.distanceTo.targetTile" ]
+	"id": "SETmountainBash1",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/mountain/SETmountainBash1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "2060",
+		"tags": [
+			"melee"
+		]
 	},
-	
-	"branchableAbilityType": "standardMelee",
-	"abilityElementType": "stone"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" }
-	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
-			"applyRoleFootprint": "target",
-			"showMovementFeedback": true
-		},
-		"pathFrom": "self",
-		"pathTo": "target",
-		"matchSpecial": "knockBackDestination",
-		"relativeTo": "target",
-		"range": "(1.6+self.themePiece_deepistMole_leftLeg)+self.themePiece_deepistMole_rightLeg",
-		"lineOfSight": "ANY_COVER",
-		"tileFilter": "parentLocationOrValidMoveEnd",
-		"roleMustFit": "target"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackHitCue": "Characters/Heroes/Themed/attackRock",
-			"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
-		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{ "class": "Interrupt", "target": "target" },
-				{
-					"class": "Damage",
-					"amount": "(((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepistMole_upgrade)))+self.theme_deepistMole_upgrade)+target.distanceTo.targetTile",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "concussed", "value": "1" }
-								]
-							},
-							{
-								"class": "BranchAbility",
-								"target": "self",
-								"targetRole": "defender",
-								"branchAbility": "stone"
-							}
-						]
-					}
-				},
-				{
-					"class": "MoveEntity",
-					"directlyToTile": "targetTile",
-					"recordMoveDistanceAs": "knockbackDistance"
-				}
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "backslam",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"customSpecialAnimationEffect": {
+			"parameters": [
+				"target.distanceTo.targetTile"
 			]
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepistMole_upgrade)))+self.theme_deepistMole_upgrade"
+		"branchableAbilityType": "standardMelee",
+		"abilityElementType": "stone"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		},
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+				"applyRoleFootprint": "target",
+				"showMovementFeedback": true
+			},
+			"pathFrom": "self",
+			"pathTo": "target",
+			"matchSpecial": "knockBackDestination",
+			"relativeTo": "target",
+			"range": "(1.6+self.themePiece_deepistMole_leftLeg)+self.themePiece_deepistMole_rightLeg",
+			"lineOfSight": "ANY_COVER",
+			"tileFilter": "parentLocationOrValidMoveEnd",
+			"roleMustFit": "target"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackHitCue": "Characters/Heroes/Themed/attackRock",
+				"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Interrupt",
+						"target": "target"
+					},
+					{
+						"class": "Damage",
+						"amount": "(((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepistMole_upgrade)))+self.theme_deepistMole_upgrade)+target.distanceTo.targetTile",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "concussed",
+											"value": "1"
+										}
+									]
+								},
+								{
+									"class": "BranchAbility",
+									"target": "self",
+									"targetRole": "defender",
+									"branchAbility": "stone"
+								}
+							]
+						}
+					},
+					{
+						"class": "MoveEntity",
+						"directlyToTile": "targetTile",
+						"recordMoveDistanceAs": "knockbackDistance"
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepistMole_upgrade)))+self.theme_deepistMole_upgrade"
+			}
+		}
+	]
 }

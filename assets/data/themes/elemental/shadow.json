@@ -2,21 +2,23 @@
 	"id": "shadow",
 	"name": "Shadow",
 	"blurb": "Something that had been sleeping inside you is now waking up.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_shadowWild",
 			"unlockLegacyAspect": "theme_shadow_heal30"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Shadowed",
 			"blurb": "Two souls peer out from <self>'s eyes now",
-			"slots": ["head"],
-			"extraAspects": ["humanSkin_overrideHairColor|156666|1"],
+			"slots": [
+				"head"
+			],
+			"extraAspects": [
+				"humanSkin_overrideHairColor|156666|1"
+			],
 			"effects": [
 				"shadowDrainsWardingRegion",
 				"SETshadowGaze",
@@ -97,10 +99,18 @@
 			"id": "wings",
 			"name": "Shadow Wings",
 			"blurb": "<self> has grown the wings of a malignant entity.",
-			"slots": ["wings"],
-			"effects": ["SETshadowFly"],
-			"stats": {"SPEED": 1},
-			"extraAspects": ["wingSound"],
+			"slots": [
+				"wings"
+			],
+			"effects": [
+				"SETshadowFly"
+			],
+			"stats": {
+				"SPEED": 1
+			},
+			"extraAspects": [
+				"wingSound"
+			],
 			"layers": [
 				{
 					"name": "wings_shadow",
@@ -112,17 +122,30 @@
 			"id": "skin",
 			"name": "Shadow Heart",
 			"blurb": "<self>'s heart now belongs to a malignant entity.",
-			"slots": ["skin"],
-			"effects": ["SETstationaryPotency"],
-			"extraAspects": ["humanSkin_overrideSkinColor|95897d|95897d|95897d|1"],
-			"stats": {"RETIREMENT_AGE": 10, "ARMOR": 0.5}
+			"slots": [
+				"skin"
+			],
+			"effects": [
+				"SETstationaryPotency"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|95897d|95897d|95897d|1"
+			],
+			"stats": {
+				"RETIREMENT_AGE": 10,
+				"ARMOR": 0.5
+			}
 		},
 		{
 			"id": "tail",
 			"name": "Shadow Tail",
 			"blurb": "<self>'s has grown a tail of a malignant entity.",
-			"slots": ["tail"],
-			"effects": ["SETcrocodileTail"],
+			"slots": [
+				"tail"
+			],
+			"effects": [
+				"SETcrocodileTail"
+			],
 			"layers": [
 				{
 					"name": "tail_shadow",
@@ -134,10 +157,18 @@
 			"id": "leftLeg",
 			"name": "Shadow Leg (L)",
 			"blurb": "<self>'s left leg forms part of a malignant entity.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETshadowPath"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETshadowPath"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_shadow",
@@ -161,10 +192,18 @@
 			"id": "rightLeg",
 			"name": "Shadow Leg (R)",
 			"blurb": "<self>'s right leg forms part of a malignant entity.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETshadowPath"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETshadowPath"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_shadow",
@@ -188,9 +227,17 @@
 			"id": "leftArm",
 			"name": "Shadow Arm (L)",
 			"blurb": "<self>'s left arm forms part of a malignant entity.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETshadowHarvest2", "SETshadowSoul"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETshadowHarvest2",
+				"SETshadowSoul"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_shadow",
@@ -214,10 +261,22 @@
 			"id": "rightArm",
 			"name": "Shadow Arm (R)",
 			"blurb": "<self>'s right arm forms part of a malignant entity.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETshadowHarvest1", "SETshadowSoul", "defaultSecondaryMoveFeedback|6.6|SETshadowSoul"],
-			"extraAspects": ["themeAbility_ranged", "attackRange|0|6.6|rangedNonWeapon"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETshadowHarvest1",
+				"SETshadowSoul",
+				"defaultSecondaryMoveFeedback|6.6|SETshadowSoul"
+			],
+			"extraAspects": [
+				"themeAbility_ranged",
+				"attackRange|0|6.6|rangedNonWeapon"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_shadow",
@@ -241,10 +300,17 @@
 			"id": "pet",
 			"name": "Black Cat",
 			"blurb": "<self> takes care of the little guy.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee2"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee2"
+			],
 			"layers": [
-				{"name": "pet_blackCat", "depth": 9000}
+				{
+					"name": "pet_blackCat",
+					"depth": 9000
+				}
 			]
 		}
 	]

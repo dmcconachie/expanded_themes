@@ -1,21 +1,28 @@
 {
-"id": "SETstationaryAccuracy",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETstationaryAccuracy",
-	"modId": "Smokers_Expanded_Themes"
-},
-"type": "TURN_START",
-"ability": { "showInCharacterSheet": true },
-"targets": [
-	{ "template": "SELF" }
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "SETstationaryAccuracy2", "value": "1" }
-		]
-	}
-]
+	"id": "SETstationaryAccuracy",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETstationaryAccuracy",
+		"modId": "Smokers_Expanded_Themes"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "SETstationaryAccuracy2",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

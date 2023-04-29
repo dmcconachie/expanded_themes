@@ -1,56 +1,71 @@
 {
-"id": "SETvineSpikes",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/vine/SETvineSpikes",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby",
-	"aiPriority": "3000",
-	"tags": [ "ranged" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "splinterblast",
-	
-	"priority": "76",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"numUses": "1+self.theme_vine_upgrade",
-	"cooldown": "oncePerTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "themePiece_vine_leftLeg", "themePiece_vine_rightLeg", "SELF" ]
+	"id": "SETvineSpikes",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/vine/SETvineSpikes",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby",
+		"aiPriority": "3000",
+		"tags": [
+			"ranged"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"choose": "ANY",
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6",
-		"relativeToLocation": "targetTile"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"minimumBlockTime": "300",
-		"particles": [
-			{ "script": "shockwave", "setPosition": "self", "delay": -0.25 }
-		],
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY+10",
-		"applyCover": true,
-		"onHit": {
-			"class": "Damage",
-			"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_vine_upgrade))))+self.theme_vine_upgrade",
-			"shred": "1"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "splinterblast",
+		"priority": "76",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"numUses": "1+self.theme_vine_upgrade",
+		"cooldown": "oncePerTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"themePiece_vine_leftLeg",
+				"themePiece_vine_rightLeg",
+				"SELF"
+			]
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_vine_upgrade))))+self.theme_vine_upgrade",
-			"shred": "1"
+		{
+			"template": "ADJACENT_ENEMY",
+			"choose": "ANY",
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6",
+			"relativeToLocation": "targetTile"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"minimumBlockTime": "300",
+			"particles": [
+				{
+					"script": "shockwave",
+					"setPosition": "self",
+					"delay": -0.25
+				}
+			],
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY+10",
+			"applyCover": true,
+			"onHit": {
+				"class": "Damage",
+				"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_vine_upgrade))))+self.theme_vine_upgrade",
+				"shred": "1"
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_vine_upgrade))))+self.theme_vine_upgrade",
+				"shred": "1"
+			}
+		}
+	]
 }

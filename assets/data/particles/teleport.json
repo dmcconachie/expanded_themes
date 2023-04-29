@@ -1,54 +1,75 @@
 {
-"budget": "100",
-"emitterLifetime": "3.5",
-"loopLimit": "1",
-"loopBehavior": "reset",
-"rules": [
-	{
-		"class": "Once",
-		"when": "0",
-		"doAll": [
-			{
-				"class": "Emit",
-				"numberOfParticles": "20",
-				"image": [ "particle_lightburst", "particle_lightburst2", "particle_glowLarge" ],
-				"light": "gain",
-				"size": "[0.06,0.3]",
-				"killTime": "[0.4,2.5]",
-				"initializeWith": [
-					{ "class": "SetVelocity", "vx": "[-10,10]", "vy": "[-10,10]", "vz": "[-20,0]" }
-				]
+	"budget": "100",
+	"emitterLifetime": "3.5",
+	"loopLimit": "1",
+	"loopBehavior": "reset",
+	"rules": [
+		{
+			"class": "Once",
+			"when": "0",
+			"doAll": [
+				{
+					"class": "Emit",
+					"numberOfParticles": "20",
+					"image": [
+						"particle_lightburst",
+						"particle_lightburst2",
+						"particle_glowLarge"
+					],
+					"light": "gain",
+					"size": "[0.06,0.3]",
+					"killTime": "[0.4,2.5]",
+					"initializeWith": [
+						{
+							"class": "SetVelocity",
+							"vx": "[-10,10]",
+							"vy": "[-10,10]",
+							"vz": "[-20,0]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"class": "BasicPhysics"
+		},
+		{
+			"class": "Drag",
+			"vSquaredComponent": "0.1"
+		},
+		{
+			"class": "SetColor",
+			"color": {
+				"r": "life~{2|0.5|1|2|0}",
+				"g": "life~{3|0.5|2.5|0}",
+				"b": "life~{3|1|1|2|0}",
+				"a": "life~{1|0.5|1|0}"
 			}
-		]
-	},
-	{ "class": "BasicPhysics" },
-	{ "class": "Drag", "vSquaredComponent": "0.1" },
-	{
-		"class": "SetColor",
-		"color": {
-			"r": "life~{2|0.5|1|2|0}",
-			"g": "life~{3|0.5|2.5|0}",
-			"b": "life~{3|1|1|2|0}",
-			"a": "life~{1|0.5|1|0}"
+		},
+		{
+			"class": "Lifetime"
+		},
+		{
+			"class": "Accelerate",
+			"ax": "70*cos((particleNumber+((time*5)+((time*particleNumber)*0.05))))",
+			"ay": "70*sin((particleNumber+((time*5)+((time*particleNumber)*0.05))))",
+			"az": "2"
+		},
+		{
+			"class": "Bounce"
+		},
+		{
+			"class": "OrientToVelocity",
+			"offsetDegrees": "90"
+		},
+		{
+			"class": "DynamicPull",
+			"x": "0",
+			"y": "0",
+			"z": "-1",
+			"kx": "30",
+			"ky": "30",
+			"kz": "0.5"
 		}
-	},
-	{ "class": "Lifetime" },
-	{
-		"class": "Accelerate",
-		"ax": "70*cos((particleNumber+((time*5)+((time*particleNumber)*0.05))))",
-		"ay": "70*sin((particleNumber+((time*5)+((time*particleNumber)*0.05))))",
-		"az": "2"
-	},
-	{ "class": "Bounce" },
-	{ "class": "OrientToVelocity", "offsetDegrees": "90" },
-	{
-		"class": "DynamicPull",
-		"x": "0",
-		"y": "0",
-		"z": "-1",
-		"kx": "30",
-		"ky": "30",
-		"kz": "0.5"
-	}
-]
+	]
 }

@@ -1,49 +1,59 @@
 {
-"id": "SETpetPoison",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "petSkills/SETpetPoison",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"tags": [ "sneaky", "okToMarkDone" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "bloodrage",
-	
-	"priority": "1",
-	"numUses": "1+self.SEHClasses_aspect_profession_knight"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"showAnyway": true,
-		"missionFeedback": { "orientTo": "target" }
-	},
-	{
-		"template": "ANY",
-		"type": "UNIT",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"missionFeedback": {
-			"orientTo": "self",
-			"hoverScript": "figures.directionalHelpfulHover",
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
-			"feedbackSource": "self"
-		},
-		"aspects": [ "alive", "ALLY" ],
-		"range": "1.6"
-	}
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "offhandPoisonActive", "value": "1" }
+	"id": "SETpetPoison",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "petSkills/SETpetPoison",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"tags": [
+			"sneaky",
+			"okToMarkDone"
 		]
-	}
-]
+	},
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "bloodrage",
+		"priority": "1",
+		"numUses": "1+self.SEHClasses_aspect_profession_knight"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ANY",
+			"type": "UNIT",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"missionFeedback": {
+				"orientTo": "self",
+				"hoverScript": "figures.directionalHelpfulHover",
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+				"feedbackSource": "self"
+			},
+			"aspects": [
+				"alive",
+				"ALLY"
+			],
+			"range": "1.6"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "offhandPoisonActive",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

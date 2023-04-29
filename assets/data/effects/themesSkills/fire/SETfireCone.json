@@ -1,149 +1,170 @@
 {
-"id": "SETfireCone",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/fire/SETfireCone",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"tags": [ "okToMarkDone", "ranged", "free", "light" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "magic",
-	"priority": "10",
-	"extraUI": {
-		"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+	"id": "SETfireCone",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/fire/SETfireCone",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"tags": [
+			"okToMarkDone",
+			"ranged",
+			"free",
+			"light"
+		]
 	},
-	"cooldown": "everyOtherTurn",
-	"branchableAbilityType": "standardRanged",
-	"abilityElementType": "fire"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "focus" }
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "magic",
+		"priority": "10",
+		"extraUI": {
+			"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+		},
+		"cooldown": "everyOtherTurn",
+		"branchableAbilityType": "standardRanged",
+		"abilityElementType": "fire"
 	},
-	{
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"minRange": "0.9",
-		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	},
-	{
-		"role": "target",
-		"template": "TILE",
-		"choose": "RANDOM_HALF",
-		"manifold": {
-			"from": "self",
-			"to": "focus",
-			"thickness": [ "1", "2" ],
-			"excludeSource": true,
-			"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
-		},
-		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"STUB": "Gets the furthest away tile, to use for the particle effect.",
-		"choose": "ONE_FURTHEST",
-		"manifold": {
-			"from": "self",
-			"to": "focus",
-			"thickness": [ "1", "2" ],
-			"excludeSource": true,
-			"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
-		},
-		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	},
-	{
-		"role": "target2",
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_SUGGESTION",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"manifold": {
-			"from": "self",
-			"to": "focus",
-			"thickness": [ "1", "2" ],
-			"excludeSource": true,
-			"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
-		},
-		"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": "target2",
-		"attackAnimationType": "magic",
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{
-				"script": "projectileTrailFirewall",
-				"setPosition": "self",
-				"setPosition2": "targetTile"
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "focus"
 			}
-		],
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/Magic_FireMiss",
-			"attackHitCue": "Characters/DefaultHuman/Magic_FireHit"
 		},
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
-		"always": {
-			"class": "Spawn",
-			"target": "target",
-			"addRole": "fire",
-			"addFire": "(1d2-1)*2"
+		{
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"minRange": "0.9",
+			"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
 		},
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
+		{
+			"role": "target",
+			"template": "TILE",
+			"choose": "RANDOM_HALF",
+			"manifold": {
+				"from": "self",
+				"to": "focus",
+				"thickness": [
+					"1",
+					"2"
+				],
+				"excludeSource": true,
+				"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+			},
+			"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
+		},
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"STUB": "Gets the furthest away tile, to use for the particle effect.",
+			"choose": "ONE_FURTHEST",
+			"manifold": {
+				"from": "self",
+				"to": "focus",
+				"thickness": [
+					"1",
+					"2"
+				],
+				"excludeSource": true,
+				"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+			},
+			"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
+		},
+		{
+			"role": "target2",
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_SUGGESTION",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"manifold": {
+				"from": "self",
+				"to": "focus",
+				"thickness": [
+					"1",
+					"2"
+				],
+				"excludeSource": true,
+				"distanceInDirection": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
+			},
+			"range": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": "target2",
+			"attackAnimationType": "magic",
+			"showAbilityName": "ifEnemy",
+			"particles": [
 				{
-					"class": "Damage",
-					"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_fire_upgrade))))+self.theme_fire_upgrade",
-					"type": "MAGIC",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "BranchAbility",
-						"target": "self",
-						"targetRole": "defender",
-						"branchAbility": "stuntEffect_fire|1"
-					},
-					"numDefenders": "COUNT.target2"
+					"script": "projectileTrailFirewall",
+					"setPosition": "self",
+					"setPosition2": "targetTile"
 				}
-			]
+			],
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/Magic_FireMiss",
+				"attackHitCue": "Characters/DefaultHuman/Magic_FireHit"
+			},
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
+			"always": {
+				"class": "Spawn",
+				"target": "target",
+				"addRole": "fire",
+				"addFire": "(1d2-1)*2"
+			},
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_fire_upgrade))))+self.theme_fire_upgrade",
+						"type": "MAGIC",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "BranchAbility",
+							"target": "self",
+							"targetRole": "defender",
+							"branchAbility": "stuntEffect_fire|1"
+						},
+						"numDefenders": "COUNT.target2"
+					}
+				]
+			}
+		},
+		{
+			"class": "Test",
+			"STUB": "Attack 5 enemies at once achievement",
+			"value": "COUNT.target2",
+			"threshold": "5",
+			"onPass": {
+				"class": "UnlockLegacyAspect",
+				"legacyAspect": "theme_fire_hit5EnemiesAtOnce",
+				"value": "1"
+			}
 		}
-	},
-	{
-		"class": "Test",
-		"STUB": "Attack 5 enemies at once achievement",
-		"value": "COUNT.target2",
-		"threshold": "5",
-		"onPass": {
-			"class": "UnlockLegacyAspect",
-			"legacyAspect": "theme_fire_hit5EnemiesAtOnce",
-			"value": "1"
-		}
-	}
-]
+	]
 }

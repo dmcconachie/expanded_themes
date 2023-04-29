@@ -1,105 +1,134 @@
 {
-"id": "SETvineLash1",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/vine/SETvineLash1",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"tags": [ "ranged" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "thornlash",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"extraUI": { "overrideRangeShown": "2.6+self.BONUS_RANGE" },
-	"branchableAbilityType": "standardRanged",
-	"abilityElementType": "leaf"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "focus" }
+	"id": "SETvineLash1",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/vine/SETvineLash1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"tags": [
+			"ranged"
+		]
 	},
-	{
-		"template": "TILE",
-		"missionFeedback": { "rangeFeedback": "ATTACK_RANGE", "hoverFeedback": "ATTACK_HOVER" },
-		"minRange": "0.9",
-		"range": "((2.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floorForbidAlly"
-	},
-	{
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_RANGE",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"manifold": { "from": "self", "to": "focus", "excludeSource": true, "noGapLine": true },
-		"range": null
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"attackAnimationType": "ranged",
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{
-				"script": "projectileTrailLeaves",
-				"setPosition": "self",
-				"setPosition2": "focus"
-			}
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "thornlash",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
 		],
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_vine_upgrade)))+self.theme_vine_upgrade",
-					"shred": "1",
-					"overrideStuntDamage": "1",
-					"stopBlockingOnStunt": true,
-					"onStunt": {
-						"class": "BranchAbility",
-						"target": "self",
-						"targetRole": "defender",
-						"branchAbility": "stuntEffect_leaf"
-					},
-					"numDefenders": "COUNT.target"
-				},
-				{
-					"class": "Aspects",
-					"target": "defender",
-					"removeAspects": [ "damageOverTimeFrom|poison2|*" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "poisoned2", "value": "1" },
-						{ "id": "damageOverTimeFrom|poison2", "value": "1", "inRelationTo": "self" }
-					]
-				},
-				{
-					"class": "UnlockLegacyAspect",
-					"legacyAspect": "achievementProgress_theme_vine_enemiesPoisoned",
-					"value": "1"
-				}
-			]
+		"priority": "49",
+		"extraUI": {
+			"overrideRangeShown": "2.6+self.BONUS_RANGE"
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_vine_upgrade)))+self.theme_vine_upgrade"
+		"branchableAbilityType": "standardRanged",
+		"abilityElementType": "leaf"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "focus"
+			}
+		},
+		{
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "ATTACK_RANGE",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"minRange": "0.9",
+			"range": "((2.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floorForbidAlly"
+		},
+		{
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_RANGE",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"manifold": {
+				"from": "self",
+				"to": "focus",
+				"excludeSource": true,
+				"noGapLine": true
+			},
+			"range": null
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"attackAnimationType": "ranged",
+			"showAbilityName": "ifEnemy",
+			"particles": [
+				{
+					"script": "projectileTrailLeaves",
+					"setPosition": "self",
+					"setPosition2": "focus"
+				}
+			],
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_vine_upgrade)))+self.theme_vine_upgrade",
+						"shred": "1",
+						"overrideStuntDamage": "1",
+						"stopBlockingOnStunt": true,
+						"onStunt": {
+							"class": "BranchAbility",
+							"target": "self",
+							"targetRole": "defender",
+							"branchAbility": "stuntEffect_leaf"
+						},
+						"numDefenders": "COUNT.target"
+					},
+					{
+						"class": "Aspects",
+						"target": "defender",
+						"removeAspects": [
+							"damageOverTimeFrom|poison2|*"
+						]
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "poisoned2",
+								"value": "1"
+							},
+							{
+								"id": "damageOverTimeFrom|poison2",
+								"value": "1",
+								"inRelationTo": "self"
+							}
+						]
+					},
+					{
+						"class": "UnlockLegacyAspect",
+						"legacyAspect": "achievementProgress_theme_vine_enemiesPoisoned",
+						"value": "1"
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_vine_upgrade)))+self.theme_vine_upgrade"
+			}
+		}
+	]
 }

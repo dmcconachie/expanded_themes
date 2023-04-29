@@ -1,41 +1,61 @@
 {
-"id": "SETfireIndignanceDealsDamageOnTurnStart|ENTITY",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "fire/SETfireIndignanceDealsDamageOnTurnStart",
-	"author": "Patrick Belanger"
-},
-"type": "TURN_START",
-"ability": {
-	"priority": "1",
-	"customSpecialAnimationEffect": { "role": "source" }
-},
-"targets": [
-	{ "template": "SELF" },
-	{ "role": "source", "template": "ANY", "matchSpecial": "parameter1" }
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"target": "source",
-		"defender": "self",
-		"attackAnimationType": "melee",
-		"stopBlockingTime": "onHit",
-		"timingOverride": { "swingTime": "250", "afterAnimationTime": "400" },
-		"particles": [
-			{ "script": "indignance", "setPosition": "source", "delay": -0.25 },
-			{ "script": "FireBreathEmbers", "setPosition": "self" }
-		],
-		"audioOverride": { "attackHitCue": "Characters/DefaultHuman/Magic_FireHit" },
-		"attackerAnimationOverride": "",
-		"markForFlanking": "never",
-		"always": {
-			"class": "Damage",
-			"target": "self",
-			"originator": "source",
-			"amount": "1+floor((source.PHYSICAL_DAMAGE_BONUS+source.POTENCY)*0.25)",
-			"type": "TRUE"
+	"id": "SETfireIndignanceDealsDamageOnTurnStart|ENTITY",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "fire/SETfireIndignanceDealsDamageOnTurnStart",
+		"author": "Patrick Belanger"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"priority": "1",
+		"customSpecialAnimationEffect": {
+			"role": "source"
 		}
-	}
-]
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		},
+		{
+			"role": "source",
+			"template": "ANY",
+			"matchSpecial": "parameter1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"target": "source",
+			"defender": "self",
+			"attackAnimationType": "melee",
+			"stopBlockingTime": "onHit",
+			"timingOverride": {
+				"swingTime": "250",
+				"afterAnimationTime": "400"
+			},
+			"particles": [
+				{
+					"script": "indignance",
+					"setPosition": "source",
+					"delay": -0.25
+				},
+				{
+					"script": "FireBreathEmbers",
+					"setPosition": "self"
+				}
+			],
+			"audioOverride": {
+				"attackHitCue": "Characters/DefaultHuman/Magic_FireHit"
+			},
+			"attackerAnimationOverride": "",
+			"markForFlanking": "never",
+			"always": {
+				"class": "Damage",
+				"target": "self",
+				"originator": "source",
+				"amount": "1+floor((source.PHYSICAL_DAMAGE_BONUS+source.POTENCY)*0.25)",
+				"type": "TRUE"
+			}
+		}
+	]
 }

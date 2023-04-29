@@ -1,10 +1,13 @@
 {
-"loadOrder": 100113,
-"author": "Smoker",
-"name": "Expanded Humans: Themes",
-"blurb": "Adds pets and all parts to Themes.",
-"visibility": "Public",
-"tags": [ "Transformation", "Abilities" ],
-"url": "https://wildermyth.com/wiki/index.php?title=Smokers_Expanded_Themes",
-"alwaysOn": true
+    "loadOrder": 100113,
+    "author": "Smoker",
+    "name": "Expanded Humans: Themes",
+    "blurb": "Adds pets and all parts to Themes.",
+    "visibility": "Public",
+    "tags": [
+        "Transformation",
+        "Abilities"
+    ],
+    "url": "https://wildermyth.com/wiki/index.php?title=Smokers_Expanded_Themes",
+    "alwaysOn": true
 }

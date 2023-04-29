@@ -1,106 +1,153 @@
 [
-{
-	"id": "SETfrostIceTrap|COORDS",
-	"parameters": [
-		{ "replace": "COORDS" }
-	],
-	"effects": [ "SETfrostIceTrap|COORDS", "decayEveryTurn", "deleteEntityWhenAspectRemoved" ],
-	"importance": -1
-},
-{
-	"id": "iceTrapTripped",
-	"effects": [ "decayEveryTurn", "takeExtraDamageBecauseTripped" ],
-	"stats": { "DODGE": -20, "BLOCK": -20 },
-	"boostType": "DISADVANTAGE"
-},
-{
-	"id": "SETmorthagiAcidRegion|COORDS",
-	"parameters": [
-		{ "replace": "COORDS" }
-	],
-	"effects": [ "SETmorthagiAcidRegion|COORDS", "decayEveryTurn", "deleteEntityWhenAspectRemoved" ],
-	"importance": -1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETbuff_Wall",
-	"effects": [
-		"immuneToRegularDamage",
-		"immuneToTrueDamage",
-		"alsoAddRemoveAspectAfterTurnStarts|SETbuff_Wall|1",
-		"removeOnDeath"
-	],
-	"boostType": "ADVANTAGE",
-	"importance": 1
-},
-{
-	"id": "SETfireIndignanceRel|ENTITY",
-	"parameters": [
-		{ "replace": "ENTITY", "isEntity": true }
-	],
-	"effects": [
-		"SETfireIndignanceDealsDamageOnEntry|ENTITY",
-		"SETfireIndignanceDealsDamageOnTurnStart|ENTITY"
-	],
-	"importance": -1
-},
-{
-	"id": "SETfireIndignanceRegion",
-	"effects": [
-		"SETfireIndignanceRegion",
-		"removeOnDeath",
-		"decayAfterStartOfTurn"
-	],
-	"importance": -1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETshadowPath",
-	"effects": [ "alsoAddRemoveAspectAfterTurnStarts|SETshadowPath|1", "SETshadowPath" ],
-	"boostType": "ADVANTAGE",
-	"importance": -1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETfirePath",
-	"effects": [ "alsoAddRemoveAspectAfterTurnStarts|SETfirePath|1", "SETfirePath" ],
-	"boostType": "ADVANTAGE",
-	"importance": -1
-},
-{
-	"id": "shadowRegion|COORDS",
-	"parameters": [
-		{ "replace": "COORDS" }
-	],
-	"effects": [ "shadowRegion|COORDS", "decayEveryTurn", "deleteEntityWhenAspectRemoved" ],
-	"importance": -1
-},
-{
-	"id": "shadowTileBuff|ENTITY",
-	"parameters": [
-		{ "isEntity": true }
-	],
-	"stats": { "POTENCY": 2 },
-	"boostType": "ADVANTAGE"
-},
-{
-	"modId": "Smokers_Expanded_Magic",
-	"id": "aspect_aura_damageReduction_2(ice)",
-	"effects": [ "effect_aura_damageReduction_2(ice)" ],
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Magic",
-	"id": "aspect_aura_disadvantage_damageReduction_2|ENEMY",
-	"stats": { "PHYSICAL_DAMAGE_BONUS": -1, "POTENCY": -1 },
-	"boostType": "DISADVANTAGE",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SEThillWall",
-	"effects": [ "alsoAddRemoveAspectAfterTurnStarts|SEThillWall|1" ],
-	"stats": { "ARMOR": 6, "WARDING": 6 },
-	"boostType": "ADVANTAGE"
-}
+	{
+		"id": "SETfrostIceTrap|COORDS",
+		"parameters": [
+			{
+				"replace": "COORDS"
+			}
+		],
+		"effects": [
+			"SETfrostIceTrap|COORDS",
+			"decayEveryTurn",
+			"deleteEntityWhenAspectRemoved"
+		],
+		"importance": -1
+	},
+	{
+		"id": "iceTrapTripped",
+		"effects": [
+			"decayEveryTurn",
+			"takeExtraDamageBecauseTripped"
+		],
+		"stats": {
+			"DODGE": -20,
+			"BLOCK": -20
+		},
+		"boostType": "DISADVANTAGE"
+	},
+	{
+		"id": "SETmorthagiAcidRegion|COORDS",
+		"parameters": [
+			{
+				"replace": "COORDS"
+			}
+		],
+		"effects": [
+			"SETmorthagiAcidRegion|COORDS",
+			"decayEveryTurn",
+			"deleteEntityWhenAspectRemoved"
+		],
+		"importance": -1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETbuff_Wall",
+		"effects": [
+			"immuneToRegularDamage",
+			"immuneToTrueDamage",
+			"alsoAddRemoveAspectAfterTurnStarts|SETbuff_Wall|1",
+			"removeOnDeath"
+		],
+		"boostType": "ADVANTAGE",
+		"importance": 1
+	},
+	{
+		"id": "SETfireIndignanceRel|ENTITY",
+		"parameters": [
+			{
+				"replace": "ENTITY",
+				"isEntity": true
+			}
+		],
+		"effects": [
+			"SETfireIndignanceDealsDamageOnEntry|ENTITY",
+			"SETfireIndignanceDealsDamageOnTurnStart|ENTITY"
+		],
+		"importance": -1
+	},
+	{
+		"id": "SETfireIndignanceRegion",
+		"effects": [
+			"SETfireIndignanceRegion",
+			"removeOnDeath",
+			"decayAfterStartOfTurn"
+		],
+		"importance": -1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETshadowPath",
+		"effects": [
+			"alsoAddRemoveAspectAfterTurnStarts|SETshadowPath|1",
+			"SETshadowPath"
+		],
+		"boostType": "ADVANTAGE",
+		"importance": -1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETfirePath",
+		"effects": [
+			"alsoAddRemoveAspectAfterTurnStarts|SETfirePath|1",
+			"SETfirePath"
+		],
+		"boostType": "ADVANTAGE",
+		"importance": -1
+	},
+	{
+		"id": "shadowRegion|COORDS",
+		"parameters": [
+			{
+				"replace": "COORDS"
+			}
+		],
+		"effects": [
+			"shadowRegion|COORDS",
+			"decayEveryTurn",
+			"deleteEntityWhenAspectRemoved"
+		],
+		"importance": -1
+	},
+	{
+		"id": "shadowTileBuff|ENTITY",
+		"parameters": [
+			{
+				"isEntity": true
+			}
+		],
+		"stats": {
+			"POTENCY": 2
+		},
+		"boostType": "ADVANTAGE"
+	},
+	{
+		"modId": "Smokers_Expanded_Magic",
+		"id": "aspect_aura_damageReduction_2(ice)",
+		"effects": [
+			"effect_aura_damageReduction_2(ice)"
+		],
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Magic",
+		"id": "aspect_aura_disadvantage_damageReduction_2|ENEMY",
+		"stats": {
+			"PHYSICAL_DAMAGE_BONUS": -1,
+			"POTENCY": -1
+		},
+		"boostType": "DISADVANTAGE",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SEThillWall",
+		"effects": [
+			"alsoAddRemoveAspectAfterTurnStarts|SEThillWall|1"
+		],
+		"stats": {
+			"ARMOR": 6,
+			"WARDING": 6
+		},
+		"boostType": "ADVANTAGE"
+	}
 ]

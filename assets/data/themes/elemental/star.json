@@ -2,20 +2,20 @@
 	"id": "star",
 	"name": "Celestial",
 	"blurb": "An ethereal sparkle emanates from <self>.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_starGold",
 			"unlockLegacyAspect": "theme_star_kill20EnemiesWithFallingStars"
 		}
 	],
-
-	"pieces":	[
+	"pieces": [
 		{
 			"id": "hairStars",
 			"name": "Star Mark",
 			"blurb": "Points of light twinkle in <self>'s hair and body.",
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"effects": [
 				"starDazzlingAttacks",
 				"ability_advanceTheme_star",
@@ -26,13 +26,15 @@
 				"ability_advanceTheme_star_legRight",
 				"ability_advanceTheme_star_pet"
 			],
-			"stats": {"WARDING": 0.5},
+			"stats": {
+				"WARDING": 0.5
+			},
 			"layers": [
 				{
 					"name": "hair_stars",
 					"depth": 4240,
 					"headOffset": true
-					}
+				}
 			],
 			"extraAspects": [
 				"humanSkin_overrideStreakValue|1.0",
@@ -57,10 +59,12 @@
 			]
 		},
 		{
-      "id": "skin",
-      "name": "Star Body",
-      "blurb": "<self>'s body is imbued with star energy.",
-      "slots": ["skin"],
+			"id": "skin",
+			"name": "Star Body",
+			"blurb": "<self>'s body is imbued with star energy.",
+			"slots": [
+				"skin"
+			],
 			"themeSkinSpecificAspects": [
 				{
 					"hasAspect": null,
@@ -71,16 +75,28 @@
 					"applyAspect": "humanSkin_overrideSkinColor|e9d100|e9d100|e9d100|0.8"
 				}
 			],
-      "effects": ["SETstarFlash"],
-      "stats": {"WARDING": 0.5}
-    },
+			"effects": [
+				"SETstarFlash"
+			],
+			"stats": {
+				"WARDING": 0.5
+			}
+		},
 		{
 			"id": "leftArm",
 			"name": "Celestial Arm (L)",
 			"blurb": "<self>'s left arm is made of starstuff.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETstarNova", "SETstarRain"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETstarNova",
+				"SETstarRain"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_star",
@@ -98,10 +114,25 @@
 			"id": "rightArm",
 			"name": "Celestial Arm (R)",
 			"blurb": "<self>'s right arm is made of starstuff.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETstarMeteor", "SETstarRain", "defaultSecondaryMoveFeedback|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETstarMeteor", "defaultSecondaryMoveFeedbackNoLOS|8.6|SETstarRain"],
-			"extraAspects": ["themeAbility_ranged", "themeAbility_rangedSingleTarget", "attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon", "attackRange|0|8.6|rangedNonWeapon"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETstarMeteor",
+				"SETstarRain",
+				"defaultSecondaryMoveFeedback|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETstarMeteor",
+				"defaultSecondaryMoveFeedbackNoLOS|8.6|SETstarRain"
+			],
+			"extraAspects": [
+				"themeAbility_ranged",
+				"themeAbility_rangedSingleTarget",
+				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon",
+				"attackRange|0|8.6|rangedNonWeapon"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_star",
@@ -119,10 +150,19 @@
 			"id": "leftLeg",
 			"name": "Celestial Leg (L)",
 			"blurb": "<self>'s left leg is made of starstuff.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETstarTeleport", "SETcelestialPath"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETstarTeleport",
+				"SETcelestialPath"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_star",
@@ -140,10 +180,19 @@
 			"id": "rightLeg",
 			"name": "Celestial Leg (R)",
 			"blurb": "<self>'s right leg is made of starstuff.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETstarTeleport", "SETcelestialPath"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETstarTeleport",
+				"SETcelestialPath"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_star",
@@ -161,10 +210,17 @@
 			"id": "pet",
 			"name": "Stardust Squirrel",
 			"blurb": "All the energy of a star in one cute, fuzzy little package.",
-			"slots": ["pet"],
-			"effects": ["SETpetStarFlash"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetStarFlash"
+			],
 			"layers": [
-				{"name": "pet_starSquirrel", "depth": 9000}
+				{
+					"name": "pet_starSquirrel",
+					"depth": 9000
+				}
 			]
 		}
 	]

@@ -1,114 +1,78 @@
 {
-"id": "SETscorpionManyLegs",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/scorpion/SETscorpionManyLegs",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "bonewall",
-	
-	"priority": "17",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_scorpion_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"aspects": [
-			"themePiece_scorpion_rightLeg",
-			"alive",
-			"SELF",
-			"themePiece_scorpion_leftLeg"
+	"id": "SETscorpionManyLegs",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/scorpion/SETscorpionManyLegs",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
 		]
 	},
-	{
-		"role": "volunteer",
-		"template": "ADJACENT_ENEMY",
-		"choose": "ALL",
-		"showAnyway": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "MatchTarget",
-		"abilityTarget": {
-			"template": "ADJACENT_ENEMY",
-			"choose": "ONE_RANDOM_TRUE",
-			"showAnyway": true,
-			"alwaysSelect": true,
-			"aspects": [ "HOSTILE_TARGET", "alive" ],
-			"range": "1.6+self.BONUS_RANGE",
-			"lineOfSight": "LIVE_ENEMIES"
-		}
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "bonewall",
+		"priority": "17",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_scorpion_upgrade"
 	},
-	{
-		"class": "AttackRoll",
-		"stopBlockingTime": "afterHitAnimation",
-		"audioOverride": {
-			"attackHitCue": "Characters/Weapons/Dagger/weaponHit",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
-		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY+20",
-		"wield": "fromWeapon",
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade))))+self.theme_scorpion_upgrade",
-					"shred": "2",
-					"overrideStuntDamage": "2",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "concussed", "value": "1" }
-						]
-					},
-					"numDefenders": "3"
-				}
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"aspects": [
+				"themePiece_scorpion_rightLeg",
+				"alive",
+				"SELF",
+				"themePiece_scorpion_leftLeg"
 			]
-		}
-	},
-	{
-		"class": "MatchTarget",
-		"abilityTarget": {
-			"role": "target2",
+		},
+		{
+			"role": "volunteer",
 			"template": "ADJACENT_ENEMY",
-			"choose": "ONE_RANDOM_TRUE",
+			"choose": "ALL",
 			"showAnyway": true,
-			"alwaysSelect": true,
-			"aspects": [ "HOSTILE_TARGET", "alive" ],
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
 			"range": "1.6+self.BONUS_RANGE",
 			"lineOfSight": "LIVE_ENEMIES"
 		}
-	},
-	{
-		"class": "IfRolesArePresent",
-		"rolesArePresent": [ "target2" ],
-		"then": {
+	],
+	"outcomes": [
+		{
+			"class": "MatchTarget",
+			"abilityTarget": {
+				"template": "ADJACENT_ENEMY",
+				"choose": "ONE_RANDOM_TRUE",
+				"showAnyway": true,
+				"alwaysSelect": true,
+				"aspects": [
+					"HOSTILE_TARGET",
+					"alive"
+				],
+				"range": "1.6+self.BONUS_RANGE",
+				"lineOfSight": "LIVE_ENEMIES"
+			}
+		},
+		{
 			"class": "AttackRoll",
-			"defender": "target2",
 			"stopBlockingTime": "afterHitAnimation",
 			"audioOverride": {
-				"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
-				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackHitCue": "Characters/Weapons/Dagger/weaponHit",
 				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
 				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
 			},
-			"defenseRollTags": [ "melee" ],
+			"defenseRollTags": [
+				"melee"
+			],
 			"attackStrength": "self.MELEE_ACCURACY+20",
 			"wield": "fromWeapon",
 			"onHit": {
@@ -122,63 +86,134 @@
 						"onStunt": {
 							"class": "Aspects",
 							"addAspects": [
-								{ "id": "concussed", "value": "1" }
+								{
+									"id": "concussed",
+									"value": "1"
+								}
 							]
 						},
 						"numDefenders": "3"
 					}
 				]
 			}
-		}
-	},
-	{
-		"class": "MatchTarget",
-		"abilityTarget": {
-			"role": "target3",
-			"template": "ADJACENT_ENEMY",
-			"choose": "ONE_RANDOM_TRUE",
-			"showAnyway": true,
-			"alwaysSelect": true,
-			"aspects": [ "HOSTILE_TARGET", "alive" ],
-			"range": "1.6+self.BONUS_RANGE",
-			"lineOfSight": "LIVE_ENEMIES"
-		}
-	},
-	{
-		"class": "IfRolesArePresent",
-		"rolesArePresent": [ "target3" ],
-		"then": {
-			"class": "AttackRoll",
-			"defender": "target3",
-			"stopBlockingTime": "afterHitAnimation",
-			"audioOverride": {
-				"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
-				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
-			},
-			"defenseRollTags": [ "melee" ],
-			"attackStrength": "self.MELEE_ACCURACY+20",
-			"wield": "fromWeapon",
-			"onHit": {
-				"class": "DoAll",
-				"outcomes": [
-					{
-						"class": "Damage",
-						"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade))))+self.theme_scorpion_upgrade",
-						"shred": "2",
-						"overrideStuntDamage": "2",
-						"onStunt": {
-							"class": "Aspects",
-							"addAspects": [
-								{ "id": "concussed", "value": "1" }
-							]
-						},
-						"numDefenders": "3"
-					}
-				]
+		},
+		{
+			"class": "MatchTarget",
+			"abilityTarget": {
+				"role": "target2",
+				"template": "ADJACENT_ENEMY",
+				"choose": "ONE_RANDOM_TRUE",
+				"showAnyway": true,
+				"alwaysSelect": true,
+				"aspects": [
+					"HOSTILE_TARGET",
+					"alive"
+				],
+				"range": "1.6+self.BONUS_RANGE",
+				"lineOfSight": "LIVE_ENEMIES"
+			}
+		},
+		{
+			"class": "IfRolesArePresent",
+			"rolesArePresent": [
+				"target2"
+			],
+			"then": {
+				"class": "AttackRoll",
+				"defender": "target2",
+				"stopBlockingTime": "afterHitAnimation",
+				"audioOverride": {
+					"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+					"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+					"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+					"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+				},
+				"defenseRollTags": [
+					"melee"
+				],
+				"attackStrength": "self.MELEE_ACCURACY+20",
+				"wield": "fromWeapon",
+				"onHit": {
+					"class": "DoAll",
+					"outcomes": [
+						{
+							"class": "Damage",
+							"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade))))+self.theme_scorpion_upgrade",
+							"shred": "2",
+							"overrideStuntDamage": "2",
+							"onStunt": {
+								"class": "Aspects",
+								"addAspects": [
+									{
+										"id": "concussed",
+										"value": "1"
+									}
+								]
+							},
+							"numDefenders": "3"
+						}
+					]
+				}
+			}
+		},
+		{
+			"class": "MatchTarget",
+			"abilityTarget": {
+				"role": "target3",
+				"template": "ADJACENT_ENEMY",
+				"choose": "ONE_RANDOM_TRUE",
+				"showAnyway": true,
+				"alwaysSelect": true,
+				"aspects": [
+					"HOSTILE_TARGET",
+					"alive"
+				],
+				"range": "1.6+self.BONUS_RANGE",
+				"lineOfSight": "LIVE_ENEMIES"
+			}
+		},
+		{
+			"class": "IfRolesArePresent",
+			"rolesArePresent": [
+				"target3"
+			],
+			"then": {
+				"class": "AttackRoll",
+				"defender": "target3",
+				"stopBlockingTime": "afterHitAnimation",
+				"audioOverride": {
+					"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+					"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+					"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+					"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+				},
+				"defenseRollTags": [
+					"melee"
+				],
+				"attackStrength": "self.MELEE_ACCURACY+20",
+				"wield": "fromWeapon",
+				"onHit": {
+					"class": "DoAll",
+					"outcomes": [
+						{
+							"class": "Damage",
+							"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade))))+self.theme_scorpion_upgrade",
+							"shred": "2",
+							"overrideStuntDamage": "2",
+							"onStunt": {
+								"class": "Aspects",
+								"addAspects": [
+									{
+										"id": "concussed",
+										"value": "1"
+									}
+								]
+							},
+							"numDefenders": "3"
+						}
+					]
+				}
 			}
 		}
-	}
-]
+	]
 }

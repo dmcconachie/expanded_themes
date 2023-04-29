@@ -1,45 +1,61 @@
 {
-"id": "ability_advanceTheme_rat_head",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_rat_head",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "rat",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1",
-	"strictlyBetterThan": [ "ability_advanceTheme_rat" ]
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF", "aspect_advanceTheme_rat" ],
-		"aspectValues": [
-			{ "id": "themeSlotFilled_head", "forbidden": true }
-		],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{
-		"class": "ApplyTheme",
-		"target": "self",
-		"theme": "rat",
-		"piece": "head"
+	"id": "ability_advanceTheme_rat_head",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_rat_head",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
+		]
 	},
-	{ "class": "AddResources", "amount": "-1" },
-	{
-		"class": "Aspects",
-		"removeAspects": [ "aspect_advanceTheme_rat" ]
-	}
-]
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "rat",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1",
+		"strictlyBetterThan": [
+			"ability_advanceTheme_rat"
+		]
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF",
+				"aspect_advanceTheme_rat"
+			],
+			"aspectValues": [
+				{
+					"id": "themeSlotFilled_head",
+					"forbidden": true
+				}
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "ApplyTheme",
+			"target": "self",
+			"theme": "rat",
+			"piece": "head"
+		},
+		{
+			"class": "AddResources",
+			"amount": "-1"
+		},
+		{
+			"class": "Aspects",
+			"removeAspects": [
+				"aspect_advanceTheme_rat"
+			]
+		}
+	]
 }

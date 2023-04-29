@@ -1,60 +1,79 @@
 {
-"id": "SETstarTeleport",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/star/SETstarTeleport",
-	"modId": "Smokers_Expanded_Themes",
-	"tags": [ "okToMarkDone", "free" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "zealousLeap",
-	
-	"priority": "77",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"numUses": "1+self.theme_star_upgrade",
-	"cooldown": "oncePerTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "targetTile" },
-		"aspects": [ "alive", "SELF", "themePiece_star_leftLeg", "themePiece_star_rightLeg" ]
+	"id": "SETstarTeleport",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/star/SETstarTeleport",
+		"modId": "Smokers_Expanded_Themes",
+		"tags": [
+			"okToMarkDone",
+			"free"
+		]
 	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "PATH_TARGET",
-			"showMovementFeedback": true
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "zealousLeap",
+		"priority": "77",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"numUses": "1+self.theme_star_upgrade",
+		"cooldown": "oncePerTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "targetTile"
+			},
+			"aspects": [
+				"alive",
+				"SELF",
+				"themePiece_star_leftLeg",
+				"themePiece_star_rightLeg"
+			]
 		},
-		"minRange": "0.9",
-		"range": "6+self.POTENCY",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "visibleValidMoveEnd"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": null,
-		"attackAnimationType": "none",
-		"timingOverride": { "afterAnimationTime": "2000" },
-		"particles": [
-			{ "script": "teleport", "setPosition": "self" }
-		],
-		"audioOverride": { "attackStartCue": "Characters/Default/Ability_WindWalk" },
-		"cameraSnapToStartPositionOnEnd": false,
-		"markForFlanking": "never",
-		"always": {
-			"class": "MoveEntity",
-			"directlyToTile": "targetTile",
-			"animationType": "teleport"
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "PATH_TARGET",
+				"showMovementFeedback": true
+			},
+			"minRange": "0.9",
+			"range": "6+self.POTENCY",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "visibleValidMoveEnd"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": null,
+			"attackAnimationType": "none",
+			"timingOverride": {
+				"afterAnimationTime": "2000"
+			},
+			"particles": [
+				{
+					"script": "teleport",
+					"setPosition": "self"
+				}
+			],
+			"audioOverride": {
+				"attackStartCue": "Characters/Default/Ability_WindWalk"
+			},
+			"cameraSnapToStartPositionOnEnd": false,
+			"markForFlanking": "never",
+			"always": {
+				"class": "MoveEntity",
+				"directlyToTile": "targetTile",
+				"animationType": "teleport"
+			}
+		}
+	]
 }

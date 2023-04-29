@@ -2,21 +2,23 @@
 	"id": "crow",
 	"name": "Crowtouched",
 	"blurb": "<self>'s inner crow is showing.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_crowWhite",
 			"unlockLegacyAspect": "theme_crow_blind20Enemies"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Crow Head",
 			"blurb": "<self> has mean peck and a loud call.",
-			"slots": ["head"],
-			"replaces": ["head"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"head"
+			],
 			"effects": [
 				"SETcrowPeck",
 				"ability_advanceTheme_crow",
@@ -35,77 +37,105 @@
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["neutral", "happy"]
+					"facialExpression": [
+						"neutral",
+						"happy"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_open",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["open"]
+					"facialExpression": [
+						"open"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_interested",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["interested"]
+					"facialExpression": [
+						"interested"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_surprised",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["surprised", "scared"]
+					"facialExpression": [
+						"surprised",
+						"scared"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_skeptical",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["skeptical"]
+					"facialExpression": [
+						"skeptical"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_dubious",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["dubious"]
+					"facialExpression": [
+						"dubious"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_angry",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["angry", "scheming"]
+					"facialExpression": [
+						"angry",
+						"scheming"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_rage",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["rage"]
+					"facialExpression": [
+						"rage"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_joy",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["joke", "joy"]
+					"facialExpression": [
+						"joke",
+						"joy"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_grim",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["grim", "sad"]
+					"facialExpression": [
+						"grim",
+						"sad"
+					]
 				},
 				{
 					"name": "replaceHead_crowFace_hit",
 					"depth": 4000,
 					"headOffset": true,
 					"ifNoOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["hit", "dead"]
+					"facialExpression": [
+						"hit",
+						"dead"
+					]
 				},
 				{
 					"name": "replaceNeck_crow",
@@ -117,77 +147,105 @@
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["neutral", "happy"]
+					"facialExpression": [
+						"neutral",
+						"happy"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_open",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["open"]
+					"facialExpression": [
+						"open"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_interested",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["interested"]
+					"facialExpression": [
+						"interested"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_surprised",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["surprised", "scared"]
+					"facialExpression": [
+						"surprised",
+						"scared"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_skeptical",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["skeptical"]
+					"facialExpression": [
+						"skeptical"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_dubious",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["dubious"]
+					"facialExpression": [
+						"dubious"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_angry",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["angry", "scheming"]
+					"facialExpression": [
+						"angry",
+						"scheming"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_rage",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["rage"]
+					"facialExpression": [
+						"rage"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_joy",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["joke", "joy"]
+					"facialExpression": [
+						"joke",
+						"joy"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_grim",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["grim", "sad"]
+					"facialExpression": [
+						"grim",
+						"sad"
+					]
 				},
 				{
 					"name": "replaceHead_crowFaceWhite_hit",
 					"depth": 4000,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_crowWhite",
-					"facialExpression": ["hit", "dead"]
+					"facialExpression": [
+						"hit",
+						"dead"
+					]
 				},
 				{
 					"name": "replaceNeck_crowWhite",
@@ -200,8 +258,12 @@
 			"id": "wings",
 			"name": "Crow Wings",
 			"blurb": "<self> has a pair of crow wings.",
-			"slots": ["wings"],
-			"stats": {"SPEED": 1 },
+			"slots": [
+				"wings"
+			],
+			"stats": {
+				"SPEED": 1
+			},
 			"effects": [
 				"SETcrowFly",
 				"ability_advanceTheme_crow",
@@ -214,7 +276,9 @@
 				"ability_advanceTheme_crow_tail",
 				"ability_advanceTheme_crow_pet"
 			],
-			"extraAspects": ["wingSound"],
+			"extraAspects": [
+				"wingSound"
+			],
 			"layers": [
 				{
 					"name": "wingCrowR",
@@ -242,11 +306,20 @@
 			"id": "torso",
 			"name": "Crow Body",
 			"blurb": "<self>'s body is covered in feathers.",
-			"slots": ["torso"],
-			"replaces": ["torso"],
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
 			"canBeAwardedRandomly": false,
-			"extraAspects": ["humanSkin_overrideSkinColor|5b7986|5b7986|5b7986|1", "humanSkin_overrideHairColor|383d5a|1"],
-			"effects": ["SETmovementStunt"],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|5b7986|5b7986|5b7986|1",
+				"humanSkin_overrideHairColor|383d5a|1"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
 			"stats": {},
 			"layers": [
 				{
@@ -265,8 +338,12 @@
 			"id": "tail",
 			"name": "Crow Tail",
 			"blurb": "<self> has a feathery crow tail.",
-			"slots": ["tail"],
-			"effects": ["SETmovementDodge"],
+			"slots": [
+				"tail"
+			],
+			"effects": [
+				"SETmovementDodge"
+			],
 			"layers": [
 				{
 					"name": "tailCrow",
@@ -284,10 +361,18 @@
 			"id": "leftLeg",
 			"name": "Crow Leg (L)",
 			"blurb": "<self>'s left leg is crowish.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETmovementStunt"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_crow",
@@ -305,10 +390,18 @@
 			"id": "rightLeg",
 			"name": "Crow Leg (R)",
 			"blurb": "<self>'s right leg is crowish.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETmovementStunt"],
-			"stats": {"SPEED": 1.7},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_crow",
@@ -326,9 +419,17 @@
 			"id": "leftArm",
 			"name": "Crow Arm (L)",
 			"blurb": "<self>'s left arm is feathered and clawish.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETcrowClaw2", "SETcrowFrenzy"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETcrowClaw2",
+				"SETcrowFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_crow",
@@ -346,9 +447,17 @@
 			"id": "rightArm",
 			"name": "Crow Arm (R)",
 			"blurb": "<self>'s right arm is feathered and clawish.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETcrowClaw1", "SETcrowFrenzy"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETcrowClaw1",
+				"SETcrowFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_crow",
@@ -366,10 +475,17 @@
 			"id": "pet",
 			"name": "Crow",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingRanged"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingRanged"
+			],
 			"layers": [
-				{"name": "pet_crow", "depth": 9000}
+				{
+					"name": "pet_crow",
+					"depth": 9000
+				}
 			]
 		}
 	]

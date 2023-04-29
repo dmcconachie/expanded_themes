@@ -2,21 +2,23 @@
 	"id": "vine",
 	"name": "Botanical",
 	"blurb": "<self>'s has grow Vine wings.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_vinesMythical",
 			"unlockLegacyAspect": "theme_vine_poison50Enemies"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Leafmark",
 			"blurb": "A leafy crest blooms from <self>'s forehead.",
-			"slots": ["head"],
-			"stats": { "RECOVERY_RATE": 10 },
+			"slots": [
+				"head"
+			],
+			"stats": {
+				"RECOVERY_RATE": 10
+			},
 			"effects": [
 				"ability_advanceTheme_vine",
 				"ability_advanceTheme_vine_skin",
@@ -43,7 +45,8 @@
 				},
 				{
 					"name": "face_vineForeheadMythicalA_tint",
-					"tint": "secondary", "tintAmount": 0.8,
+					"tint": "secondary",
+					"tintAmount": 0.8,
 					"depth": 4250,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_vinesMythical"
@@ -60,8 +63,12 @@
 			"id": "wings",
 			"name": "Vine Tendrils",
 			"blurb": "Vine tendrils grow from <self> back.",
-			"slots": ["wings"],
-			"effects": ["SETvineEntangle"],
+			"slots": [
+				"wings"
+			],
+			"effects": [
+				"SETvineEntangle"
+			],
 			"layers": [
 				{
 					"name": "wings_vine",
@@ -73,14 +80,20 @@
 			"id": "skin",
 			"name": "Vine Skin",
 			"blurb": "<self> soaks in the light through <self.mf:his/her> puncturing skin.",
-			"slots": ["skin"],
+			"slots": [
+				"skin"
+			],
 			"extraAspects": [
 				"humanSkin_overrideStreakColor|00ff00|1.0",
 				"humanSkin_overrideStreakValue|1.0",
 				"humanSkin_overrideSkinColor|ddff9c|ddff9c|ddff9c|1.0"
 			],
-			"stats": {"RECOVERY_RATE": 10},
-			"effects": ["SETsplinterskin"],
+			"stats": {
+				"RECOVERY_RATE": 10
+			},
+			"effects": [
+				"SETsplinterskin"
+			],
 			"layers": [
 				{
 					"name": "face_vineForeheadA_untinted",
@@ -97,7 +110,8 @@
 				},
 				{
 					"name": "face_vineForeheadMythicalA_tint",
-					"tint": "secondary", "tintAmount": 0.8,
+					"tint": "secondary",
+					"tintAmount": 0.8,
 					"depth": 4250,
 					"headOffset": true,
 					"ifOwnerAspect": "themeSkin_vinesMythical"
@@ -114,11 +128,21 @@
 			"id": "leftLeg",
 			"name": "Vine Leg (L)",
 			"blurb": "<self> stands upon a stem-like leg.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETstationaryBlock"],
-			"stats": {"SPEED": 1.5},
-			"extraAspects": ["immuneToKnockback"],
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETstationaryBlock"
+			],
+			"stats": {
+				"SPEED": 1.5
+			},
+			"extraAspects": [
+				"immuneToKnockback"
+			],
 			"layers": [
 				{
 					"name": "replaceLegL_vines",
@@ -132,7 +156,8 @@
 				},
 				{
 					"name": "replaceLegL_vinesMythicalB_tint",
-					"tint": "primary", "tintAmount": 0.8,
+					"tint": "primary",
+					"tintAmount": 0.8,
 					"depth": 1104,
 					"ifOwnerAspect": "themeSkin_vinesMythical"
 				}
@@ -142,11 +167,21 @@
 			"id": "rightLeg",
 			"name": "Vine Leg (R)",
 			"blurb": "<self> stands upon a stem-like leg.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETstationaryBlock"],
-			"stats": {"SPEED": 1.5},
-			"extraAspects": ["immuneToKnockback"],
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETstationaryBlock"
+			],
+			"stats": {
+				"SPEED": 1.5
+			},
+			"extraAspects": [
+				"immuneToKnockback"
+			],
 			"layers": [
 				{
 					"name": "replaceLegR_vines",
@@ -160,7 +195,8 @@
 				},
 				{
 					"name": "replaceLegR_vinesMythicalB_tint",
-					"tint": "primary", "tintAmount": 0.8,
+					"tint": "primary",
+					"tintAmount": 0.8,
 					"depth": 1104,
 					"ifOwnerAspect": "themeSkin_vinesMythical"
 				}
@@ -170,9 +206,19 @@
 			"id": "leftArm",
 			"name": "Vine Arm (L)",
 			"blurb": "<self>'s left arm ends in a cruel barbed flower.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETvineLash2", "defaultSecondaryMoveFeedbackNoLOS|4.6|SETvineLash2", "SETvineDoubleLash", "defaultSecondaryMoveFeedbackNoLOS|6.6|SETvineDoubleLash"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETvineLash2",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6|SETvineLash2",
+				"SETvineDoubleLash",
+				"defaultSecondaryMoveFeedbackNoLOS|6.6|SETvineDoubleLash"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_vinesA_tint1",
@@ -192,7 +238,8 @@
 				},
 				{
 					"name": "replaceArmL_vinesMythicalB_tint",
-					"tint": "primary", "tintAmount": 0.8,
+					"tint": "primary",
+					"tintAmount": 0.8,
 					"depth": 1102,
 					"ifOwnerAspect": "themeSkin_vinesMythical"
 				}
@@ -202,9 +249,19 @@
 			"id": "rightArm",
 			"name": "Vine Arm (R)",
 			"blurb": "<self>'s right arm is made up of writhing vines.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETvineLash1", "defaultSecondaryMoveFeedbackNoLOS|4.6|SETvineLash1", "SETvineDoubleLash", "defaultSecondaryMoveFeedbackNoLOS|6.6|SETvineDoubleLash"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETvineLash1",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6|SETvineLash1",
+				"SETvineDoubleLash",
+				"defaultSecondaryMoveFeedbackNoLOS|6.6|SETvineDoubleLash"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_vinesA_untinted",
@@ -224,7 +281,8 @@
 				},
 				{
 					"name": "replaceArmR_vinesMythicalB_tint",
-					"tint": "primary", "tintAmount": 0.8,
+					"tint": "primary",
+					"tintAmount": 0.8,
 					"depth": 1102,
 					"ifOwnerAspect": "themeSkin_vinesMythical"
 				}
@@ -234,11 +292,18 @@
 			"id": "pet",
 			"name": "Walking Flower",
 			"blurb": "Maybe some century it'll grow up to be a Vinewalker or something.",
-			"slots": ["pet"],
+			"slots": [
+				"pet"
+			],
 			"stats": {},
-			"effects": ["wallingRegionTree"],
+			"effects": [
+				"wallingRegionTree"
+			],
 			"layers": [
-				{"name": "pet_flower", "depth": 9000}
+				{
+					"name": "pet_flower",
+					"depth": 9000
+				}
 			]
 		}
 	]

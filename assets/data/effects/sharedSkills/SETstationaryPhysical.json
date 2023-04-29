@@ -1,22 +1,29 @@
 {
-"id": "SETstationaryPhysical",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETstationaryPhysical",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby"
-},
-"type": "TURN_START",
-"ability": { "showInCharacterSheet": true },
-"targets": [
-	{ "template": "SELF" }
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "SETstationaryPhysical2", "value": "1" }
-		]
-	}
-]
+	"id": "SETstationaryPhysical",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETstationaryPhysical",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "SETstationaryPhysical2",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

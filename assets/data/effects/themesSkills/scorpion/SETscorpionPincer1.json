@@ -1,77 +1,95 @@
 {
-"id": "SETscorpionPincer1",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/scorpion/SETscorpionPincer1",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "sharktrap",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETscorpionPincer1",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/scorpion/SETscorpionPincer1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
-			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "sharktrap",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "pinned", "value": "1" }
-					]
-				},
-				{
-					"class": "Damage",
-					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade)))+self.theme_scorpion_upgrade",
-					"shred": "2",
-					"overrideStuntDamage": "1",
-					"onStunt": {
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
+				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
 						"class": "Aspects",
 						"addAspects": [
-							{ "id": "bleeding", "value": "1" }
+							{
+								"id": "pinned",
+								"value": "1"
+							}
 						]
+					},
+					{
+						"class": "Damage",
+						"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade)))+self.theme_scorpion_upgrade",
+						"shred": "2",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "bleeding",
+									"value": "1"
+								}
+							]
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade)))+self.theme_scorpion_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_scorpion_upgrade)))+self.theme_scorpion_upgrade"
+			}
 		}
-	}
-]
+	]
 }

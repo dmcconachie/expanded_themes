@@ -1,22 +1,29 @@
 {
-"id": "SETmovementDodge",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETmovementDodge",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby"
-},
-"type": "STEP",
-"ability": { "showInCharacterSheet": true },
-"targets": [
-	{ "template": "SELF" }
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "SETmovementDodge2", "value": "1" }
-		]
-	}
-]
+	"id": "SETmovementDodge",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETmovementDodge",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby"
+	},
+	"type": "STEP",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "SETmovementDodge2",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

@@ -1,32 +1,36 @@
 {
-"id": "shadowRegion|COORDS",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "shadow/shadowRegion",
-	"author": "Patrick Belanger"
-},
-"type": "REGION",
-"targets": [],
-"outcomes": [
-	{
-		"class": "MapRegion",
-		"target": "self",
-		"region": {
-			"id": "celestialRegion",
-			"physicallyPresent": true,
-			"visibleAtLocation": true,
-			"feedbackType": "STARRY",
-			"floorsOnly": true,
-			"spatialRelationship": {
-				"testAspects": [
-					{ "id": "alive" },
-					{ "id": "human" }
-				],
-				"otherAspect": "shadowTileBuff"
-			}
-		},
-		"associateWithFaction": true,
-		"elementsString": "COORDS"
-	}
-]
+	"id": "shadowRegion|COORDS",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "shadow/shadowRegion",
+		"author": "Patrick Belanger"
+	},
+	"type": "REGION",
+	"targets": [],
+	"outcomes": [
+		{
+			"class": "MapRegion",
+			"target": "self",
+			"region": {
+				"id": "celestialRegion",
+				"physicallyPresent": true,
+				"visibleAtLocation": true,
+				"feedbackType": "STARRY",
+				"floorsOnly": true,
+				"spatialRelationship": {
+					"testAspects": [
+						{
+							"id": "alive"
+						},
+						{
+							"id": "human"
+						}
+					],
+					"otherAspect": "shadowTileBuff"
+				}
+			},
+			"associateWithFaction": true,
+			"elementsString": "COORDS"
+		}
+	]
 }

@@ -2,14 +2,17 @@
 	"id": "tinyWings",
 	"name": "Owlsoul",
 	"blurb": "The owl spirit is growing in you.",
-
 	"pieces": [
 		{
 			"id": "wings",
 			"name": "Owl Wings",
 			"blurb": "<self> has a pair of owl wings.",
-			"slots": ["wings"],
-			"stats": {"SPEED": 1},
+			"slots": [
+				"wings"
+			],
+			"stats": {
+				"SPEED": 1
+			},
 			"effects": [
 				"SETowlFly",
 				"ability_advanceTheme_tinyWings",
@@ -22,7 +25,10 @@
 				"ability_advanceTheme_tinyWings_tail",
 				"ability_advanceTheme_tinyWings_shoulderPet"
 			],
-			"extraAspects": ["wingSound", "humanSkin_overrideHairColor|372107|1"],
+			"extraAspects": [
+				"wingSound",
+				"humanSkin_overrideHairColor|372107|1"
+			],
 			"layers": [
 				{
 					"name": "wingTinyRA_tint",
@@ -48,8 +54,12 @@
 			"id": "head",
 			"name": "Owl Eyes",
 			"blurb": "An owl soul peer out from <self>'s eyes now",
-			"slots": ["head"],
-			"effects": ["SETowlGaze"],
+			"slots": [
+				"head"
+			],
+			"effects": [
+				"SETowlGaze"
+			],
 			"layers": [
 				{
 					"name": "face_demonHornsMA_untinted",
@@ -83,8 +93,12 @@
 			"id": "tail",
 			"name": "Owl Tail",
 			"blurb": "<self> has a feathery owl tail.",
-			"slots": ["tail"],
-			"effects": ["SETmovementAccuracy"],
+			"slots": [
+				"tail"
+			],
+			"effects": [
+				"SETmovementAccuracy"
+			],
 			"layers": [
 				{
 					"name": "tailOwl",
@@ -96,10 +110,18 @@
 			"id": "torso",
 			"name": "Owl Heart",
 			"blurb": "<self>'s body is imbued with the owl spirit.",
-			"slots": ["torso"],
-			"extraAspects": ["humanSkin_overrideSkinColor|ffffff|ffffff|ffffff|1"],
-			"effects": [ "SETstationaryStunt" ],
-			"stats": {"POTENCY": 0.5},
+			"slots": [
+				"torso"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|ffffff|ffffff|ffffff|1"
+			],
+			"effects": [
+				"SETstationaryStunt"
+			],
+			"stats": {
+				"POTENCY": 0.5
+			},
 			"layers": [
 				{
 					"name": "face_vineForeheadA_untinted",
@@ -118,10 +140,19 @@
 			"id": "leftLeg",
 			"name": "Owl Leg (L)",
 			"blurb": "<self>'s left leg is owlish.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETstationaryAccuracy", "SETstationaryMeleeAccuracy"],
-			"stats": { "SPEED": 1.7 },
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETstationaryAccuracy",
+				"SETstationaryMeleeAccuracy"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_owl",
@@ -133,10 +164,19 @@
 			"id": "rightLeg",
 			"name": "Owl Leg (R)",
 			"blurb": "<self>'s right leg is owlish.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETstationaryAccuracy", "SETstationaryMeleeAccuracy"],
-			"stats": { "SPEED": 1.7 },
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETstationaryAccuracy",
+				"SETstationaryMeleeAccuracy"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_owl",
@@ -148,9 +188,17 @@
 			"id": "leftArm",
 			"name": "Owl Arm (L)",
 			"blurb": "<self>'s left arm is feathered and clawish.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETowlClaw2", "SETowlFrenzy"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETowlClaw2",
+				"SETowlFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_owl",
@@ -162,9 +210,17 @@
 			"id": "rightArm",
 			"name": "Owl Arm (R)",
 			"blurb": "<self>'s right arm is feathered and clawish.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETowlClaw1", "SETowlFrenzy"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETowlClaw1",
+				"SETowlFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_owl",
@@ -176,10 +232,17 @@
 			"id": "shoulderPet",
 			"name": "Owl",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFlankingRanged"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFlankingRanged"
+			],
 			"layers": [
-				{"name": "pet_owl", "depth": 70}
+				{
+					"name": "pet_owl",
+					"depth": 70
+				}
 			]
 		}
 	]

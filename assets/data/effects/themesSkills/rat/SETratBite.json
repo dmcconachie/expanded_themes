@@ -1,80 +1,106 @@
 {
-"id": "SETratBite",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/rat/SETratBite",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby",
-	"aiPriority": "3500",
-	"tags": [ "okToMarkDone", "melee", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "bite",
-	"priority": "10",
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETratBite",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/rat/SETratBite",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby",
+		"aiPriority": "3500",
+		"tags": [
+			"okToMarkDone",
+			"melee",
+			"free"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
-			"attackHitCue": "",
-			"attackDodgedCue": "",
-			"attackBlockedCue": ""
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "bite",
+		"priority": "10",
+		"cooldown": "everyOtherTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"target": "defender",
-					"removeAspects": [ "damageOverTimeFrom|poison|*" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "poisoned", "value": "1" },
-						{ "id": "damageOverTimeFrom|poison", "value": "1", "inRelationTo": "self" }
-					]
-				},
-				{
-					"class": "Damage",
-					"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_rat_upgrade))))+self.theme_rat_upgrade",
-					"flankingBonusDamage": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_rat_upgrade))))+self.theme_rat_upgrade",
-					"overrideStuntDamage": "1",
-					"onStunt": {
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
+				"attackHitCue": "",
+				"attackDodgedCue": "",
+				"attackBlockedCue": ""
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"target": "defender",
+						"removeAspects": [
+							"damageOverTimeFrom|poison|*"
+						]
+					},
+					{
 						"class": "Aspects",
 						"addAspects": [
-							{ "id": "bleeding", "value": "1" }
+							{
+								"id": "poisoned",
+								"value": "1"
+							},
+							{
+								"id": "damageOverTimeFrom|poison",
+								"value": "1",
+								"inRelationTo": "self"
+							}
 						]
+					},
+					{
+						"class": "Damage",
+						"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_rat_upgrade))))+self.theme_rat_upgrade",
+						"flankingBonusDamage": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_rat_upgrade))))+self.theme_rat_upgrade",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "bleeding",
+									"value": "1"
+								}
+							]
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_rat_upgrade))))+self.theme_rat_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d3+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_rat_upgrade))))+self.theme_rat_upgrade"
+			}
 		}
-	}
-]
+	]
 }

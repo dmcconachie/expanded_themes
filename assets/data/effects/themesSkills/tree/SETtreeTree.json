@@ -1,133 +1,166 @@
 {
-"id": "SETtreeTree",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/tree/SETtreeTree",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "2050",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "arches",
-	
-	"priority": "17",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"cooldown": "everyOtherTurn",
-	"abilityElementType": "leaf"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" },
-		"aspects": [ "themePiece_tree_leftArm", "alive", "themePiece_tree_rightArm", "SELF" ]
+	"id": "SETtreeTree",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/tree/SETtreeTree",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "2050",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "arches",
+		"priority": "17",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"cooldown": "everyOtherTurn",
+		"abilityElementType": "leaf"
 	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"choose": "BY_SCORE_OPTIONAL",
-		"scoreFunction": "1",
-		"scoreThreshold": "0",
-		"missionFeedback": { "rangeFeedback": "FRIENDLY_EFFECT_RANGE" },
-		"relativeTo": "target",
-		"range": "0.9",
-		"tileFilter": "forbidSceneryAllowPits",
-		"tileFilterRange": "1"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY+20",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_tree_upgrade)))+self.theme_tree_upgrade",
-					"overrideStuntDamage": "2",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "concussed", "value": "1" }
-								]
-							},
-							{
-								"class": "BranchAbility",
-								"target": "self",
-								"targetRole": "defender",
-								"branchAbility": "stuntEffect_leaf"
-							}
-						]
-					}
-				},
-				{
-					"class": "Test",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "IfRolesArePresent",
-								"rolesArePresent": [ "targetTile" ],
-								"then": {
-									"class": "DoAll",
-									"outcomes": [
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "TreeSpawn", "setPosition": "targetTile" }
-										},
-										{
-											"class": "Animate",
-											"target": "self",
-											"particles": { "script": "LeafExplosion", "setPosition": "targetTile" }
-										},
-										{
-											"class": "Spawn",
-											"target": "targetTile",
-											"addRole": "scenery",
-											"modifyTerrain": "setToBlocked",
-											"ignoreBlockingEntities": [ "target" ],
-											"forceSpawn": true,
-											"createEntity": {
-												"query": {
-													"type": "SCENERY",
-													"tags": [ "arches" ],
-													"coordinates": "targetTile"
-												},
-												"setLocation": true
-											}
-										}
-									]
-								}
-							}
-						]
-					}
-				}
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			},
+			"aspects": [
+				"themePiece_tree_leftArm",
+				"alive",
+				"themePiece_tree_rightArm",
+				"SELF"
 			]
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_tree_upgrade)))+self.theme_tree_upgrade"
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		},
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"choose": "BY_SCORE_OPTIONAL",
+			"scoreFunction": "1",
+			"scoreThreshold": "0",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE"
+			},
+			"relativeTo": "target",
+			"range": "0.9",
+			"tileFilter": "forbidSceneryAllowPits",
+			"tileFilterRange": "1"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY+20",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_tree_upgrade)))+self.theme_tree_upgrade",
+						"overrideStuntDamage": "2",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "concussed",
+											"value": "1"
+										}
+									]
+								},
+								{
+									"class": "BranchAbility",
+									"target": "self",
+									"targetRole": "defender",
+									"branchAbility": "stuntEffect_leaf"
+								}
+							]
+						}
+					},
+					{
+						"class": "Test",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "IfRolesArePresent",
+									"rolesArePresent": [
+										"targetTile"
+									],
+									"then": {
+										"class": "DoAll",
+										"outcomes": [
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "TreeSpawn",
+													"setPosition": "targetTile"
+												}
+											},
+											{
+												"class": "Animate",
+												"target": "self",
+												"particles": {
+													"script": "LeafExplosion",
+													"setPosition": "targetTile"
+												}
+											},
+											{
+												"class": "Spawn",
+												"target": "targetTile",
+												"addRole": "scenery",
+												"modifyTerrain": "setToBlocked",
+												"ignoreBlockingEntities": [
+													"target"
+												],
+												"forceSpawn": true,
+												"createEntity": {
+													"query": {
+														"type": "SCENERY",
+														"tags": [
+															"arches"
+														],
+														"coordinates": "targetTile"
+													},
+													"setLocation": true
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d6+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_tree_upgrade)))+self.theme_tree_upgrade"
+			}
+		}
+	]
 }

@@ -1,110 +1,135 @@
 {
-"id": "SETfireConsumeFireIndignance",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/fire/SETfireConsumeFireIndignance",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Patrick Belanger",
-	"aiPriority": "(3000+COUNT.target2)+COUNT.target3",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "areaMagic",
-	
-	"priority": "2",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"showDescriptionInTooltip": true,
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_fire_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETfireConsumeFireIndignance",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/fire/SETfireConsumeFireIndignance",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Patrick Belanger",
+		"aiPriority": "(3000+COUNT.target2)+COUNT.target3",
+		"tags": [
+			"okToMarkDone"
+		]
 	},
-	{
-		"role": "target",
-		"template": "ADJACENT_FIRE",
-		"choose": "ONE_CLOSEST",
-		"alwaysSelect": true,
-		"aiHints": { "fullInferLookAhead": true },
-		"range": "4.6",
-		"lineOfSight": "TERRAIN_ONLY"
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "areaMagic",
+		"priority": "2",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"showDescriptionInTooltip": true,
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_fire_upgrade"
 	},
-	{
-		"role": "target2",
-		"template": "ADJACENT_FIRE",
-		"choose": "ONE_CLOSEST_OPTIONAL",
-		"alwaysSelect": true,
-		"notAlreadyMatchedAs": [ "target" ],
-		"range": "4.6",
-		"lineOfSight": "TERRAIN_ONLY"
-	},
-	{
-		"role": "target3",
-		"template": "ADJACENT_FIRE",
-		"choose": "ONE_CLOSEST_OPTIONAL",
-		"alwaysSelect": true,
-		"notAlreadyMatchedAs": [ "target", "target2" ],
-		"range": "4.6",
-		"lineOfSight": "TERRAIN_ONLY"
-	},
-	{
-		"role": "volunteer",
-		"template": "ADJACENT_FIRE",
-		"STUB": "All the matched fires",
-		"choose": "ALL",
-		"missionFeedback": null,
-		"fromRoles": [ "target", "target2", "target3" ],
-		"range": null
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": null,
-		"intermediateRole": "volunteer",
-		"attackAnimationType": "interaction",
-		"showAbilityName": "ifEnemy",
-		"minimumBlockTime": "1500",
-		"particles": [
-			{
-				"script": "absorbFire",
-				"setPosition": "volunteer",
-				"setPosition2": "self",
-				"delay": -1.5
+	"targets": [
+		{
+			"template": "SELF",
+			"missionFeedback": {
+				"orientTo": "target"
 			}
-		],
-		"audioOverride": { "attackStartCue": "Characters/DefaultHuman/Magic_FireMiss" },
-		"attackerAnimationOverride": "",
-		"always": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"target": "target",
-					"removeAspects": [ "uncontainedFire" ]
-				},
-				{
-					"class": "Aspects",
-					"target": "target2",
-					"removeAspects": [ "uncontainedFire" ]
-				},
-				{
-					"class": "Aspects",
-					"target": "target3",
-					"removeAspects": [ "uncontainedFire" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "SETfireIndignanceRegion", "value": "COUNT.volunteer" }
-					]
-				}
-			]
+		},
+		{
+			"role": "target",
+			"template": "ADJACENT_FIRE",
+			"choose": "ONE_CLOSEST",
+			"alwaysSelect": true,
+			"aiHints": {
+				"fullInferLookAhead": true
+			},
+			"range": "4.6",
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"role": "target2",
+			"template": "ADJACENT_FIRE",
+			"choose": "ONE_CLOSEST_OPTIONAL",
+			"alwaysSelect": true,
+			"notAlreadyMatchedAs": [
+				"target"
+			],
+			"range": "4.6",
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"role": "target3",
+			"template": "ADJACENT_FIRE",
+			"choose": "ONE_CLOSEST_OPTIONAL",
+			"alwaysSelect": true,
+			"notAlreadyMatchedAs": [
+				"target",
+				"target2"
+			],
+			"range": "4.6",
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"role": "volunteer",
+			"template": "ADJACENT_FIRE",
+			"STUB": "All the matched fires",
+			"choose": "ALL",
+			"missionFeedback": null,
+			"fromRoles": [
+				"target",
+				"target2",
+				"target3"
+			],
+			"range": null
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": null,
+			"intermediateRole": "volunteer",
+			"attackAnimationType": "interaction",
+			"showAbilityName": "ifEnemy",
+			"minimumBlockTime": "1500",
+			"particles": [
+				{
+					"script": "absorbFire",
+					"setPosition": "volunteer",
+					"setPosition2": "self",
+					"delay": -1.5
+				}
+			],
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/Magic_FireMiss"
+			},
+			"attackerAnimationOverride": "",
+			"always": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"target": "target",
+						"removeAspects": [
+							"uncontainedFire"
+						]
+					},
+					{
+						"class": "Aspects",
+						"target": "target2",
+						"removeAspects": [
+							"uncontainedFire"
+						]
+					},
+					{
+						"class": "Aspects",
+						"target": "target3",
+						"removeAspects": [
+							"uncontainedFire"
+						]
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "SETfireIndignanceRegion",
+								"value": "COUNT.volunteer"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 }

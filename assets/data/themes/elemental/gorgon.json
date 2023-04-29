@@ -2,13 +2,14 @@
 	"id": "gorgon",
 	"name": "Gorgonoid",
 	"blurb": "<self> is infected with a Gorgon seed.",
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Gorgonoid Mark",
 			"blurb": "One side of <self>'s head is slightly Gorgonoid",
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"effects": [
 				"ability_advanceTheme_gorgon",
 				"ability_advanceTheme_gorgon_skin",
@@ -39,10 +40,18 @@
 			"id": "wings",
 			"name": "Gorgonoid Crust",
 			"blurb": "One side of <self>'s head has hardened into Gorgonoid stone and toxic spitting tentacles are emerging",
-			"slots": ["wings"],
-			"stats": {"ARMOR": 0.5},
-			"effects": ["SETgorgonPin"],
-			"extraAspects": ["humanSkin_overrideHairColor|2c5d66|1"],
+			"slots": [
+				"wings"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			},
+			"effects": [
+				"SETgorgonPin"
+			],
+			"extraAspects": [
+				"humanSkin_overrideHairColor|2c5d66|1"
+			],
 			"layers": [
 				{
 					"name": "gorgonWings",
@@ -71,19 +80,35 @@
 			"id": "skin",
 			"name": "Gorgonoid Blood",
 			"blurb": "<self>'s blood it's corrupt with the Gorgonoid infection.",
-			"slots": ["skin"],
-			"extraAspects": ["humanSkin_overrideSkinColor|92d0e0|92d0e0|92d0e0|1"],
+			"slots": [
+				"skin"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|92d0e0|92d0e0|92d0e0|1"
+			],
 			"stats": {},
-			"effects": ["SETgorgonCorruption"]
+			"effects": [
+				"SETgorgonCorruption"
+			]
 		},
 		{
 			"id": "leftArm",
 			"name": "Gorgonoid Arm (L)",
 			"blurb": "<self>'s left arm is consumed by the Gorgonoid infection.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"stats": {"BLOCK": 5},
-			"effects": ["SETgorgonClaw2", "SETgorgonTentacle"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"stats": {
+				"BLOCK": 5
+			},
+			"effects": [
+				"SETgorgonClaw2",
+				"SETgorgonTentacle"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_gorgon",
@@ -95,10 +120,21 @@
 			"id": "rightArm",
 			"name": "Gorgonoid Arm (R)",
 			"blurb": "<self>'s right arm is consumed by the Gorgonoid infection.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"stats": {"BLOCK": 5},
-			"effects": ["SETgorgonClaw1", "SETgorgonTentacle", "defaultSecondaryMoveFeedbackNoLOS|4.6|SETgorgonTentacle"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"stats": {
+				"BLOCK": 5
+			},
+			"effects": [
+				"SETgorgonClaw1",
+				"SETgorgonTentacle",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6|SETgorgonTentacle"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_gorgon",
@@ -110,10 +146,20 @@
 			"id": "leftLeg",
 			"name": "Gorgon Leg (L)",
 			"blurb": "<self> stands upon a tentacle-like half body.",
-			"slots": ["rightLeg", "leftLeg"],
-			"replaces": ["rightLeg", "leftLeg"],
-			"effects": ["SETstationaryAccuracy"],
-			"stats": {"SPEED": 3},
+			"slots": [
+				"rightLeg",
+				"leftLeg"
+			],
+			"replaces": [
+				"rightLeg",
+				"leftLeg"
+			],
+			"effects": [
+				"SETstationaryAccuracy"
+			],
+			"stats": {
+				"SPEED": 3
+			},
 			"layers": [
 				{
 					"name": "gorgon_legs",
@@ -125,10 +171,20 @@
 			"id": "rightLeg",
 			"name": "Gorgon Leg (R)",
 			"blurb": "<self> stands upon a tentacle-like half body.",
-			"slots": ["rightLeg", "leftLeg"],
-			"replaces": ["rightLeg", "leftLeg"],
-			"effects": ["SETstationaryAccuracy"],
-			"stats": {"SPEED": 3},
+			"slots": [
+				"rightLeg",
+				"leftLeg"
+			],
+			"replaces": [
+				"rightLeg",
+				"leftLeg"
+			],
+			"effects": [
+				"SETstationaryAccuracy"
+			],
+			"stats": {
+				"SPEED": 3
+			},
 			"layers": [
 				{
 					"name": "gorgon_legs",
@@ -140,9 +196,16 @@
 			"id": "tail",
 			"name": "Gorgon Tentacles",
 			"blurb": "<self> has long and strong tentacles to grab.",
-			"slots": ["tail"],
-			"effects": ["SETgorgonEntangle", "defaultSecondaryMoveFeedbackNoLOS|4.6|SETgorgonEntangle"],
-			"stats": {"BLOCK": 5},
+			"slots": [
+				"tail"
+			],
+			"effects": [
+				"SETgorgonEntangle",
+				"defaultSecondaryMoveFeedbackNoLOS|4.6|SETgorgonEntangle"
+			],
+			"stats": {
+				"BLOCK": 5
+			},
 			"layers": [
 				{
 					"name": "wingsGorgon",
@@ -154,10 +217,17 @@
 			"id": "pet",
 			"name": "Gorgon Baby",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee2"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee2"
+			],
 			"layers": [
-				{"name": "pet_babyGorgon", "depth": 9000}
+				{
+					"name": "pet_babyGorgon",
+					"depth": 9000
+				}
 			]
 		}
 	]

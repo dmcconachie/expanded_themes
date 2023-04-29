@@ -1,30 +1,36 @@
 {
-"id": "shadowDrainsWardingRegion",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "shadow/shadowDrainsWardingRegion",
-	"author": "Nate Austin"
-},
-"type": "REGION",
-"ability": { "showInCharacterSheet": true },
-"targets": [],
-"outcomes": [
-	{
-		"class": "MapRegion",
-		"target": "self",
-		"region": {
-			"id": "shadowDrainsWardingRegion",
-			"feedbackType": "FRIENDLY_EFFECT_RANGE",
-			"floorsOnly": true,
-			"spatialRelationship": {
-				"testAspects": [
-					{ "id": "alive" },
-					{ "id": "ENEMY" }
-				],
-				"otherAspect": "shadowDrainsWardingRel"
-			}
-		},
-		"aura": "1.5"
-	}
-]
+	"id": "shadowDrainsWardingRegion",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "shadow/shadowDrainsWardingRegion",
+		"author": "Nate Austin"
+	},
+	"type": "REGION",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [],
+	"outcomes": [
+		{
+			"class": "MapRegion",
+			"target": "self",
+			"region": {
+				"id": "shadowDrainsWardingRegion",
+				"feedbackType": "FRIENDLY_EFFECT_RANGE",
+				"floorsOnly": true,
+				"spatialRelationship": {
+					"testAspects": [
+						{
+							"id": "alive"
+						},
+						{
+							"id": "ENEMY"
+						}
+					],
+					"otherAspect": "shadowDrainsWardingRel"
+				}
+			},
+			"aura": "1.5"
+		}
+	]
 }

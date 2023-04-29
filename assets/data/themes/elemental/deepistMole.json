@@ -2,13 +2,14 @@
 	"id": "deepistMole",
 	"name": "Horn Child",
 	"blurb": "<self> spent time blending in among the Deepists.",
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Horn Child Horn",
 			"blurb": "<self>'s head has grown a horn.",
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"effects": [
 				"SETmountainHorns",
 				"ability_advanceTheme_deepistMole",
@@ -19,7 +20,9 @@
 				"ability_advanceTheme_deepistMole_legRight",
 				"ability_advanceTheme_deepistMole_pet"
 			],
-			"extraAspects": ["humanSkin_overrideHairColor|abcacc|1"],
+			"extraAspects": [
+				"humanSkin_overrideHairColor|abcacc|1"
+			],
 			"layers": [
 				{
 					"name": "face_deepist",
@@ -44,20 +47,41 @@
 			"id": "skin",
 			"name": "Horn Child Heart",
 			"blurb": "<self>'s flesh is hard as rock.",
-			"slots": ["skin"],
-			"effects": ["SETmountainWall"],
-			"extraAspects": ["humanSkin_overrideSkinColor|808080|808080|808080|1"],
-			"stats": {"ARMOR": 0.5}
+			"slots": [
+				"skin"
+			],
+			"effects": [
+				"SETmountainWall"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|808080|808080|808080|1"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			}
 		},
 		{
 			"id": "leftLeg",
 			"name": "Horn Child Leg (L)",
 			"blurb": "<self>'s left leg is made of rock.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETmountainStoneWall", "foothillAttackAbilitiesCancelStonewall"],
-			"stats": {"SPEED": 0.9, "ARMOR": 0.5},
-			"extraAspects": ["immuneToKnockback", "stoneLegsSound"],
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETmountainStoneWall",
+				"foothillAttackAbilitiesCancelStonewall"
+			],
+			"stats": {
+				"SPEED": 0.9,
+				"ARMOR": 0.5
+			},
+			"extraAspects": [
+				"immuneToKnockback",
+				"stoneLegsSound"
+			],
 			"layers": [
 				{
 					"name": "replaceLegL_deepist",
@@ -69,11 +93,24 @@
 			"id": "rightLeg",
 			"name": "Horn Child Leg (R)",
 			"blurb": "<self>'s right leg is made of rock.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETmountainStoneWall", "foothillAttackAbilitiesCancelStonewall"],
-			"stats": {"SPEED": 0.9, "ARMOR": 0.5},
-			"extraAspects": ["immuneToKnockback", "stoneLegsSound"],
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETmountainStoneWall",
+				"foothillAttackAbilitiesCancelStonewall"
+			],
+			"stats": {
+				"SPEED": 0.9,
+				"ARMOR": 0.5
+			},
+			"extraAspects": [
+				"immuneToKnockback",
+				"stoneLegsSound"
+			],
 			"layers": [
 				{
 					"name": "replaceLegR_deepist",
@@ -85,10 +122,20 @@
 			"id": "leftArm",
 			"name": "Horn Child Arm (L)",
 			"blurb": "<self>'s left arm is made of rock.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETmountainBash2", "SETmountainOnslaught"],
-			"stats": {"ARMOR": 0.5},
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETmountainBash2",
+				"SETmountainOnslaught"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			},
 			"layers": [
 				{
 					"name": "replaceArmL_deepist",
@@ -100,10 +147,20 @@
 			"id": "rightArm",
 			"name": "Horn Child Arm (R)",
 			"blurb": "<self>'s right arm is made of rock.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETmountainBash1", "SETmountainOnslaught"],
-			"stats": {"ARMOR": 0.5},
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETmountainBash1",
+				"SETmountainOnslaught"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			},
 			"layers": [
 				{
 					"name": "replaceArmR_deepist",
@@ -115,10 +172,17 @@
 			"id": "pet",
 			"name": "Snake",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee2"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee2"
+			],
 			"layers": [
-				{"name": "pet_snake", "depth": 9000}
+				{
+					"name": "pet_snake",
+					"depth": 9000
+				}
 			]
 		}
 	]

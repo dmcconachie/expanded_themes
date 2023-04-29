@@ -1,24 +1,30 @@
 {
-"id": "SETmostMovementCancelsStationaryBlock",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETmostMovementCancelsStationaryBlock",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"sort": 3
-},
-"type": "ABILITY_USED",
-"targets": [
-	{ "template": "SELF" },
-	{
-		"template": "ABILITY",
-		"verbIs": [ "MOVE" ]
-	}
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"removeAspects": [ "SETstationaryBlock2" ]
-	}
-]
+	"id": "SETmostMovementCancelsStationaryBlock",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETmostMovementCancelsStationaryBlock",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"sort": 3
+	},
+	"type": "ABILITY_USED",
+	"targets": [
+		{
+			"template": "SELF"
+		},
+		{
+			"template": "ABILITY",
+			"verbIs": [
+				"MOVE"
+			]
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"removeAspects": [
+				"SETstationaryBlock2"
+			]
+		}
+	]
 }

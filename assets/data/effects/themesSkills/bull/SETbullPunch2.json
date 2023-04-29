@@ -1,80 +1,99 @@
 {
-"id": "SETbullPunch2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/bull/SETbullPunch2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Smoker",
-	"aiPriority": "3000",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "crush",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"cooldown": "everyOtherTurn",
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETbullPunch2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/bull/SETbullPunch2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Smoker",
+		"aiPriority": "3000",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackHitCue": "Characters/Heroes/Themed/attackRock",
-			"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "crush",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"cooldown": "everyOtherTurn",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepist_upgrade)))+self.theme_deepist_upgrade",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackHitCue": "Characters/Heroes/Themed/attackRock",
+				"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepist_upgrade)))+self.theme_deepist_upgrade",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "senseless",
+											"value": "1"
+										}
+									]
+								}
+							]
+						}
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
 							{
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "senseless", "value": "1" }
-								]
+								"id": "concussed",
+								"value": "1"
 							}
 						]
 					}
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "concussed", "value": "1" }
-					]
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepist_upgrade)))+self.theme_deepist_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+4)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_deepist_upgrade)))+self.theme_deepist_upgrade"
+			}
 		}
-	}
-]
+	]
 }

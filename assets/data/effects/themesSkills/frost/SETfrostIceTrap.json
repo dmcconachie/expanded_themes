@@ -1,19 +1,24 @@
 {
-"id": "SETfrostIceTrap|COORDS",
-"info": { "dataVersion": 1, "sourceFile": "frost/SETfrostIceTrap" },
-"type": "REGION",
-"targets": [],
-"outcomes": [
-	{
-		"class": "MapRegion",
-		"target": "self",
-		"region": {
-			"id": "SETfrostIceTrap",
-			"physicallyPresent": true,
-			"feedbackType": "ICE_TRAP",
-			"entryTriggerEffects": [ "SETfrostIceTrapTriggered" ]
-		},
-		"elementsString": "COORDS"
-	}
-]
+	"id": "SETfrostIceTrap|COORDS",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "frost/SETfrostIceTrap"
+	},
+	"type": "REGION",
+	"targets": [],
+	"outcomes": [
+		{
+			"class": "MapRegion",
+			"target": "self",
+			"region": {
+				"id": "SETfrostIceTrap",
+				"physicallyPresent": true,
+				"feedbackType": "ICE_TRAP",
+				"entryTriggerEffects": [
+					"SETfrostIceTrapTriggered"
+				]
+			},
+			"elementsString": "COORDS"
+		}
+	]
 }

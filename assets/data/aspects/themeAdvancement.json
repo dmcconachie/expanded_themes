@@ -1,122 +1,122 @@
 [
-{
-	"id": "aspect_advanceTheme_bear",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_crow",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_deepist",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_drauvenWings",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_fox",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_frog",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_hawk",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_mothWings",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_rat",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_scorpion",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_skunk",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_tinyWings",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_vultureAcolyte",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_wolf",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_deepistMole",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_fire",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_foothill",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_frost",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_gem",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_star",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_storm",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_tree",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_vine",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_gorgon",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_gorgonStone",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_green",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_morthagi",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_shadow",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_skeleton",
-	"importance": -1
-},
-{
-	"id": "aspect_advanceTheme_spellTouched",
-	"importance": -1
-}
+	{
+		"id": "aspect_advanceTheme_bear",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_crow",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_deepist",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_drauvenWings",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_fox",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_frog",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_hawk",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_mothWings",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_rat",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_scorpion",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_skunk",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_tinyWings",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_vultureAcolyte",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_wolf",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_deepistMole",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_fire",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_foothill",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_frost",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_gem",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_star",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_storm",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_tree",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_vine",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_gorgon",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_gorgonStone",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_green",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_morthagi",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_shadow",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_skeleton",
+		"importance": -1
+	},
+	{
+		"id": "aspect_advanceTheme_spellTouched",
+		"importance": -1
+	}
 ]

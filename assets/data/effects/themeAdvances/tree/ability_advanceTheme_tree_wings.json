@@ -1,36 +1,55 @@
 {
-"id": "ability_advanceTheme_tree_wings",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_tree_wings",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "arches",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1",
-	"strictlyBetterThan": [ "ability_advanceTheme_tree" ]
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF", "aspect_advanceTheme_tree" ],
-		"aspectValues": [
-			{ "id": "themeSlotFilled_wings", "forbidden": true }
-		],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{ "class": "ApplyTheme", "target": "self", "theme": "tree", "piece": "wings" },
-	{ "class": "AddResources", "amount": "-1" }
-]
+	"id": "ability_advanceTheme_tree_wings",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_tree_wings",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
+		]
+	},
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "arches",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1",
+		"strictlyBetterThan": [
+			"ability_advanceTheme_tree"
+		]
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF",
+				"aspect_advanceTheme_tree"
+			],
+			"aspectValues": [
+				{
+					"id": "themeSlotFilled_wings",
+					"forbidden": true
+				}
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "ApplyTheme",
+			"target": "self",
+			"theme": "tree",
+			"piece": "wings"
+		},
+		{
+			"class": "AddResources",
+			"amount": "-1"
+		}
+	]
 }

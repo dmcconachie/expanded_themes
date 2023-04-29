@@ -1,94 +1,115 @@
 {
-"id": "SETbullHorns",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/bull/SETbullHorns",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Smoker",
-	"aiPriority": "1900",
-	"tags": [ "melee", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "bash",
-	"priority": "10",
-	"customSpecialAnimationEffect": {
-		"parameters": [ "target.distanceTo.targetTile" ]
+	"id": "SETbullHorns",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/bull/SETbullHorns",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Smoker",
+		"aiPriority": "1900",
+		"tags": [
+			"melee",
+			"free"
+		]
 	},
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "target" }
-	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
-			"applyRoleFootprint": "target",
-			"showMovementFeedback": true
-		},
-		"pathFrom": "self",
-		"pathTo": "target",
-		"matchSpecial": "knockBackDestination",
-		"relativeTo": "target",
-		"range": "2",
-		"lineOfSight": "ANY_COVER",
-		"tileFilter": "parentLocationOrValidMoveEnd",
-		"roleMustFit": "target"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackHitCue": "Characters/Heroes/Mace/weaponHit",
-			"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
-		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{ "class": "Interrupt", "target": "target" },
-				{
-					"class": "Damage",
-					"amount": "((1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_deepist_upgrade))))+self.theme_deepist_upgrade)+target.distanceTo.targetTile",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "concussed", "value": "1" }
-						]
-					}
-				},
-				{
-					"class": "MoveEntity",
-					"directlyToTile": "targetTile",
-					"recordMoveDistanceAs": "knockbackDistance"
-				}
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "bash",
+		"priority": "10",
+		"customSpecialAnimationEffect": {
+			"parameters": [
+				"target.distanceTo.targetTile"
 			]
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_deepist_upgrade))))+self.theme_deepist_upgrade"
+		"cooldown": "everyOtherTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		},
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER",
+				"applyRoleFootprint": "target",
+				"showMovementFeedback": true
+			},
+			"pathFrom": "self",
+			"pathTo": "target",
+			"matchSpecial": "knockBackDestination",
+			"relativeTo": "target",
+			"range": "2",
+			"lineOfSight": "ANY_COVER",
+			"tileFilter": "parentLocationOrValidMoveEnd",
+			"roleMustFit": "target"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackHitCue": "Characters/Heroes/Mace/weaponHit",
+				"attackDodgedCue": "Characters/Weapons/Mace/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Mace/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Interrupt",
+						"target": "target"
+					},
+					{
+						"class": "Damage",
+						"amount": "((1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_deepist_upgrade))))+self.theme_deepist_upgrade)+target.distanceTo.targetTile",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "concussed",
+									"value": "1"
+								}
+							]
+						}
+					},
+					{
+						"class": "MoveEntity",
+						"directlyToTile": "targetTile",
+						"recordMoveDistanceAs": "knockbackDistance"
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d4+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_deepist_upgrade))))+self.theme_deepist_upgrade"
+			}
+		}
+	]
 }

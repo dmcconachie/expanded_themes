@@ -1,46 +1,62 @@
 {
-"id": "ability_advanceTheme_deepist_armRight",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeAdvances/ability_advanceTheme_deepist_armRight",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Jackson Wagner",
-	"aiPriority": "-1",
-	"tags": [ "okToMarkDone" ]
-},
-"type": "OVERLAND_ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "ursineHunger",
-	"category": "research",
-	"showInCharacterSheet": false,
-	"priority": "1",
-	"strictlyBetterThan": [ "ability_advanceTheme_deepist" ]
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "SELF", "aspect_advanceTheme_deepist" ],
-		"aspectValues": [
-			{ "id": "themeSlotFilled_rightArm", "forbidden": true }
-		],
-		"test": "GREATER_THAN_OR_EQUAL_TO",
-		"a": "RESOURCE.legacyPoints",
-		"b": "1"
-	}
-],
-"outcomes": [
-	{
-		"class": "ApplyTheme",
-		"target": "self",
-		"theme": "deepist",
-		"piece": "rightArm",
-		"replaceInjuredLimbs": true
+	"id": "ability_advanceTheme_deepist_armRight",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeAdvances/ability_advanceTheme_deepist_armRight",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Jackson Wagner",
+		"aiPriority": "-1",
+		"tags": [
+			"okToMarkDone"
+		]
 	},
-	{ "class": "AddResources", "amount": "-1" },
-	{
-		"class": "Aspects",
-		"removeAspects": [ "aspect_advanceTheme_deepist" ]
-	}
-]
+	"type": "OVERLAND_ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "ursineHunger",
+		"category": "research",
+		"showInCharacterSheet": false,
+		"priority": "1",
+		"strictlyBetterThan": [
+			"ability_advanceTheme_deepist"
+		]
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"SELF",
+				"aspect_advanceTheme_deepist"
+			],
+			"aspectValues": [
+				{
+					"id": "themeSlotFilled_rightArm",
+					"forbidden": true
+				}
+			],
+			"test": "GREATER_THAN_OR_EQUAL_TO",
+			"a": "RESOURCE.legacyPoints",
+			"b": "1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "ApplyTheme",
+			"target": "self",
+			"theme": "deepist",
+			"piece": "rightArm",
+			"replaceInjuredLimbs": true
+		},
+		{
+			"class": "AddResources",
+			"amount": "-1"
+		},
+		{
+			"class": "Aspects",
+			"removeAspects": [
+				"aspect_advanceTheme_deepist"
+			]
+		}
+	]
 }

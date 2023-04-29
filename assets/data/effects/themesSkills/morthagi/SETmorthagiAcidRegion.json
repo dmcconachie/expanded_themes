@@ -1,27 +1,29 @@
 {
-"id": "SETmorthagiAcidRegion|COORDS",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "morthagi/SETmorthagiAcidRegion",
-	"author": "Patrick Belanger"
-},
-"type": "REGION",
-"targets": [],
-"outcomes": [
-	{
-		"class": "MapRegion",
-		"target": "self",
-		"region": {
-			"id": "acidRegion",
-			"physicallyPresent": true,
-			"visibleAtLocation": true,
-			"entryCostDangerousPathOtherFaction": 1,
-			"feedbackType": "ACID",
-			"floorsOnly": true,
-			"entryTriggerEffects": [ "SETmorthagiAcidRegionTriggered" ]
-		},
-		"associateWithFaction": false,
-		"elementsString": "COORDS"
-	}
-]
+	"id": "SETmorthagiAcidRegion|COORDS",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "morthagi/SETmorthagiAcidRegion",
+		"author": "Patrick Belanger"
+	},
+	"type": "REGION",
+	"targets": [],
+	"outcomes": [
+		{
+			"class": "MapRegion",
+			"target": "self",
+			"region": {
+				"id": "acidRegion",
+				"physicallyPresent": true,
+				"visibleAtLocation": true,
+				"entryCostDangerousPathOtherFaction": 1,
+				"feedbackType": "ACID",
+				"floorsOnly": true,
+				"entryTriggerEffects": [
+					"SETmorthagiAcidRegionTriggered"
+				]
+			},
+			"associateWithFaction": false,
+			"elementsString": "COORDS"
+		}
+	]
 }

@@ -1,27 +1,41 @@
 {
-"id": "SETfrostIceTrapTriggered",
-"info": { "dataVersion": 1, "sourceFile": "frost/SETfrostIceTrapTriggered" },
-"type": "REGION_TRIGGER",
-"targets": [
-	{ "template": "ANY_SELF" },
-	{
-		"template": "INTERLOPER",
-		"aspects": [ "alive", "ENEMY" ]
-	}
-],
-"outcomes": [
-	{
-		"class": "DoAll",
-		"target": "target",
-		"outcomes": [
-			{ "class": "Interrupt" },
-			{
-				"class": "Aspects",
-				"addAspects": [
-					{ "id": "iceTrapTripped", "value": "1", "merge": "max" }
-				]
-			}
-		]
-	}
-]
+	"id": "SETfrostIceTrapTriggered",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "frost/SETfrostIceTrapTriggered"
+	},
+	"type": "REGION_TRIGGER",
+	"targets": [
+		{
+			"template": "ANY_SELF"
+		},
+		{
+			"template": "INTERLOPER",
+			"aspects": [
+				"alive",
+				"ENEMY"
+			]
+		}
+	],
+	"outcomes": [
+		{
+			"class": "DoAll",
+			"target": "target",
+			"outcomes": [
+				{
+					"class": "Interrupt"
+				},
+				{
+					"class": "Aspects",
+					"addAspects": [
+						{
+							"id": "iceTrapTripped",
+							"value": "1",
+							"merge": "max"
+						}
+					]
+				}
+			]
+		}
+	]
 }

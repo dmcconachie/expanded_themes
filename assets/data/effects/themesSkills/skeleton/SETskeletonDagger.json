@@ -1,61 +1,74 @@
 {
-"id": "SETskeletonDagger",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/skeleton/SETskeletonDagger",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "2050",
-	"tags": [ "skeletonKingDagger", "melee", "weapon" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "melee",
-	
-	"priority": "49",
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETskeletonDagger",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/skeleton/SETskeletonDagger",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "2050",
+		"tags": [
+			"skeletonKingDagger",
+			"melee",
+			"weapon"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.1+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "actionRoll(self.MELEE_ACCURACY)",
-		"wield": "ultraLight",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "(4+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
-					"flankingBonusDamage": "(4+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
-					"weapon": null,
-					"overrideStuntDamage": "1"
-				}
-			]
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "melee",
+		"priority": "49",
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
-			"weapon": null
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.1+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "actionRoll(self.MELEE_ACCURACY)",
+			"wield": "ultraLight",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(4+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
+						"flankingBonusDamage": "(4+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
+						"weapon": null,
+						"overrideStuntDamage": "1"
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
+				"weapon": null
+			}
+		}
+	]
 }

@@ -2,15 +2,18 @@
 	"id": "gorgonStone",
 	"name": "Petrified",
 	"blurb": "<self>'s body is slowly turning into stone by a Gorgon curse",
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Stone Head",
 			"blurb": "<self>'s head is hard as stone",
 			"overrideAllowVoluntaryChoice": false,
-			"slots": ["head"],
-			"replaces": ["hair"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"hair"
+			],
 			"effects": [
 				"SETstoneHeadStrike",
 				"ability_advanceTheme_gorgonStone",
@@ -21,7 +24,9 @@
 				"ability_advanceTheme_gorgonStone_legRight",
 				"ability_advanceTheme_gorgonStone_pet"
 			],
-			"stats": {"ARMOR": 0.5},
+			"stats": {
+				"ARMOR": 0.5
+			},
 			"layers": [
 				{
 					"name": "head_tattooFoothillM",
@@ -42,21 +47,40 @@
 			"name": "Stone Body",
 			"blurb": "<self>'s body is slowly turning into stone.",
 			"overrideAllowVoluntaryChoice": false,
-			"slots": ["skin"],
-			"extraAspects": ["humanSkin_overrideSkinColor|8faaad|8faaad|8faaad|1"],
-			"effects": ["SETstoneWall"],
-			"stats": {"ARMOR": 0.5}
+			"slots": [
+				"skin"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|8faaad|8faaad|8faaad|1"
+			],
+			"effects": [
+				"SETstoneWall"
+			],
+			"stats": {
+				"ARMOR": 0.5
+			}
 		},
 		{
 			"id": "leftLeg",
 			"name": "Petrified Leg (L)",
 			"blurb": "<self>'s left leg has been turned to stone.",
 			"overrideAllowVoluntaryChoice": false,
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"extraAspects": ["stoneLegsSound"],
-			"stats": { "SPEED": 1, "ARMOR": 0.5 },
-			"effects": ["SETstationaryArmor"],
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"extraAspects": [
+				"stoneLegsSound"
+			],
+			"stats": {
+				"SPEED": 1,
+				"ARMOR": 0.5
+			},
+			"effects": [
+				"SETstationaryArmor"
+			],
 			"layers": [
 				{
 					"name": "replaceLegL_gorgonStone",
@@ -69,11 +93,22 @@
 			"name": "Petrified Leg (R)",
 			"blurb": "<self>'s right leg has been turned to stone.",
 			"overrideAllowVoluntaryChoice": false,
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"extraAspects": ["stoneLegsSound"],
-			"stats": { "SPEED": 1, "ARMOR": 0.5 },
-			"effects": ["SETstationaryArmor"],
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"extraAspects": [
+				"stoneLegsSound"
+			],
+			"stats": {
+				"SPEED": 1,
+				"ARMOR": 0.5
+			},
+			"effects": [
+				"SETstationaryArmor"
+			],
 			"layers": [
 				{
 					"name": "replaceLegR_gorgonStone",
@@ -86,9 +121,17 @@
 			"name": "Petrified Arm (L)",
 			"blurb": "<self>'s left arm has been turned to stone.",
 			"overrideAllowVoluntaryChoice": false,
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETstoneClaw2", "SETstoneDoubleClaw"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETstoneClaw2",
+				"SETstoneDoubleClaw"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_gorgonStone",
@@ -101,9 +144,17 @@
 			"name": "Petrified Arm (R)",
 			"blurb": "<self>'s right arm has been turned to stone.",
 			"overrideAllowVoluntaryChoice": false,
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETstoneClaw1", "SETstoneDoubleClaw"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETstoneClaw1",
+				"SETstoneDoubleClaw"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_gorgonStone",
@@ -115,10 +166,17 @@
 			"id": "pet",
 			"name": "Gorgon Pet",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee2"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee2"
+			],
 			"layers": [
-				{"name": "pet_gorgon", "depth": 9000}
+				{
+					"name": "pet_gorgon",
+					"depth": 9000
+				}
 			]
 		}
 	]

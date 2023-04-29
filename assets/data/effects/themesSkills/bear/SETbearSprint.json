@@ -1,54 +1,72 @@
 {
-"id": "SETbearSprint",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "bear/SETbearSprint",
-	"modId": "Smokers_Expanded_Themes",
-	"tags": [ "sneaky" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "frenzy",
-	"category": "movement",
-	"priority": "99",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_bear_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "themePiece_bear_leftLeg", "alive", "SELF", "themePiece_bear_rightLeg" ]
-	},
-	{
-		"role": "target",
-		"template": "SELF",
-		"showAnyway": true,
-		"aspectValues": [
-			{ "id": "immobilized*", "forbidden": true }
+	"id": "SETbearSprint",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "bear/SETbearSprint",
+		"modId": "Smokers_Expanded_Themes",
+		"tags": [
+			"sneaky"
 		]
 	},
-	{
-		"template": "PATH",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"missionFeedback": {
-			"rangeFeedback": "WALKABLE",
-			"suggestionFeedback": "PATH_SEGMENT",
-			"hoverFeedback": "PATH_TARGET"
-		},
-		"relativeTo": "target",
-		"range": "SPEED+0.45"
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "frenzy",
+		"category": "movement",
+		"priority": "99",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_bear_upgrade"
 	},
-	{
-		"template": "SELF",
-		"missionFeedback": { "hoverFeedback": "WALLING" },
-		"relativeToLocation": "pathMotion"
-	}
-],
-"outcomes": [
-	{ "class": "MoveEntity", "alongPath": "pathMotion" }
-]
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"themePiece_bear_leftLeg",
+				"alive",
+				"SELF",
+				"themePiece_bear_rightLeg"
+			]
+		},
+		{
+			"role": "target",
+			"template": "SELF",
+			"showAnyway": true,
+			"aspectValues": [
+				{
+					"id": "immobilized*",
+					"forbidden": true
+				}
+			]
+		},
+		{
+			"template": "PATH",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"missionFeedback": {
+				"rangeFeedback": "WALKABLE",
+				"suggestionFeedback": "PATH_SEGMENT",
+				"hoverFeedback": "PATH_TARGET"
+			},
+			"relativeTo": "target",
+			"range": "SPEED+0.45"
+		},
+		{
+			"template": "SELF",
+			"missionFeedback": {
+				"hoverFeedback": "WALLING"
+			},
+			"relativeToLocation": "pathMotion"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "MoveEntity",
+			"alongPath": "pathMotion"
+		}
+	]
 }

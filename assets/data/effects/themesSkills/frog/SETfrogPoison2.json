@@ -1,84 +1,106 @@
 {
-"id": "SETfrogPoison2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/frog/SETfrogPoison2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "soulHarvest",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardMelee",
-	"abilityElementType": "leaf"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETfrogPoison2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/frog/SETfrogPoison2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "actionRoll(self.MELEE_ACCURACY)",
-		"wield": "light",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frog_upgrade)))+self.theme_frog_upgrade",
-					"pierce": "9",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "soulHarvest",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardMelee",
+		"abilityElementType": "leaf"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "actionRoll(self.MELEE_ACCURACY)",
+			"wield": "light",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frog_upgrade)))+self.theme_frog_upgrade",
+						"pierce": "9",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "BranchAbility",
+									"target": "self",
+									"targetRole": "defender",
+									"branchAbility": "stuntEffect_leaf"
+								}
+							]
+						}
+					},
+					{
+						"class": "Aspects",
+						"target": "defender",
+						"removeAspects": [
+							"damageOverTimeFrom|poison|*"
+						]
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
 							{
-								"class": "BranchAbility",
-								"target": "self",
-								"targetRole": "defender",
-								"branchAbility": "stuntEffect_leaf"
+								"id": "poisoned",
+								"value": "1"
+							},
+							{
+								"id": "damageOverTimeFrom|poison",
+								"value": "1",
+								"inRelationTo": "self"
 							}
 						]
 					}
-				},
-				{
-					"class": "Aspects",
-					"target": "defender",
-					"removeAspects": [ "damageOverTimeFrom|poison|*" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "poisoned", "value": "1" },
-						{ "id": "damageOverTimeFrom|poison", "value": "1", "inRelationTo": "self" }
-					]
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frog_upgrade)))+self.theme_frog_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frog_upgrade)))+self.theme_frog_upgrade"
+			}
 		}
-	}
-]
+	]
 }

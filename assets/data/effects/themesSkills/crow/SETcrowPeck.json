@@ -1,78 +1,94 @@
 {
-"id": "SETcrowPeck",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/crow/SETcrowPeck",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "",
-	"aiPriority": "3000",
-	"tags": [ "melee", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "peck",
-	"priority": "10",
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETcrowPeck",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/crow/SETcrowPeck",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "",
+		"aiPriority": "3000",
+		"tags": [
+			"melee",
+			"free"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
-			"attackHitCue": "",
-			"attackDodgedCue": "",
-			"attackBlockedCue": ""
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "peck",
+		"priority": "10",
+		"cooldown": "everyOtherTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"wield": "fromWeapon",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_crow_upgrade))))+self.theme_crow_upgrade",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "blinded", "value": "1" }
-								]
-							},
-							{
-								"class": "UnlockLegacyAspect",
-								"legacyAspect": "achievementProgress_theme_crow_blinded",
-								"value": "1"
-							}
-						]
-					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_crow_upgrade))))+self.theme_crow_upgrade"
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
+				"attackHitCue": "",
+				"attackDodgedCue": "",
+				"attackBlockedCue": ""
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"wield": "fromWeapon",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_crow_upgrade))))+self.theme_crow_upgrade",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "blinded",
+											"value": "1"
+										}
+									]
+								},
+								{
+									"class": "UnlockLegacyAspect",
+									"legacyAspect": "achievementProgress_theme_crow_blinded",
+									"value": "1"
+								}
+							]
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)/4)*(1+self.theme_crow_upgrade))))+self.theme_crow_upgrade"
+			}
+		}
+	]
 }

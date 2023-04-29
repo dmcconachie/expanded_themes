@@ -1,110 +1,158 @@
 [
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETmovementPhysical2",
-	"effects": [ "removeAtStartOfTurn" ],
-	"stats": { "PHYSICAL_DAMAGE_BONUS": 0.2 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "5",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETmovementAccuracy2",
-	"effects": [ "removeAtStartOfTurn" ],
-	"stats": { "MELEE_ACCURACY": 3 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "5",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETmovementStunt2",
-	"effects": [ "removeAtStartOfTurn" ],
-	"stats": { "STUNT_CHANCE": 3 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "5",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETmovementDodge2",
-	"effects": [ "removeAtStartOfTurn" ],
-	"stats": { "DODGE": 1.5 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "5",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryStunt2",
-	"effects": [ "SETmostMovementCancelsStationaryStunt"],
-	"stats": { "STUNT_CHANCE": 5 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryAccuracy2",
-	"effects": [ "SETmostMovementCancelsStationaryAccuracy"],
-	"stats": { "RANGE_ACCURACY": 5 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryMeleeAccuracy2",
-	"effects": [ "SETmostMovementCancelsStationaryMeleeAccuracy"],
-	"stats": { "MELEE_ACCURACY": 5 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryPhysical2",
-	"effects": [ "SETmostMovementCancelsStationaryPhysical"],
-	"stats": { "PHYSICAL_DAMAGE_BONUS": 0.5 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryBlock2",
-	"effects": [ "SETmostMovementCancelsStationaryBlock" ],
-	"stats": { "BLOCK": 3 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryArmor2",
-	"effects": [ "SETmostMovementCancelsStationaryArmor" ],
-	"stats": { "ARMOR": 1 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryWarding2",
-	"effects": [ "SETmostMovementCancelsStationaryWarding" ],
-	"stats": { "WARDING": 1 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-},
-{
-	"modId": "Smokers_Expanded_Themes",
-	"id": "SETstationaryPotency2",
-	"effects": [ "SETmostMovementCancelsStationaryPotency" ],
-	"stats": { "POTENCY": 0.5 },
-	"boostType": "ADVANTAGE",
-	"maxValue": "3",
-	"importance": 1
-}
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETmovementPhysical2",
+		"effects": [
+			"removeAtStartOfTurn"
+		],
+		"stats": {
+			"PHYSICAL_DAMAGE_BONUS": 0.2
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "5",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETmovementAccuracy2",
+		"effects": [
+			"removeAtStartOfTurn"
+		],
+		"stats": {
+			"MELEE_ACCURACY": 3
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "5",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETmovementStunt2",
+		"effects": [
+			"removeAtStartOfTurn"
+		],
+		"stats": {
+			"STUNT_CHANCE": 3
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "5",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETmovementDodge2",
+		"effects": [
+			"removeAtStartOfTurn"
+		],
+		"stats": {
+			"DODGE": 1.5
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "5",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryStunt2",
+		"effects": [
+			"SETmostMovementCancelsStationaryStunt"
+		],
+		"stats": {
+			"STUNT_CHANCE": 5
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryAccuracy2",
+		"effects": [
+			"SETmostMovementCancelsStationaryAccuracy"
+		],
+		"stats": {
+			"RANGE_ACCURACY": 5
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryMeleeAccuracy2",
+		"effects": [
+			"SETmostMovementCancelsStationaryMeleeAccuracy"
+		],
+		"stats": {
+			"MELEE_ACCURACY": 5
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryPhysical2",
+		"effects": [
+			"SETmostMovementCancelsStationaryPhysical"
+		],
+		"stats": {
+			"PHYSICAL_DAMAGE_BONUS": 0.5
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryBlock2",
+		"effects": [
+			"SETmostMovementCancelsStationaryBlock"
+		],
+		"stats": {
+			"BLOCK": 3
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryArmor2",
+		"effects": [
+			"SETmostMovementCancelsStationaryArmor"
+		],
+		"stats": {
+			"ARMOR": 1
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryWarding2",
+		"effects": [
+			"SETmostMovementCancelsStationaryWarding"
+		],
+		"stats": {
+			"WARDING": 1
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	},
+	{
+		"modId": "Smokers_Expanded_Themes",
+		"id": "SETstationaryPotency2",
+		"effects": [
+			"SETmostMovementCancelsStationaryPotency"
+		],
+		"stats": {
+			"POTENCY": 0.5
+		},
+		"boostType": "ADVANTAGE",
+		"maxValue": "3",
+		"importance": 1
+	}
 ]

@@ -1,63 +1,85 @@
 {
-"id": "SETgorgonPin",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/gorgon/SETgorgonPin",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby",
-	"aiPriority": "2030",
-	"tags": [ "okToMarkDone", "ranged", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "scaldingRain",
-	"priority": "10",
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"showAnyway": true,
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETgorgonPin",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/gorgon/SETgorgonPin",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby",
+		"aiPriority": "2030",
+		"tags": [
+			"okToMarkDone",
+			"ranged",
+			"free"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"minRange": "1.9",
-		"range": "5.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{
-				"script": "projectileTrailGorgon",
-				"setPosition": "self",
-				"setPosition2": "target"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "scaldingRain",
+		"priority": "10",
+		"cooldown": "everyOtherTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
 			},
-			{ "script": "splatterGorgon", "setPosition": "target", "delay": 0.3 }
-		],
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "pinned", "value": "1", "merge": "max" }
-					]
-				}
-			]
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"minRange": "1.9",
+			"range": "5.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"showAbilityName": "ifEnemy",
+			"particles": [
+				{
+					"script": "projectileTrailGorgon",
+					"setPosition": "self",
+					"setPosition2": "target"
+				},
+				{
+					"script": "splatterGorgon",
+					"setPosition": "target",
+					"delay": 0.3
+				}
+			],
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "pinned",
+								"value": "1",
+								"merge": "max"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 }

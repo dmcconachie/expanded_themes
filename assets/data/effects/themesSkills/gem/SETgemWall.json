@@ -1,63 +1,91 @@
 {
-"id": "SETgemWall",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/gem/SETgemWall",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "-1",
-	"tags": [ "sneaky" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "defend",
-	
-	"priority": "77",
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_gem_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"aspects": [ "alive", "themePiece_gem_leftLeg", "themePiece_gem_rightLeg", "SELF" ]
-	},
-	{
-		"role": "target",
-		"template": "SELF",
-		"showAnyway": true,
-		"fromRoles": [ "self" ],
-		"aspectValues": [
-			{ "id": "SETbuff_Wall", "forbidden": true }
+	"id": "SETgemWall",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/gem/SETgemWall",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "-1",
+		"tags": [
+			"sneaky"
 		]
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": null,
-		"intermediateRole": "self",
-		"attackAnimationType": "none",
-		"showAbilityName": "ifEnemy",
-		"stopBlockingTime": "noBlocking",
-		"timingOverride": { "beforeAnimationTime": "0", "afterAnimationTime": "0" },
-		"particles": [
-			{ "script": "RockGroundExplosion2", "setPosition": "target" },
-			{ "script": "stalwart", "setPosition": "target" },
-			{ "script": "smokeBlast", "setPosition": "target" }
-		],
-		"audioOverride": { "attackInterfusionStartCue": "Characters/DefaultHuman/Ability_Rock" },
-		"always": {
-			"class": "DoAll",
-			"outcomes": [
+	},
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "defend",
+		"priority": "77",
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_gem_upgrade"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"aspects": [
+				"alive",
+				"themePiece_gem_leftLeg",
+				"themePiece_gem_rightLeg",
+				"SELF"
+			]
+		},
+		{
+			"role": "target",
+			"template": "SELF",
+			"showAnyway": true,
+			"fromRoles": [
+				"self"
+			],
+			"aspectValues": [
 				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "SETbuff_Wall", "value": "1" }
-					]
+					"id": "SETbuff_Wall",
+					"forbidden": true
 				}
 			]
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": null,
+			"intermediateRole": "self",
+			"attackAnimationType": "none",
+			"showAbilityName": "ifEnemy",
+			"stopBlockingTime": "noBlocking",
+			"timingOverride": {
+				"beforeAnimationTime": "0",
+				"afterAnimationTime": "0"
+			},
+			"particles": [
+				{
+					"script": "RockGroundExplosion2",
+					"setPosition": "target"
+				},
+				{
+					"script": "stalwart",
+					"setPosition": "target"
+				},
+				{
+					"script": "smokeBlast",
+					"setPosition": "target"
+				}
+			],
+			"audioOverride": {
+				"attackInterfusionStartCue": "Characters/DefaultHuman/Ability_Rock"
+			},
+			"always": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "SETbuff_Wall",
+								"value": "1"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 }

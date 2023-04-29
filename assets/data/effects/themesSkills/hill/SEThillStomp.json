@@ -1,59 +1,78 @@
 {
-"id": "SEThillStomp",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/hill/SEThillStomp",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "20",
-	"tags": [ "melee", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "cripplingStrikes",
-	"priority": "10",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"customSpecialAnimationEffect": {
-		"parameters": [ "target.distanceTo.targetTile" ]
-	},
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"aspects": [
-			"alive",
-			"themePiece_foothill_leftLeg",
-			"themePiece_foothill_rightLeg",
-			"SELF"
+	"id": "SEThillStomp",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/hill/SEThillStomp",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "20",
+		"tags": [
+			"melee",
+			"free"
 		]
 	},
-	{
-		"template": "ADJACENT_UNIT",
-		"choose": "ANY",
-		"minRange": "1",
-		"range": "1.6",
-		"relativeToLocation": "targetTile"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"particles": [
-			{ "script": "RockGroundExplosion2", "setPosition": "self" },
-			{ "script": "shockwave", "setPosition": "self" }
-		],
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "Aspects",
-			"addAspects": [
-				{ "id": "concussed", "value": "1" }
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "cripplingStrikes",
+		"priority": "10",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"customSpecialAnimationEffect": {
+			"parameters": [
+				"target.distanceTo.targetTile"
 			]
+		},
+		"cooldown": "everyOtherTurn"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"aspects": [
+				"alive",
+				"themePiece_foothill_leftLeg",
+				"themePiece_foothill_rightLeg",
+				"SELF"
+			]
+		},
+		{
+			"template": "ADJACENT_UNIT",
+			"choose": "ANY",
+			"minRange": "1",
+			"range": "1.6",
+			"relativeToLocation": "targetTile"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"particles": [
+				{
+					"script": "RockGroundExplosion2",
+					"setPosition": "self"
+				},
+				{
+					"script": "shockwave",
+					"setPosition": "self"
+				}
+			],
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "Aspects",
+				"addAspects": [
+					{
+						"id": "concussed",
+						"value": "1"
+					}
+				]
+			}
+		}
+	]
 }

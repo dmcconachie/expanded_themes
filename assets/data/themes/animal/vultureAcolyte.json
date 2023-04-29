@@ -2,14 +2,17 @@
 	"id": "vultureAcolyte",
 	"name": "Vulture Acolyte",
 	"blurb": "<self> serves the Vulture Lord.",
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Vulture Acolyte Hood",
 			"blurb": "Bearing the symbol of the Vulture Lord",
-			"slots": ["head"],
-			"replaces": ["head"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"head"
+			],
 			"effects": [
 				"SETvultureGaze",
 				"ability_advanceTheme_vultureAcolyte",
@@ -34,10 +37,19 @@
 			"id": "wings",
 			"name": "Vulture Wings",
 			"blurb": "<self> has a pair of vulture wings.",
-			"slots": ["wings"],
-			"stats": {"SPEED": 1},
-			"effects": ["SETvultureFly"],
-			"extraAspects": ["wingSound", "humanSkin_overrideHairColor|593428|1"],
+			"slots": [
+				"wings"
+			],
+			"stats": {
+				"SPEED": 1
+			},
+			"effects": [
+				"SETvultureFly"
+			],
+			"extraAspects": [
+				"wingSound",
+				"humanSkin_overrideHairColor|593428|1"
+			],
 			"layers": [
 				{
 					"name": "wingTinyRA_tint",
@@ -63,8 +75,12 @@
 			"id": "tail",
 			"name": "Vulture Tail",
 			"blurb": "<self> has a feathery vulture tail.",
-			"slots": ["tail"],
-			"effects": ["SETmovementAccuracy"],
+			"slots": [
+				"tail"
+			],
+			"effects": [
+				"SETmovementAccuracy"
+			],
 			"layers": [
 				{
 					"name": "tailHawk",
@@ -77,10 +93,18 @@
 			"name": "Vulture Body",
 			"blurb": "<self>'s body is covered in feathers.",
 			"canBeAwardedRandomly": false,
-			"slots": ["torso"],
-			"replaces": ["torso"],
-			"extraAspects": ["humanSkin_overrideSkinColor|ffffff|ffffff|ffffff|1"],
-			"effects": ["SETmovementAccuracy"],
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|ffffff|ffffff|ffffff|1"
+			],
+			"effects": [
+				"SETmovementAccuracy"
+			],
 			"layers": [
 				{
 					"name": "replaceTorso_vulture",
@@ -92,10 +116,18 @@
 			"id": "leftLeg",
 			"name": "Vulture Leg (L)",
 			"blurb": "<self>'s left leg belongs to the Vulture Lord.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETmovementStunt"],
-			"stats": { "SPEED": 1.7 },
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_hawk",
@@ -107,10 +139,18 @@
 			"id": "rightLeg",
 			"name": "Vulture Leg (R)",
 			"blurb": "<self>'s right leg belongs to the Vulture Lord.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETmovementStunt"],
-			"stats": { "SPEED": 1.7 },
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETmovementStunt"
+			],
+			"stats": {
+				"SPEED": 1.7
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_hawk",
@@ -122,9 +162,17 @@
 			"id": "leftArm",
 			"name": "Vulture Arm (L)",
 			"blurb": "<self>'s left arm belongs to the Vulture Lord.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETvultureClaw2", "SETvultureFrenzy"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETvultureClaw2",
+				"SETvultureFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_hawk",
@@ -136,9 +184,17 @@
 			"id": "rightArm",
 			"name": "Vulture Arm (R)",
 			"blurb": "<self>'s right arm belongs to the Vulture Lord.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETvultureClaw1", "SETvultureFrenzy"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETvultureClaw1",
+				"SETvultureFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_hawk",
@@ -150,10 +206,17 @@
 			"id": "shoulderPet",
 			"name": "Vulture",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFlankingRanged"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFlankingRanged"
+			],
 			"layers": [
-				{"name": "pet_vulture", "depth": 3999}
+				{
+					"name": "pet_vulture",
+					"depth": 3999
+				}
 			]
 		}
 	]

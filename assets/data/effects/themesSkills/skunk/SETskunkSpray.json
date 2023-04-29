@@ -1,116 +1,157 @@
 {
-"id": "SETskunkSpray",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/skunk/SETskunkSpray",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Patrick Belanger",
-	"aiPriority": "1900",
-	"tags": [ "okToMarkDone", "ranged", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "skunkTail",
-	"priority": "10",
-	"extraUI": { "overrideRangeShown": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade" },
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_skunk_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "focus" }
+	"id": "SETskunkSpray",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/skunk/SETskunkSpray",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Patrick Belanger",
+		"aiPriority": "1900",
+		"tags": [
+			"okToMarkDone",
+			"ranged",
+			"free"
+		]
 	},
-	{
-		"template": "TILE",
-		"missionFeedback": {
-			"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "skunkTail",
+		"priority": "10",
+		"extraUI": {
+			"overrideRangeShown": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},
-		"minRange": "0.9",
-		"range": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floorForbidAlly"
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_skunk_upgrade"
 	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"STUB": "Gets the furthest away tile, to use for the particle effect.",
-		"choose": "ONE_FURTHEST",
-		"manifold": {
-			"from": "self",
-			"to": "focus",
-			"thickness": [ "1", "2" ],
-			"excludeSource": true,
-			"distanceInDirection": "4.6+self.BONUS_RANGE"
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "focus"
+			}
 		},
-		"range": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	},
-	{
-		"role": "target2",
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_SUGGESTION",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
+		{
+			"template": "TILE",
+			"missionFeedback": {
+				"rangeFeedback": "FRIENDLY_EFFECT_RANGE",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"minRange": "0.9",
+			"range": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floorForbidAlly"
 		},
-		"manifold": {
-			"from": "self",
-			"to": "focus",
-			"thickness": [ "1", "2.6" ],
-			"excludeSource": true,
-			"distanceInDirection": "5.6+self.BONUS_RANGE"
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"STUB": "Gets the furthest away tile, to use for the particle effect.",
+			"choose": "ONE_FURTHEST",
+			"manifold": {
+				"from": "self",
+				"to": "focus",
+				"thickness": [
+					"1",
+					"2"
+				],
+				"excludeSource": true,
+				"distanceInDirection": "4.6+self.BONUS_RANGE"
+			},
+			"range": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
 		},
-		"range": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": "target2",
-		"attackAnimationType": "magic",
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{ "script": "acidJetSmoke", "setPosition": "self", "setPosition2": "targetTile" }
-		],
-		"audioOverride": {
-			"attackStartCue": "Characters/Default/Ability_InterfuseLiquid",
-			"attackInterfusionStartCue": "",
-			"attackHitCue": "",
-			"attackDodgedCue": "",
-			"attackBlockedCue": ""
-		},
-		"attackerAnimationOverride": "figures.interaction",
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY+20",
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"removeAspects": [ "damageOverTimeFrom|poison|*" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "poisoned", "value": "1+floor((attacker.POTENCY/3))" },
-						{ "id": "damageOverTimeFrom|poison", "value": "1", "inRelationTo": "self" },
-						{ "id": "concussed", "value": "1+floor((attacker.POTENCY/3))" },
-						{ "id": "dazzled", "value": "1+floor((attacker.POTENCY/3))" },
-						{ "id": "hobbled", "value": "1+floor((attacker.POTENCY/3))" }
-					]
-				}
-			]
+		{
+			"role": "target2",
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_SUGGESTION",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"manifold": {
+				"from": "self",
+				"to": "focus",
+				"thickness": [
+					"1",
+					"2.6"
+				],
+				"excludeSource": true,
+				"distanceInDirection": "5.6+self.BONUS_RANGE"
+			},
+			"range": "((5.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": "target2",
+			"attackAnimationType": "magic",
+			"showAbilityName": "ifEnemy",
+			"particles": [
+				{
+					"script": "acidJetSmoke",
+					"setPosition": "self",
+					"setPosition2": "targetTile"
+				}
+			],
+			"audioOverride": {
+				"attackStartCue": "Characters/Default/Ability_InterfuseLiquid",
+				"attackInterfusionStartCue": "",
+				"attackHitCue": "",
+				"attackDodgedCue": "",
+				"attackBlockedCue": ""
+			},
+			"attackerAnimationOverride": "figures.interaction",
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY+20",
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"removeAspects": [
+							"damageOverTimeFrom|poison|*"
+						]
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "poisoned",
+								"value": "1+floor((attacker.POTENCY/3))"
+							},
+							{
+								"id": "damageOverTimeFrom|poison",
+								"value": "1",
+								"inRelationTo": "self"
+							},
+							{
+								"id": "concussed",
+								"value": "1+floor((attacker.POTENCY/3))"
+							},
+							{
+								"id": "dazzled",
+								"value": "1+floor((attacker.POTENCY/3))"
+							},
+							{
+								"id": "hobbled",
+								"value": "1+floor((attacker.POTENCY/3))"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 }

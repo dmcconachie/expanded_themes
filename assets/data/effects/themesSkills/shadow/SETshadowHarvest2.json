@@ -1,113 +1,129 @@
 {
-"id": "SETshadowHarvest2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/shadow/SETshadowHarvest2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "soulHarvest",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETshadowHarvest2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/shadow/SETshadowHarvest2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
-			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "soulHarvest",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_shadow_upgrade)))+self.theme_shadow_upgrade",
-					"type": "MAGIC",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "bleeding", "value": "1" }
-						]
-					}
-				},
-				{
-					"class": "Test",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
-						"class": "Test",
-						"target": "self",
-						"value": "self.INJURY",
-						"threshold": "1",
-						"onPass": {
-							"class": "DoAll",
-							"outcomes": [
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_shadow_upgrade)))+self.theme_shadow_upgrade",
+						"type": "MAGIC",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
 								{
-									"class": "UnlockLegacyAspect",
-									"legacyAspect": "achievementProgress_theme_shadow_heal",
-									"value": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
-								},
-								{
-									"class": "ModifyStats",
-									"target": "self",
-									"stat": "INJURY",
-									"value": "0-min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
-								},
-								{
-									"class": "Animate",
-									"particles": {
-										"script": "shadowTheme_harvest",
-										"setPosition": "target",
-										"setPosition2": "self",
-										"delay": 0.2,
-										"emitterVars": {
-											"particleMult": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
-										}
-									},
-									"audio": "UI/statusEffectPositive"
+									"id": "bleeding",
+									"value": "1"
 								}
 							]
 						}
+					},
+					{
+						"class": "Test",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "Test",
+							"target": "self",
+							"value": "self.INJURY",
+							"threshold": "1",
+							"onPass": {
+								"class": "DoAll",
+								"outcomes": [
+									{
+										"class": "UnlockLegacyAspect",
+										"legacyAspect": "achievementProgress_theme_shadow_heal",
+										"value": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+									},
+									{
+										"class": "ModifyStats",
+										"target": "self",
+										"stat": "INJURY",
+										"value": "0-min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+									},
+									{
+										"class": "Animate",
+										"particles": {
+											"script": "shadowTheme_harvest",
+											"setPosition": "target",
+											"setPosition2": "self",
+											"delay": 0.2,
+											"emitterVars": {
+												"particleMult": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+											}
+										},
+										"audio": "UI/statusEffectPositive"
+									}
+								]
+							}
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_shadow_upgrade)))+self.theme_shadow_upgrade",
-			"shred": "1",
-			"type": "MAGIC"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_shadow_upgrade)))+self.theme_shadow_upgrade",
+				"shred": "1",
+				"type": "MAGIC"
+			}
 		}
-	}
-]
+	]
 }

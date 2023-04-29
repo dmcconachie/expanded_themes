@@ -1,21 +1,28 @@
 {
-"id": "SETstationaryWarding",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETstationaryWarding",
-	"modId": "Smokers_Expanded_Themes"
-},
-"type": "TURN_START",
-"ability": { "showInCharacterSheet": true },
-"targets": [
-	{ "template": "SELF" }
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "SETstationaryWarding2", "value": "1" }
-		]
-	}
-]
+	"id": "SETstationaryWarding",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETstationaryWarding",
+		"modId": "Smokers_Expanded_Themes"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "SETstationaryWarding2",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

@@ -1,95 +1,120 @@
 {
-"id": "SETratClaw2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/rat/SETratClaw2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "swipe",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardMelee",
-	"abilityElementType": "water"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETratClaw2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/rat/SETratClaw2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
-			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "swipe",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardMelee",
+		"abilityElementType": "water"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"target": "defender",
-					"removeAspects": [ "damageOverTimeFrom|poison2|*" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "poisoned2", "value": "1" },
-						{ "id": "damageOverTimeFrom|poison2", "value": "1", "inRelationTo": "self" }
-					]
-				},
-				{
-					"class": "Damage",
-					"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_rat_upgrade)))+self.theme_rat_upgrade",
-					"flankingBonusDamage": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_rat_upgrade)))+self.theme_rat_upgrade",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/WolfHead_Attack",
+				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"target": "defender",
+						"removeAspects": [
+							"damageOverTimeFrom|poison2|*"
+						]
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
 							{
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "bleeding", "value": "1" }
-								]
+								"id": "poisoned2",
+								"value": "1"
 							},
 							{
-								"class": "BranchAbility",
-								"target": "self",
-								"targetRole": "defender",
-								"branchAbility": "stuntEffect_water"
+								"id": "damageOverTimeFrom|poison2",
+								"value": "1",
+								"inRelationTo": "self"
 							}
 						]
+					},
+					{
+						"class": "Damage",
+						"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_rat_upgrade)))+self.theme_rat_upgrade",
+						"flankingBonusDamage": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_rat_upgrade)))+self.theme_rat_upgrade",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "bleeding",
+											"value": "1"
+										}
+									]
+								},
+								{
+									"class": "BranchAbility",
+									"target": "self",
+									"targetRole": "defender",
+									"branchAbility": "stuntEffect_water"
+								}
+							]
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_rat_upgrade)))+self.theme_rat_upgrade"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+1)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_rat_upgrade)))+self.theme_rat_upgrade"
+			}
 		}
-	}
-]
+	]
 }

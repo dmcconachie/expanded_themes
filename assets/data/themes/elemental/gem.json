@@ -1,34 +1,40 @@
-  {
+{
 	"id": "gem",
 	"name": "Crystalline",
 	"blurb": "Shine on, you crazy diamond.",
-
-  "skins": [
+	"skins": [
 		{
 			"skinId": "themeSkin_gemKnight",
 			"unlockLegacyAspect": "theme_gem_stunt100Times"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Gem Eye",
 			"blurb": "A colored gem replaces <self>'s eye.",
-			"slots": ["head"],
-			"stats": { "STUNT_CHANCE": 6 },
+			"slots": [
+				"head"
+			],
+			"stats": {
+				"STUNT_CHANCE": 6
+			},
 			"effects": [
-        "SETgemEye",
-        "defaultSecondaryMoveFeedback|9.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETgemEye",
-        "ability_advanceTheme_gem",
-  			"ability_advanceTheme_gem_skin",
-  			"ability_advanceTheme_gem_armLeft",
-  			"ability_advanceTheme_gem_armRight",
-  			"ability_advanceTheme_gem_legLeft",
-  			"ability_advanceTheme_gem_legRight",
-  			"ability_advanceTheme_gem_shoulderPet"
-      ],
-			"extraAspects": ["themeAbility_ranged", "themeAbility_rangedSingleTarget", "attackRange|0|9.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"],
+				"SETgemEye",
+				"defaultSecondaryMoveFeedback|9.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETgemEye",
+				"ability_advanceTheme_gem",
+				"ability_advanceTheme_gem_skin",
+				"ability_advanceTheme_gem_armLeft",
+				"ability_advanceTheme_gem_armRight",
+				"ability_advanceTheme_gem_legLeft",
+				"ability_advanceTheme_gem_legRight",
+				"ability_advanceTheme_gem_shoulderPet"
+			],
+			"extraAspects": [
+				"themeAbility_ranged",
+				"themeAbility_rangedSingleTarget",
+				"attackRange|0|9.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
+			],
 			"layers": [
 				{
 					"name": "face_eyeGemRA_tint1",
@@ -62,10 +68,17 @@
 			"id": "skin",
 			"name": "Gem Skin",
 			"blurb": "<self>'s flesh is made of gleaming shards.",
-			"slots": ["skin"],
-			"effects": ["SETgemShards", "SETgemShards2"],
-			"stats": {"ARMOR": 1},
-      "layers": [
+			"slots": [
+				"skin"
+			],
+			"effects": [
+				"SETgemShards",
+				"SETgemShards2"
+			],
+			"stats": {
+				"ARMOR": 1
+			},
+			"layers": [
 				{
 					"name": "wings_gem",
 					"tint": "primary",
@@ -78,10 +91,19 @@
 			"id": "leftLeg",
 			"name": "Gem Leg (L)",
 			"blurb": "<self>'s left leg is made of gleaming shards.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETgemWall"],
-			"stats": {"SPEED": 1.5, "ARMOR": 0.5},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETgemWall"
+			],
+			"stats": {
+				"SPEED": 1.5,
+				"ARMOR": 0.5
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_gemA_tint1",
@@ -111,10 +133,19 @@
 			"id": "rightLeg",
 			"name": "Gem Leg (R)",
 			"blurb": "<self>'s right leg is made of gleaming shards.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETgemWall"],
-			"stats": {"SPEED": 1.5, "ARMOR": 0.5},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETgemWall"
+			],
+			"stats": {
+				"SPEED": 1.5,
+				"ARMOR": 0.5
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_gemA_tint1",
@@ -144,10 +175,21 @@
 			"id": "leftArm",
 			"name": "Gem Arm (L)",
 			"blurb": "<self>'s left arm spreads out into a crystal shield.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["shieldBlocks1DamageFromNonFlankingAttacks", "SETgemShield", "SEOshieldGuard"],
-			"stats": {"BLOCK": 10},
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"shieldBlocks1DamageFromNonFlankingAttacks",
+				"SETgemShield",
+				"SEOshieldGuard"
+			],
+			"stats": {
+				"BLOCK": 10
+			},
 			"layers": [
 				{
 					"name": "replaceArmL_gemA_tint1",
@@ -166,7 +208,7 @@
 					"depth": 1101,
 					"ifOwnerAspect": "themeSkin_gemKnight"
 				},
-        {
+				{
 					"name": "replaceArmL_gemKnightA_tint2_75",
 					"tint": "secondary",
 					"depth": 1102,
@@ -183,10 +225,20 @@
 			"id": "rightArm",
 			"name": "Gem Arm (R)",
 			"blurb": "<self>'s right arm tapers into a craggy crystal sword.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETgemSword"],
-			"stats": {"MELEE_ACCURACY": 10, "BLOCK": 10},
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETgemSword"
+			],
+			"stats": {
+				"MELEE_ACCURACY": 10,
+				"BLOCK": 10
+			},
 			"layers": [
 				{
 					"name": "replaceArmR_gemA_tint1",
@@ -205,7 +257,7 @@
 					"depth": 1101,
 					"ifOwnerAspect": "themeSkin_gemKnight"
 				},
-        {
+				{
 					"name": "replaceArmR_gemKnightB_tint2_75",
 					"tint": "secondary",
 					"depth": 1102,
@@ -222,10 +274,17 @@
 			"id": "shoulderPet",
 			"name": "Magpie",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFlankingRanged"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFlankingRanged"
+			],
 			"layers": [
-				{"name": "pet_magpie", "depth": 1100}
+				{
+					"name": "pet_magpie",
+					"depth": 1100
+				}
 			]
 		}
 	]

@@ -1,80 +1,106 @@
 {
-"id": "SETfrostRain",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/frost/SETfrostRain",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"tags": [ "okToMarkDone", "ranged" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "fallingStars",
-	
-	"priority": "17",
-	"onlyShowIfPossibleInCharacterSheet": true,
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_frost_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "focus" },
-		"aspects": [ "alive", "SELF", "themePiece_frost_rightArm", "themePiece_frost_leftArm" ]
+	"id": "SETfrostRain",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/frost/SETfrostRain",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"tags": [
+			"okToMarkDone",
+			"ranged"
+		]
 	},
-	{
-		"template": "TILE",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"missionFeedback": { "rangeFeedback": "ATTACK_RANGE" },
-		"range": "6.6+self.BONUS_RANGE",
-		"lineOfSight": "TERRAIN_ONLY"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "fallingStars",
+		"priority": "17",
+		"onlyShowIfPossibleInCharacterSheet": true,
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_frost_upgrade"
 	},
-	{
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"relativeTo": "focus",
-		"range": "1.6"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"attackAnimationType": "magic",
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{ "script": "SETvolleyFrost", "setPosition": "focus" },
-			{ "script": "SparklesOut", "setPosition": "focus", "delay": 0.3 }
-		],
-		"markForFlanking": "onHit",
-		"flankMarkOrigin": "self",
-		"flankingBoostsAttackRoll": false,
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "self.RANGE_ACCURACY+20",
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frost_upgrade))))+self.theme_frost_upgrade",
-					"type": "MAGIC",
-					"overrideStuntDamage": "2",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "freezed", "value": "1" }
-						]
-					}
-				}
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "focus"
+			},
+			"aspects": [
+				"alive",
+				"SELF",
+				"themePiece_frost_rightArm",
+				"themePiece_frost_leftArm"
 			]
+		},
+		{
+			"template": "TILE",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"missionFeedback": {
+				"rangeFeedback": "ATTACK_RANGE"
+			},
+			"range": "6.6+self.BONUS_RANGE",
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"relativeTo": "focus",
+			"range": "1.6"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"attackAnimationType": "magic",
+			"showAbilityName": "ifEnemy",
+			"particles": [
+				{
+					"script": "SETvolleyFrost",
+					"setPosition": "focus"
+				},
+				{
+					"script": "SparklesOut",
+					"setPosition": "focus",
+					"delay": 0.3
+				}
+			],
+			"markForFlanking": "onHit",
+			"flankMarkOrigin": "self",
+			"flankingBoostsAttackRoll": false,
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "self.RANGE_ACCURACY+20",
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "(1d6+floor((((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_frost_upgrade))))+self.theme_frost_upgrade",
+						"type": "MAGIC",
+						"overrideStuntDamage": "2",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "freezed",
+									"value": "1"
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
 }

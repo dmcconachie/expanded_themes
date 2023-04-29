@@ -1,22 +1,29 @@
 {
-"id": "SETstationaryMeleeAccuracy",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETstationaryMeleeAccuracy",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "timcrosby"
-},
-"type": "TURN_START",
-"ability": { "showInCharacterSheet": true },
-"targets": [
-	{ "template": "SELF" }
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "SETstationaryMeleeAccuracy2", "value": "1" }
-		]
-	}
-]
+	"id": "SETstationaryMeleeAccuracy",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETstationaryMeleeAccuracy",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "timcrosby"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "SETstationaryMeleeAccuracy2",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

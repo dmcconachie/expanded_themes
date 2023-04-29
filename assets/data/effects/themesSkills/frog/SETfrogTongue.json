@@ -1,105 +1,147 @@
 {
-"id": "SETfrogTongue",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/frog/SETfrogTongue",
-	"modId": "Smokers_Expanded_Themes",
-	"tags": [ "okToMarkDone", "ranged", "free" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "frogTongue",
-	"priority": "10",
-	"cooldown": "everyOtherTurn"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"showAnyway": true,
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETfrogTongue",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/frog/SETfrogTongue",
+		"modId": "Smokers_Expanded_Themes",
+		"tags": [
+			"okToMarkDone",
+			"ranged",
+			"free"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "4.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "frogTongue",
+		"priority": "10",
+		"cooldown": "everyOtherTurn"
 	},
-	{
-		"role": "volunteer",
-		"template": "TILE",
-		"choose": "ALL",
-		"missionFeedback": { "suggestionFeedback": "FRIENDLY_EFFECT_RANGE" },
-		"manifold": {
-			"from": "self",
-			"to": "target",
-			"thickness": [ "2", "2" ],
-			"excludeSource": true,
-			"excludeDestination": true
-		},
-		"range": "4.6+self.BONUS_RANGE",
-		"tileFilter": "validMoveEnd"
-	},
-	{
-		"role": "targetTile",
-		"template": "TILE",
-		"STUB": "tile where the target will be pulled to",
-		"choose": "ONE_CLOSEST",
-		"missionFeedback": { "hoverFeedback": "WALKABLE_OUTLINE" },
-		"fromRoles": [ "volunteer" ],
-		"range": null,
-		"tileFilter": "validMoveEnd",
-		"roleMustFit": "target"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"showAbilityName": "ifEnemy",
-		"particles": [
-			{
-				"script": "noxiousTongue",
-				"setPosition": "self",
-				"setPosition2": "target",
-				"delay": -0.5
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
 			},
-			{
-				"script": "gorgonCorruptionTrail",
-				"setPosition": "self",
-				"setPosition2": "target",
-				"delay": -0.5
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
 			}
-		],
-		"defenseRollTags": [ "range" ],
-		"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Aspects",
-					"target": "defender",
-					"removeAspects": [ "damageOverTimeFrom|poison2|*" ]
-				},
-				{
-					"class": "Aspects",
-					"addAspects": [
-						{ "id": "poisoned2", "value": "1" },
-						{ "id": "damageOverTimeFrom|poison2", "value": "1", "inRelationTo": "self" }
-					]
-				},
-				{
-					"class": "Aspects",
-					"target": "defender",
-					"removeAspects": [ "guarding", "sentinelActive", "hasPreparedShot|*" ]
-				},
-				{ "class": "MoveEntity", "target": "target", "directlyToTile": "targetTile" }
-			]
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "4.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		},
+		{
+			"role": "volunteer",
+			"template": "TILE",
+			"choose": "ALL",
+			"missionFeedback": {
+				"suggestionFeedback": "FRIENDLY_EFFECT_RANGE"
+			},
+			"manifold": {
+				"from": "self",
+				"to": "target",
+				"thickness": [
+					"2",
+					"2"
+				],
+				"excludeSource": true,
+				"excludeDestination": true
+			},
+			"range": "4.6+self.BONUS_RANGE",
+			"tileFilter": "validMoveEnd"
+		},
+		{
+			"role": "targetTile",
+			"template": "TILE",
+			"STUB": "tile where the target will be pulled to",
+			"choose": "ONE_CLOSEST",
+			"missionFeedback": {
+				"hoverFeedback": "WALKABLE_OUTLINE"
+			},
+			"fromRoles": [
+				"volunteer"
+			],
+			"range": null,
+			"tileFilter": "validMoveEnd",
+			"roleMustFit": "target"
 		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"showAbilityName": "ifEnemy",
+			"particles": [
+				{
+					"script": "noxiousTongue",
+					"setPosition": "self",
+					"setPosition2": "target",
+					"delay": -0.5
+				},
+				{
+					"script": "gorgonCorruptionTrail",
+					"setPosition": "self",
+					"setPosition2": "target",
+					"delay": -0.5
+				}
+			],
+			"defenseRollTags": [
+				"range"
+			],
+			"attackStrength": "actionRoll(self.RANGE_ACCURACY)",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Aspects",
+						"target": "defender",
+						"removeAspects": [
+							"damageOverTimeFrom|poison2|*"
+						]
+					},
+					{
+						"class": "Aspects",
+						"addAspects": [
+							{
+								"id": "poisoned2",
+								"value": "1"
+							},
+							{
+								"id": "damageOverTimeFrom|poison2",
+								"value": "1",
+								"inRelationTo": "self"
+							}
+						]
+					},
+					{
+						"class": "Aspects",
+						"target": "defender",
+						"removeAspects": [
+							"guarding",
+							"sentinelActive",
+							"hasPreparedShot|*"
+						]
+					},
+					{
+						"class": "MoveEntity",
+						"target": "target",
+						"directlyToTile": "targetTile"
+					}
+				]
+			}
+		}
+	],
+	"expressions": {
+		"aiRange": "4.6+self.BONUS_RANGE"
 	}
-],
-"expressions": { "aiRange": "4.6+self.BONUS_RANGE" }
 }

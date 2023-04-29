@@ -1,103 +1,137 @@
 {
-"id": "SETprimalFlash",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/primal/SETprimalFlash",
-	"modId": "Smokers_Expanded_Themes",
-	"tags": [ "okToMarkDone", "free", "light" ]
-},
-"type": "ABILITY",
-"verb": "MANEUVER",
-"ability": {
-	"icon": "flashcone",
-	"priority": "70",
-	"cooldown": "oncePerTurn",
-	"numUses": "1+self.theme_spellTouched_upgrade"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "free" },
-		"missionFeedback": { "orientTo": "focus" }
-	},
-	{
-		"template": "TILE",
-		"missionFeedback": {
-			"hoverScript": "figures.directionalTileHoverHelpful",
-			"feedbackSource": "self"
-		},
-		"range": "4.6+self.BONUS_RANGE",
-		"lineOfSight": "TERRAIN_ONLY",
-		"tileFilter": "floor"
-	},
-	{
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_RANGE",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"manifold": {
-			"from": "focus",
-			"thickness": [ "1", "1" ],
-			"cross": "2"
-		},
-		"aspectValues": [
-			{ "id": "ENEMY", "relativeTo": "self" }
-		],
-		"relativeTo": "focus",
-		"range": null,
-		"lineOfSight": "TERRAIN_ONLY"
-	},
-	{
-		"role": "subject",
-		"template": "UNIT_AT_TILE",
-		"choose": "ANY",
-		"missionFeedback": {
-			"hoverScript": "figures.directionalHelpfulHover",
-			"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
-			"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
-		},
-		"aspectValues": [
-			{ "id": "ALLY", "relativeTo": "self" }
-		],
-		"relativeTo": "focus",
-		"range": "0.1"
-	}
-],
-"outcomes": [
-	{ "class": "Animate", "script": "figures.magicAttack" },
-	{
-		"class": "Animate",
-		"target": "focus",
-		"particles": { "script": "Flashcone2", "setPosition": "focus" }
-	},
-	{
-		"class": "Animate",
-		"target": "focus",
-		"particles": { "script": "Phantomflare Copy" }
-	},
-	{
-		"class": "Aspects",
-		"target": "subject",
-		"addAspects": [
-			{ "id": "hidden", "value": "1", "merge": "max" }
+	"id": "SETprimalFlash",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/primal/SETprimalFlash",
+		"modId": "Smokers_Expanded_Themes",
+		"tags": [
+			"okToMarkDone",
+			"free",
+			"light"
 		]
 	},
-	{
-		"class": "Aspects",
-		"target": "target",
-		"addAspects": [
-			{ "id": "blinded", "value": "1", "merge": "max" }
-		]
+	"type": "ABILITY",
+	"verb": "MANEUVER",
+	"ability": {
+		"icon": "flashcone",
+		"priority": "70",
+		"cooldown": "oncePerTurn",
+		"numUses": "1+self.theme_spellTouched_upgrade"
 	},
-	{
-		"class": "Damage",
-		"target": "target",
-		"amount": "(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_spellTouched_upgrade))+self.theme_spellTouched_upgrade",
-		"type": "MAGIC"
-	}
-]
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "free"
+			},
+			"missionFeedback": {
+				"orientTo": "focus"
+			}
+		},
+		{
+			"template": "TILE",
+			"missionFeedback": {
+				"hoverScript": "figures.directionalTileHoverHelpful",
+				"feedbackSource": "self"
+			},
+			"range": "4.6+self.BONUS_RANGE",
+			"lineOfSight": "TERRAIN_ONLY",
+			"tileFilter": "floor"
+		},
+		{
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_RANGE",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"manifold": {
+				"from": "focus",
+				"thickness": [
+					"1",
+					"1"
+				],
+				"cross": "2"
+			},
+			"aspectValues": [
+				{
+					"id": "ENEMY",
+					"relativeTo": "self"
+				}
+			],
+			"relativeTo": "focus",
+			"range": null,
+			"lineOfSight": "TERRAIN_ONLY"
+		},
+		{
+			"role": "subject",
+			"template": "UNIT_AT_TILE",
+			"choose": "ANY",
+			"missionFeedback": {
+				"hoverScript": "figures.directionalHelpfulHover",
+				"suggestionFeedback": "FRIENDLY_EFFECT_SUGGESTION",
+				"hoverFeedback": "FRIENDLY_EFFECT_HOVER"
+			},
+			"aspectValues": [
+				{
+					"id": "ALLY",
+					"relativeTo": "self"
+				}
+			],
+			"relativeTo": "focus",
+			"range": "0.1"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Animate",
+			"script": "figures.magicAttack"
+		},
+		{
+			"class": "Animate",
+			"target": "focus",
+			"particles": {
+				"script": "Flashcone2",
+				"setPosition": "focus"
+			}
+		},
+		{
+			"class": "Animate",
+			"target": "focus",
+			"particles": {
+				"script": "Phantomflare Copy"
+			}
+		},
+		{
+			"class": "Aspects",
+			"target": "subject",
+			"addAspects": [
+				{
+					"id": "hidden",
+					"value": "1",
+					"merge": "max"
+				}
+			]
+		},
+		{
+			"class": "Aspects",
+			"target": "target",
+			"addAspects": [
+				{
+					"id": "blinded",
+					"value": "1",
+					"merge": "max"
+				}
+			]
+		},
+		{
+			"class": "Damage",
+			"target": "target",
+			"amount": "(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_spellTouched_upgrade))+self.theme_spellTouched_upgrade",
+			"type": "MAGIC"
+		}
+	]
 }

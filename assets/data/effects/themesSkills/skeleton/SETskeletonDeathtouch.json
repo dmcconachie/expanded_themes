@@ -1,99 +1,115 @@
 {
-"id": "SETskeletonDeathtouch",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/skeleton/SETskeletonDeathtouch",
-	"modId": "Smokers_Expanded_Themes",
-	"aiPriority": "2055",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "soulstrike",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "59",
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETskeletonDeathtouch",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/skeleton/SETskeletonDeathtouch",
+		"modId": "Smokers_Expanded_Themes",
+		"aiPriority": "2055",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
-					"type": "MAGIC",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "concussed", "value": "1" }
-						]
-					}
-				},
-				{
-					"class": "Test",
-					"value": "target.INJURY",
-					"threshold": "target.HEALTH",
-					"onPass": {
-						"class": "Test",
-						"target": "self",
-						"value": "self.INJURY",
-						"threshold": "1",
-						"onPass": {
-							"class": "DoAll",
-							"outcomes": [
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "soulstrike",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "59",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
+		},
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
+						"type": "MAGIC",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
 								{
-									"class": "ModifyStats",
-									"target": "self",
-									"stat": "INJURY",
-									"value": "0-min(self.INJURY,(((self.themePiece_skeleton_leftArm+self.themePiece_skeleton_rightArm)+self.themePiece_skeleton_leftLeg)+self.themePiece_skeleton_rightLeg))"
-								},
-								{
-									"class": "Animate",
-									"particles": {
-										"script": "skeletonTheme_harvest",
-										"setPosition": "target",
-										"setPosition2": "self",
-										"delay": 0.2,
-										"emitterVars": {
-											"particleMult": "min(self.INJURY,(((self.themePiece_skeleton_leftArm+self.themePiece_skeleton_rightArm)+self.themePiece_skeleton_leftLeg)+self.themePiece_skeleton_rightLeg))"
-										}
-									},
-									"audio": "UI/statusEffectPositive"
+									"id": "concussed",
+									"value": "1"
 								}
 							]
 						}
+					},
+					{
+						"class": "Test",
+						"value": "target.INJURY",
+						"threshold": "target.HEALTH",
+						"onPass": {
+							"class": "Test",
+							"target": "self",
+							"value": "self.INJURY",
+							"threshold": "1",
+							"onPass": {
+								"class": "DoAll",
+								"outcomes": [
+									{
+										"class": "ModifyStats",
+										"target": "self",
+										"stat": "INJURY",
+										"value": "0-min(self.INJURY,(((self.themePiece_skeleton_leftArm+self.themePiece_skeleton_rightArm)+self.themePiece_skeleton_leftLeg)+self.themePiece_skeleton_rightLeg))"
+									},
+									{
+										"class": "Animate",
+										"particles": {
+											"script": "skeletonTheme_harvest",
+											"setPosition": "target",
+											"setPosition2": "self",
+											"delay": 0.2,
+											"emitterVars": {
+												"particleMult": "min(self.INJURY,(((self.themePiece_skeleton_leftArm+self.themePiece_skeleton_rightArm)+self.themePiece_skeleton_leftLeg)+self.themePiece_skeleton_rightLeg))"
+											}
+										},
+										"audio": "UI/statusEffectPositive"
+									}
+								]
+							}
+						}
 					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
-			"type": "MAGIC"
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_skeleton_upgrade)))+self.theme_skeleton_upgrade",
+				"type": "MAGIC"
+			}
 		}
-	}
-]
+	]
 }

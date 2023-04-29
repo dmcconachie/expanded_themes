@@ -1,13 +1,46 @@
 [
-{ "id": "themeSlotFilled_head", "importance": -1 },
-{ "id": "themeSlotFilled_leftArm", "importance": -1 },
-{ "id": "themeSlotFilled_leftLeg", "importance": -1 },
-{ "id": "themeSlotFilled_pet", "importance": -1 },
-{ "id": "themeSlotFilled_rightArm", "importance": -1 },
-{ "id": "themeSlotFilled_rightLeg", "importance": -1 },
-{ "id": "themeSlotFilled_tail", "importance": -1 },
-{ "id": "themeSlotFilled_torso", "importance": -1 },
-{ "id": "themeSlotFilled_wings", "importance": -1 },
-{ "id": "themeSlotFilled_skin", "importance": -1 },
-{ "id": "themeSlotFilled_shoulderPet", "importance": -1 }
+    {
+        "id": "themeSlotFilled_head",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_leftArm",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_leftLeg",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_pet",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_rightArm",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_rightLeg",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_tail",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_torso",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_wings",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_skin",
+        "importance": -1
+    },
+    {
+        "id": "themeSlotFilled_shoulderPet",
+        "importance": -1
+    }
 ]

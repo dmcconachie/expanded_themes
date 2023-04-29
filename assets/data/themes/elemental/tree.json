@@ -2,21 +2,23 @@
 	"id": "tree",
 	"name": "Elmsoul",
 	"blurb": "There's an ancient, Elmish soul inside <self>'s heart.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_treeAutumn",
 			"unlockLegacyAspect": "theme_tree_knockback50Tiles"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "elmsoul",
 			"name": "Photosynthesis",
 			"blurb": "<self> soaks in the light through <self.mf:his/her> wooden skin.",
-			"slots": ["skin"],
-			"extraAspects": ["humanSkin_overrideStreakValue|1"],
+			"slots": [
+				"skin"
+			],
+			"extraAspects": [
+				"humanSkin_overrideStreakValue|1"
+			],
 			"effects": [
 				"SETsplinterskin",
 				"ability_advanceTheme_tree",
@@ -28,7 +30,10 @@
 				"ability_advanceTheme_tree_wings",
 				"ability_advanceTheme_tree_shoulderPet"
 			],
-			"stats": {"ARMOR": 0.5, "RECOVERY_RATE": 5},
+			"stats": {
+				"ARMOR": 0.5,
+				"RECOVERY_RATE": 5
+			},
 			"themeSkinSpecificAspects": [
 				{
 					"hasAspect": null,
@@ -53,9 +58,15 @@
 			"name": "Tree Head",
 			"blurb": "<self> breathes life from the sun and sky.",
 			"canBeAwardedRandomly": false,
-			"slots": ["head"],
-			"stats": {"RETIREMENT_AGE": 10},
-			"effects": ["SETtreeSplinter"],
+			"slots": [
+				"head"
+			],
+			"stats": {
+				"RETIREMENT_AGE": 10
+			},
+			"effects": [
+				"SETtreeSplinter"
+			],
 			"layers": [
 				{
 					"name": "head_gorgonColorM_green2",
@@ -75,8 +86,12 @@
 			"id": "wings",
 			"name": "Elmsoul Lianas",
 			"blurb": "Branches with lianas grow from <self>'s back.",
-			"slots": ["wings"],
-			"effects": ["SETtreeEntangle"],
+			"slots": [
+				"wings"
+			],
+			"effects": [
+				"SETtreeEntangle"
+			],
 			"layers": [
 				{
 					"name": "wingsTree",
@@ -94,11 +109,22 @@
 			"id": "leftLeg",
 			"name": "Elmsoul Leg (L)",
 			"blurb": "<self>'s left leg is treeish.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETtreeWall"],
-			"stats": {"SPEED": 0.9, "ARMOR": 0.5},
-			"extraAspects": ["immuneToKnockback"],
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETtreeWall"
+			],
+			"stats": {
+				"SPEED": 0.9,
+				"ARMOR": 0.5
+			},
+			"extraAspects": [
+				"immuneToKnockback"
+			],
 			"layers": [
 				{
 					"name": "replaceLegL_tree",
@@ -116,11 +142,22 @@
 			"id": "rightLeg",
 			"name": "Elmsoul Leg (R)",
 			"blurb": "<self>'s right leg is treeish.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": [ "SETtreeWall"],
-			"stats": {"SPEED": 0.9, "ARMOR": 0.5},
-			"extraAspects": ["immuneToKnockback"],
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETtreeWall"
+			],
+			"stats": {
+				"SPEED": 0.9,
+				"ARMOR": 0.5
+			},
+			"extraAspects": [
+				"immuneToKnockback"
+			],
 			"layers": [
 				{
 					"name": "replaceLegR_tree",
@@ -138,9 +175,17 @@
 			"id": "leftArm",
 			"name": "Elmsoul Arm (L)",
 			"blurb": "<self>'s left arm is treeish.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETtreeBash2", "SETtreeTree"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETtreeBash2",
+				"SETtreeTree"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_tree",
@@ -158,9 +203,17 @@
 			"id": "rightArm",
 			"name": "Elmsoul Arm (R)",
 			"blurb": "<self>'s right arm is treeish.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETtreeBash1", "SETtreeTree"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETtreeBash1",
+				"SETtreeTree"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_tree",
@@ -178,10 +231,17 @@
 			"id": "shoulderPet",
 			"name": "Macaw",
 			"blurb": "This little friend has made your branches his home.",
-			"slots": ["shoulderPet"],
-			"effects": ["SETpetFlankingRanged"],
+			"slots": [
+				"shoulderPet"
+			],
+			"effects": [
+				"SETpetFlankingRanged"
+			],
 			"layers": [
-				{"name": "pet_birdStorm", "depth": 3102}
+				{
+					"name": "pet_birdStorm",
+					"depth": 3102
+				}
 			]
 		}
 	]

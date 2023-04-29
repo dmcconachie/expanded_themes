@@ -158,8 +158,8 @@
 			],
 			"effects": [
 				"SETsylvanWitherbolt2",
-				"defaultSecondaryMoveFeedbackNoLOS|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETsylvanWitherbolt2",
-				"SETsylvanOnslaught"
+				"SETsylvanOnslaught",
+				"defaultSecondaryMoveFeedbackNoLOS|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETsylvanWitherbolt2"
 			],
 			"extraAspects": [
 				"themeAbility_ranged",
@@ -199,8 +199,8 @@
 			],
 			"effects": [
 				"SETsylvanWitherbolt1",
-				"defaultSecondaryMoveFeedbackNoLOS|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETsylvanWitherbolt1",
-				"SETsylvanOnslaught"
+				"SETsylvanOnslaught",
+				"defaultSecondaryMoveFeedbackNoLOS|6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETsylvanWitherbolt1"
 			],
 			"extraAspects": [
 				"themeAbility_ranged",

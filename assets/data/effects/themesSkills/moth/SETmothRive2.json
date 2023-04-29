@@ -1,74 +1,87 @@
 {
-"id": "SETmothRive2",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/moth/SETmothRive2",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "3000",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "sharktrap",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"cooldown": "oncePerTurn",
-	"branchableAbilityType": "standardMelee",
-	"abilityElementType": "leaf"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "one" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETmothRive2",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/moth/SETmothRive2",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "3000",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"showAbilityName": "ifEnemy",
-		"audioOverride": {
-			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "sharktrap",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"cooldown": "oncePerTurn",
+		"branchableAbilityType": "standardMelee",
+		"abilityElementType": "leaf"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_mothWings_upgrade)))+self.theme_mothWings_upgrade",
-					"shred": "3",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "BranchAbility",
-						"target": "self",
-						"targetRole": "defender",
-						"branchAbility": "stuntEffect_leaf"
-					},
-					"numDefenders": "COUNT.target"
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_mothWings_upgrade)))+self.theme_mothWings_upgrade",
-			"shred": "3"
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"showAbilityName": "ifEnemy",
+			"audioOverride": {
+				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_mothWings_upgrade)))+self.theme_mothWings_upgrade",
+						"shred": "3",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "BranchAbility",
+							"target": "self",
+							"targetRole": "defender",
+							"branchAbility": "stuntEffect_leaf"
+						},
+						"numDefenders": "COUNT.target"
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+2)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_mothWings_upgrade)))+self.theme_mothWings_upgrade",
+				"shred": "3"
+			}
+		}
+	]
 }

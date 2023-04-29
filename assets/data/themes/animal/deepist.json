@@ -2,13 +2,14 @@
 	"id": "deepist",
 	"name": "Mark of the Bull",
 	"blurb": "<self> has been marked by the bull spirit.",
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Horns",
 			"blurb": "<self>'s has grown horns.",
-			"slots": ["head"],
+			"slots": [
+				"head"
+			],
 			"extraAspects": [],
 			"effects": [
 				"SETbullHorns",
@@ -62,10 +63,18 @@
 			"name": "Bull Head",
 			"blurb": "<self>'s head is that of a bull.",
 			"canBeAwardedRandomly": false,
-			"slots": ["skin"],
-			"replaces": ["head"],
-			"stats": {"HEALTH": 1},
-			"effects": ["SETbullHorns"],
+			"slots": [
+				"skin"
+			],
+			"replaces": [
+				"head"
+			],
+			"stats": {
+				"HEALTH": 1
+			},
+			"effects": [
+				"SETbullHorns"
+			],
 			"layers": [
 				{
 					"name": "replaceHead_deepistMole",
@@ -96,10 +105,18 @@
 			"id": "torso",
 			"name": "Bull Body",
 			"blurb": "<self> is wholly given over to the beast.",
-			"slots": ["torso"],
-			"replaces": ["torso"],
-      "effects": ["SETbullEnrage"],
-      "stats": {"HEALTH": 2},
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
+			"effects": [
+				"SETbullEnrage"
+			],
+			"stats": {
+				"HEALTH": 2
+			},
 			"layers": [
 				{
 					"name": "replaceTorso_wolfA_tint",
@@ -116,10 +133,18 @@
 			"id": "leftLeg",
 			"name": "Bull Leg (L)",
 			"blurb": "<self>'s left leg is bestial.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETbullSprint"],
-			"stats": {"SPEED": 2},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETbullSprint"
+			],
+			"stats": {
+				"SPEED": 2
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_deepistMoleA_tint",
@@ -132,10 +157,18 @@
 			"id": "rightLeg",
 			"name": "Bull Leg (R)",
 			"blurb": "<self>'s right leg is bestial.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETbullSprint"],
-			"stats": {"SPEED": 2},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETbullSprint"
+			],
+			"stats": {
+				"SPEED": 2
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_deepistMoleA_tint",
@@ -148,10 +181,18 @@
 			"id": "leftArm",
 			"name": "Bull Arm (L)",
 			"blurb": "<self>'s left arm is bestial.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
 			"stats": {},
-			"effects": ["SETbullPunch2", "SETbullOnslaught"],
+			"effects": [
+				"SETbullPunch2",
+				"SETbullOnslaught"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_deepistMoleA_tint",
@@ -164,10 +205,18 @@
 			"id": "rightArm",
 			"name": "Bull Arm (R)",
 			"blurb": "<self>'s right arm is bestial.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
 			"stats": {},
-			"effects": ["SETbullPunch1", "SETbullOnslaught"],
+			"effects": [
+				"SETbullPunch1",
+				"SETbullOnslaught"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_deepistMoleA_tint",
@@ -180,8 +229,12 @@
 			"id": "pet",
 			"name": "Bull Calf",
 			"blurb": "<self> takes care of the little guy until it can fend for itself.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee"
+			],
 			"layers": [
 				{
 					"name": "pet_babyBull",

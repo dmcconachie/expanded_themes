@@ -1,50 +1,54 @@
 {
-"id": "SETmorthagiAcidRegionTriggered",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "morthagi/SETmorthagiAcidRegionTriggered",
-	"author": "Patrick Belanger"
-},
-"type": "REGION_TRIGGER",
-"targets": [
-	{ "template": "ANY_SELF" },
-	{
-		"template": "INTERLOPER",
-		"aspects": [ "alive" ]
-	}
-],
-"outcomes": [
-	{
-		"class": "Test",
-		"STUB": "Only show AttackRoll if all the damage isn't warded or armor is shredded",
-		"value": "(target.WARDING-2)-(1000*(target.ARMOR-target.SHRED))",
-		"threshold": "1",
-		"onFail": {
-			"class": "AttackRoll",
-			"stopBlockingTime": "noBlocking",
-			"timingOverride": {
-				"beforeAnimationTime": "0",
-				"swingTime": "0",
-				"attackTime": "0",
-				"afterAnimationTime": "0"
-			},
-			"cameraSnapToStartPositionOnEnd": false,
-			"markForFlanking": "never",
-			"flankingBoostsAttackRoll": false,
-			"always": {
-				"class": "DoAll",
-				"target": "target",
-				"outcomes": [
-					{
-						"class": "Damage",
-						"amount": "1",
-						"shred": "1",
-						"type": "MAGIC",
-						"pierce": "2"
-					}
-				]
+	"id": "SETmorthagiAcidRegionTriggered",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "morthagi/SETmorthagiAcidRegionTriggered",
+		"author": "Patrick Belanger"
+	},
+	"type": "REGION_TRIGGER",
+	"targets": [
+		{
+			"template": "ANY_SELF"
+		},
+		{
+			"template": "INTERLOPER",
+			"aspects": [
+				"alive"
+			]
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Test",
+			"STUB": "Only show AttackRoll if all the damage isn't warded or armor is shredded",
+			"value": "(target.WARDING-2)-(1000*(target.ARMOR-target.SHRED))",
+			"threshold": "1",
+			"onFail": {
+				"class": "AttackRoll",
+				"stopBlockingTime": "noBlocking",
+				"timingOverride": {
+					"beforeAnimationTime": "0",
+					"swingTime": "0",
+					"attackTime": "0",
+					"afterAnimationTime": "0"
+				},
+				"cameraSnapToStartPositionOnEnd": false,
+				"markForFlanking": "never",
+				"flankingBoostsAttackRoll": false,
+				"always": {
+					"class": "DoAll",
+					"target": "target",
+					"outcomes": [
+						{
+							"class": "Damage",
+							"amount": "1",
+							"shred": "1",
+							"type": "MAGIC",
+							"pierce": "2"
+						}
+					]
+				}
 			}
 		}
-	}
-]
+	]
 }

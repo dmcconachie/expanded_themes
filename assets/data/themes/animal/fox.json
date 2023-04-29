@@ -2,13 +2,14 @@
 	"id": "fox",
 	"name": "Foxish",
 	"blurb": "<self> has a bit of a fox's flash.",
-
 	"pieces": [
 		{
 			"id": "tail",
 			"name": "Fox Tail",
 			"blurb": "<self> has a fluffy tail.",
-			"slots": ["tail"],
+			"slots": [
+				"tail"
+			],
 			"effects": [
 				"SETmovementDodge",
 				"ability_advanceTheme_fox",
@@ -20,11 +21,14 @@
 				"ability_advanceTheme_fox_legRight",
 				"ability_advanceTheme_fox_pet"
 			],
-			"extraAspects": ["humanSkin_overrideHairColor|e87648|1"],
+			"extraAspects": [
+				"humanSkin_overrideHairColor|e87648|1"
+			],
 			"layers": [
 				{
 					"name": "tailFoxA_tint",
-					"tint": "hair", "tintAmount": 0.65,
+					"tint": "hair",
+					"tintAmount": 0.65,
 					"depth": 101
 				},
 				{
@@ -37,116 +41,181 @@
 			"id": "head",
 			"name": "Fox Head",
 			"blurb": "Allows <self> to smell the wind and taste prey.",
-			"slots": ["head"],
-			"replaces": ["head"],
-			"extraAspects": ["humanSkin_overrideSkinColor|f9e9d1|f9e9d1|f9e9d1|1"],
-			"effects": ["SETfoxBite"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"head"
+			],
+			"extraAspects": [
+				"humanSkin_overrideSkinColor|f9e9d1|f9e9d1|f9e9d1|1"
+			],
+			"effects": [
+				"SETfoxBite"
+			],
 			"layers": [
 				{
 					"name": "replaceHead_wolfBase_neutral",
-					"tint": "hair", "tintAmount": 0.85,
+					"tint": "hair",
+					"tintAmount": 0.85,
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["neutral", "interested", "grim", "sad", "skeptical", "dubious"]
+					"facialExpression": [
+						"neutral",
+						"interested",
+						"grim",
+						"sad",
+						"skeptical",
+						"dubious"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_neutral",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["neutral", "interested"]
+					"facialExpression": [
+						"neutral",
+						"interested"
+					]
 				},
 				{
 					"name": "replaceHead_wolfBase_open",
-					"tint": "hair", "tintAmount": 0.85,
+					"tint": "hair",
+					"tintAmount": 0.85,
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["open"]
+					"facialExpression": [
+						"open"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_open",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["open"]
+					"facialExpression": [
+						"open"
+					]
 				},
 				{
 					"name": "replaceHead_wolfBase_surprised",
-					"tint": "hair", "tintAmount": 0.85,
+					"tint": "hair",
+					"tintAmount": 0.85,
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["surprised"]
+					"facialExpression": [
+						"surprised"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_surprised",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["surprised"]
+					"facialExpression": [
+						"surprised"
+					]
 				},
 				{
 					"name": "replaceHead_wolfBase_scared",
-					"tint": "hair", "tintAmount": 0.85,
+					"tint": "hair",
+					"tintAmount": 0.85,
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["scared"]
+					"facialExpression": [
+						"scared"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_scared",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["scared"]
+					"facialExpression": [
+						"scared"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_skeptical",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["skeptical"]
+					"facialExpression": [
+						"skeptical"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_dubious",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["dubious"]
+					"facialExpression": [
+						"dubious"
+					]
 				},
 				{
 					"name": "replaceHead_wolfBase_angry",
-					"tint": "hair", "tintAmount": 0.85,
+					"tint": "hair",
+					"tintAmount": 0.85,
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["angry", "rage", "scheming", "hit", "dead"]
+					"facialExpression": [
+						"angry",
+						"rage",
+						"scheming",
+						"hit",
+						"dead"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_angry",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["angry", "rage", "scheming"]
+					"facialExpression": [
+						"angry",
+						"rage",
+						"scheming"
+					]
 				},
 				{
 					"name": "replaceHead_wolfBase_happy",
-					"tint": "hair", "tintAmount": 0.85,
+					"tint": "hair",
+					"tintAmount": 0.85,
 					"depth": 4000,
 					"headOffset": true,
-					"facialExpression": ["happy", "joke", "joy"]
+					"facialExpression": [
+						"happy",
+						"joke",
+						"joy"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_happy",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["happy", "joke", "joy"]
+					"facialExpression": [
+						"happy",
+						"joke",
+						"joy"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_grim",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["grim", "sad"]
+					"facialExpression": [
+						"grim",
+						"sad"
+					]
 				},
 				{
 					"name": "replaceHead_wolfDetails_hit",
 					"depth": 4300,
 					"headOffset": true,
-					"facialExpression": ["hit", "dead"]
+					"facialExpression": [
+						"hit",
+						"dead"
+					]
 				},
 				{
 					"name": "replaceNeck_wolf",
-					"tint": "skin", "tintAmount": 0.85,
+					"tint": "skin",
+					"tintAmount": 0.85,
 					"depth": 3999
 				}
 			]
@@ -155,11 +224,17 @@
 			"id": "torso",
 			"name": "Fox Body",
 			"blurb": "<self> is wholly given over to the beast.",
-			"slots": ["torso"],
-			"replaces": ["torso"],
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
 			"canBeAwardedRandomly": false,
-      "effects": ["SETmovementDodge"],
-      "stats": {},
+			"effects": [
+				"SETmovementDodge"
+			],
+			"stats": {},
 			"layers": [
 				{
 					"name": "replaceTorso_wolfA_tint",
@@ -176,10 +251,19 @@
 			"id": "leftLeg",
 			"name": "Fox Leg (L)",
 			"blurb": "<self>'s left leg is bestial.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"effects": ["SETfoxSprint"],
-			"stats": { "ARMOR": -0.3, "SPEED": 2.2 },
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"effects": [
+				"SETfoxSprint"
+			],
+			"stats": {
+				"ARMOR": -0.3,
+				"SPEED": 2.2
+			},
 			"layers": [
 				{
 					"name": "replaceLegL_wolfA_tint",
@@ -196,10 +280,19 @@
 			"id": "rightLeg",
 			"name": "Fox Leg (R)",
 			"blurb": "<self>'s right leg is bestial.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"effects": ["SETfoxSprint"],
-			"stats": { "ARMOR": -0.3, "SPEED": 2.2 },
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"effects": [
+				"SETfoxSprint"
+			],
+			"stats": {
+				"ARMOR": -0.3,
+				"SPEED": 2.2
+			},
 			"layers": [
 				{
 					"name": "replaceLegR_wolfA_tint",
@@ -216,9 +309,17 @@
 			"id": "leftArm",
 			"name": "Fox Arm (L)",
 			"blurb": "<self>'s left arm is bestial.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
-			"effects": ["SETfoxClaw2", "SETfoxFrenzy"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
+			"effects": [
+				"SETfoxClaw2",
+				"SETfoxFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmL_wolfA_tint",
@@ -235,9 +336,17 @@
 			"id": "rightArm",
 			"name": "Fox Arm (R)",
 			"blurb": "<self>'s right arm is bestial.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
-			"effects": ["SETfoxClaw1", "SETfoxFrenzy"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
+			"effects": [
+				"SETfoxClaw1",
+				"SETfoxFrenzy"
+			],
 			"layers": [
 				{
 					"name": "replaceArmR_wolfA_tint",
@@ -254,10 +363,17 @@
 			"id": "pet",
 			"name": "Fox",
 			"blurb": "<self> takes care of the little guy.",
-			"slots": ["pet"],
-			"effects": ["SETpetFlankingMelee"],
+			"slots": [
+				"pet"
+			],
+			"effects": [
+				"SETpetFlankingMelee"
+			],
 			"layers": [
-				{"name": "pet_fox", "depth": 9000}
+				{
+					"name": "pet_fox",
+					"depth": 9000
+				}
 			]
 		}
 	]

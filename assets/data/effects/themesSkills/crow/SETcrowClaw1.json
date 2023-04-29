@@ -1,82 +1,97 @@
 {
-"id": "SETcrowClaw1",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/crow/SETcrowClaw1",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "1900",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "crowClaw1",
-	
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETcrowClaw1",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/crow/SETcrowClaw1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "1900",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"audioOverride": {
-			"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
-			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "crowClaw1",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
+		],
+		"priority": "49",
+		"branchableAbilityType": "standardMelee"
+	},
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "Damage",
-					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_crow_upgrade)))+self.theme_crow_upgrade",
-					"shred": "2",
-					"overrideStuntDamage": "2",
-					"onStunt": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "Aspects",
-								"addAspects": [
-									{ "id": "blinded", "value": "1" }
-								]
-							},
-							{
-								"class": "UnlockLegacyAspect",
-								"legacyAspect": "achievementProgress_theme_crow_blinded",
-								"value": "1"
-							}
-						]
-					}
-				}
-			]
-		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_crow_upgrade)))+self.theme_crow_upgrade",
-			"shred": "2"
+		{
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"audioOverride": {
+				"attackStartCue": "Characters/DefaultHuman/CrowHead_Attack",
+				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_crow_upgrade)))+self.theme_crow_upgrade",
+						"shred": "2",
+						"overrideStuntDamage": "2",
+						"onStunt": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "Aspects",
+									"addAspects": [
+										{
+											"id": "blinded",
+											"value": "1"
+										}
+									]
+								},
+								{
+									"class": "UnlockLegacyAspect",
+									"legacyAspect": "achievementProgress_theme_crow_blinded",
+									"value": "1"
+								}
+							]
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_crow_upgrade)))+self.theme_crow_upgrade",
+				"shred": "2"
+			}
+		}
+	]
 }

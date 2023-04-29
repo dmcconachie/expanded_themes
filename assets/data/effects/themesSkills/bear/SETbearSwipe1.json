@@ -1,164 +1,190 @@
 {
-"id": "SETbearSwipe1",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themesSkills/bear/SETbearSwipe1",
-	"modId": "Smokers_Expanded_Themes",
-	"author": "Nate Austin",
-	"aiPriority": "3000",
-	"tags": [ "melee" ]
-},
-"type": "ABILITY",
-"verb": "ATTACK",
-"ability": {
-	"icon": "swipe",
-	"strictlyBetterThan": [ "basicBranchableMelee" ],
-	"priority": "49",
-	"showDescriptionInTooltip": true,
-	"branchableAbilityType": "standardMelee"
-},
-"targets": [
-	{
-		"template": "SELF",
-		"cost": { "class": "ActionPoints", "actionPoints": "attack" },
-		"showAnyway": true,
-		"missionFeedback": { "orientTo": "target" }
+	"id": "SETbearSwipe1",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themesSkills/bear/SETbearSwipe1",
+		"modId": "Smokers_Expanded_Themes",
+		"author": "Nate Austin",
+		"aiPriority": "3000",
+		"tags": [
+			"melee"
+		]
 	},
-	{
-		"role": "target2",
-		"template": "ADJACENT_ENEMY",
-		"showAnyway": true,
-		"alwaysSelect": true,
-		"aspects": [ "HOSTILE_TARGET", "alive" ],
-		"range": "1.6+self.BONUS_RANGE",
-		"lineOfSight": "LIVE_ENEMIES"
-	},
-	{
-		"role": "target3",
-		"template": "UNIT_AT_TILE",
-		"choose": "ONE_CLOSEST_OPTIONAL",
-		"missionFeedback": {
-			"orientTo": "self",
-			"suggestionScript": "figures.attackSuggestion",
-			"hoverScript": "figures.attackHovered",
-			"rangeFeedback": "ATTACK_RANGE",
-			"suggestionFeedback": "ATTACK_SUGGESTION",
-			"hoverFeedback": "ATTACK_HOVER"
-		},
-		"aspectValues": [
-			{ "id": "HOSTILE_TARGET", "relativeTo": "self" }
+	"type": "ABILITY",
+	"verb": "ATTACK",
+	"ability": {
+		"icon": "swipe",
+		"strictlyBetterThan": [
+			"basicBranchableMelee"
 		],
-		"relativeTo": "target2",
-		"minRange": "0.9",
-		"range": "1.1"
+		"priority": "49",
+		"showDescriptionInTooltip": true,
+		"branchableAbilityType": "standardMelee"
 	},
-	{
-		"template": "UNIT_AT_TILE",
-		"choose": "ALL",
-		"missionFeedback": null,
-		"fromRoles": [ "target2", "target3" ],
-		"range": null
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"showAbilityName": "ifEnemy",
-		"audioOverride": {
-			"attackHitCue": "Characters/Heroes/Themed/attackClaw",
-			"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
-			"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+	"targets": [
+		{
+			"template": "SELF",
+			"cost": {
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
+			}
 		},
-		"defenseRollTags": [ "melee" ],
-		"attackStrength": "self.MELEE_ACCURACY",
-		"applyCover": true,
-		"always": {
-			"class": "ProgressAchievement",
-			"STUB": "Reset achievement, since two kills need to happen at once",
-			"target": "self",
-			"achievementPiece": "killedEnemyWithBearSwipes",
-			"clearForAll": true
+		{
+			"role": "target2",
+			"template": "ADJACENT_ENEMY",
+			"showAnyway": true,
+			"alwaysSelect": true,
+			"aspects": [
+				"HOSTILE_TARGET",
+				"alive"
+			],
+			"range": "1.6+self.BONUS_RANGE",
+			"lineOfSight": "LIVE_ENEMIES"
 		},
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
+		{
+			"role": "target3",
+			"template": "UNIT_AT_TILE",
+			"choose": "ONE_CLOSEST_OPTIONAL",
+			"missionFeedback": {
+				"orientTo": "self",
+				"suggestionScript": "figures.attackSuggestion",
+				"hoverScript": "figures.attackHovered",
+				"rangeFeedback": "ATTACK_RANGE",
+				"suggestionFeedback": "ATTACK_SUGGESTION",
+				"hoverFeedback": "ATTACK_HOVER"
+			},
+			"aspectValues": [
 				{
-					"class": "Damage",
-					"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade)))+self.theme_bear_upgrade",
-					"shred": "2",
-					"overrideStuntDamage": "1",
-					"onStunt": {
-						"class": "Aspects",
-						"addAspects": [
-							{ "id": "bleeding", "value": "1" }
-						]
-					},
-					"numDefenders": "COUNT.target"
-				},
-				{
-					"class": "Test",
-					"STUB": "If killed defender, achievement",
-					"value": "defender.INJURY",
-					"threshold": "defender.HEALTH",
-					"onPass": {
-						"class": "DoAll",
-						"outcomes": [
-							{
-								"class": "ProgressAchievement",
-								"target": "self",
-								"achievementPiece": "killedEnemyWithBearSwipes"
-							},
-							{
-								"class": "Test",
-								"target": "self",
-								"value": "self.theme_bear_upgrade_ursineHarvest",
-								"threshold": "1",
-								"onPass": {
-									"class": "DoAll",
-									"outcomes": [
-										{
-											"class": "Test",
-											"value": "self.ursineHungerPortion",
-											"threshold": "30",
-											"onFail": {
-												"class": "DoAll",
-												"outcomes": [
-													{
-														"class": "Animate",
-														"particles": {
-															"script": "shadowTheme_harvest",
-															"setPosition": "target",
-															"setPosition2": "self",
-															"delay": 0.2,
-															"emitterVars": {
-																"particleMult": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
-															}
-														},
-														"audio": "UI/statusEffectPositive"
-													},
-													{
-														"class": "Aspects",
-														"addAspects": [
-															{ "id": "ursineHungerPortion", "value": "1" }
-														]
-													}
-												]
-											}
-										}
-									]
-								}
-							}
-						]
-					}
+					"id": "HOSTILE_TARGET",
+					"relativeTo": "self"
 				}
-			]
+			],
+			"relativeTo": "target2",
+			"minRange": "0.9",
+			"range": "1.1"
 		},
-		"onHitCover": {
-			"class": "Damage",
-			"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade)))+self.theme_bear_upgrade",
-			"shred": "2",
-			"numDefenders": "COUNT.target"
+		{
+			"template": "UNIT_AT_TILE",
+			"choose": "ALL",
+			"missionFeedback": null,
+			"fromRoles": [
+				"target2",
+				"target3"
+			],
+			"range": null
 		}
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"showAbilityName": "ifEnemy",
+			"audioOverride": {
+				"attackHitCue": "Characters/Heroes/Themed/attackClaw",
+				"attackDodgedCue": "Characters/Weapons/Dagger/weaponDodge",
+				"attackBlockedCue": "Characters/Weapons/Dagger/weaponBlock"
+			},
+			"defenseRollTags": [
+				"melee"
+			],
+			"attackStrength": "self.MELEE_ACCURACY",
+			"applyCover": true,
+			"always": {
+				"class": "ProgressAchievement",
+				"STUB": "Reset achievement, since two kills need to happen at once",
+				"target": "self",
+				"achievementPiece": "killedEnemyWithBearSwipes",
+				"clearForAll": true
+			},
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "Damage",
+						"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade)))+self.theme_bear_upgrade",
+						"shred": "2",
+						"overrideStuntDamage": "1",
+						"onStunt": {
+							"class": "Aspects",
+							"addAspects": [
+								{
+									"id": "bleeding",
+									"value": "1"
+								}
+							]
+						},
+						"numDefenders": "COUNT.target"
+					},
+					{
+						"class": "Test",
+						"STUB": "If killed defender, achievement",
+						"value": "defender.INJURY",
+						"threshold": "defender.HEALTH",
+						"onPass": {
+							"class": "DoAll",
+							"outcomes": [
+								{
+									"class": "ProgressAchievement",
+									"target": "self",
+									"achievementPiece": "killedEnemyWithBearSwipes"
+								},
+								{
+									"class": "Test",
+									"target": "self",
+									"value": "self.theme_bear_upgrade_ursineHarvest",
+									"threshold": "1",
+									"onPass": {
+										"class": "DoAll",
+										"outcomes": [
+											{
+												"class": "Test",
+												"value": "self.ursineHungerPortion",
+												"threshold": "30",
+												"onFail": {
+													"class": "DoAll",
+													"outcomes": [
+														{
+															"class": "Animate",
+															"particles": {
+																"script": "shadowTheme_harvest",
+																"setPosition": "target",
+																"setPosition2": "self",
+																"delay": 0.2,
+																"emitterVars": {
+																	"particleMult": "min(self.INJURY,(((self.themePiece_shadow_leftArm+self.themePiece_shadow_rightArm)+self.themePiece_shadow_leftLeg)+self.themePiece_shadow_rightLeg))"
+																}
+															},
+															"audio": "UI/statusEffectPositive"
+														},
+														{
+															"class": "Aspects",
+															"addAspects": [
+																{
+																	"id": "ursineHungerPortion",
+																	"value": "1"
+																}
+															]
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"onHitCover": {
+				"class": "Damage",
+				"amount": "((1d3+3)+(((self.PHYSICAL_DAMAGE_BONUS+self.POTENCY)*0.5)*(1+self.theme_bear_upgrade)))+self.theme_bear_upgrade",
+				"shred": "2",
+				"numDefenders": "COUNT.target"
+			}
+		}
+	]
 }

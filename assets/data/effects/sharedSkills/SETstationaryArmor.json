@@ -1,21 +1,28 @@
 {
-"id": "SETstationaryArmor",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "themeSkills/SETstationaryArmor",
-	"modId": "Smokers_Expanded_Themes"
-},
-"type": "TURN_START",
-"ability": { "showInCharacterSheet": true },
-"targets": [
-	{ "template": "SELF" }
-],
-"outcomes": [
-	{
-		"class": "Aspects",
-		"addAspects": [
-			{ "id": "SETstationaryArmor2", "value": "1" }
-		]
-	}
-]
+	"id": "SETstationaryArmor",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "themeSkills/SETstationaryArmor",
+		"modId": "Smokers_Expanded_Themes"
+	},
+	"type": "TURN_START",
+	"ability": {
+		"showInCharacterSheet": true
+	},
+	"targets": [
+		{
+			"template": "SELF"
+		}
+	],
+	"outcomes": [
+		{
+			"class": "Aspects",
+			"addAspects": [
+				{
+					"id": "SETstationaryArmor2",
+					"value": "1"
+				}
+			]
+		}
+	]
 }

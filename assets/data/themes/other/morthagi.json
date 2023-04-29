@@ -2,28 +2,33 @@
 	"id": "morthagi",
 	"name": "Mortificial Enhancements",
 	"blurb": "<self> has replaced and augmented parts of <self.mf:his/her/their> body with mortificial components.",
-
 	"skins": [
 		{
 			"skinId": "themeSkin_morthagiSteel",
 			"unlockLegacyAspect": "theme_morthagi_killWithBoltAndHammer"
 		}
 	],
-
 	"pieces": [
 		{
 			"id": "head",
 			"name": "Clockwork Skull",
 			"blurb": "<self>'s weak flesh is replaced with deathless components.",
 			"canBeAwardedRandomly": false,
-			"slots": ["head"],
-			"replaces": ["head"],
+			"slots": [
+				"head"
+			],
+			"replaces": [
+				"head"
+			],
 			"extraAspects": [
 				"immuneToCompulsion",
 				"themeAbility_ranged",
 				"attackRange|0|4.6+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|rangedNonWeapon"
 			],
-			"stats": {"RETIREMENT_AGE": 10, "RANGE_ACCURACY": 10},
+			"stats": {
+				"RETIREMENT_AGE": 10,
+				"RANGE_ACCURACY": 10
+			},
 			"effects": [
 				"SETmorthagiAcid",
 				"ability_advanceTheme_morthagi",
@@ -54,9 +59,16 @@
 			"id": "torso",
 			"name": "Morthagi Body",
 			"blurb": "<self> is half mechanical.",
-			"slots": ["torso"],
-			"replaces": ["torso"],
-			"stats": {"RETIREMENT_AGE": 10, "RECOVERY_RATE": 20},
+			"slots": [
+				"torso"
+			],
+			"replaces": [
+				"torso"
+			],
+			"stats": {
+				"RETIREMENT_AGE": 10,
+				"RECOVERY_RATE": 20
+			},
 			"effects": [
 				"immuneToTrueDamage",
 				"ability_advanceTheme_morthagi",
@@ -95,8 +107,12 @@
 			"id": "wings",
 			"name": "Morthagi Clamp",
 			"blurb": "<self> has augmented <self.mf:himself/herself/theirself> with mortificial components.",
-			"slots": ["wings"],
-			"effects": ["SETmorthagiClamp"],
+			"slots": [
+				"wings"
+			],
+			"effects": [
+				"SETmorthagiClamp"
+			],
 			"layers": [
 				{
 					"name": "wings_morthagiClamp",
@@ -108,9 +124,16 @@
 			"id": "leftLeg",
 			"name": "Morthagi Leg (L)",
 			"blurb": "<self>'s left leg is clockwork and bone.",
-			"slots": ["leftLeg"],
-			"replaces": ["leftLeg"],
-			"stats": {"RETIREMENT_AGE": 10, "SPEED": 1.7},
+			"slots": [
+				"leftLeg"
+			],
+			"replaces": [
+				"leftLeg"
+			],
+			"stats": {
+				"RETIREMENT_AGE": 10,
+				"SPEED": 1.7
+			},
 			"effects": [
 				"SETmorthagiRegeneration",
 				"ability_advanceTheme_morthagi",
@@ -130,7 +153,8 @@
 				},
 				{
 					"name": "replaceLegL_morthagiSteelA_tint1_85",
-					"tint": "primary", "tintAmount": 0.85,
+					"tint": "primary",
+					"tintAmount": 0.85,
 					"depth": 1101,
 					"ifOwnerAspect": "themeSkin_morthagiSteel"
 				},
@@ -145,9 +169,16 @@
 			"id": "rightLeg",
 			"name": "Morthagi Leg (R)",
 			"blurb": "<self>'s right leg is clockwork and bone.",
-			"slots": ["rightLeg"],
-			"replaces": ["rightLeg"],
-			"stats": {"RETIREMENT_AGE": 10, "SPEED": 1.7},
+			"slots": [
+				"rightLeg"
+			],
+			"replaces": [
+				"rightLeg"
+			],
+			"stats": {
+				"RETIREMENT_AGE": 10,
+				"SPEED": 1.7
+			},
 			"effects": [
 				"SETmorthagiRegeneration",
 				"ability_advanceTheme_morthagi",
@@ -167,7 +198,8 @@
 				},
 				{
 					"name": "replaceLegR_morthagiSteelA_tint1_85",
-					"tint": "primary", "tintAmount": 0.85,
+					"tint": "primary",
+					"tintAmount": 0.85,
 					"depth": 1101,
 					"ifOwnerAspect": "themeSkin_morthagiSteel"
 				},
@@ -182,8 +214,13 @@
 			"id": "leftArm",
 			"name": "Morthagi Arm (L)",
 			"blurb": "<self>'s left arm is clockwork and bone.",
-			"slots": ["leftArm"],
-			"replaces": ["leftArm", "leftGrip"],
+			"slots": [
+				"leftArm"
+			],
+			"replaces": [
+				"leftArm",
+				"leftGrip"
+			],
 			"effects": [
 				"SETmorthagiCrossbow",
 				"defaultSecondaryMoveFeedback|4+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|SETmorthagiCrossbow",
@@ -196,8 +233,14 @@
 				"ability_advanceTheme_morthagi_wings",
 				"ability_advanceTheme_morthagi_pet"
 			],
-			"extraAspects": ["themeAbility_ranged", "themeAbility_rangedSingleTarget", "attackRange|0|4+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|ranged"],
-			"stats": {"RETIREMENT_AGE": 10 },
+			"extraAspects": [
+				"themeAbility_ranged",
+				"themeAbility_rangedSingleTarget",
+				"attackRange|0|4+self.commonDeck_bowmaster+self.commonDeck_bowmaster_upgrade|ranged"
+			],
+			"stats": {
+				"RETIREMENT_AGE": 10
+			},
 			"layers": [
 				{
 					"name": "replaceArmL_morthagiCrossbow",
@@ -215,8 +258,13 @@
 			"id": "rightArm",
 			"name": "Morthagi Arm (R)",
 			"blurb": "<self>'s right arm is clockwork and bone.",
-			"slots": ["rightArm"],
-			"replaces": ["rightArm", "rightGrip"],
+			"slots": [
+				"rightArm"
+			],
+			"replaces": [
+				"rightArm",
+				"rightGrip"
+			],
 			"effects": [
 				"SETmorthagiHammer",
 				"ability_advanceTheme_morthagi",
@@ -228,7 +276,9 @@
 				"ability_advanceTheme_morthagi_wings",
 				"ability_advanceTheme_morthagi_pet"
 			],
-			"stats": {"RETIREMENT_AGE": 10},
+			"stats": {
+				"RETIREMENT_AGE": 10
+			},
 			"layers": [
 				{
 					"name": "replaceArmR_morthagi",
@@ -237,7 +287,8 @@
 				},
 				{
 					"name": "replaceArmR_morthagiSteelA_tint1_85",
-					"tint": "primary", "tintAmount": 0.85,
+					"tint": "primary",
+					"tintAmount": 0.85,
 					"depth": 1502,
 					"ifOwnerAspect": "themeSkin_morthagiSteel"
 				},
@@ -252,11 +303,25 @@
 			"id": "pet",
 			"name": "Morthagi Pet",
 			"blurb": "It's a little mean-looking, but it seems to like you.",
-			"slots": ["pet"],
-			"applyAutomaticallyIfHave": [["leftLeg"],["rightLeg"]],
-			"effects": ["SETpetPoison"],
+			"slots": [
+				"pet"
+			],
+			"applyAutomaticallyIfHave": [
+				[
+					"leftLeg"
+				],
+				[
+					"rightLeg"
+				]
+			],
+			"effects": [
+				"SETpetPoison"
+			],
 			"layers": [
-				{"name": "pet_morthagi", "depth": 9000}
+				{
+					"name": "pet_morthagi",
+					"depth": 9000
+				}
 			]
 		}
 	]

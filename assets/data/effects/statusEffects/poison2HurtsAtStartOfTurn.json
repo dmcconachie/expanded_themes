@@ -1,63 +1,74 @@
 {
-"id": "poison2HurtsAtStartOfTurn",
-"info": {
-	"dataVersion": 1,
-	"sourceFile": "statusEffect/poison2HurtsAtStartOfTurn",
-	"modId": "Smokers_Expanded_Offhands"
-},
-"type": "TURN_START",
-"targets": [
-	{ "template": "SELF" },
-	{
-		"role": "hero",
-		"template": "ANY",
-		"type": "HERO",
-		"choose": "ANY",
-		"fromRoles": [ "self" ]
-	}
-],
-"outcomes": [
-	{
-		"class": "AttackRoll",
-		"defender": "self",
-		"attackAnimationType": "magic",
-		"stopBlockingTime": "afterHitAnimation",
-		"timingOverride": { "afterAnimationTime": "400" },
-		"attackerAnimationOverride": "",
-		"defenderAnimationOverride": "",
-		"markForFlanking": "never",
-		"flankingBoostsAttackRoll": false,
-		"attackStrength": "100",
-		"onHit": {
-			"class": "DoAll",
-			"outcomes": [
-				{
-					"class": "IfRolesArePresent",
-					"rolesArePresent": [ "hero" ],
-					"then": {
-						"class": "Damage",
-						"target": "self",
-						"originator": null,
-						"amount": "self.poisoned2",
-						"type": "TRUE",
-						"minRemainingHealth": "1"
-					},
-					"otherwise": {
-						"class": "Damage",
-						"target": "self",
-						"originator": null,
-						"amount": "self.poisoned2",
-						"type": "TRUE"
-					}
-				}
+	"id": "poison2HurtsAtStartOfTurn",
+	"info": {
+		"dataVersion": 1,
+		"sourceFile": "statusEffect/poison2HurtsAtStartOfTurn",
+		"modId": "Smokers_Expanded_Offhands"
+	},
+	"type": "TURN_START",
+	"targets": [
+		{
+			"template": "SELF"
+		},
+		{
+			"role": "hero",
+			"template": "ANY",
+			"type": "HERO",
+			"choose": "ANY",
+			"fromRoles": [
+				"self"
 			]
 		}
-	},
-	{
-		"class": "Test",
-		"value": "self.INJURY",
-		"threshold": "self.HEALTH",
-		"onPass": { "class": "ProgressAchievement", "achievementPiece": "killedEnemyWithPoison" }
-	}
-]
+	],
+	"outcomes": [
+		{
+			"class": "AttackRoll",
+			"defender": "self",
+			"attackAnimationType": "magic",
+			"stopBlockingTime": "afterHitAnimation",
+			"timingOverride": {
+				"afterAnimationTime": "400"
+			},
+			"attackerAnimationOverride": "",
+			"defenderAnimationOverride": "",
+			"markForFlanking": "never",
+			"flankingBoostsAttackRoll": false,
+			"attackStrength": "100",
+			"onHit": {
+				"class": "DoAll",
+				"outcomes": [
+					{
+						"class": "IfRolesArePresent",
+						"rolesArePresent": [
+							"hero"
+						],
+						"then": {
+							"class": "Damage",
+							"target": "self",
+							"originator": null,
+							"amount": "self.poisoned2",
+							"type": "TRUE",
+							"minRemainingHealth": "1"
+						},
+						"otherwise": {
+							"class": "Damage",
+							"target": "self",
+							"originator": null,
+							"amount": "self.poisoned2",
+							"type": "TRUE"
+						}
+					}
+				]
+			}
+		},
+		{
+			"class": "Test",
+			"value": "self.INJURY",
+			"threshold": "self.HEALTH",
+			"onPass": {
+				"class": "ProgressAchievement",
+				"achievementPiece": "killedEnemyWithPoison"
+			}
+		}
+	]
 }
