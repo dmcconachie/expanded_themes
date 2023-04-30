@@ -4,7 +4,7 @@
 		"dataVersion": 1,
 		"sourceFile": "themesSkills/sylvan/SETsylvanWitherbolt2",
 		"modId": "Smokers_Expanded_Themes",
-		"author": "Jackson Wagner",
+		"author": "Nate Austin",
 		"tags": [
 			"ranged"
 		]
@@ -13,18 +13,23 @@
 	"verb": "ATTACK",
 	"ability": {
 		"icon": "lightning",
-		"priority": "1",
-		"cooldown": "oncePerTurn",
+		"priority": "49",
 		"extraUI": {
 			"overrideRangeShown": "((6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},
+		"cooldown": "oncePerTurn",
 		"branchableAbilityType": "standardRanged"
 	},
 	"targets": [
 		{
 			"template": "SELF",
 			"cost": {
-				"class": "ActionPoints"
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
 			}
 		},
 		{

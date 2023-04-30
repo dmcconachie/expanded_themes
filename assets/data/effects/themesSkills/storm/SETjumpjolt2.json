@@ -13,7 +13,7 @@
 	"verb": "ATTACK",
 	"ability": {
 		"icon": "lightning",
-		"priority": "45",
+		"priority": "2001",
 		"extraUI": {
 			"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},
@@ -24,7 +24,12 @@
 		{
 			"template": "SELF",
 			"cost": {
-				"class": "ActionPoints"
+				"class": "ActionPoints",
+				"actionPoints": "one"
+			},
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
 			}
 		},
 		{

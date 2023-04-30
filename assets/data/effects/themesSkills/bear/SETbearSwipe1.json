@@ -14,10 +14,11 @@
 	"verb": "ATTACK",
 	"ability": {
 		"icon": "swipe",
+		"category": "attackAbility",
+		"priority": "2000",
 		"strictlyBetterThan": [
 			"basicBranchableMelee"
 		],
-		"priority": "49",
 		"showDescriptionInTooltip": true,
 		"branchableAbilityType": "standardMelee"
 	},

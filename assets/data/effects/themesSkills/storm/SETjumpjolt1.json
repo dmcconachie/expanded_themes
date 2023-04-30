@@ -6,14 +6,16 @@
 		"modId": "Smokers_Expanded_Themes",
 		"author": "Jackson Wagner",
 		"tags": [
-			"ranged"
+			"ranged",
+			"themeUsageOverride"
 		]
 	},
 	"type": "ABILITY",
 	"verb": "ATTACK",
 	"ability": {
 		"icon": "lightning",
-		"priority": "45",
+		"category": "attackAbility",
+		"priority": "2000",
 		"extraUI": {
 			"overrideRangeShown": "((4.6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},
@@ -23,7 +25,12 @@
 		{
 			"template": "SELF",
 			"cost": {
-				"class": "ActionPoints"
+				"class": "ActionPoints",
+				"actionPoints": "attack"
+			},
+			"showAnyway": true,
+			"missionFeedback": {
+				"orientTo": "target"
 			}
 		},
 		{
