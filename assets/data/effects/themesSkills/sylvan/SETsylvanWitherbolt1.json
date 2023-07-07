@@ -6,7 +6,8 @@
 		"modId": "Smokers_Expanded_Themes",
 		"author": "Nate Austin",
 		"tags": [
-			"ranged"
+			"ranged",
+			"themeUsageOverride"
 		]
 	},
 	"type": "ABILITY",
@@ -14,7 +15,7 @@
 	"ability": {
 		"icon": "lightning",
 		"category": "attackAbility",
-		"priority": "49",
+		"priority": "2000",
 		"extraUI": {
 			"overrideRangeShown": "((6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},

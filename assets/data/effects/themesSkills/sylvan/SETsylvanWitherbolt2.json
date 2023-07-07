@@ -13,7 +13,7 @@
 	"verb": "ATTACK",
 	"ability": {
 		"icon": "lightning",
-		"priority": "49",
+		"priority": "2001",
 		"extraUI": {
 			"overrideRangeShown": "((6+self.BONUS_RANGE)+self.commonDeck_bowmaster)+self.commonDeck_bowmaster_upgrade"
 		},
